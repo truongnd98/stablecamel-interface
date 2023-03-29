@@ -19,6 +19,8 @@ import { useYieldState } from '../../stores/yield/hooks';
 import { ScatterChartProps, YieldRes } from './types';
 import { YieldMetrics } from './YieldMetrics';
 import { YieldChartTooltip } from './YieldChartTooltip';
+import { scaleLog } from 'd3-scale';
+const scale = scaleLog().base(Math.E);
 
 const formatTickX = (value: number) => {
 	return new Intl.NumberFormat('en-US', {
@@ -59,7 +61,7 @@ const background: SxProps = {
 export function YieldChart() {
 	let { list } = useYieldState();
 
-	list = list.filter((item: YieldRes) => item.tvl_number > 10e6);
+	// list = list.filter((item: YieldRes) => item.total_apy < 200);
 
 	const filterData = (
 		key: string,
@@ -155,13 +157,17 @@ export function YieldChart() {
 							name='TVL'
 							tickFormatter={formatTickX}
 							domain={['dataMin', 'dataMax']}
+							scale='log'
+							minTickGap={50}
 						/>
 						<YAxis
+							scale='log'
 							type='number'
 							dataKey='total_apy'
 							name='APY'
+							domain={['dataMin', 'dataMax']}
 							tickFormatter={formatTickY}
-							axisLine={false}
+							// axisLine={false}
 							unit='%'
 						/>
 
