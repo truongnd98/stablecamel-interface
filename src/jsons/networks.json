@@ -1,0 +1,68 @@
+[
+	{
+		"chainId": "0",
+		"name": "All Chains",
+		"slug": "",
+		"logo": "/favicon.ico"
+	},
+	{
+		"chainId": "1",
+		"name": "Ethereum",
+		"slug": "ethereum",
+		"logo": "https://assets-global.website-files.com/5f973c970bea5548ad4287ef/61e70d05f3c7146ab79e66bb_ethereum-eth.svg"
+	},
+	{
+		"chainId": "56",
+		"name": "Binance Smart Chain",
+		"slug": "BSC",
+		"logo": "https://assets-cdn.trustwallet.com/blockchains/smartchain/info/logo.png"
+	},
+	{
+		"chainId": "43114",
+		"name": "Avalanche",
+		"slug": "avalanche",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png"
+	},
+	{
+		"chainId": "42161",
+		"name": "Arbitrum",
+		"slug": "arbitrum",
+		"logo": "https://arbitrum.io/wp-content/uploads/2021/08/Arbitrum_Symbol-Full-color-White-background-937x1024.png"
+	},
+	{
+		"chainId": "137",
+		"name": "Polygon",
+		"slug": "polygon",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Terra",
+		"slug": "terra",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/200x200/4172.png"
+	},
+	{
+		"chainId": "250",
+		"name": "Fantom Opera",
+		"slug": "fantom-opera",
+		"logo": "https://cryptologos.cc/logos/fantom-ftm-logo.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Polkadot",
+		"slug": "polkadot",
+		"logo": "https://img.api.cryptorank.io/coins/polkadot1639725340958.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Nubits",
+		"slug": "nubits",
+		"logo": "https://w7.pngwing.com/pngs/777/319/png-transparent-nubits-cryptocurrency-bitcoin-trade-delisted-text-trademark-logo-thumbnail.png"
+	},
+	{
+		"chainId": "0",
+		"name": "BitShares",
+		"slug": "bitshares",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/200x200/463.png"
+	}
+]
