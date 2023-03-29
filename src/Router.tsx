@@ -42,8 +42,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'yield',
-        path: 'yield',
+        id: 'yields',
+        path: 'yields',
         element: (
           <Suspense fallback={<CircularProgress />}>
             <YieldPage />
