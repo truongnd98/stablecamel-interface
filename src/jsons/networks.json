@@ -64,5 +64,185 @@
 		"name": "BitShares",
 		"slug": "bitshares",
 		"logo": "https://s2.coinmarketcap.com/static/img/coins/200x200/463.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Tron",
+		"slug": "tron",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Cronos",
+		"slug": "cronos",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/3635.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Optimism",
+		"slug": "optimism",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/11840.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Canto",
+		"slug": "canto",
+		"logo": "https://canto.io/assets/logo.a672d2b0.svg"
+	},
+	{
+		"chainId": "0",
+		"name": "Solana",
+		"slug": "solana",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Defichain",
+		"slug": "defichain",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5804.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Moonbeam",
+		"slug": "moonbeam",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/6836.png"
+	},
+	{
+		"chainId": "0",
+		"name": "NEAR",
+		"slug": "near",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/6535.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Moonriver",
+		"slug": "moonriver",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/9285.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Gnosis",
+		"slug": "gnosis",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1659.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Metis",
+		"slug": "metis",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/9640.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Ontology",
+		"slug": "ontology",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/2566.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Aurora",
+		"slug": "aurora",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/14803.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Celo",
+		"slug": "celo",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5567.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Telos",
+		"slug": "telos",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/4660.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Neo",
+		"slug": "neo",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1376.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Tezos",
+		"slug": "tezos",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/2011.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Hedera",
+		"slug": "hedera",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/4642.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Waves",
+		"slug": "waves",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/1274.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Osmosis",
+		"slug": "osmosis",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12220.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Carbon",
+		"slug": "carbon",
+		"logo": "https://assets.coingecko.com/coins/images/3645/small/SWTH_Symbol_Origin.png?1645000262"
+	},
+	{
+		"chainId": "0",
+		"name": "Fuse",
+		"slug": "fuse",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/5634.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Klaytn",
+		"slug": "klaytn",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/4256.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Milkomeda A1",
+		"slug": "milkomeda A1",
+		"logo": "https://miro.medium.com/v2/resize:fill:88:88/1*tjVV7w0_mZKkZOlJXfmvGw.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Dogechain",
+		"slug": "dogechain",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/21414.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Astar",
+		"slug": "astar",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/12885.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Heco",
+		"slug": "heco",
+		"logo": "https://avatars.githubusercontent.com/u/88622901?s=200&v=4"
+	},
+	{
+		"chainId": "0",
+		"name": "xxx",
+		"slug": "xxx",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/2983.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Kucoin",
+		"slug": "kucoin",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/2087.png"
+	},
+	{
+		"chainId": "0",
+		"name": "Oasis",
+		"slug": "oasis",
+		"logo": "https://s2.coinmarketcap.com/static/img/coins/64x64/7653.png"
 	}
 ]

@@ -24,7 +24,6 @@ const convertString = (value: string): string => {
 };
 
 export function YieldChartTooltip({ active, payload, label }: any) {
-	console.log('payload', payload, label, active);
 	if (active && payload && payload.length) {
 		return (
 			<Box
