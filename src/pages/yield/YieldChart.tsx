@@ -19,8 +19,6 @@ import { useYieldState } from '../../stores/yield/hooks';
 import { ScatterChartProps, YieldRes } from './types';
 import { YieldMetrics } from './YieldMetrics';
 import { YieldChartTooltip } from './YieldChartTooltip';
-import { scaleLog } from 'd3-scale';
-const scale = scaleLog().base(Math.E);
 
 const formatTickX = (value: number) => {
 	return new Intl.NumberFormat('en-US', {
@@ -37,7 +35,7 @@ const formatTickY = (value: number) => {
 
 const main: SxProps = {
 	width: '100%',
-	height: 500,
+	height: 450,
 	backgroundColor: '#ffffff',
 	display: 'flex',
 	flexDirection: 'column',
@@ -50,7 +48,7 @@ const main: SxProps = {
 
 const background: SxProps = {
 	position: 'absolute',
-	top: 200,
+	top: 180,
 	img: {
 		width: 150,
 		opacity: 0.35
@@ -159,15 +157,16 @@ export function YieldChart() {
 							domain={['dataMin', 'dataMax']}
 							scale='log'
 							minTickGap={50}
+							axisLine={false}
 						/>
 						<YAxis
 							scale='log'
 							type='number'
 							dataKey='total_apy'
-							name='APY'
+							name='Total APY'
 							domain={['dataMin', 'dataMax']}
 							tickFormatter={formatTickY}
-							// axisLine={false}
+							axisLine={false}
 							unit='%'
 						/>
 

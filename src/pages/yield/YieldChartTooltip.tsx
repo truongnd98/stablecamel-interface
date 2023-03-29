@@ -5,7 +5,12 @@ import { v4 } from 'uuid';
 const convertValue = (type: 'TVL' | 'APY', data: number) => {
 	switch (type) {
 		case 'TVL':
-			return new Intl.NumberFormat().format(data);
+			return new Intl.NumberFormat('en-US', {
+				style: 'currency',
+				currency: 'USD',
+
+				maximumFractionDigits: 0
+			}).format(data);
 		case 'APY':
 			return data.toFixed(2) + '%';
 	}
