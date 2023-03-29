@@ -37,7 +37,7 @@ const formatTickY = (value: number) => {
 
 const main: SxProps = {
 	width: '100%',
-	height: 380,
+	height: 500,
 	backgroundColor: '#ffffff',
 	display: 'flex',
 	flexDirection: 'column',
@@ -50,7 +50,7 @@ const main: SxProps = {
 
 const background: SxProps = {
 	position: 'absolute',
-	top: 150,
+	top: 200,
 	img: {
 		width: 150,
 		opacity: 0.35

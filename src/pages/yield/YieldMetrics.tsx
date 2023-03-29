@@ -63,13 +63,8 @@ export function YieldMetrics() {
 	}).format(totalTVL / list.length);
 
 	const medianAPY: string = (totalAPY / list.length).toFixed(2);
+	const medianBaseAPY: string = (baseAPY / list.length).toFixed(2);
 
-	const medianBaseAPY: string = new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
-		notation: 'compact',
-		maximumFractionDigits: 2
-	}).format(baseAPY / list.length);
 	return (
 		<Box sx={main}>
 			<Box sx={wrap}>

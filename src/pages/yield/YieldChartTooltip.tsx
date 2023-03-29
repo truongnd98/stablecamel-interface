@@ -11,6 +11,13 @@ const convertValue = (type: 'TVL' | 'APY', data: number) => {
 	}
 };
 
+const convertString = (value: string): string => {
+	return value
+		.split('-')
+		.map((item: string) => item[0].toUpperCase() + item.slice(1))
+		.join(' ');
+};
+
 export function YieldChartTooltip({ active, payload, label }: any) {
 	console.log('payload', payload, label, active);
 	if (active && payload && payload.length) {
@@ -34,7 +41,8 @@ export function YieldChartTooltip({ active, payload, label }: any) {
 					color='primary'
 				>
 					<b>
-						{payload[0].payload.pool} on {payload[0].payload.project}
+						{payload[0].payload.pool} on{' '}
+						{convertString(payload[0].payload.project)}
 					</b>
 				</Typography>
 				{payload.map((item: any, index: number) => (
