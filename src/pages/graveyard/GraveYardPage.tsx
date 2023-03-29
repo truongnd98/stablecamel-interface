@@ -3,9 +3,6 @@ import Footer from '../../components/Footer';
 import { useGetListGraveYard } from '../../stores/graveyard/hooks';
 import GraveYardTable from './GraveYardTable';
 import { GraveYardTitle } from './GraveYardTitle';
-import ReactGA from 'react-ga';
-
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const container: SxProps = {
 	width: 'calc(100% - 240px)',

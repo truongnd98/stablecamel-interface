@@ -1,8 +1,5 @@
 import { Box, SxProps, Typography, Link } from '@mui/material';
 import Footer from '../../components/Footer';
-import ReactGA from 'react-ga';
-
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const container: SxProps = {
 	width: 'calc(100% - 240px)',
@@ -45,7 +42,8 @@ export default function AboutPage() {
 			<Box sx={main}>
 				<Typography
 					variant='h5'
-					color='primary'>
+					color='primary'
+				>
 					About
 				</Typography>
 				<Box sx={card}>
@@ -55,19 +53,22 @@ export default function AboutPage() {
 						sx={{
 							fontSize: 16,
 							fontWeight: 500
-						}}>
+						}}
+					>
 						About Stable Camel
 					</Typography>
 					<Box sx={wrapInfoCard}>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							Stable Camel is a DeFi dashboard that provides the most important
 							on-chain stablecoin TVL stats, metrics, and charts.
 						</Typography>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							We use open-source blockchain data to develop Stable Camel and
 							publish many{' '}
 							<Link
@@ -79,7 +80,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Dune dashboards
 							</Link>
 							, featured in the newsletter{' '}
@@ -92,7 +94,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Dune Digest #36
 							</Link>{' '}
 							and stablecoin research decks, including the{' '}
@@ -105,14 +108,16 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Frax Finance report
 							</Link>
 							.
 						</Typography>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							Our popular{' '}
 							<Link
 								href='https://dune.com/stablecamel/usdc-money-printer'
@@ -123,7 +128,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								USDC Money Printer
 							</Link>{' '}
 							dashboard got into the top 180 most favorite dashboards of all
@@ -138,13 +144,15 @@ export default function AboutPage() {
 						sx={{
 							fontSize: 16,
 							fontWeight: 500
-						}}>
+						}}
+					>
 						Contact
 					</Typography>
 					<Box sx={wrapInfoCard}>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							Contact us on{' '}
 							<Link
 								href='https://twitter.com/Stably_Official'
@@ -155,7 +163,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Twitter
 							</Link>{' '}
 							or{' '}
@@ -168,14 +177,16 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Discord
 							</Link>
 							.
 						</Typography>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							Stable Camel is a part of{' '}
 							<Link
 								href='https://stably.io/'
@@ -186,14 +197,16 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Stably Corporation
 							</Link>
 							.
 						</Typography>
 						<Typography
 							variant='body1'
-							color='primary'>
+							color='primary'
+						>
 							Stably is a Web3 payment infrastructure provider and
 							FinCEN-registered MSB from Seattle. The company specializes in
 							providing #1 fiat-to-stablecoin gateway{' '}
@@ -206,7 +219,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Stably Ramp
 							</Link>
 							, USD-backed stablecoin{' '}
@@ -219,7 +233,8 @@ export default function AboutPage() {
 									':hover': {
 										textDecoration: 'underline'
 									}
-								}}>
+								}}
+							>
 								Stably USD ($USDS)
 							</Link>{' '}
 							on 12+ networks (such as XRP Ledger, Harmony, Stellar, VeChain),
