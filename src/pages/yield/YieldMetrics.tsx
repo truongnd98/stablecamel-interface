@@ -42,6 +42,12 @@ export function YieldMetrics() {
 		(partialSum, a) => partialSum + a.total_apy,
 		0
 	);
+
+	const baseAPY: number = list.reduce(
+		(partialSum, a) => partialSum + (a.base_apy ? a.base_apy : 0),
+		0
+	);
+
 	const TVL: string = new Intl.NumberFormat('en-US', {
 		style: 'currency',
 		currency: 'USD',
@@ -57,6 +63,8 @@ export function YieldMetrics() {
 	}).format(totalTVL / list.length);
 
 	const medianAPY: string = (totalAPY / list.length).toFixed(2);
+	const medianBaseAPY: string = (baseAPY / list.length).toFixed(2);
+
 	return (
 		<Box sx={main}>
 			<Box sx={wrap}>
@@ -135,34 +143,30 @@ export function YieldMetrics() {
 						sx={skeleton}
 					/>
 				)}
-				{/* {data && data.dominance ? (
-          <Paper
-            sx={paper}
-            elevation={0}
-          >
-            <Typography
-              variant='h5'
-              color='primary'
-            >
-              <b>
-                {currentNetwork.slug === 'BSC'
-                  ? 'BUSD Dominance'
-                  : 'USDC Dominance'}
-              </b>
-            </Typography>
-            <Typography
-              variant='h3'
-              color='secondary'
-            >
-              {data.dominance.toFixed(2)}%
-            </Typography>
-          </Paper>
-        ) : ( */}
-				<Skeleton
-					variant='rounded'
-					sx={skeleton}
-				/>
-				{/* )} */}
+				{list && list.length > 0 ? (
+					<Paper
+						sx={paper}
+						elevation={0}
+					>
+						<Typography
+							variant='h5'
+							color='primary'
+						>
+							<b>Median Base APY</b>
+						</Typography>
+						<Typography
+							variant='h3'
+							color='secondary'
+						>
+							{medianBaseAPY}%
+						</Typography>
+					</Paper>
+				) : (
+					<Skeleton
+						variant='rounded'
+						sx={skeleton}
+					/>
+				)}
 			</Box>
 		</Box>
 	);

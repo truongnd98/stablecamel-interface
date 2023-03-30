@@ -1,8 +1,5 @@
 import { Box, SxProps, Typography, Link } from '@mui/material';
 import Footer from '../../components/Footer';
-import ReactGA from 'react-ga';
-
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const container: SxProps = {
 	width: 'calc(100% - 240px)',
@@ -45,7 +42,8 @@ export default function DisclaimerPage() {
 			<Box sx={main}>
 				<Typography
 					variant='h5'
-					color='primary'>
+					color='primary'
+				>
 					Disclaimer
 				</Typography>
 				<Box sx={card}>
@@ -60,7 +58,8 @@ export default function DisclaimerPage() {
 					</Typography> */}
 					<Typography
 						variant='body1'
-						color='primary'>
+						color='primary'
+					>
 						Nothing contained herein shall be considered financial advice or
 						recommendation to buy or sell any security, commodity,
 						cryptocurrency, digital asset, or any other financial instrument or

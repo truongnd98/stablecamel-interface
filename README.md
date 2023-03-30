@@ -1,4 +1,4 @@
-# Stable camel project
+# Stable Camel project
 
 ### Install dependencies
 

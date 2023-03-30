@@ -1,8 +1,5 @@
 import { Box, SxProps } from '@mui/material';
 import { TradingWidget } from './components/TradingWidget';
-import ReactGA from 'react-ga';
-
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const main: SxProps = {
 	width: 'calc(100% - 230px)',
