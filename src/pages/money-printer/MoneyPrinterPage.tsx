@@ -6,7 +6,7 @@ import {
 } from '../../stores/moneyprinter/hooks';
 import { MoneyPrinterGroupLayout } from './MoneyPrinterGroup/MoneyPrinterGroupLayout';
 import { MoneyPrinterMainChart } from './MoneyPrinterMainChart/MoneyPrinterMainChart';
-import { MoneyPrinterMetrics } from './MoneyPrinterMetrics';
+import { MoneyPrinterMetrics } from './MoneyPrinterMetrics/MoneyPrinterMetrics';
 
 const container: SxProps = {
   width: 'calc(100% - 240px)',

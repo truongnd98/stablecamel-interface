@@ -5,6 +5,16 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useMoneyPrinterState } from '../../../stores/moneyprinter/hooks';
 import { GroupDataGridProps } from '../types';
 
+const handleColor = (value: number) => {
+  if (value > 0)
+    return {
+      main: '#2e8c57',
+      background: '#dcfce7',
+    };
+  else if (value < 0) return { main: '#be3832', background: '#fde2e1' };
+  else return { main: '#676b74', background: '#f3f4f6' };
+};
+
 const columns: GridColDef[] = [
   // { field: 'id', headerName: 'ID', flex: 1, maxWidth: 50, hideable: true },
   {
@@ -12,16 +22,19 @@ const columns: GridColDef[] = [
     field: 'exchange',
     flex: 1,
     minWidth: 140,
+    sortable: false,
   },
   {
-    headerName: 'USDC Balance',
+    headerName: 'Balance',
     field: 'balance',
     flex: 1,
     minWidth: 150,
+    sortable: false,
     renderCell: ({ value }) =>
       new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
+        notation: 'compact',
         maximumFractionDigits: 2,
       }).format(value),
   },
@@ -30,19 +43,46 @@ const columns: GridColDef[] = [
     field: 'change_7d',
     flex: 1,
     minWidth: 100,
-    renderCell: ({ value }) =>
-      new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        maximumFractionDigits: 2,
-      }).format(value),
+    sortable: false,
+
+    renderCell: ({ value }) => (
+      <Typography
+        variant='body1'
+        color={handleColor(value).main}
+        sx={{
+          width: 'fit-content',
+          padding: '0 8px',
+          backgroundColor: handleColor(value).background,
+        }}
+      >
+        {new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          notation: 'compact',
+          maximumFractionDigits: 2,
+        }).format(value)}
+      </Typography>
+    ),
   },
   {
     headerName: '% Change (7D)',
     field: 'change_7d_rate',
     flex: 1,
     minWidth: 100,
-    renderCell: ({ value }) => value.toFixed(2) + '%',
+    sortable: false,
+    renderCell: ({ value }) => (
+      <Typography
+        variant='body1'
+        color={handleColor(value).main}
+        sx={{
+          width: 'fit-content',
+          padding: '0 8px',
+          backgroundColor: handleColor(value).background,
+        }}
+      >
+        {value.toFixed(2) + '%'}
+      </Typography>
+    ),
   },
 ];
 
@@ -91,20 +131,23 @@ const main: SxProps = {
   padding: '0 22px',
   paddingBottom: '12px',
   overflowY: 'scroll',
-  '::-webkit-scrollbar': {
-    display: 'none',
-  },
+  // scrollbarWidth: 'thin',
+  // '::-webkit-scrollbar': {
+  //   width: '8px',
+  // },
 };
 
 export function MoneyPrinterGroupDataGrid({ data }: { data: any[] }) {
   let list: GroupDataGridProps[] = [];
+  const limitGrid: number = 100000;
 
   let i: number = 0;
   for (let exchange in data[0]) {
     if (
       exchange !== 'day' &&
       exchange !== 'time' &&
-      exchange !== 'seven_d_chng'
+      exchange !== 'seven_d_chng' &&
+      data[0][exchange] >= limitGrid
     )
       list.push({
         id: i,

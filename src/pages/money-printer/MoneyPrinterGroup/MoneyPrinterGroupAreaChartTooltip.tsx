@@ -39,7 +39,7 @@ export const MoneyPrinterGroupAreaChartTooltip = ({
         </Typography>
         {payload
           .sort((a: any, b: any) => b.value - a.value)
-          .slice(0, 12)
+          // .slice(0, 12)
           .map((item: any) => (
             <Box
               sx={{

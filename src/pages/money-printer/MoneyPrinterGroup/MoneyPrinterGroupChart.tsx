@@ -15,11 +15,28 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
   const list = !data.length
     ? []
     : data
-        .map((item: any) => ({
-          ...item,
-          time: format(new Date(item.day ?? item.time), 'PP'),
-        }))
+        // .map((item: any) => ({
+        //   ...item,
+        //   time: format(new Date(item.day ?? item.time), 'PP'),
+        // }))
+        .map((item: any) => {
+          const result: any = {
+            time: format(new Date(item.day ?? item.time), 'PP'),
+          };
+          const temp = { ...item };
+          delete temp.time;
+          delete temp.seven_d_chng;
+          Object.keys(temp)
+            .sort((a: string, b: string) => temp[b] - temp[a])
+            .slice(0, 12)
+            .map((key: string) => (result[key] = temp[key]));
+
+          return {
+            ...result,
+          };
+        })
         .reverse();
+  console.log('list', list);
   return (
     <Box
       sx={{

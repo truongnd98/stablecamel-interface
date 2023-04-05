@@ -13,8 +13,8 @@ const container: SxProps = {
 export function MoneyPrinterGroupLayout({ data }: { data: any[] }) {
   return (
     <Box sx={container}>
-      <MoneyPrinterGroupDataGrid data={data} />
       <MoneyPrinterGroupChart data={data} />
+      <MoneyPrinterGroupDataGrid data={data} />
     </Box>
   );
 }
