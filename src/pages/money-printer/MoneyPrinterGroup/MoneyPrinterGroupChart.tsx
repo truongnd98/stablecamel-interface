@@ -4,6 +4,7 @@ import CustomAreaChart, {
 } from '../../../components/AreaChart';
 import randomColor from 'randomcolor';
 import { format } from 'date-fns';
+import { MoneyPrinterGroupAreaChart } from './MoneyPrinterGroupAreaChart';
 
 export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
   const details: ChartDetailProps[] = [];
@@ -26,7 +27,7 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
       }}
     >
       {data.length > 0 ? (
-        <CustomAreaChart
+        <MoneyPrinterGroupAreaChart
           data={list}
           title='Stablecoin Exchange Flow'
           detail={details}

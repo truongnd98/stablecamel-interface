@@ -23,6 +23,19 @@ const main: SxProps = {
   width: '100%',
   height: 380,
   backgroundColor: '#ffffff',
+  position: 'relative',
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+const background: SxProps = {
+  position: 'absolute',
+  top: 150,
+  img: {
+    width: 150,
+    opacity: 0.35,
+  },
+  zIndex: 1,
 };
 
 const formatTickX = (value: string) => {
@@ -79,6 +92,12 @@ export function MoneyPrinterMainChart() {
 
   return (
     <Box sx={main}>
+      <Box sx={background}>
+        <img
+          src='/logos/logo-bw.png'
+          alt='logo'
+        />
+      </Box>
       {supplyUSDCList && supplyUSDCList.length > 0 ? (
         <ResponsiveContainer
           width='100%'
