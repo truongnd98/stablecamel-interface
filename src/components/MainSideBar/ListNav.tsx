@@ -75,6 +75,7 @@ const list: SxProps = {
 
 export enum Page {
 	ANALYTICS = 'analytics',
+	MONEYPRINTER = 'money-printer',
 	WARS = 'wars',
 	YIELDS = 'stablecoin-yields',
 	GRAVEYARD = 'stablecoin-graveyard',
@@ -186,6 +187,25 @@ const ListNav = () => {
 						</>
 					}
 					style={{ color: pathname.includes(Page.WARS) ? '#f5f5f5' : '' }}
+				/>
+			</ListItemButton>
+			<ListItemButton
+				sx={button}
+				className={pathname.includes(Page.MONEYPRINTER) ? 'active' : ''}
+				onClick={() => {
+					navigate(Page.MONEYPRINTER);
+				}}
+			>
+				{/* <ListItemIcon sx={iconButton}>
+					<LocalFireDepartmentIcon
+						style={{ color: pathname.includes(Page.WARS) ? '#f5f5f5' : '' }}
+					/>
+				</ListItemIcon> */}
+				<ListItemText
+					primary={<b>USDC Money Printer</b>}
+					style={{
+						color: pathname.includes(Page.MONEYPRINTER) ? '#f5f5f5' : ''
+					}}
 				/>
 			</ListItemButton>
 			<ListItemButton
