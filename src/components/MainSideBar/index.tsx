@@ -1,4 +1,5 @@
 import { Box, SxProps, Typography, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import ListNav from './ListNav';
 
 const main: SxProps = {
@@ -47,11 +48,12 @@ const MainSideBar = () => {
   return (
     <Box sx={main}>
       <Box sx={wrapLogoAndList}>
-        <img
-          src='/logos/logo.png'
-          alt='logo'
-        />
-
+        <Link href='/'>
+          <img
+            src='/logos/logo.png'
+            alt='logo'
+          />
+        </Link>
         <ListNav />
       </Box>
       <Box sx={contactCopyRight}>
