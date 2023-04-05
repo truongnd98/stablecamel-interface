@@ -99,3 +99,16 @@ export const getListDeployedToLPs = createAsyncThunk(
 		return data;
 	}
 );
+
+export const getListDeployedBridgesByBridge = createAsyncThunk(
+	'money-printer/getListDeployedBridgesByBridge',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/usdc-deployed-to-bridges-by-bridges`
+		});
+
+		if (!data) throw new Error('Data deployed bridges by bridge not found');
+		return data;
+	}
+);

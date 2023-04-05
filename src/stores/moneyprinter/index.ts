@@ -6,6 +6,7 @@ import {
 } from '../../pages/money-printer/types';
 import {
 	getListDeployedBridges,
+	getListDeployedBridgesByBridge,
 	getListDeployedLenders,
 	getListDeployedLPs,
 	getListDeployedToLendingProtocol,
@@ -24,6 +25,7 @@ interface MoneyPrinterState {
 	exchangeBalanceByCEXList: any[];
 	usdcDeployedLendingProtocolList: any[];
 	usdcDeployedToLPs: any[];
+	usdcDeployedBridgesByBridge: any[];
 }
 
 const initialState: MoneyPrinterState = {
@@ -34,7 +36,8 @@ const initialState: MoneyPrinterState = {
 	supplyUSDCList: [],
 	exchangeBalanceByCEXList: [],
 	usdcDeployedLendingProtocolList: [],
-	usdcDeployedToLPs: []
+	usdcDeployedToLPs: [],
+	usdcDeployedBridgesByBridge: []
 };
 
 const moneyPrinterSlice = createSlice({
@@ -69,6 +72,12 @@ const moneyPrinterSlice = createSlice({
 		builder.addCase(getListDeployedToLPs.fulfilled, (state, action) => {
 			state.usdcDeployedToLPs = action.payload;
 		});
+		builder.addCase(
+			getListDeployedBridgesByBridge.fulfilled,
+			(state, action) => {
+				state.usdcDeployedBridgesByBridge = action.payload;
+			}
+		);
 	}
 });
 

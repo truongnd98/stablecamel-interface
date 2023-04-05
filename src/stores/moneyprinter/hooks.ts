@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
 	getListDeployedBridges,
+	getListDeployedBridgesByBridge,
 	getListDeployedLenders,
 	getListDeployedLPs,
 	getListDeployedToLendingProtocol,
@@ -28,6 +29,7 @@ export const useFetchData = () => {
 			await dispatch(getListExchangeBalanceByCEX());
 			await dispatch(getListDeployedToLendingProtocol());
 			await dispatch(getListDeployedToLPs());
+			await dispatch(getListDeployedBridgesByBridge());
 		};
 		fetch();
 	}, []);

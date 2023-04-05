@@ -38,7 +38,8 @@ export function MoneyPrinterPage() {
 	const {
 		exchangeBalanceByCEXList,
 		usdcDeployedLendingProtocolList,
-		usdcDeployedToLPs
+		usdcDeployedToLPs,
+		usdcDeployedBridgesByBridge
 	} = useMoneyPrinterState();
 	useFetchData();
 	return (
@@ -80,6 +81,15 @@ export function MoneyPrinterPage() {
 						USDC Deployed to LPs
 					</Typography>
 					<MoneyPrinterGroupLayout data={usdcDeployedToLPs} />
+				</Box>
+				<Box sx={group}>
+					<Typography
+						variant='h5'
+						color='primary'
+					>
+						USDC Deployed to Bridges
+					</Typography>
+					<MoneyPrinterGroupLayout data={usdcDeployedBridgesByBridge} />
 				</Box>
 				<Footer />
 			</Box>
