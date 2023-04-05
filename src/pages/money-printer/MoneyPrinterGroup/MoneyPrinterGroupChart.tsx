@@ -1,7 +1,5 @@
 import { Box, Skeleton } from '@mui/material';
-import CustomAreaChart, {
-	ChartDetailProps
-} from '../../../components/AreaChart';
+import { ChartDetailProps } from '../../../components/AreaChart';
 import randomColor from 'randomcolor';
 import { format } from 'date-fns';
 import { MoneyPrinterGroupAreaChart } from './MoneyPrinterGroupAreaChart';
@@ -36,7 +34,6 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
 					};
 				})
 				.reverse();
-	console.log('list', list);
 	return (
 		<Box
 			sx={{

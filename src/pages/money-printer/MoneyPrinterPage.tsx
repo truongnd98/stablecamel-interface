@@ -49,6 +49,11 @@ export function MoneyPrinterPage() {
 					<Typography
 						variant='h5'
 						color='primary'
+						sx={{
+							'@media (max-width: 1280px)': {
+								fontSize: '18px !important'
+							}
+						}}
 					>
 						USDC Money Printer (Ethereum)
 					</Typography>
