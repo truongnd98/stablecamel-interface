@@ -50,7 +50,7 @@ export const MoneyPrinterMainChartTooltip = ({
 					}}
 					key={v4()}
 				>
-					<Typography variant='body1'>{`${payload[0].name}:`}</Typography>
+					<Typography variant='body1'>{`USDC:`}</Typography>
 					<Typography variant='body1'>
 						{formatNumber(payload[0].value)}
 					</Typography>
