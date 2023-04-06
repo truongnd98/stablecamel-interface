@@ -344,7 +344,7 @@ const ListNav = () => {
           />
         </ListItemIcon>
         <ListItemText
-          primary={<b>Disclaimer</b>}
+          primary={<b>Risk Disclaimer</b>}
           style={{ color: pathname.includes(Page.DISCLAIMER) ? '#f5f5f5' : '' }}
         />
       </ListItemButton>
