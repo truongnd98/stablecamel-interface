@@ -143,7 +143,7 @@ const main: SxProps = {
 
 export function MoneyPrinterGroupDataGrid({ data }: { data: any[] }) {
 	let list: GroupDataGridProps[] = [];
-	const limitGrid: number = 100000;
+	const limitGrid: number = 1000000;
 
 	let i: number = 0;
 	for (let exchange in data[0]) {
