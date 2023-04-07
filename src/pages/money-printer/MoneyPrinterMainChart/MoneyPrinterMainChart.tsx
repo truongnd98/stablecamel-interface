@@ -132,6 +132,8 @@ export function MoneyPrinterMainChart() {
 							fill='#2875ca'
 							stroke='none'
 							activeDot={false}
+							fillOpacity={1}
+							isAnimationActive={false}
 						/>
 						{/* <Line
 						type='monotone'
