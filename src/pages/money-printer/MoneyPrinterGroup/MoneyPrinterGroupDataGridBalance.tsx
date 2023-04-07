@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import { SxProps, Typography, Link } from '@mui/material';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import { useMoneyPrinterState } from '../../../stores/moneyprinter/hooks';
-import { GroupDataGridProps } from '../types';
+import { GroupDataGridBalanceProps, GroupDataGridProps } from '../types';
 
 const handleColor = (value: number) => {
   if (value > 0)
@@ -25,8 +25,8 @@ const columns: GridColDef[] = [
     sortable: false,
   },
   {
-    headerName: 'TVL',
-    field: 'tvl',
+    headerName: 'Balance',
+    field: 'balance',
     flex: 1,
     minWidth: 100,
     sortable: false,
@@ -141,8 +141,8 @@ const main: SxProps = {
   },
 };
 
-export function MoneyPrinterGroupDataGrid({ data }: { data: any[] }) {
-  let list: GroupDataGridProps[] = [];
+export function MoneyPrinterGroupDataGridBalance({ data }: { data: any[] }) {
+  let list: GroupDataGridBalanceProps[] = [];
   const limitGrid: number = 1000000;
 
   let i: number = 0;
@@ -156,14 +156,14 @@ export function MoneyPrinterGroupDataGrid({ data }: { data: any[] }) {
       list.push({
         id: i,
         exchange,
-        tvl: data[0][exchange],
+        balance: data[0][exchange],
         change_7d: data[0]['seven_d_chng'][exchange].amount_chng,
         change_7d_rate: data[0]['seven_d_chng'][exchange].rate,
       });
     i++;
   }
 
-  list = list.sort((a, b) => b.tvl - a.tvl);
+  list = list.sort((a, b) => b.balance - a.balance);
   return (
     <Box sx={main}>
       <DataGrid

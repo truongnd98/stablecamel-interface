@@ -32,6 +32,14 @@ export interface MainChartProps {
 export interface GroupDataGridProps {
   id: React.Key;
   exchange: string;
+  tvl: number;
+  change_7d: number;
+  change_7d_rate: number;
+}
+
+export interface GroupDataGridBalanceProps {
+  id: React.Key;
+  exchange: string;
   balance: number;
   change_7d: number;
   change_7d_rate: number;
