@@ -1,13 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import analytic from './analytic';
 import graveyard from './graveyard';
+import moneyprinter from './moneyprinter';
 import _yield from './yield';
 
 export const store = configureStore({
 	reducer: {
 		analytic,
 		graveyard,
-		yield: _yield
+		yield: _yield,
+		moneyprinter
 	}
 });
 

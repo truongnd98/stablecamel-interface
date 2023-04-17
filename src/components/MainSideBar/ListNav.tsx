@@ -4,6 +4,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import WarningIcon from '@mui/icons-material/Warning';
 
 import { Typography, SxProps, Link, Chip } from '@mui/material';
 import PieChartIcon from '@mui/icons-material/PieChart';
@@ -22,8 +24,6 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import FeedIcon from '@mui/icons-material/Feed';
 import { SoonChip } from '../SoonChip/SoonChip';
 import TrendingUpSharpIcon from '@mui/icons-material/TrendingUpSharp';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import WarningIcon from '@mui/icons-material/Warning';
 
 interface Network {
   chainId: string;
