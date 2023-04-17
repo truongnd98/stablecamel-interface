@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import { ApplicationLayout } from './components/ApplicationLayout/ApplicationLayout';
 import CircularProgress from '@mui/material/CircularProgress';
+import { MoneyPrinterPage } from './pages/money-printer/MoneyPrinterPage';
 
 const AnalyticPage = React.lazy(() => import('./pages/analytic/AnalyticPage'));
 const DisclaimerPage = React.lazy(
@@ -83,6 +84,15 @@ export const router = createBrowserRouter([
 				element: (
 					<Suspense fallback={<CircularProgress />}>
 						<DisclaimerPage />
+					</Suspense>
+				)
+			},
+			{
+				id: 'money-printer',
+				path: 'money-printer',
+				element: (
+					<Suspense fallback={<CircularProgress />}>
+						<MoneyPrinterPage />
 					</Suspense>
 				)
 			}
