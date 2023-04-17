@@ -15,97 +15,100 @@ import { v4 } from 'uuid';
 import { Chain, Network, Token } from '../../App';
 
 const header: SxProps = {
-	fontSize: 18,
-	fontWeight: 600,
-	height: 80,
-	'@media (max-width: 1280px)': {
-		fontSize: 16
-	}
+  fontSize: 18,
+  fontWeight: 600,
+  height: 80,
+  '@media (max-width: 1280px)': {
+    fontSize: 16,
+  },
 };
 
 const cell: SxProps = {
-	display: 'flex',
-	alignItems: 'center',
-	paddingLeft: '12px',
-	gap: '8px',
-	img: {
-		width: 20,
-		height: 20
-	}
+  display: 'flex',
+  alignItems: 'center',
+  paddingLeft: '12px',
+  gap: '8px',
+  img: {
+    width: 20,
+    height: 20,
+  },
 };
 
 const row: SxProps = {
-	'&:last-child td, &:last-child th': {
-		border: 0
-	},
-	width: '100%',
-	height: 50,
-	':hover': {
-		backgroundColor: '#FAFAFA !important'
-	}
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+  width: '100%',
+  height: 50,
+  ':hover': {
+    backgroundColor: '#FAFAFA !important',
+  },
 };
 
 const body: SxProps = {
-	'&:last-child ': {
-		height: 62,
-		paddingBottom: '12px'
-	}
+  '&:last-child ': {
+    height: 62,
+    paddingBottom: '12px',
+  },
 };
 
 const skeleton: SxProps = {
-	width: '100%',
-	height: 50
+  width: '100%',
+  height: 50,
 };
 
 const avatar: SxProps = {
-	width: 20,
-	height: 20,
-	'$.MuiAvatar-root': {
-		border: 'none'
-	}
+  width: 20,
+  height: 20,
+  '$.MuiAvatar-root': {
+    border: 'none',
+  },
 };
 
 const handleColor = (value: number) => {
-	if (value > 0)
-		return {
-			main: '#2e8c57',
-			background: '#dcfce7'
-		};
-	else if (value < 0) return { main: '#be3832', background: '#fde2e1' };
-	else return { main: '#676b74', background: '#f3f4f6' };
+  if (value > 0)
+    return {
+      main: '#2e8c57',
+      background: '#dcfce7',
+    };
+  else if (value < 0) return { main: '#be3832', background: '#fde2e1' };
+  else return { main: '#676b74', background: '#f3f4f6' };
 };
 
 const handleIcon = (slug: string): Network | undefined => {
-	return Networks.find((item: Network) => item.slug === slug);
+  return Networks.find((item: Network) => item.slug === slug);
 };
 
 export function PegTrackerTable() {
-	const navigate = useNavigate();
-	return (
-		<TableContainer
-			sx={{
-				backgroundColor: '#ffffff',
-				borderRadius: '8px'
-			}}
-		>
-			<Table
-				sx={{
-					minWidth: 650
-				}}
-				size='small'
-				aria-label='a dense table'
-			>
-				<TableHead>
-					<TableRow>
-						<TableCell sx={{ ...header, paddingLeft: '32px' }}>Chain</TableCell>
-						<TableCell sx={header}>Stablecoins</TableCell>
-						<TableCell sx={header}>Supply</TableCell>
-						<TableCell sx={header}>TVL</TableCell>
-						<TableCell sx={header}>TVL Change (7D)</TableCell>
-						<TableCell sx={header}>On-chain Dominant</TableCell>
-					</TableRow>
-				</TableHead>
-				{dataAggregateSummary && dataAggregateSummary.length > 0 ? (
+  const navigate = useNavigate();
+  return (
+    <TableContainer
+      sx={{
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+      }}
+    >
+      <Table
+        sx={{
+          minWidth: 650,
+        }}
+        size='small'
+        aria-label='a dense table'
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{ ...header, paddingLeft: '32px' }}>
+              Stablecoins
+            </TableCell>
+            <TableCell sx={header}>Networks</TableCell>
+            <TableCell sx={header}>Price</TableCell>
+            <TableCell sx={header}>Current % Off Peg</TableCell>
+            <TableCell sx={header}>30D % Off Peg</TableCell>
+            <TableCell sx={header}>TVL</TableCell>
+            <TableCell sx={header}>Supply</TableCell>
+          </TableRow>
+        </TableHead>
+        {/* {dataAggregateSummary && dataAggregateSummary.length > 0 ? (
 					<TableBody sx={body}>
 						{dataAggregateSummary.map(
 							(token: AggregateDataSummary, index: number) => (
@@ -195,21 +198,21 @@ export function PegTrackerTable() {
 							)
 						)}
 					</TableBody>
-				) : (
-					<Box
-						sx={{
-							width: '100%',
-							padding: '0 20px'
-						}}
-					>
-						<Skeleton sx={skeleton} />
-						<Skeleton sx={skeleton} />
-						<Skeleton sx={skeleton} />
-						<Skeleton sx={skeleton} />
-					</Box>
-				)}
-				<Box sx={{ height: 12 }} />
-			</Table>
-		</TableContainer>
-	);
+				) : ( */}
+        <Box
+          sx={{
+            width: '100%',
+            padding: '0 20px',
+          }}
+        >
+          <Skeleton sx={skeleton} />
+          <Skeleton sx={skeleton} />
+          <Skeleton sx={skeleton} />
+          <Skeleton sx={skeleton} />
+        </Box>
+        {/* )} */}
+        <Box sx={{ height: 12 }} />
+      </Table>
+    </TableContainer>
+  );
 }
