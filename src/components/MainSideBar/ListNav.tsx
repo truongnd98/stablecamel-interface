@@ -21,6 +21,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import FeedIcon from '@mui/icons-material/Feed';
 import { SoonChip } from '../SoonChip/SoonChip';
+import TrendingUpSharpIcon from '@mui/icons-material/TrendingUpSharp';
 
 interface Network {
 	chainId: string;
@@ -75,13 +76,16 @@ const list: SxProps = {
 
 export enum Page {
 	ANALYTICS = 'analytics',
+	MONEYPRINTER = 'money-printer',
 	WARS = 'wars',
 	YIELDS = 'stablecoin-yields',
 	GRAVEYARD = 'stablecoin-graveyard',
 	TRADING = 'trading',
 	NEWS = 'news',
 	BUG = 'bug',
-	ABOUT = 'about'
+	ABOUT = 'about',
+	DISCLAIMER = 'disclaimer',
+	PEGTRACKER = 'peg-tracker'
 }
 
 const ListNav = () => {
@@ -190,6 +194,27 @@ const ListNav = () => {
 			</ListItemButton>
 			<ListItemButton
 				sx={button}
+				className={pathname.includes(Page.MONEYPRINTER) ? 'active' : ''}
+				onClick={() => {
+					navigate(Page.MONEYPRINTER);
+				}}
+			>
+				<ListItemIcon sx={iconButton}>
+					<AttachMoneyIcon
+						style={{
+							color: pathname.includes(Page.MONEYPRINTER) ? '#f5f5f5' : ''
+						}}
+					/>
+				</ListItemIcon>
+				<ListItemText
+					primary={<b>USDC Money Printer</b>}
+					style={{
+						color: pathname.includes(Page.MONEYPRINTER) ? '#f5f5f5' : ''
+					}}
+				/>
+			</ListItemButton>
+			<ListItemButton
+				sx={button}
 				className={pathname.includes(Page.YIELDS) ? 'active' : ''}
 				onClick={() => {
 					navigate(Page.YIELDS);
@@ -222,6 +247,25 @@ const ListNav = () => {
 				<ListItemText
 					primary={<b>Stablecoin Graveyard</b>}
 					style={{ color: pathname.includes(Page.GRAVEYARD) ? '#f5f5f5' : '' }}
+				/>
+			</ListItemButton>
+			<ListItemButton
+				sx={button}
+				className={pathname.includes(Page.PEGTRACKER) ? 'active' : ''}
+				onClick={() => {
+					navigate(Page.PEGTRACKER);
+				}}
+			>
+				<ListItemIcon sx={iconButton}>
+					<TrendingUpSharpIcon
+						style={{
+							color: pathname.includes(Page.PEGTRACKER) ? '#f5f5f5' : ''
+						}}
+					/>
+				</ListItemIcon>
+				<ListItemText
+					primary={<b>Peg Tracker</b>}
+					style={{ color: pathname.includes(Page.PEGTRACKER) ? '#f5f5f5' : '' }}
 				/>
 			</ListItemButton>
 			<Link
@@ -282,7 +326,7 @@ const ListNav = () => {
 					<ListItemIcon sx={iconButton}>
 						<BugReportIcon />
 					</ListItemIcon>
-					<ListItemText primary={<b>Submit Bug / Feedback</b>} />
+					<ListItemText primary={<b>Report Bug / Feedback</b>} />
 				</ListItemButton>
 			</Link>
 
@@ -301,6 +345,26 @@ const ListNav = () => {
 				<ListItemText
 					primary={<b>About</b>}
 					style={{ color: pathname.includes(Page.ABOUT) ? '#f5f5f5' : '' }}
+				/>
+			</ListItemButton>
+
+			<ListItemButton
+				sx={button}
+				className={pathname.includes(Page.DISCLAIMER) ? 'active' : ''}
+				onClick={() => {
+					navigate('/disclaimer');
+				}}
+			>
+				<ListItemIcon sx={iconButton}>
+					<WarningIcon
+						style={{
+							color: pathname.includes(Page.DISCLAIMER) ? '#f5f5f5' : ''
+						}}
+					/>
+				</ListItemIcon>
+				<ListItemText
+					primary={<b>Risk Disclaimer</b>}
+					style={{ color: pathname.includes(Page.DISCLAIMER) ? '#f5f5f5' : '' }}
 				/>
 			</ListItemButton>
 		</List>
