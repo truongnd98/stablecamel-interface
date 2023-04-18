@@ -23,6 +23,7 @@ const skeleton: SxProps = {
 export default function ChartInflow() {
   const { dataInflow } = useAnalyticState();
   const currentNetwork = useNetworkContext();
+  // window.location.hash = '#chart-inflow';
   return (
     <Box sx={main}>
       {dataInflow.length > 0 ? (

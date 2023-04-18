@@ -2,9 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { Box, SxProps, Typography } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import { useAnalyticState } from '../../../stores/analytic/hooks';
-import CustomAreaChart, {
-  ChartDetailProps,
-} from '../../../components/AreaChart';
+import CustomAreaChart from '../../../components/AreaChart';
 import { useNetworkContext } from '../AnalyticPage';
 import LazyLoad from 'react-lazyload';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -30,6 +28,7 @@ const each: SxProps = {
 export default function ChartBridgeds() {
   const { dataBridgedUSDC, dataBridgedUSDT } = useAnalyticState();
   const currentNetwork = useNetworkContext();
+
   return (
     <Box sx={main}>
       <Box sx={each}>
@@ -48,6 +47,7 @@ export default function ChartBridgeds() {
               },
             ]}
             legend
+            id='chart-bridged-usdc'
           />
         ) : (
           <Skeleton
@@ -74,6 +74,7 @@ export default function ChartBridgeds() {
               },
             ]}
             legend
+            id='chart-bridged-usdt'
           />
         ) : (
           <Skeleton

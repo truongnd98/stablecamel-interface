@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Box, SxProps, Typography } from '@mui/material';
 import { Chain, Network } from '../../App';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -15,19 +15,6 @@ import ChartActivities from './components/ChartActivities';
 import { useGetListData } from '../../stores/analytic/hooks';
 import { useNetworkContext } from './AnalyticPage';
 
-// const SummaryInfo = React.lazy(() => import('./components/SummaryInfo'));
-// const SummaryCharts = React.lazy(() => import('./components/SummaryCharts'));
-// const AggregateDataGrid = React.lazy(
-// 	() => import('./components/AggregateDataGrid')
-// );
-// const DataGrid = React.lazy(() => import('./components/DataGrid'));
-// const ChartDetails = React.lazy(() => import('./components/ChartDetails'));
-// const ChartInflow = React.lazy(() => import('./components/ChartInflow'));
-// const ChartBridgeds = React.lazy(() => import('./components/ChartBridgeds'));
-// const ChartActivities = React.lazy(
-// 	() => import('./components/ChartActivities')
-// );
-
 const main: SxProps = {
   width: '100%',
   padding: '20px 0',
@@ -41,37 +28,17 @@ const main: SxProps = {
 const Overview = () => {
   const network: Network = useNetworkContext();
   useGetListData(network.slug);
+
   return (
     <Box sx={main}>
-      <LazyLoad
-        once
-        placeholder={<CircularProgress color='secondary' />}
-      >
-        <SummaryInfo />
-      </LazyLoad>
-      <LazyLoad
-        once
-        placeholder={<CircularProgress color='secondary' />}
-      >
-        <SummaryCharts />
-      </LazyLoad>
+      <SummaryInfo />
+      <SummaryCharts />
 
       {network.chainId === '0' ? (
-        <LazyLoad
-          once
-          placeholder={<CircularProgress color='secondary' />}
-        >
-          <AggregateDataGrid />
-        </LazyLoad>
+        <AggregateDataGrid />
       ) : (
         <>
-          <LazyLoad
-            once
-            placeholder={<CircularProgress color='secondary' />}
-          >
-            <DataGrid />
-          </LazyLoad>
-
+          <DataGrid />
           <Typography
             variant='h5'
             color='primary'
@@ -79,12 +46,7 @@ const Overview = () => {
             Stablecoin Liquidity Across Top DeFi Protocols
           </Typography>
 
-          <LazyLoad
-            once
-            placeholder={<CircularProgress color='secondary' />}
-          >
-            <ChartDetails />
-          </LazyLoad>
+          <ChartDetails />
 
           {network.slug === Chain.AVAX ? (
             <>
@@ -95,22 +57,13 @@ const Overview = () => {
                 Bridged vs Native
               </Typography>
 
-              <LazyLoad
-                once
-                placeholder={<CircularProgress color='secondary' />}
-              >
-                <ChartBridgeds />
-              </LazyLoad>
+              <ChartBridgeds />
             </>
           ) : (
             <></>
           )}
-          <LazyLoad
-            once
-            placeholder={<CircularProgress color='secondary' />}
-          >
-            <ChartInflow />
-          </LazyLoad>
+
+          <ChartInflow />
 
           <Typography
             variant='h5'
@@ -118,13 +71,7 @@ const Overview = () => {
           >
             Stablecoin Volume, Velocity, User Activity
           </Typography>
-
-          <LazyLoad
-            once
-            placeholder={<CircularProgress color='secondary' />}
-          >
-            <ChartActivities />
-          </LazyLoad>
+          <ChartActivities />
         </>
       )}
     </Box>
