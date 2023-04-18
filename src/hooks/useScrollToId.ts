@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export function useScrollToId() {
+	const { hash } = useLocation();
 	return useEffect(() => {
-		const href = window.location.href;
-		if (href.includes('#')) {
-			const id = `${href.substring(href.indexOf('#') + 1)}`;
-			const anchor = document.getElementById(id);
-			console.log('anchor', id, anchor);
+		if (hash) {
+			const anchor = document.querySelector(hash);
+			console.log('anchor', hash, anchor);
 			if (anchor) {
 				anchor.scrollIntoView({ behavior: 'smooth' });
 			}

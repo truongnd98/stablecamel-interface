@@ -16,66 +16,66 @@ import { useGetListData } from '../../stores/analytic/hooks';
 import { useNetworkContext } from './AnalyticPage';
 
 const main: SxProps = {
-  width: '100%',
-  padding: '20px 0',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '28px',
-  minHeight: 'calc(100vh - 40px - 46px - 28px - 20px)',
-  height: 'fit-content',
+	width: '100%',
+	padding: '20px 0',
+	display: 'flex',
+	flexDirection: 'column',
+	gap: '28px',
+	minHeight: 'calc(100vh - 40px - 46px - 28px - 20px)',
+	height: 'fit-content'
 };
 
 const Overview = () => {
-  const network: Network = useNetworkContext();
-  useGetListData(network.slug);
+	const network: Network = useNetworkContext();
+	useGetListData(network.slug);
 
-  return (
-    <Box sx={main}>
-      <SummaryInfo />
-      <SummaryCharts />
+	return (
+		<Box sx={main}>
+			<SummaryInfo />
+			<SummaryCharts />
 
-      {network.chainId === '0' ? (
-        <AggregateDataGrid />
-      ) : (
-        <>
-          <DataGrid />
-          <Typography
-            variant='h5'
-            color='primary'
-          >
-            Stablecoin Liquidity Across Top DeFi Protocols
-          </Typography>
+			{network.chainId === '0' ? (
+				<AggregateDataGrid />
+			) : (
+				<>
+					<DataGrid />
+					<Typography
+						variant='h5'
+						color='primary'
+					>
+						Stablecoin Liquidity Across Top DeFi Protocols
+					</Typography>
 
-          <ChartDetails />
+					<ChartDetails />
 
-          {network.slug === Chain.AVAX ? (
-            <>
-              <Typography
-                variant='h5'
-                color='primary'
-              >
-                Bridged vs Native
-              </Typography>
+					{network.slug === Chain.AVAX ? (
+						<>
+							<Typography
+								variant='h5'
+								color='primary'
+							>
+								Bridged vs Native
+							</Typography>
 
-              <ChartBridgeds />
-            </>
-          ) : (
-            <></>
-          )}
+							<ChartBridgeds />
+						</>
+					) : (
+						<></>
+					)}
 
-          <ChartInflow />
+					<ChartInflow />
 
-          <Typography
-            variant='h5'
-            color='primary'
-          >
-            Stablecoin Volume, Velocity, User Activity
-          </Typography>
-          <ChartActivities />
-        </>
-      )}
-    </Box>
-  );
+					<Typography
+						variant='h5'
+						color='primary'
+					>
+						Stablecoin Volume, Velocity, User Activity
+					</Typography>
+					<ChartActivities />
+				</>
+			)}
+		</Box>
+	);
 };
 
 export default Overview;

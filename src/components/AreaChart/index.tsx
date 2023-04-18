@@ -10,7 +10,7 @@ import {
 	Legend
 } from 'recharts';
 import CustomTooltip from './Tooltip';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Skeleton } from '@mui/material';
 import { v4 } from 'uuid';
 import LazyLoad from 'react-lazyload';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -68,115 +68,126 @@ export default function CustomAreaChart({
 	id
 }: AreaChartOptions) {
 	return (
-		<LazyLoad
-			style={{
-				width: '100%',
-				height: '100%',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center'
-			}}
-			once
-			placeholder={<CircularProgress color='secondary' />}
-		>
-			<Box sx={main}>
-				<Box sx={background}>
-					<img
-						src='/logos/logo-bw.png'
-						alt='logo'
-					/>
-				</Box>
-				<Box sx={rowTitle}>
-					<Typography
-						variant='h5'
-						color='primary'
-					>
-						{title}
-					</Typography>
-					<CopyToClipboardButton
-						type={<ShareIcon color='primary' />}
-						content={`${window.location.toString()}#${id}`}
-					/>
-				</Box>
-				<LazyLoad
+		<>
+			<section id={id}></section>
+			{data && !data.length ? (
+				<Skeleton
+					variant='rounded'
+					width='100%'
 					height='100%'
-					offset={100}
+				/>
+			) : (
+				<LazyLoad
 					style={{
 						width: '100%',
-						height: '100%'
+						height: '100%',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'center'
 					}}
 					once
+					placeholder={<CircularProgress color='secondary' />}
 				>
-					<ResponsiveContainer
-						width='100%'
-						height='100%'
-					>
-						<AreaChart
-							width={500}
-							height={400}
-							data={data}
-							margin={{
-								top: 12,
-								right: 50,
-								left: 0,
-								bottom: 0
+					<Box sx={main}>
+						<Box sx={background}>
+							<img
+								src='/logos/logo-bw.png'
+								alt='logo'
+							/>
+						</Box>
+						<Box sx={rowTitle}>
+							<Typography
+								variant='h5'
+								color='primary'
+							>
+								{title}
+							</Typography>
+							<CopyToClipboardButton
+								type={<ShareIcon color='primary' />}
+								content={`${window.location.toString().split('#')[0]}#${id}`}
+							/>
+						</Box>
+						<LazyLoad
+							height='100%'
+							offset={100}
+							style={{
+								width: '100%',
+								height: '100%'
 							}}
+							once
 						>
-							{/* <CartesianGrid strokeDasharray='3 3' /> */}
-							<XAxis
-								dataKey='time'
-								tickFormatter={formatTickX}
-								minTickGap={50}
-							/>
-							<YAxis
-								tickFormatter={formatTickY}
-								domain={['dataMin', 'dataMax']}
-								axisLine={false}
-							/>
-							{legend ? (
-								<Legend
-									iconType='circle'
-									wrapperStyle={{
-										paddingLeft: '50px'
+							<ResponsiveContainer
+								width='100%'
+								height='100%'
+							>
+								<AreaChart
+									width={500}
+									height={400}
+									data={data}
+									margin={{
+										top: 12,
+										right: 50,
+										left: 0,
+										bottom: 0
 									}}
-								/>
-							) : (
-								<></>
-							)}
-							<Tooltip
-								wrapperStyle={{
-									zIndex: 2
-								}}
-								content={<CustomTooltip />}
-							/>
-							{!Array.isArray(detail) ? (
-								<Area
-									type='monotone'
-									dataKey={detail.key}
-									stroke='none'
-									fill={detail.color}
-									activeDot={false}
-									fillOpacity={1}
-								/>
-							) : (
-								detail.map((item: ChartDetailProps) => (
-									<Area
-										type='monotone'
-										dataKey={item.key}
-										stroke='none'
-										stackId={item.key === 'total' ? '1' : '0'}
-										fill={item.key === 'total' ? 'none' : item.color}
-										activeDot={false}
-										key={v4()}
-										fillOpacity={1}
-										isAnimationActive={false}
+								>
+									{/* <CartesianGrid strokeDasharray='3 3' /> */}
+									<XAxis
+										dataKey='time'
+										tickFormatter={formatTickX}
+										minTickGap={50}
 									/>
-								))
-							)}
-						</AreaChart>
-					</ResponsiveContainer>
+									<YAxis
+										tickFormatter={formatTickY}
+										domain={['dataMin', 'dataMax']}
+										axisLine={false}
+									/>
+									{legend ? (
+										<Legend
+											iconType='circle'
+											wrapperStyle={{
+												paddingLeft: '50px'
+											}}
+										/>
+									) : (
+										<></>
+									)}
+									<Tooltip
+										wrapperStyle={{
+											zIndex: 2
+										}}
+										content={<CustomTooltip />}
+									/>
+									{!Array.isArray(detail) ? (
+										<Area
+											type='monotone'
+											dataKey={detail.key}
+											stroke='none'
+											fill={detail.color}
+											activeDot={false}
+											fillOpacity={1}
+										/>
+									) : (
+										detail.map((item: ChartDetailProps) => (
+											<Area
+												type='monotone'
+												dataKey={item.key}
+												stroke='none'
+												stackId={item.key === 'total' ? '1' : '0'}
+												fill={item.key === 'total' ? 'none' : item.color}
+												activeDot={false}
+												key={v4()}
+												fillOpacity={1}
+												isAnimationActive={false}
+											/>
+										))
+									)}
+								</AreaChart>
+							</ResponsiveContainer>
+						</LazyLoad>
+					</Box>
 				</LazyLoad>
-			</Box>
-		</LazyLoad>
+			)}
+		</>
 	);
 }

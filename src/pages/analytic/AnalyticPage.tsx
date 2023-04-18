@@ -34,6 +34,8 @@ export default function AnalyticPage() {
 		: Networks.slice(1, Networks.length).find((item: Network) =>
 				network.includes(item.slug)
 		  );
+	const location = useLocation();
+	console.log('location', location);
 	useScrollToId();
 	return (
 		<NetworkContext.Provider value={currentNetwork}>

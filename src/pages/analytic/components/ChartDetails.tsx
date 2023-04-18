@@ -578,86 +578,51 @@ const ChartDetails = () => {
 		<Box sx={main}>
 			<Box sx={wrap}>
 				<Box sx={chart}>
-					{dataUSDC.length > 0 ? (
-						<CustomAreaChart
-							data={dataUSDC}
-							title={`Total USDC TVL (${currentNetwork.name})`}
-							detail={ChartUSDCDetail}
-							id='chart-details-usdc'
-						/>
-					) : (
-						<Skeleton
-							variant='rounded'
-							sx={skeleton}
-						/>
-					)}
+					<CustomAreaChart
+						data={dataUSDC}
+						title={`Total USDC TVL (${currentNetwork.name})`}
+						detail={ChartUSDCDetail}
+						id='chart-details-usdc'
+					/>
 				</Box>
 				<Box sx={chart}>
-					{dataUSDT.length > 0 ? (
-						<CustomAreaChart
-							data={dataUSDT}
-							title={`Total USDT TVL (${currentNetwork.name})`}
-							detail={ChartUSDTDetail}
-							id='chart-details-usdt'
-						/>
-					) : (
-						<Skeleton
-							variant='rounded'
-							sx={skeleton}
-						/>
-					)}
+					<CustomAreaChart
+						data={dataUSDT}
+						title={`Total USDT TVL (${currentNetwork.name})`}
+						detail={ChartUSDTDetail}
+						id='chart-details-usdt'
+					/>
 				</Box>
 			</Box>
 
 			<Box sx={wrap}>
 				<Box sx={chart}>
-					{dataDAI.length > 0 ? (
-						<CustomAreaChart
-							data={dataDAI}
-							title={`Total DAI TVL (${currentNetwork.name})`}
-							detail={ChartDAIDetail}
-							id='chart-details-dai'
-						/>
-					) : (
-						<Skeleton
-							variant='rounded'
-							sx={skeleton}
-						/>
-					)}
+					<CustomAreaChart
+						data={dataDAI}
+						title={`Total DAI TVL (${currentNetwork.name})`}
+						detail={ChartDAIDetail}
+						id='chart-details-dai'
+					/>
 				</Box>
 				<Box sx={chart}>
-					{dataFRAX.length > 0 ? (
-						<CustomAreaChart
-							data={dataFRAX}
-							title={`Total FRAX TVL (${currentNetwork.name})`}
-							detail={ChartFRAXDetail}
-							id='chart-details-frax'
-						/>
-					) : (
-						<Skeleton
-							variant='rounded'
-							sx={skeleton}
-						/>
-					)}
+					<CustomAreaChart
+						data={dataFRAX}
+						title={`Total FRAX TVL (${currentNetwork.name})`}
+						detail={ChartFRAXDetail}
+						id='chart-details-frax'
+					/>
 				</Box>
 			</Box>
 
 			{currentNetwork.chainId === '1' || currentNetwork.chainId === '56' ? (
 				<Box sx={wrap}>
 					<Box sx={chart}>
-						{dataBUSD.length > 0 ? (
-							<CustomAreaChart
-								data={dataBUSD}
-								title={`Total BUSD TVL (${currentNetwork.name})`}
-								detail={ChartBUSDDetail}
-								id='chart-details-busd'
-							/>
-						) : (
-							<Skeleton
-								variant='rounded'
-								sx={skeleton}
-							/>
-						)}
+						<CustomAreaChart
+							data={dataBUSD}
+							title={`Total BUSD TVL (${currentNetwork.name})`}
+							detail={ChartBUSDDetail}
+							id='chart-details-busd'
+						/>
 					</Box>
 				</Box>
 			) : (
