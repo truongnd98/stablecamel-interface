@@ -6,6 +6,7 @@ import Networks from '../../jsons/networks.json';
 import { createContext, useContext } from 'react';
 import { Network } from '../../App';
 import { useLocation, useParams } from 'react-router-dom';
+import { useScrollToId } from '../../hooks/useScrollToId';
 
 const main: SxProps = {
 	width: 'calc(100% - 240px)',
@@ -33,6 +34,7 @@ export default function AnalyticPage() {
 		: Networks.slice(1, Networks.length).find((item: Network) =>
 				network.includes(item.slug)
 		  );
+	useScrollToId();
 	return (
 		<NetworkContext.Provider value={currentNetwork}>
 			<Box sx={main}>
