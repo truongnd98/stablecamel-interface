@@ -13,6 +13,8 @@ import Tokens from '../../jsons/tokens.json';
 import Networks from '../../jsons/networks.json';
 import { v4 } from 'uuid';
 import { Chain, Network, Token } from '../../App';
+import { usePegTrackerState } from '../../stores/pegtracker/hooks';
+import { PegTrackerRes } from './types';
 
 const header: SxProps = {
   fontSize: 18,
@@ -80,7 +82,8 @@ const handleIcon = (slug: string): Network | undefined => {
 };
 
 export function PegTrackerTable() {
-  const navigate = useNavigate();
+  const { list } = usePegTrackerState();
+
   return (
     <TableContainer
       sx={{
@@ -97,9 +100,7 @@ export function PegTrackerTable() {
       >
         <TableHead>
           <TableRow>
-            <TableCell sx={{ ...header, paddingLeft: '32px' }}>
-              Stablecoins
-            </TableCell>
+            <TableCell sx={header}>Stablecoins</TableCell>
             <TableCell sx={header}>Networks</TableCell>
             <TableCell sx={header}>Price</TableCell>
             <TableCell sx={header}>Current % Off Peg</TableCell>
@@ -108,109 +109,124 @@ export function PegTrackerTable() {
             <TableCell sx={header}>Supply</TableCell>
           </TableRow>
         </TableHead>
-        {/* {dataAggregateSummary && dataAggregateSummary.length > 0 ? (
-					<TableBody sx={body}>
-						{dataAggregateSummary.map(
-							(token: AggregateDataSummary, index: number) => (
-								<TableRow
-									key={v4()}
-									sx={row}
-									hover
-								>
-									<TableCell
-									// component='th'
-									// scope='row'
-									>
-										<Box
-											sx={{
-												...cell,
-												cursor: 'pointer',
-												':hover': {
-													textDecoration: 'underline'
-												}
-											}}
-											onClick={() => {
-												navigate(token.chain);
-											}}
-										>
-											<img
-												src={handleIcon(token.chain)?.logo}
-												alt={handleIcon(token.chain)?.name}
-											/>
-											{handleIcon(token.chain)?.name}
-										</Box>
-									</TableCell>
-									<TableCell>
-										<AvatarGroup sx={{ justifyContent: 'flex-end' }}>
-											{Tokens.map((token: Token) => (
-												<Avatar
-													src={token.icon}
-													alt={token.name}
-													// style={{
-													// 	width: 20,
-													// 	height: 20
-													// }}
-													sx={avatar}
-													key={v4()}
-													title={token.name}
-												/>
-											))}
-										</AvatarGroup>
-									</TableCell>
-									<TableCell>
-										{new Intl.NumberFormat('en-US', {
-											style: 'currency',
-											currency: 'USD',
-											notation: 'compact',
-											maximumFractionDigits: 2
-										}).format(token.totalSupply)}
-									</TableCell>
-									<TableCell>
-										{new Intl.NumberFormat('en-US', {
-											style: 'currency',
-											currency: 'USD',
-											notation: 'compact',
-											maximumFractionDigits: 2
-										}).format(token.totalTvl)}
-									</TableCell>
-									<TableCell>
-										<Typography
-											variant='body1'
-											color={handleColor(token.sevenDayChange).main}
-											sx={{
-												width: 'fit-content',
-												padding: '0 8px',
-												backgroundColor: handleColor(token.sevenDayChange)
-													.background
-											}}
-										>
-											{token.sevenDayChange > 0 ? '+' : ''}
-											{token.sevenDayChange.toFixed(2)}%
-										</Typography>
-									</TableCell>
-									<TableCell>
-										{token.chain !== Chain.BSC ? 'USDC:' : 'BUSD:'}{' '}
-										{token.usdcDominance
-											? token.usdcDominance.toFixed(2) + '%'
-											: token.busdDominance.toFixed(2) + '%'}
-									</TableCell>
-								</TableRow>
-							)
-						)}
-					</TableBody>
-				) : ( */}
-        <Box
-          sx={{
-            width: '100%',
-            padding: '0 20px',
-          }}
-        >
-          <Skeleton sx={skeleton} />
-          <Skeleton sx={skeleton} />
-          <Skeleton sx={skeleton} />
-          <Skeleton sx={skeleton} />
-        </Box>
-        {/* )} */}
+        {list && list.length > 0 ? (
+          <TableBody sx={body}>
+            {list.map((data: PegTrackerRes, index: number) => (
+              <TableRow
+                key={v4()}
+                sx={row}
+                hover
+              >
+                <TableCell
+                // component='th'
+                // scope='row'
+                >
+                  {/* <Box
+                    sx={{
+                      ...cell,
+                      cursor: 'pointer',
+                      ':hover': {
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    <img
+                      src={handleIcon(token.chain)?.logo}
+                      alt={handleIcon(token.chain)?.name}
+                    />
+                    {handleIcon(token.chain)?.name}
+                  </Box> */}
+                  <Typography variant='body1'>{data.id}</Typography>
+                </TableCell>
+                <TableCell>
+                  {/* <AvatarGroup sx={{ justifyContent: 'flex-end' }}>
+                    {Tokens.map((token: Token) => (
+                      <Avatar
+                        src={token.icon}
+                        alt={token.name}
+                        // style={{
+                        // 	width: 20,
+                        // 	height: 20
+                        // }}
+                        sx={avatar}
+                        key={v4()}
+                        title={token.name}
+                      />
+                    ))}
+                  </AvatarGroup> */}
+                  Avatar network
+                </TableCell>
+                <TableCell>
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation: 'compact',
+                    maximumFractionDigits: 2,
+                  }).format(data.usd)}
+                </TableCell>
+
+                <TableCell>
+                  <Typography
+                    variant='body1'
+                    color={handleColor(data.currentOffPer).main}
+                    sx={{
+                      width: 'fit-content',
+                      padding: '0 8px',
+                      backgroundColor: handleColor(data.currentOffPer)
+                        .background,
+                    }}
+                  >
+                    {data.currentOffPer > 0 ? '+' : ''}
+                    {data.currentOffPer.toFixed(2)}%
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography
+                    variant='body1'
+                    color={handleColor(data.thirtyOffPer).main}
+                    sx={{
+                      width: 'fit-content',
+                      padding: '0 8px',
+                      backgroundColor: handleColor(data.thirtyOffPer)
+                        .background,
+                    }}
+                  >
+                    {data.thirtyOffPer > 0 ? '+' : ''}
+                    {data.thirtyOffPer.toFixed(2)}%
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation: 'compact',
+                    maximumFractionDigits: 2,
+                  }).format(data.supply)}
+                </TableCell>
+                <TableCell>
+                  {new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation: 'compact',
+                    maximumFractionDigits: 2,
+                  }).format(data.supply)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        ) : (
+          <Box
+            sx={{
+              width: '100%',
+              padding: '0 20px',
+            }}
+          >
+            <Skeleton sx={skeleton} />
+            <Skeleton sx={skeleton} />
+            <Skeleton sx={skeleton} />
+            <Skeleton sx={skeleton} />
+          </Box>
+        )}
         <Box sx={{ height: 12 }} />
       </Table>
     </TableContainer>
