@@ -20,7 +20,6 @@ const each: SxProps = {
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
-	gap: '12px',
 	backgroundColor: '#ffffff',
 	borderRadius: '8px',
 	position: 'relative'
