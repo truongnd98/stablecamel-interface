@@ -82,12 +82,20 @@ const handleIcon = (slug: string): Network | undefined => {
 	return Networks.find((item: Network) => item.slug === slug);
 };
 
+const handleAvatar = (data: any) => {
+	for (const network in data) {
+		const result = Networks.find((item: Network) =>
+			network.toLowerCase().includes(item.slug)
+		);
+	}
+};
+
 export function PegTrackerTable() {
 	const { list } = usePegTrackerState();
 	const { dataAggregateSummary } = useAnalyticState();
-	const formatList = list?.sort(
-		(a: PegTrackerRes, b: PegTrackerRes) => b.supply - a.supply
-	);
+	// const formatList = list?.sort(
+	// 	(a: PegTrackerRes, b: PegTrackerRes) => b.supply - a.supply
+	// );
 	return (
 		<TableContainer
 			sx={{
@@ -113,9 +121,9 @@ export function PegTrackerTable() {
 						<TableCell sx={header}>Supply</TableCell>
 					</TableRow>
 				</TableHead>
-				{formatList && formatList.length > 0 ? (
+				{list && list.length > 0 ? (
 					<TableBody sx={body}>
-						{formatList.map((data: PegTrackerRes, index: number) => (
+						{list.map((data: PegTrackerRes, index: number) => (
 							<TableRow
 								key={v4()}
 								sx={row}
@@ -140,25 +148,24 @@ export function PegTrackerTable() {
                     />
                     {handleIcon(token.chain)?.name}
                   </Box> */}
-									<Typography variant='body1'>{data.id}</Typography>
+									<Typography variant='body1'>{data.symbol}</Typography>
 								</TableCell>
 								<TableCell>
-									{/* <AvatarGroup sx={{ justifyContent: 'flex-end' }}>
-                    {Tokens.map((token: Token) => (
-                      <Avatar
-                        src={token.icon}
-                        alt={token.name}
-                        // style={{
-                        // 	width: 20,
-                        // 	height: 20
-                        // }}
-                        sx={avatar}
-                        key={v4()}
-                        title={token.name}
-                      />
-                    ))}
-                  </AvatarGroup> */}
-									Avatar network
+									<AvatarGroup sx={{ justifyContent: 'flex-end' }}>
+										{Networks.map((network: Network) => (
+											<Avatar
+												src={network.logo}
+												alt={network.name}
+												// style={{
+												// 	width: 20,
+												// 	height: 20
+												// }}
+												sx={avatar}
+												key={v4()}
+												title={network.name}
+											/>
+										))}
+									</AvatarGroup>
 								</TableCell>
 								<TableCell>
 									{new Intl.NumberFormat('en-US', {
@@ -172,47 +179,48 @@ export function PegTrackerTable() {
 								<TableCell>
 									<Typography
 										variant='body1'
-										color={handleColor(data.currentOffPer).main}
+										color={handleColor(data.current_off_per).main}
 										sx={{
 											width: 'fit-content',
 											padding: '0 8px',
-											backgroundColor: handleColor(data.currentOffPer)
+											backgroundColor: handleColor(data.current_off_per)
 												.background
 										}}
 									>
-										{data.currentOffPer > 0 ? '+' : ''}
-										{data.currentOffPer.toFixed(2)}%
+										{data.current_off_per > 0 ? '+' : ''}
+										{data.current_off_per.toFixed(2)}%
 									</Typography>
 								</TableCell>
 								<TableCell>
 									<Typography
 										variant='body1'
-										color={handleColor(data.thirtyOffPer).main}
+										color={handleColor(data.thirty_off_per).main}
 										sx={{
 											width: 'fit-content',
 											padding: '0 8px',
-											backgroundColor: handleColor(data.thirtyOffPer).background
+											backgroundColor: handleColor(data.thirty_off_per)
+												.background
 										}}
 									>
-										{data.thirtyOffPer > 0 ? '+' : ''}
-										{data.thirtyOffPer.toFixed(2)}%
+										{data.thirty_off_per > 0 ? '+' : ''}
+										{data.thirty_off_per.toFixed(2)}%
 									</Typography>
 								</TableCell>
 								<TableCell>
-									{new Intl.NumberFormat('en-US', {
+									{/* {new Intl.NumberFormat('en-US', {
 										style: 'currency',
 										currency: 'USD',
 										notation: 'compact',
 										maximumFractionDigits: 2
-									}).format(data.supply)}
+									}).format(data.supply)} */}
 								</TableCell>
 								<TableCell>
-									{new Intl.NumberFormat('en-US', {
+									{/* {new Intl.NumberFormat('en-US', {
 										style: 'currency',
 										currency: 'USD',
 										notation: 'compact',
 										maximumFractionDigits: 2
-									}).format(data.supply)}
+									}).format(data.supply)} */}
 								</TableCell>
 							</TableRow>
 						))}

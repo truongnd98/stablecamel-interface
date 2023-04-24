@@ -1,4 +1,5 @@
 import { Box, SxProps } from '@mui/material';
+import Footer from '../../components/Footer';
 import { useGetListPegTracker } from '../../stores/pegtracker/hooks';
 import { PegTrackerTable } from './PegTrackerTable';
 import { PegTrackerTitle } from './PegTrackerTitle';
@@ -31,6 +32,7 @@ export function PegTrackerPage() {
 			<Box sx={main}>
 				<PegTrackerTitle />
 				<PegTrackerTable />
+				<Footer />
 			</Box>
 		</Box>
 	);
