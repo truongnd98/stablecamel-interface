@@ -14,7 +14,7 @@ import Networks from '../../jsons/networks.json';
 import { v4 } from 'uuid';
 import { Chain, Network, Token } from '../../App';
 import { usePegTrackerState } from '../../stores/pegtracker/hooks';
-import { PegTrackerRes } from './types';
+import { PegTrackerRes, PegTrackerTableProps } from './types';
 import { useAnalyticState } from '../../stores/analytic/hooks';
 
 const header: SxProps = {
@@ -93,6 +93,22 @@ const handleAvatar = (data: any) => {
 export function PegTrackerTable() {
 	const { list } = usePegTrackerState();
 	const { dataAggregateSummary } = useAnalyticState();
+
+	const usdc = list.find((item: PegTrackerRes) => item.symbol === 'usdc');
+	const usdt = list.find((item: PegTrackerRes) => item.symbol === 'usdt');
+	const busd = list.find((item: PegTrackerRes) => item.symbol === 'busd');
+	const frax = list.find((item: PegTrackerRes) => item.symbol === 'frax');
+	const dai = list.find((item: PegTrackerRes) => item.symbol === 'dai');
+
+	const tempList: PegTrackerRes[] = list.filter(
+		(item: PegTrackerRes) =>
+			item.symbol !== 'usdc' &&
+			item.symbol !== 'usdt' &&
+			item.symbol !== 'busd' &&
+			item.symbol !== 'frax' &&
+			item.symbol !== 'dai'
+	);
+	const listData = [usdc, usdt, dai, frax, busd, ...tempList];
 	// const formatList = list?.sort(
 	// 	(a: PegTrackerRes, b: PegTrackerRes) => b.supply - a.supply
 	// );
@@ -118,12 +134,16 @@ export function PegTrackerTable() {
 						<TableCell sx={header}>Current % Off Peg</TableCell>
 						<TableCell sx={header}>30D % Off Peg</TableCell>
 						<TableCell sx={header}>TVL</TableCell>
+						<TableCell sx={header}>Ethereum TVL</TableCell>
+						<TableCell sx={header}>BSC TVL</TableCell>
+						<TableCell sx={header}>Avalanche TVL</TableCell>
+						<TableCell sx={header}>Arbitrum TVL</TableCell>
 						<TableCell sx={header}>Supply</TableCell>
 					</TableRow>
 				</TableHead>
-				{list && list.length > 0 ? (
+				{listData && listData.length > 0 ? (
 					<TableBody sx={body}>
-						{list.map((data: PegTrackerRes, index: number) => (
+						{listData.map((data: PegTrackerRes | undefined, index: number) => (
 							<TableRow
 								key={v4()}
 								sx={row}
@@ -148,10 +168,10 @@ export function PegTrackerTable() {
                     />
                     {handleIcon(token.chain)?.name}
                   </Box> */}
-									<Typography variant='body1'>{data.symbol}</Typography>
+									<Typography variant='body1'>{data?.symbol}</Typography>
 								</TableCell>
 								<TableCell>
-									<AvatarGroup sx={{ justifyContent: 'flex-end' }}>
+									{/* <AvatarGroup sx={{ justifyContent: 'flex-end' }}>
 										{Networks.map((network: Network) => (
 											<Avatar
 												src={network.logo}
@@ -165,7 +185,7 @@ export function PegTrackerTable() {
 												title={network.name}
 											/>
 										))}
-									</AvatarGroup>
+									</AvatarGroup> */}
 								</TableCell>
 								<TableCell>
 									{new Intl.NumberFormat('en-US', {
@@ -173,37 +193,45 @@ export function PegTrackerTable() {
 										currency: 'USD',
 										notation: 'compact',
 										maximumFractionDigits: 2
-									}).format(data.usd)}
+									}).format(data?.usd ?? 0)}
 								</TableCell>
 
 								<TableCell>
 									<Typography
 										variant='body1'
-										color={handleColor(data.current_off_per).main}
+										color={handleColor(data?.current_off_per ?? 0).main}
 										sx={{
 											width: 'fit-content',
 											padding: '0 8px',
-											backgroundColor: handleColor(data.current_off_per)
+											backgroundColor: handleColor(data?.current_off_per ?? 0)
 												.background
 										}}
 									>
-										{data.current_off_per > 0 ? '+' : ''}
-										{data.current_off_per.toFixed(2)}%
+										{data?.current_off_per
+											? data?.current_off_per > 0
+												? '+'
+												: ''
+											: ''}
+										{data?.current_off_per.toFixed(2)}%
 									</Typography>
 								</TableCell>
 								<TableCell>
 									<Typography
 										variant='body1'
-										color={handleColor(data.thirty_off_per).main}
+										color={handleColor(data?.thirty_off_per ?? 0).main}
 										sx={{
 											width: 'fit-content',
 											padding: '0 8px',
-											backgroundColor: handleColor(data.thirty_off_per)
+											backgroundColor: handleColor(data?.thirty_off_per ?? 0)
 												.background
 										}}
 									>
-										{data.thirty_off_per > 0 ? '+' : ''}
-										{data.thirty_off_per.toFixed(2)}%
+										{data?.thirty_off_per
+											? data?.thirty_off_per > 0
+												? '+'
+												: ''
+											: ''}
+										{data?.thirty_off_per.toFixed(2)}%
 									</Typography>
 								</TableCell>
 								<TableCell>
@@ -214,13 +242,17 @@ export function PegTrackerTable() {
 										maximumFractionDigits: 2
 									}).format(data.supply)} */}
 								</TableCell>
+								<TableCell></TableCell>
+								<TableCell></TableCell>
+								<TableCell></TableCell>
+								<TableCell></TableCell>
 								<TableCell>
-									{/* {new Intl.NumberFormat('en-US', {
+									{new Intl.NumberFormat('en-US', {
 										style: 'currency',
 										currency: 'USD',
 										notation: 'compact',
 										maximumFractionDigits: 2
-									}).format(data.supply)} */}
+									}).format(data?.supply ?? 0)}
 								</TableCell>
 							</TableRow>
 						))}

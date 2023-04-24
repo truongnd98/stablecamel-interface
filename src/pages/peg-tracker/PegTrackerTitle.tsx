@@ -14,7 +14,7 @@ export function PegTrackerTitle() {
 				variant='h5'
 				color='primary'
 			>
-				Stablecoin Peg Tracker
+				Stablecoin Activity Monitor
 			</Typography>
 			<PegTrackerToolTip />
 		</Box>
