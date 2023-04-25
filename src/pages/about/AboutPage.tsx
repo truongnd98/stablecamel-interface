@@ -41,7 +41,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About Page</title>
+        {/* <title>About Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

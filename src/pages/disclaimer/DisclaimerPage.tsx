@@ -41,7 +41,7 @@ export default function DisclaimerPage() {
   return (
     <>
       <Helmet>
-        <title>Disclaimer Page</title>
+        {/* <title>Disclaimer Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

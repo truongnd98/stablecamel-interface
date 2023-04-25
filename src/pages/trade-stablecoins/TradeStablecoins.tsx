@@ -15,7 +15,7 @@ export default function TradeStablecoin() {
   return (
     <>
       <Helmet>
-        <title>Trade Stablecoin</title>
+        {/* <title>Trade Stablecoin</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

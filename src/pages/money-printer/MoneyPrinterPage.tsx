@@ -47,7 +47,7 @@ export function MoneyPrinterPage() {
   return (
     <>
       <Helmet>
-        <title>Money Printer Page</title>
+        {/* <title>Money Printer Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

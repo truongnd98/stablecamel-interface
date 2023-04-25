@@ -36,7 +36,7 @@ export default function GraveYardPage() {
   return (
     <>
       <Helmet>
-        <title>Grave Yard Page</title>
+        {/* <title>Grave Yard Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

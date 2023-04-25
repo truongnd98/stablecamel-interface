@@ -30,9 +30,7 @@ export function PegTrackerPage() {
 
   return (
     <>
-      <Helmet>
-        <title></title>
-      </Helmet>
+      <Helmet>{/* <title></title> */}</Helmet>
       <Box sx={container}>
         <Box sx={main}>
           <PegTrackerTitle />

@@ -38,7 +38,7 @@ export default function YieldPage() {
   return (
     <>
       <Helmet>
-        <title>Yield Page</title>
+        {/* <title>Yield Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'

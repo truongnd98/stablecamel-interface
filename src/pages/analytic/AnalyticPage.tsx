@@ -41,7 +41,7 @@ export default function AnalyticPage() {
   return (
     <>
       <Helmet>
-        <title>Analytic Page</title>
+        {/* <title>Analytic Page</title> */}
         <meta
           property='og:title'
           content='Stable Camel'
