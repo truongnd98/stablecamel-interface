@@ -6,8 +6,8 @@ import { PegTrackerTable } from './PegTrackerTable';
 import { PegTrackerTitle } from './PegTrackerTitle';
 
 const container: SxProps = {
-  width: 'calc(100% - 240px)',
-  marginLeft: '240px',
+  width: 'calc(100% - 260px)',
+  marginLeft: '260px',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',

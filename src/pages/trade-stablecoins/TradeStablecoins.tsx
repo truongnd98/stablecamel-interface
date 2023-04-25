@@ -4,10 +4,10 @@ import { TradeStablecoinsDisclaimer } from './components/TradeStablecoinsDisclai
 import { TradingWidget } from './components/TradingWidget';
 
 const main: SxProps = {
-  width: 'calc(100% - 240px)',
+  width: 'calc(100% - 260px)',
   minHeight: '100vh',
   //   height: '100vh',
-  marginLeft: '240px',
+  marginLeft: '260px',
   backgroundColor: '#f5f5f5',
 };
 

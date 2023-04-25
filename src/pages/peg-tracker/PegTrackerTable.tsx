@@ -14,7 +14,7 @@ import Networks from '../../jsons/networks.json';
 import { v4 } from 'uuid';
 import { Chain, Network, Token } from '../../App';
 import { usePegTrackerState } from '../../stores/pegtracker/hooks';
-import { PegTrackerRes, PegTrackerTableProps } from './types';
+import { PegTrackerRes } from './types';
 import { useAnalyticState } from '../../stores/analytic/hooks';
 
 const header: SxProps = {
@@ -93,6 +93,17 @@ const handleAvatar = (data: Record<string, string>) => {
   return listAvatar;
 };
 
+const handleNumber = (data?: number | null) => {
+  return data
+    ? new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        notation: 'compact',
+        maximumFractionDigits: 2,
+      }).format(data)
+    : '';
+};
+
 export function PegTrackerTable() {
   const { list } = usePegTrackerState();
   const { dataAggregateSummary } = useAnalyticState();
@@ -136,12 +147,12 @@ export function PegTrackerTable() {
             <TableCell sx={header}>Price</TableCell>
             <TableCell sx={header}>Current % Off Peg</TableCell>
             <TableCell sx={header}>30D % Off Peg</TableCell>
-            <TableCell sx={header}>TVL</TableCell>
+            <TableCell sx={header}>TT TVL</TableCell>
             <TableCell sx={header}>Ethereum TVL</TableCell>
             <TableCell sx={header}>BSC TVL</TableCell>
             <TableCell sx={header}>Avalanche TVL</TableCell>
             <TableCell sx={header}>Arbitrum TVL</TableCell>
-            <TableCell sx={header}>Supply</TableCell>
+            <TableCell sx={header}>TT Supply</TableCell>
           </TableRow>
         </TableHead>
         {listData && listData.length > 0 ? (
@@ -241,26 +252,12 @@ export function PegTrackerTable() {
                     {data?.thirty_off_per.toFixed(2)}%
                   </Typography>
                 </TableCell>
-                <TableCell>
-                  {/* {new Intl.NumberFormat('en-US', {
-										style: 'currency',
-										currency: 'USD',
-										notation: 'compact',
-										maximumFractionDigits: 2
-									}).format(data.supply)} */}
-                </TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell></TableCell>
-                <TableCell>
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    notation: 'compact',
-                    maximumFractionDigits: 2,
-                  }).format(data?.supply ?? 0)}
-                </TableCell>
+                <TableCell>{handleNumber(data?.total_tvl)}</TableCell>
+                <TableCell>{handleNumber(data?.ethereum_tvl)}</TableCell>
+                <TableCell>{handleNumber(data?.bsc_tvl)}</TableCell>
+                <TableCell>{handleNumber(data?.avalanche_tvl)}</TableCell>
+                <TableCell>{handleNumber(data?.arbitrum_tvl)}</TableCell>
+                <TableCell>{handleNumber(data?.supply)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
