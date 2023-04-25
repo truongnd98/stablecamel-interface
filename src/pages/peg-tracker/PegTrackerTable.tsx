@@ -21,15 +21,23 @@ const header: SxProps = {
   fontSize: 18,
   fontWeight: 600,
   height: 80,
+  // flexWrap: 'nowrap',
+  padding: '0 24px',
+  whiteSpace: 'nowrap',
   '@media (max-width: 1280px)': {
     fontSize: 16,
   },
 };
 
 const cell: SxProps = {
+  padding: '0 24px',
+  whiteSpace: 'nowrap',
+};
+
+const stablecoin: SxProps = {
   display: 'flex',
   alignItems: 'center',
-  paddingLeft: '12px',
+
   gap: '8px',
   img: {
     width: 20,
@@ -65,6 +73,7 @@ const avatar: SxProps = {
   height: 20,
   '$.MuiAvatar-root': {
     border: 'none',
+    fontSize: 8,
   },
 };
 
@@ -78,15 +87,18 @@ const handleColor = (value: number) => {
   else return { main: '#676b74', background: '#f3f4f6' };
 };
 
-const handleIcon = (slug: string): Network | undefined => {
-  return Networks.find((item: Network) => item.slug === slug);
+const handleIcon = (symbol?: string): Token | undefined => {
+  return Tokens.find(
+    (item: Token) => item.symbol.toLowerCase() === symbol?.toLowerCase()
+  );
 };
 
 const handleAvatar = (data: Record<string, string>) => {
   const listAvatar: Network[] = [];
   for (const network in data) {
+    const networkName = network.split('-')[0];
     const avatar = Networks.slice(1).find((item: Network) =>
-      network.toLowerCase().includes(item.slug)
+      item.slug.toLowerCase().includes(networkName.toLowerCase())
     );
     if (avatar) listAvatar.push(avatar);
   }
@@ -131,6 +143,8 @@ export function PegTrackerTable() {
       sx={{
         backgroundColor: '#ffffff',
         borderRadius: '8px',
+        width: '100%',
+        overflow: 'scroll',
       }}
     >
       <Table
@@ -142,17 +156,17 @@ export function PegTrackerTable() {
       >
         <TableHead>
           <TableRow>
-            <TableCell sx={header}>Stablecoins</TableCell>
+            <TableCell sx={header}>Stablecoin</TableCell>
             <TableCell sx={header}>Networks</TableCell>
             <TableCell sx={header}>Price</TableCell>
-            <TableCell sx={header}>Current % Off Peg</TableCell>
+            <TableCell sx={header}>% Off Peg</TableCell>
             <TableCell sx={header}>30D % Off Peg</TableCell>
-            <TableCell sx={header}>TT TVL</TableCell>
+            <TableCell sx={header}>Total TVL</TableCell>
             <TableCell sx={header}>Ethereum TVL</TableCell>
             <TableCell sx={header}>BSC TVL</TableCell>
             <TableCell sx={header}>Avalanche TVL</TableCell>
             <TableCell sx={header}>Arbitrum TVL</TableCell>
-            <TableCell sx={header}>TT Supply</TableCell>
+            <TableCell sx={header}>Total Supply</TableCell>
           </TableRow>
         </TableHead>
         {listData && listData.length > 0 ? (
@@ -164,37 +178,36 @@ export function PegTrackerTable() {
                 hover
               >
                 <TableCell
-                // component='th'
-                // scope='row'
+                  // component='th'
+                  // scope='row'
+                  sx={cell}
                 >
-                  {/* <Box
-                    sx={{
-                      ...cell,
-                      cursor: 'pointer',
-                      ':hover': {
-                        textDecoration: 'underline',
-                      },
-                    }}
-                  >
+                  <Box sx={stablecoin}>
                     <img
-                      src={handleIcon(token.chain)?.logo}
-                      alt={handleIcon(token.chain)?.name}
+                      src={handleIcon(data?.symbol)?.icon}
+                      alt={handleIcon(data?.symbol)?.name ?? 'not-found'}
                     />
-                    {handleIcon(token.chain)?.name}
-                  </Box> */}
-                  <Typography variant='body1'>{data?.symbol}</Typography>
+                    {handleIcon(data?.symbol)?.name ?? data?.symbol}
+                  </Box>
+                  {/* <Typography variant='body1'>{data?.symbol}</Typography> */}
                 </TableCell>
-                <TableCell>
+                <TableCell sx={cell}>
                   {data?.platforms ? (
-                    <AvatarGroup sx={{ justifyContent: 'flex-end' }}>
+                    <AvatarGroup
+                      sx={{
+                        justifyContent: 'flex-end',
+                        '.MuiAvatarGroup-avatar': {
+                          width: 20,
+                          height: 20,
+                          fontSize: 10,
+                          backgroundColor: '#293845',
+                        },
+                      }}
+                    >
                       {handleAvatar(data.platforms).map((item: Network) => (
                         <Avatar
                           src={item.logo}
                           alt={item.name}
-                          style={{
-                            width: 20,
-                            height: 20,
-                          }}
                           sx={avatar}
                           key={v4()}
                           title={item.name}
@@ -205,7 +218,7 @@ export function PegTrackerTable() {
                     <></>
                   )}
                 </TableCell>
-                <TableCell>
+                <TableCell sx={cell}>
                   {new Intl.NumberFormat('en-US', {
                     style: 'currency',
                     currency: 'USD',
@@ -213,8 +226,7 @@ export function PegTrackerTable() {
                     maximumFractionDigits: 2,
                   }).format(data?.usd ?? 0)}
                 </TableCell>
-
-                <TableCell>
+                <TableCell sx={cell}>
                   <Typography
                     variant='body1'
                     color={handleColor(data?.current_off_per ?? 0).main}
@@ -233,7 +245,7 @@ export function PegTrackerTable() {
                     {data?.current_off_per.toFixed(2)}%
                   </Typography>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={cell}>
                   <Typography
                     variant='body1'
                     color={handleColor(data?.thirty_off_per ?? 0).main}
@@ -252,12 +264,19 @@ export function PegTrackerTable() {
                     {data?.thirty_off_per.toFixed(2)}%
                   </Typography>
                 </TableCell>
-                <TableCell>{handleNumber(data?.total_tvl)}</TableCell>
-                <TableCell>{handleNumber(data?.ethereum_tvl)}</TableCell>
-                <TableCell>{handleNumber(data?.bsc_tvl)}</TableCell>
-                <TableCell>{handleNumber(data?.avalanche_tvl)}</TableCell>
-                <TableCell>{handleNumber(data?.arbitrum_tvl)}</TableCell>
-                <TableCell>{handleNumber(data?.supply)}</TableCell>
+
+                <TableCell sx={cell}>{handleNumber(data?.total_tvl)}</TableCell>
+                <TableCell sx={cell}>
+                  {handleNumber(data?.ethereum_tvl)}
+                </TableCell>
+                <TableCell sx={cell}>{handleNumber(data?.bsc_tvl)}</TableCell>
+                <TableCell sx={cell}>
+                  {handleNumber(data?.avalanche_tvl)}
+                </TableCell>
+                <TableCell sx={cell}>
+                  {handleNumber(data?.arbitrum_tvl)}
+                </TableCell>
+                <TableCell sx={cell}>{handleNumber(data?.supply)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

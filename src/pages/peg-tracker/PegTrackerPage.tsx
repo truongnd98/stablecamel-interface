@@ -23,6 +23,7 @@ const main: SxProps = {
   flexDirection: 'column',
   // justifyContent: 'space-between',
   gap: '28px',
+  width: '100%',
 };
 
 export function PegTrackerPage() {
