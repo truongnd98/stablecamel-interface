@@ -301,7 +301,7 @@ const ListNav = () => {
 
       <Link
         target='_blank'
-        href='https://cryptobriefing.com'
+        href='https://cryptoslate.com/'
         sx={{ textDecoration: 'none' }}
       >
         <ListItemButton
