@@ -49,16 +49,12 @@ export function MoneyPrinterPage() {
       <Helmet>
         {/* <title>Money Printer Page</title> */}
         <meta
-          property='og:title'
-          content='Stable Camel'
-        />
-        <meta
           property='og:description'
           content='Stable Camel Money Printer page'
         />
         <meta
           property='og:image'
-          content='%PUBLIC_URL%/thumbnails/thumbnail-moneyprinter.png'
+          content='/thumbnails/thumbnail-moneyprinter.png'
         />
       </Helmet>
       <Box sx={container}>

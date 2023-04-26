@@ -43,16 +43,12 @@ export default function AboutPage() {
       <Helmet>
         {/* <title>About Page</title> */}
         <meta
-          property='og:title'
-          content='Stable Camel'
-        />
-        <meta
           property='og:description'
           content='Stable Camel About page'
         />
         <meta
           property='og:image'
-          content='%PUBLIC_URL%/thumbnails/thumbnail-general.png'
+          content='/thumbnails/thumbnail-general.png'
         />
       </Helmet>
       <Box sx={container}>

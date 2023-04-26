@@ -43,16 +43,12 @@ export default function AnalyticPage() {
       <Helmet>
         {/* <title>Analytic Page</title> */}
         <meta
-          property='og:title'
-          content='Stable Camel'
-        />
-        <meta
           property='og:description'
           content={`Stablecoin TVL Dashboard (${currentNetwork?.name})`}
         />
         <meta
           property='og:image'
-          content='%PUBLIC_URL%/thumbnails/thumbnail-general.png'
+          content='/thumbnails/thumbnail-general.png'
         />
       </Helmet>
       <NetworkContext.Provider value={currentNetwork}>

@@ -16,17 +16,14 @@ export default function TradeStablecoin() {
     <>
       <Helmet>
         {/* <title>Trade Stablecoin</title> */}
-        <meta
-          property='og:title'
-          content='Stable Camel'
-        />
+
         <meta
           property='og:description'
           content='Stable Camel Trade Stablecoin page'
         />
         <meta
           property='og:image'
-          content='%PUBLIC_URL%/thumbnails/thumbnail-tradestablecoin.png'
+          content='/thumbnails/thumbnail-tradestablecoin.png'
         />
       </Helmet>
       <Box sx={main}>
