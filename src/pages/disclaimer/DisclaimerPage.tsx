@@ -1,5 +1,5 @@
 import { Box, SxProps, Typography, Link } from '@mui/material';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer';
 
 const container: SxProps = {

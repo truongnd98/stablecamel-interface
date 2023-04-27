@@ -1,5 +1,5 @@
 import { Box, SxProps, Typography } from '@mui/material';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer';
 import { useGetListGraveYard } from '../../stores/graveyard/hooks';
 import GraveYardTable from './GraveYardTable';

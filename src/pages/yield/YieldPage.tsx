@@ -5,7 +5,7 @@ import { YieldTitle } from './YieldTitle';
 import { YieldMetrics } from './YieldMetrics';
 import { YieldChart } from './YieldChart';
 import { useGetListYield } from '../../stores/yield/hooks';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const container: SxProps = {
   width: 'calc(100% - 260px)',

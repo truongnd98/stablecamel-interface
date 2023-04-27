@@ -7,7 +7,7 @@ import { createContext, useContext } from 'react';
 import { Network } from '../../App';
 import { useLocation, useParams } from 'react-router-dom';
 import { useScrollToId } from '../../hooks/useScrollToId';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const main: SxProps = {
   width: 'calc(100% - 260px)',
@@ -42,17 +42,13 @@ export default function AnalyticPage() {
     <>
       <Helmet>
         {/* <title>Analytic Page</title> */}
-        <link
-          rel='icon'
-          href='/favicon.ico'
-        />
         <meta
           property='og:description'
           content={`Stablecoin TVL Dashboard (${currentNetwork?.name})`}
         />
         <meta
           property='og:image'
-          content='/thumbnails/thumbnail-general.png'
+          content='https://www.stablecamel.com/thumbnails/thumbnail-general.png'
         />
       </Helmet>
       <NetworkContext.Provider value={currentNetwork}>

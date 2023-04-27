@@ -1,6 +1,6 @@
 import { Box, SxProps, Typography, Link } from '@mui/material';
 import Footer from '../../components/Footer';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 const container: SxProps = {
   width: 'calc(100% - 260px)',
@@ -42,10 +42,6 @@ export default function AboutPage() {
     <>
       <Helmet>
         {/* <title>About Page</title> */}
-        <link
-          rel='icon'
-          href='/favicon.ico'
-        />
         <meta
           property='og:description'
           content='Stable Camel About page'

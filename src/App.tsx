@@ -8,43 +8,46 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './Router';
 import Networks from './jsons/networks.json';
 import { NetworkContext } from './contexts';
+import { HelmetProvider } from 'react-helmet-async';
 
 export interface Network {
-	chainId: string;
-	slug: string;
-	name: string;
-	logo: string;
+  chainId: string;
+  slug: string;
+  name: string;
+  logo: string;
 }
 
 export interface Token {
-	icon: string;
-	name: string;
-	symbol: string;
+  icon: string;
+  name: string;
+  symbol: string;
 }
 
 export enum Chain {
-	ETHEREUM = 'ethereum',
-	BSC = 'BSC',
-	AVAX = 'avalanche',
-	ARBITRUM = 'arbitrum',
-	POLYGON = 'polygon'
+  ETHEREUM = 'ethereum',
+  BSC = 'BSC',
+  AVAX = 'avalanche',
+  ARBITRUM = 'arbitrum',
+  POLYGON = 'polygon',
 }
 
 function App() {
-	const [network, setNetwork] = useState<Network>(Networks[0]);
+  const [network, setNetwork] = useState<Network>(Networks[0]);
 
-	return (
-		<ThemeProvider theme={theme}>
-			<NetworkContext.Provider value={{ network, setNetwork }}>
-				<RouterProvider router={router} />
-			</NetworkContext.Provider>
-		</ThemeProvider>
-	);
+  return (
+    <HelmetProvider>
+      <ThemeProvider theme={theme}>
+        <NetworkContext.Provider value={{ network, setNetwork }}>
+          <RouterProvider router={router} />
+        </NetworkContext.Provider>
+      </ThemeProvider>
+    </HelmetProvider>
+  );
 }
 
 const Main = styled.div`
-	width: 100%;
-	display: flex;
+  width: 100%;
+  display: flex;
 `;
 
 export default App;

@@ -1,5 +1,5 @@
 import { Box, SxProps } from '@mui/material';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { TradeStablecoinsDisclaimer } from './components/TradeStablecoinsDisclaimer';
 import { TradingWidget } from './components/TradingWidget';
 
