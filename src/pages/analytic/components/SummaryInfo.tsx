@@ -47,8 +47,8 @@ export default function SummaryInfo() {
 
   const supply = () => {
     if (dataSupply && dataSupply.length > 0) {
-      const { USDC, USDT, FRAX, DAI } = dataSupply[dataSupply.length - 1];
-      return USDC + USDT + FRAX + DAI;
+      const { USDC, USDT, FRAX, DAI, BUSD } = dataSupply[dataSupply.length - 1];
+      return USDC + USDT + FRAX + DAI + (BUSD ?? 0);
     }
     return 0;
   };

@@ -3,7 +3,6 @@ import { Box, Typography } from '@mui/material';
 import { v4 } from 'uuid';
 
 const sumData = (list: any[]): number => {
-  console.log(list);
   return list.reduce((partialSum, a) => partialSum + a.value, 0);
 };
 

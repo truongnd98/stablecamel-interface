@@ -5,10 +5,11 @@ import { YieldTitle } from './YieldTitle';
 import { YieldMetrics } from './YieldMetrics';
 import { YieldChart } from './YieldChart';
 import { useGetListYield } from '../../stores/yield/hooks';
+import { Helmet } from 'react-helmet-async';
 
 const container: SxProps = {
-  width: 'calc(100% - 240px)',
-  marginLeft: '240px',
+  width: 'calc(100% - 260px)',
+  marginLeft: '260px',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',
@@ -35,16 +36,30 @@ const wrapData: SxProps = {
 export default function YieldPage() {
   useGetListYield();
   return (
-    <Box sx={container}>
-      <Box sx={main}>
-        <Box sx={wrapData}>
-          <YieldTitle />
-          <YieldMetrics />
-          <YieldChart />
-          <YieldTable />
+    <>
+      <Helmet>
+        {/* <title>Yield Page</title> */}
+
+        <meta
+          property='og:description'
+          content='Stable Camel Yield page'
+        />
+        <meta
+          property='og:image'
+          content='/thumbnails/thumbnail-yield.png'
+        />
+      </Helmet>
+      <Box sx={container}>
+        <Box sx={main}>
+          <Box sx={wrapData}>
+            <YieldTitle />
+            <YieldMetrics />
+            <YieldChart />
+            <YieldTable />
+          </Box>
+          <Footer />
         </Box>
-        <Footer />
       </Box>
-    </Box>
+    </>
   );
 }

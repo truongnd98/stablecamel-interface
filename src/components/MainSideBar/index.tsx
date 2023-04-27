@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ListNav from './ListNav';
 
 const main: SxProps = {
-  width: 240,
+  width: 260,
   height: '100vh',
   backgroundColor: '#dfdefc',
   padding: '12px',

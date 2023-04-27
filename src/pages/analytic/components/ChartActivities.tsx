@@ -31,41 +31,34 @@ export default function ChartActivities() {
   return (
     <Box sx={main}>
       <Box sx={chart}>
-        {dataDAU.length > 0 ? (
-          <StackedBarChart
-            title={`DAU Per Stable (${currentNetwork.name})`}
-            data={dataDAU}
-            details={stableCoinDetailProps.filter(
-              (item: StablecoinChartDetail) =>
-                typeof dataDAU[0][item.key] !== 'undefined' ||
-                typeof dataDAU[dataDAU.length - 1][item.key] !== 'undefined'
-            )}
-          />
-        ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
-        )}
+        <StackedBarChart
+          title={`DAU Per Stable (${currentNetwork.name})`}
+          data={dataDAU}
+          details={stableCoinDetailProps.filter(
+            (item: StablecoinChartDetail) =>
+              dataDAU &&
+              dataDAU.length > 0 &&
+              (typeof dataDAU[0][item.key] !== 'undefined' ||
+                typeof dataDAU[dataDAU.length - 1][item.key] !== 'undefined')
+          )}
+          id='dau-per-stable'
+        />
       </Box>
 
       <Box sx={chart}>
-        {dataDaily.length > 0 ? (
-          <StackedBarChart
-            data={dataDaily}
-            title={`Daily Transfer Amount (${currentNetwork.name})`}
-            details={stableCoinDetailProps.filter(
-              (item: StablecoinChartDetail) =>
-                typeof dataDaily[0][item.key] !== 'undefined' ||
-                typeof dataDaily[dataDaily.length - 1][item.key] !== 'undefined'
-            )}
-          />
-        ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
-        )}
+        <StackedBarChart
+          data={dataDaily}
+          title={`Daily Transfer Amount (${currentNetwork.name})`}
+          details={stableCoinDetailProps.filter(
+            (item: StablecoinChartDetail) =>
+              dataDaily &&
+              dataDaily.length > 0 &&
+              (typeof dataDaily[0][item.key] !== 'undefined' ||
+                typeof dataDaily[dataDaily.length - 1][item.key] !==
+                  'undefined')
+          )}
+          id='daily-transfer-amount'
+        />
       </Box>
     </Box>
   );

@@ -4,103 +4,113 @@ import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import { ApplicationLayout } from './components/ApplicationLayout/ApplicationLayout';
 import CircularProgress from '@mui/material/CircularProgress';
 import { MoneyPrinterPage } from './pages/money-printer/MoneyPrinterPage';
+import { PegTrackerPage } from './pages/peg-tracker/PegTrackerPage';
 
 const AnalyticPage = React.lazy(() => import('./pages/analytic/AnalyticPage'));
 const DisclaimerPage = React.lazy(
-	() => import('./pages/disclaimer/DisclaimerPage')
+  () => import('./pages/disclaimer/DisclaimerPage')
 );
 const AboutPage = React.lazy(() => import('./pages/about/AboutPage'));
 const GraveYardPage = React.lazy(
-	() => import('./pages/graveyard/GraveYardPage')
+  () => import('./pages/graveyard/GraveYardPage')
 );
 const TradeStablecoin = React.lazy(
-	() => import('./pages/trade-stablecoins/TradeStablecoins')
+  () => import('./pages/trade-stablecoins/TradeStablecoins')
 );
 const YieldPage = React.lazy(() => import('./pages/yield/YieldPage'));
 
 export const router = createBrowserRouter([
-	{
-		id: 'index',
-		path: '/',
-		element: <ApplicationLayout />,
-		children: [
-			{
-				id: 'home',
-				path: '',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<AnalyticPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'analytics/network',
-				path: ':network',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<AnalyticPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'yields',
-				path: 'stablecoin-yields',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<YieldPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'trading',
-				path: 'trade-stablecoins',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<TradeStablecoin />
-					</Suspense>
-				)
-			},
-			{
-				id: 'about',
-				path: 'about',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<AboutPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'graveyard',
-				path: 'stablecoin-graveyard',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<GraveYardPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'disclaimer',
-				path: 'disclaimer',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<DisclaimerPage />
-					</Suspense>
-				)
-			},
-			{
-				id: 'money-printer',
-				path: 'money-printer',
-				element: (
-					<Suspense fallback={<CircularProgress />}>
-						<MoneyPrinterPage />
-					</Suspense>
-				)
-			}
-		]
-	},
-	{
-		id: '404',
-		path: '*',
-		element: <h3>NOT FOUND</h3>
-	}
+  {
+    id: 'index',
+    path: '/',
+    element: <ApplicationLayout />,
+    children: [
+      {
+        id: 'home',
+        path: '',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <AnalyticPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'analytics/network',
+        path: ':network',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <AnalyticPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'yields',
+        path: 'stablecoin-yields',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <YieldPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'trading',
+        path: 'trade-stablecoins',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <TradeStablecoin />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'about',
+        path: 'about',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <AboutPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'graveyard',
+        path: 'stablecoin-graveyard',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <GraveYardPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'disclaimer',
+        path: 'disclaimer',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <DisclaimerPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'money-printer',
+        path: 'money-printer',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <MoneyPrinterPage />
+          </Suspense>
+        ),
+      },
+      {
+        id: 'activity-monitor',
+        path: 'activity-monitor',
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <PegTrackerPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    id: '404',
+    path: '*',
+    element: <h3>NOT FOUND</h3>,
+  },
 ]);

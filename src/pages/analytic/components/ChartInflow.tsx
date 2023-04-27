@@ -23,24 +23,22 @@ const skeleton: SxProps = {
 export default function ChartInflow() {
   const { dataInflow } = useAnalyticState();
   const currentNetwork = useNetworkContext();
+  // window.location.hash = '#chart-inflow';
   return (
     <Box sx={main}>
-      {dataInflow.length > 0 ? (
-        <PositiveAndNegativeBarChart
-          title={`Stablecoin Inflow (${currentNetwork.name})`}
-          data={dataInflow}
-          details={stableCoinDetailProps.filter(
-            (item: StablecoinChartDetail) =>
-              typeof dataInflow[0][item.key] !== 'undefined' ||
-              typeof dataInflow[dataInflow.length - 1][item.key] !== 'undefined'
-          )}
-        />
-      ) : (
-        <Skeleton
-          variant='rounded'
-          sx={skeleton}
-        />
-      )}
+      <PositiveAndNegativeBarChart
+        title={`Stablecoin Inflow (${currentNetwork.name})`}
+        data={dataInflow}
+        details={stableCoinDetailProps.filter(
+          (item: StablecoinChartDetail) =>
+            dataInflow &&
+            dataInflow.length > 0 &&
+            (typeof dataInflow[0][item.key] !== 'undefined' ||
+              typeof dataInflow[dataInflow.length - 1][item.key] !==
+                'undefined')
+        )}
+        id='stablecoin-inflow'
+      />
     </Box>
   );
 }

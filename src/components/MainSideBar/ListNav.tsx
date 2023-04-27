@@ -23,6 +23,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import FeedIcon from '@mui/icons-material/Feed';
 import { SoonChip } from '../SoonChip/SoonChip';
+import TrendingUpSharpIcon from '@mui/icons-material/TrendingUpSharp';
 
 interface Network {
   chainId: string;
@@ -86,6 +87,7 @@ export enum Page {
   BUG = 'bug',
   ABOUT = 'about',
   DISCLAIMER = 'disclaimer',
+  ACTIVITYMONITOR = 'activity-monitor',
 }
 
 const ListNav = () => {
@@ -249,6 +251,27 @@ const ListNav = () => {
           style={{ color: pathname.includes(Page.GRAVEYARD) ? '#f5f5f5' : '' }}
         />
       </ListItemButton>
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.ACTIVITYMONITOR) ? 'active' : ''}
+        onClick={() => {
+          navigate(Page.ACTIVITYMONITOR);
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <TrendingUpSharpIcon
+            style={{
+              color: pathname.includes(Page.ACTIVITYMONITOR) ? '#f5f5f5' : '',
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={<b>Stablecoin Activity Monitor</b>}
+          style={{
+            color: pathname.includes(Page.ACTIVITYMONITOR) ? '#f5f5f5' : '',
+          }}
+        />
+      </ListItemButton>
       <Link
         href='/trade-stablecoins'
         sx={{ textDecoration: 'none' }}
@@ -278,7 +301,7 @@ const ListNav = () => {
 
       <Link
         target='_blank'
-        href='https://cryptobriefing.com'
+        href='https://cryptoslate.com/'
         sx={{ textDecoration: 'none' }}
       >
         <ListItemButton

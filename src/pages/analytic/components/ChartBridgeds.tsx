@@ -2,9 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { Box, SxProps, Typography } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import { useAnalyticState } from '../../../stores/analytic/hooks';
-import CustomAreaChart, {
-  ChartDetailProps,
-} from '../../../components/AreaChart';
+import CustomAreaChart from '../../../components/AreaChart';
 import { useNetworkContext } from '../AnalyticPage';
 import LazyLoad from 'react-lazyload';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -30,58 +28,45 @@ const each: SxProps = {
 export default function ChartBridgeds() {
   const { dataBridgedUSDC, dataBridgedUSDT } = useAnalyticState();
   const currentNetwork = useNetworkContext();
+
   return (
     <Box sx={main}>
       <Box sx={each}>
-        {dataBridgedUSDC && dataBridgedUSDC.length > 0 ? (
-          <CustomAreaChart
-            data={dataBridgedUSDC}
-            title={`Bridged vs. Native USDC TVL (${currentNetwork.name})`}
-            detail={[
-              {
-                key: 'USDC',
-                color: '#0027ff',
-              },
-              {
-                key: 'USDCE',
-                color: '#00c7ff',
-              },
-            ]}
-            legend
-          />
-        ) : (
-          <Skeleton
-            variant='rounded'
-            width='100%'
-            height='100%'
-          />
-        )}
+        <CustomAreaChart
+          data={dataBridgedUSDC}
+          title={`Bridged vs. Native USDC TVL (${currentNetwork.name})`}
+          detail={[
+            {
+              key: 'USDC',
+              color: '#0027ff',
+            },
+            {
+              key: 'USDCE',
+              color: '#00c7ff',
+            },
+          ]}
+          legend
+          id='bridged-native-usdc'
+        />
       </Box>
 
       <Box sx={each}>
-        {dataBridgedUSDT && dataBridgedUSDT.length > 0 ? (
-          <CustomAreaChart
-            data={dataBridgedUSDT}
-            title={`Bridged vs. Native USDT TVL (${currentNetwork.name})`}
-            detail={[
-              {
-                key: 'USDT',
-                color: '#00b013',
-              },
-              {
-                key: 'USDTE',
-                color: '#0aff00',
-              },
-            ]}
-            legend
-          />
-        ) : (
-          <Skeleton
-            variant='rounded'
-            width='100%'
-            height='100%'
-          />
-        )}
+        <CustomAreaChart
+          data={dataBridgedUSDT}
+          title={`Bridged vs. Native USDT TVL (${currentNetwork.name})`}
+          detail={[
+            {
+              key: 'USDT',
+              color: '#00b013',
+            },
+            {
+              key: 'USDTE',
+              color: '#0aff00',
+            },
+          ]}
+          legend
+          id='bridged-native-usdt'
+        />
       </Box>
     </Box>
   );
