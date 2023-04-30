@@ -11,7 +11,6 @@ const container: SxProps = {
   display: 'flex',
   flexDirection: 'column',
   minHeight: '100vh',
-  backgroundColor: '#f5f5f5',
   height: 'fit-content',
 };
 

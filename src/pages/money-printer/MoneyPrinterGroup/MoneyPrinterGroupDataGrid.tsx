@@ -124,7 +124,7 @@ const grid: SxProps = {
 };
 
 const main: SxProps = {
-  width: '50%',
+  width: 'calc(50% - 14px)',
   height: '100%',
   backgroundColor: '#ffffff',
   borderRadius: '8px',

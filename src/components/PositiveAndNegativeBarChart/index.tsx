@@ -75,7 +75,7 @@ export default function PositiveAndNegativeBarChart({
   return (
     <>
       <section id={id}></section>
-      {data && !data.length ? (
+      {!data || !data.length ? (
         <Skeleton
           variant='rounded'
           width='100%'

@@ -5,6 +5,7 @@ import { ApplicationLayout } from './components/ApplicationLayout/ApplicationLay
 import CircularProgress from '@mui/material/CircularProgress';
 import { MoneyPrinterPage } from './pages/money-printer/MoneyPrinterPage';
 import { PegTrackerPage } from './pages/peg-tracker/PegTrackerPage';
+import { CurveEcosystemPage } from './pages/curve-ecosystem/CurveEcosystemPage';
 
 const AnalyticPage = React.lazy(() => import('./pages/analytic/AnalyticPage'));
 const DisclaimerPage = React.lazy(
@@ -105,6 +106,11 @@ export const router = createBrowserRouter([
             <PegTrackerPage />
           </Suspense>
         ),
+      },
+      {
+        id: 'curve-ecosystem',
+        path: 'curve-ecosystem/:network',
+        element: <CurveEcosystemPage />,
       },
     ],
   },

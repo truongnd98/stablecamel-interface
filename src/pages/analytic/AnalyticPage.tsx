@@ -15,7 +15,6 @@ const main: SxProps = {
   display: 'flex',
   flexDirection: 'column',
   height: 'fit-content',
-  backgroundColor: '#f5f5f5',
 };
 
 const NetworkContext = createContext<Network | undefined>(undefined);

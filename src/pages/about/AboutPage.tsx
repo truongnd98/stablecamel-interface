@@ -4,12 +4,11 @@ import { Helmet } from 'react-helmet-async';
 
 const container: SxProps = {
   width: '100%',
-  height: '100%',
+  height: '100vh',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: '#f5f5f5',
   justifyContent: 'space-between',
 };
 

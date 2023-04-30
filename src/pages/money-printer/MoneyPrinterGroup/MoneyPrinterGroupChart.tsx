@@ -37,7 +37,7 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
   return (
     <Box
       sx={{
-        width: '50%',
+        width: 'calc(50% - 14px)',
       }}
     >
       {data.length > 0 ? (

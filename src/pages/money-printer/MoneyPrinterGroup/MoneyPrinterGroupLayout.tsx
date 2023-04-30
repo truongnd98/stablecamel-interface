@@ -7,7 +7,7 @@ const container: SxProps = {
   width: '100%',
   height: 380,
   display: 'flex',
-  gap: '28px',
+  justifyContent: 'space-between',
 };
 
 export function MoneyPrinterGroupLayout({ data }: { data: any[] }) {

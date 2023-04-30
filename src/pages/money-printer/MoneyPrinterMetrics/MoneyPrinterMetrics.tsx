@@ -1,7 +1,7 @@
 import { Box, SxProps, Paper, Typography } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import { useMoneyPrinterState } from '../../../stores/moneyprinter/hooks';
-import { MoneyPrinterSingleMetric } from './MoneyPrinterSingerMetric';
+import { MoneyPrinterSingleMetric } from './MoneyPrinterSingleMetric';
 
 const main: SxProps = {
   width: '100%',

@@ -7,7 +7,7 @@ import Collapse from '@mui/material/Collapse';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import WarningIcon from '@mui/icons-material/Warning';
 
-import { Typography, SxProps, Link, Chip } from '@mui/material';
+import { Typography, SxProps, Link, Chip, Menu } from '@mui/material';
 import PieChartIcon from '@mui/icons-material/PieChart';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
 import PercentIcon from '@mui/icons-material/Percent';
@@ -24,13 +24,7 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import FeedIcon from '@mui/icons-material/Feed';
 import { SoonChip } from '../SoonChip/SoonChip';
 import TrendingUpSharpIcon from '@mui/icons-material/TrendingUpSharp';
-
-interface Network {
-  chainId: string;
-  name: string;
-  slug: string;
-  logo: string;
-}
+import { MenuExtend, Network, Page } from './types';
 
 const button: SxProps = {
   padding: '2px 8px',
@@ -76,23 +70,21 @@ const list: SxProps = {
   gap: '4px',
 };
 
-export enum Page {
-  ANALYTICS = 'analytics',
-  MONEYPRINTER = 'money-printer',
-  WARS = 'wars',
-  YIELDS = 'stablecoin-yields',
-  GRAVEYARD = 'stablecoin-graveyard',
-  TRADING = 'trading',
-  NEWS = 'news',
-  BUG = 'bug',
-  ABOUT = 'about',
-  DISCLAIMER = 'disclaimer',
-  ACTIVITYMONITOR = 'activity-monitor',
-}
+export const listEcosystem: string[] = [
+  'FRAX',
+  'Curve',
+  'Convex',
+  'Conic',
+  'Clever',
+];
 
 const ListNav = () => {
   const { pathname } = useLocation();
-  const [extend, setExtend] = useState<boolean>(true);
+  const [extend, setExtend] = useState<MenuExtend | null>(
+    pathname.includes(Page.CURVE_ECOSYSTEM)
+      ? MenuExtend.CURVE_ECOSYSTEM
+      : MenuExtend.ANALYTICS
+  );
   const navigate = useNavigate();
 
   return (
@@ -113,17 +105,22 @@ const ListNav = () => {
       <ListItemButton
         sx={button}
         onClick={() => {
-          setExtend(!extend);
+          if (extend !== MenuExtend.ANALYTICS) setExtend(MenuExtend.ANALYTICS);
+          else setExtend(null);
         }}
       >
         <ListItemIcon sx={iconButton}>
           <PieChartIcon />
         </ListItemIcon>
         <ListItemText primary={<b>Stablecoin TVL</b>} />
-        {extend ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+        {extend === MenuExtend.ANALYTICS ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
       </ListItemButton>
       <Collapse
-        in={extend}
+        in={extend === MenuExtend.ANALYTICS}
         timeout='auto'
         unmountOnExit
       >
@@ -175,43 +172,77 @@ const ListNav = () => {
       </Collapse>
       <ListItemButton
         sx={button}
-        className={pathname.includes(Page.WARS) ? 'active' : ''}
+        // className={pathname.includes(Page.CURVE_ECOSYSTEM) ? 'active' : ''}
         onClick={() => {
-          navigate('#');
+          if (extend !== MenuExtend.CURVE_ECOSYSTEM)
+            setExtend(MenuExtend.CURVE_ECOSYSTEM);
+          else setExtend(null);
         }}
       >
         <ListItemIcon sx={iconButton}>
           <LocalFireDepartmentIcon
-            style={{ color: pathname.includes(Page.WARS) ? '#f5f5f5' : '' }}
+          // style={{
+          //   color: pathname.includes(Page.CURVE_ECOSYSTEM) ? '#f5f5f5' : '',
+          // }}
           />
         </ListItemIcon>
         <ListItemText
-          primary={
-            <>
-              <b>Stablecoin Wars</b> <SoonChip label='SOON' />
-            </>
-          }
-          style={{ color: pathname.includes(Page.WARS) ? '#f5f5f5' : '' }}
+          primary={<b>Curve Ecosystem</b>}
+          // style={{
+          //   color: pathname.includes(Page.CURVE_ECOSYSTEM) ? '#f5f5f5' : '',
+          // }}
         />
+        {extend === MenuExtend.CURVE_ECOSYSTEM ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
       </ListItemButton>
+      <Collapse
+        in={extend === MenuExtend.CURVE_ECOSYSTEM}
+        timeout='auto'
+        unmountOnExit
+      >
+        <List
+          component='div'
+          sx={subList}
+        >
+          {listEcosystem.map((item: string) => (
+            <ListItemButton
+              sx={subButton}
+              key={v4()}
+              className={pathname.includes(item) ? 'active' : ''}
+              onClick={() => {
+                navigate(`${Page.CURVE_ECOSYSTEM}/${item}`);
+              }}
+            >
+              <ListItemText
+                primary={item}
+                className={pathname.includes(item) ? 'active' : ''}
+                sx={subButtonText}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
       <ListItemButton
         sx={button}
-        className={pathname.includes(Page.MONEYPRINTER) ? 'active' : ''}
+        className={pathname.includes(Page.MONEY_PRINTER) ? 'active' : ''}
         onClick={() => {
-          navigate(Page.MONEYPRINTER);
+          navigate(Page.MONEY_PRINTER);
         }}
       >
         <ListItemIcon sx={iconButton}>
           <AttachMoneyIcon
             style={{
-              color: pathname.includes(Page.MONEYPRINTER) ? '#f5f5f5' : '',
+              color: pathname.includes(Page.MONEY_PRINTER) ? '#f5f5f5' : '',
             }}
           />
         </ListItemIcon>
         <ListItemText
           primary={<b>USDC Money Printer</b>}
           style={{
-            color: pathname.includes(Page.MONEYPRINTER) ? '#f5f5f5' : '',
+            color: pathname.includes(Page.MONEY_PRINTER) ? '#f5f5f5' : '',
           }}
         />
       </ListItemButton>
@@ -253,22 +284,22 @@ const ListNav = () => {
       </ListItemButton>
       <ListItemButton
         sx={button}
-        className={pathname.includes(Page.ACTIVITYMONITOR) ? 'active' : ''}
+        className={pathname.includes(Page.ACTIVITY_MONITOR) ? 'active' : ''}
         onClick={() => {
-          navigate(Page.ACTIVITYMONITOR);
+          navigate(Page.ACTIVITY_MONITOR);
         }}
       >
         <ListItemIcon sx={iconButton}>
           <TrendingUpSharpIcon
             style={{
-              color: pathname.includes(Page.ACTIVITYMONITOR) ? '#f5f5f5' : '',
+              color: pathname.includes(Page.ACTIVITY_MONITOR) ? '#f5f5f5' : '',
             }}
           />
         </ListItemIcon>
         <ListItemText
           primary={<b>Stablecoin Activity Monitor</b>}
           style={{
-            color: pathname.includes(Page.ACTIVITYMONITOR) ? '#f5f5f5' : '',
+            color: pathname.includes(Page.ACTIVITY_MONITOR) ? '#f5f5f5' : '',
           }}
         />
       </ListItemButton>

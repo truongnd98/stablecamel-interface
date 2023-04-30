@@ -6,7 +6,6 @@ import { TradingWidget } from './components/TradingWidget';
 const main: SxProps = {
   minHeight: '100vh',
   //   height: '100vh',
-  backgroundColor: '#f5f5f5',
 };
 
 export default function TradeStablecoin() {
