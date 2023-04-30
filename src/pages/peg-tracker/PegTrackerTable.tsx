@@ -169,7 +169,7 @@ export function PegTrackerTable() {
             <TableCell sx={header}>Total Supply</TableCell>
           </TableRow>
         </TableHead>
-        {listData && listData.length > 0 ? (
+        {list && list.length > 0 ? (
           <TableBody sx={body}>
             {listData.map((data: PegTrackerRes | undefined, index: number) => (
               <TableRow

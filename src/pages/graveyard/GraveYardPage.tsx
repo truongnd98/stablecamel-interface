@@ -6,8 +6,6 @@ import GraveYardTable from './GraveYardTable';
 import { GraveYardTitle } from './GraveYardTitle';
 
 const container: SxProps = {
-  width: 'calc(100% - 260px)',
-  marginLeft: '260px',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',

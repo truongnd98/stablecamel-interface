@@ -4,16 +4,24 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import MainSideBar from '../MainSideBar';
 
 const main: SxProps = {
-	width: '100%',
-	height: '100vh',
-	display: 'flex'
+  width: '100%',
+  height: '100vh',
+  display: 'flex',
+};
+
+const content: SxProps = {
+  width: 'calc(100% - 260px)',
+  marginLeft: '260px',
+  minHeight: '100vh',
 };
 
 export function ApplicationLayout() {
-	return (
-		<Box sx={main}>
-			<MainSideBar />
-			<Outlet />
-		</Box>
-	);
+  return (
+    <Box sx={main}>
+      <MainSideBar />
+      <Box sx={content}>
+        <Outlet />
+      </Box>
+    </Box>
+  );
 }

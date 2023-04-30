@@ -10,8 +10,6 @@ import { useScrollToId } from '../../hooks/useScrollToId';
 import { Helmet } from 'react-helmet-async';
 
 const main: SxProps = {
-  width: 'calc(100% - 260px)',
-  marginLeft: '260px',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',

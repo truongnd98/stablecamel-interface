@@ -3,13 +3,12 @@ import { Helmet } from 'react-helmet-async';
 import Footer from '../../components/Footer';
 
 const container: SxProps = {
-  width: 'calc(100% - 260px)',
-  marginLeft: '260px',
+  width: '100%',
+  height: '100%',
   padding: '20px 28px',
   paddingBottom: '0',
   display: 'flex',
   flexDirection: 'column',
-  minHeight: '100%',
   backgroundColor: '#f5f5f5',
   justifyContent: 'space-between',
 };
