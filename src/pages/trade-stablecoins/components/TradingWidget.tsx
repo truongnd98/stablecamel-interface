@@ -3,11 +3,10 @@ import { Box } from '@mui/material';
 export function TradingWidget() {
   return (
     <iframe
-      src='https://ramp.stably.io/?address=hx777535db1b4039c837580e74aac35d0bbaaa7b4c&amount=42.42&network=icon&asset=USDS&filter=true'
+      src='https://ramp.stably.io/?integrationId=stablecamel-5c58e755'
       title='Stably Widget'
       style={{
         width: '100%',
-        backgroundPosition: 'center',
         height: '100vh',
       }}
     />

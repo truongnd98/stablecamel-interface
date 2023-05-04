@@ -11,6 +11,7 @@ const main: SxProps = {
   flexDirection: 'column',
   justifyContent: 'space-between',
   position: 'fixed',
+  // zIndex: 2,
   overflow: 'scroll',
   '&::-webkit-scrollbar': {
     display: 'none',
