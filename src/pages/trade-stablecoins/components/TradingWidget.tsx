@@ -7,6 +7,7 @@ export function TradingWidget() {
       title='Stably Widget'
       style={{
         width: '100%',
+        backgroundPosition: 'center',
         height: '100vh',
       }}
     />

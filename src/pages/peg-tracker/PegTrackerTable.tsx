@@ -223,7 +223,8 @@ export function PegTrackerTable() {
                     style: 'currency',
                     currency: 'USD',
                     notation: 'compact',
-                    maximumFractionDigits: 2,
+                    maximumFractionDigits: 6,
+                    minimumFractionDigits: 6,
                   }).format(data?.usd ?? 0)}
                 </TableCell>
                 <TableCell sx={cell}>

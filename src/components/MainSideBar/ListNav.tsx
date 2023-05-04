@@ -322,7 +322,7 @@ const ListNav = () => {
             />
           </ListItemIcon>
           <ListItemText
-            primary={<b>Trade Stablecoins</b>}
+            primary={<b>Stablecoin On/Off-Ramp</b>}
             style={{
               color: pathname.includes(Page.TRADING) ? '#f5f5f5' : '',
             }}
