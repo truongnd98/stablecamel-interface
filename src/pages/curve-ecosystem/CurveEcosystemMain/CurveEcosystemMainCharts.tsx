@@ -5,6 +5,7 @@ import PositiveAndNegativeBarChart from '../../../components/PositiveAndNegative
 import { ChartDetailProps } from '../../../components/PositiveAndNegativeBarChart/types';
 import randomColor from 'randomcolor';
 import StackedBarChart from '../../../components/StackedBarChart';
+import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
 
 const container: SxProps = {
   width: '100%',
@@ -33,8 +34,29 @@ const details: ChartDetailProps[] = [
   },
 ];
 
+const supplyDetails: ChartDetailProps[] = [
+  {
+    key: 'supply',
+    color: randomColor({ seed: 'supply' }),
+  },
+];
+
+const priceDetails: ChartDetailProps[] = [
+  {
+    key: 'frax',
+    color: randomColor({ seed: 'frax' }),
+  },
+  {
+    key: 'stable',
+    color: randomColor({ seed: 'stable' }),
+  },
+];
+
 export function CurveEcosystemMainCharts() {
-  return (
+  const { frax } = useCurveEcosystemState();
+  return !frax ? (
+    <></>
+  ) : (
     <Box sx={container}>
       <Box sx={wrapChart}>
         <Box
@@ -43,8 +65,9 @@ export function CurveEcosystemMainCharts() {
           }}
         >
           <CustomAreaChart
+            data={frax.supply}
             title='FRAX Supply'
-            detail={details}
+            detail={supplyDetails}
             id='frax-supply'
           />
         </Box>
@@ -55,8 +78,9 @@ export function CurveEcosystemMainCharts() {
         >
           <PositiveAndNegativeBarChart
             data={[]}
+            // data={frax.price}
             title='FRAX Price'
-            details={details}
+            details={priceDetails}
             id='frax-price'
           />
         </Box>

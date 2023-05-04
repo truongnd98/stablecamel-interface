@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import { CurveEcosystemSubContent } from './CurveEcosystemSubContent/CurveEcosystemSubContent';
 import { CurveEcosystemSecondSub } from './CurveEcosystemSecondSub/CurveEcosystemSecondSub';
 import { CurveEcosystemThirdSub } from './CurveEcosystemThirdSub/CurveEcosystemThirdSub';
+import { useGetDataCurveEcosystem } from '../../stores/curve-ecosystem/hooks';
 
 const container: SxProps = {
   width: '100%',
@@ -19,6 +20,7 @@ const container: SxProps = {
 
 export function CurveEcosystemPage() {
   const { network } = useParams();
+  useGetDataCurveEcosystem();
   return (
     <Box sx={container}>
       <CurveEcosystemTitle />

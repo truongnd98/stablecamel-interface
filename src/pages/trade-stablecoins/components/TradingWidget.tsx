@@ -6,8 +6,9 @@ export function TradingWidget() {
       src='https://ramp.stably.io/?integrationId=stablecamel-5c58e755'
       title='Stably Widget'
       style={{
-        width: '100%',
+        width: '100vw',
         height: '100vh',
+        position: 'fixed',
       }}
     />
   );
