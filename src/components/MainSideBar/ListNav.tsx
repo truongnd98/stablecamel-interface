@@ -19,12 +19,14 @@ import InfoIcon from '@mui/icons-material/Info';
 import Networks from '../../jsons/networks.json';
 import { v4 } from 'uuid';
 import BugReportIcon from '@mui/icons-material/BugReport';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import FeedIcon from '@mui/icons-material/Feed';
 import { SoonChip } from '../SoonChip/SoonChip';
 import TrendingUpSharpIcon from '@mui/icons-material/TrendingUpSharp';
 import { MenuExtend, Network, Page } from './types';
+import Protocols from '../../jsons/protocols.json';
+import { Protocol } from '../../App';
 
 const button: SxProps = {
   padding: '2px 8px',
@@ -70,16 +72,9 @@ const list: SxProps = {
   gap: '4px',
 };
 
-export const listEcosystem: string[] = [
-  'FRAX',
-  'Curve',
-  'Convex',
-  'Conic',
-  'Clever',
-];
-
 const ListNav = () => {
   const { pathname } = useLocation();
+  const { network } = useParams();
   const [extend, setExtend] = useState<MenuExtend | null>(
     pathname.includes(Page.CURVE_ECOSYSTEM)
       ? MenuExtend.CURVE_ECOSYSTEM
@@ -207,18 +202,18 @@ const ListNav = () => {
           component='div'
           sx={subList}
         >
-          {listEcosystem.map((item: string) => (
+          {Protocols.map((protocol: Protocol) => (
             <ListItemButton
               sx={subButton}
               key={v4()}
-              className={pathname.includes(item) ? 'active' : ''}
+              className={network === protocol.slug ? 'active' : ''}
               onClick={() => {
-                navigate(`${Page.CURVE_ECOSYSTEM}/${item}`);
+                navigate(`${Page.CURVE_ECOSYSTEM}/${protocol.slug}`);
               }}
             >
               <ListItemText
-                primary={item}
-                className={pathname.includes(item) ? 'active' : ''}
+                primary={protocol.name}
+                className={network === protocol.slug ? 'active' : ''}
                 sx={subButtonText}
               />
             </ListItemButton>

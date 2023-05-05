@@ -31,6 +31,12 @@ export enum Chain {
   POLYGON = 'polygon',
 }
 
+export interface Protocol {
+  name: string;
+  logo: string;
+  slug: string;
+}
+
 function App() {
   const [network, setNetwork] = useState<Network>(Networks[0]);
 

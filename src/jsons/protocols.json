@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Frax Finance",
+    "slug": "frax-finance",
+    "logo": "https://assets.coingecko.com/coins/images/13422/small/FRAX_icon.png?1679886922"
+  },
+  {
+    "name": "Curve",
+    "slug": "curve",
+    "logo": "https://assets.coingecko.com/coins/images/12124/small/Curve.png?1597369484"
+  },
+  {
+    "name": "Convex",
+    "slug": "convex",
+    "logo": "https://assets.coingecko.com/coins/images/15585/small/convex.png?1621256328"
+  },
+  {
+    "name": "Conic",
+    "slug": "conic",
+    "logo": "https://assets.coingecko.com/coins/images/24747/small/cnc.png?1677911934"
+  },
+  {
+    "name": "Clever",
+    "slug": "clever",
+    "logo": "https://assets.coingecko.com/coins/images/27727/small/%E6%88%AA%E5%B1%8F2022-10-12_%E4%B8%8A%E5%8D%8810.40.19.png?1665550689"
+  }
+]

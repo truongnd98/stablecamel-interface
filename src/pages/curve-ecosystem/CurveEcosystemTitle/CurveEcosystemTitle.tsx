@@ -2,11 +2,12 @@ import { Box, Chip, Menu, MenuItem, SxProps, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { listEcosystem } from '../../../components/MainSideBar/ListNav';
 import { v4 } from 'uuid';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Page } from '../../../components/MainSideBar/types';
 import { CurveEcosystemTitleTooltip } from './CurveEcosystemTitleTooltip';
+import Protocols from '../../../jsons/protocols.json';
+import { Protocol } from '../../../App';
 
 const pageTitle: SxProps = {
   width: '100%',
@@ -62,6 +63,11 @@ export function CurveEcosystemTitle() {
     navigate(`/${Page.CURVE_ECOSYSTEM}/${network}`);
     setAnchorEl(null);
   };
+
+  const getProtocol = (slug?: string) => {
+    if (!slug) navigate('/');
+    return Protocols.find((protocol: Protocol) => protocol.slug === slug);
+  };
   return (
     <Box sx={pageTitle}>
       <Box sx={wrap}>
@@ -69,7 +75,7 @@ export function CurveEcosystemTitle() {
           variant='h5'
           color='primary'
         >
-          FRAX Analytics
+          {getProtocol(network)?.name}
         </Typography>
 
         <CurveEcosystemTitleTooltip />
@@ -84,10 +90,17 @@ export function CurveEcosystemTitle() {
         clickable
         label={
           <Box sx={chipLabel}>
-            <b>{network}</b>
+            <img
+              src={getProtocol(network)?.logo}
+              alt='protocol-logo'
+            />
+            <b>{getProtocol(network)?.name}</b>
             <KeyboardArrowDownIcon />
           </Box>
         }
+        sx={{
+          backgroundColor: '#EDEDED',
+        }}
       />
       <Menu
         open={open}
@@ -99,15 +112,19 @@ export function CurveEcosystemTitle() {
         }}
         sx={menu}
       >
-        {listEcosystem.map((network: string) => (
+        {Protocols.map((protocol: Protocol) => (
           <MenuItem
             key={v4()}
             sx={menuItem}
             onClick={() => {
-              handleClickItem(network);
+              handleClickItem(protocol.name.toLowerCase().replace(' ', '-'));
             }}
           >
-            {network}
+            <img
+              src={protocol.logo}
+              alt={`${protocol.name}-logo`}
+            />
+            {protocol.name}
           </MenuItem>
         ))}
       </Menu>
