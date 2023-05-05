@@ -20,9 +20,10 @@ import {
 	Scatter,
 	ResponsiveContainer
 } from 'recharts';
-import { CompostAreaAndBarChartProps } from './types';
+import { ComposeChartProps } from './types';
 import { CopyToClipboardButton } from '../CopyToClipboardButton/CopyToClipboardButton';
 import LinkIcon from '@mui/icons-material/Link';
+import { ComposeChartTooltip } from './ComposeChartTooltip';
 
 const main: SxProps = {
 	width: '100%',
@@ -66,11 +67,7 @@ const rowTitle: SxProps = {
 	alignItems: 'center'
 };
 
-export function ComposeAreaAndBarChart({
-	id,
-	title,
-	data
-}: CompostAreaAndBarChartProps) {
+export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 	return (
 		<>
 			<section id={id}></section>
@@ -129,42 +126,75 @@ export function ComposeAreaAndBarChart({
 									height={400}
 									data={data}
 									margin={{
-										top: 20,
+										top: 0,
 										right: 20,
-										bottom: 20,
+										bottom: 0,
 										left: 20
 									}}
 								>
-									<CartesianGrid stroke='#f5f5f5' />
+									{/* <CartesianGrid stroke='#f5f5f5' /> */}
 									<XAxis
 										dataKey='time'
+										axisLine={false}
 										tickFormatter={formatTickX}
-										// scale='band'
+										minTickGap={50}
 									/>
-									<YAxis tickFormatter={formatTickY} />
-									{/* <YAxis tickFormatter={formatTickY} /> */}
-									<Tooltip />
+									<YAxis
+										// orientation='left'
+										axisLine={false}
+										tickFormatter={formatTickY}
+										dataKey='usd_volume'
+									/>
+									<YAxis
+										axisLine={false}
+										yAxisId='right'
+										tickFormatter={formatTickY}
+										orientation='right'
+										dataKey='cum'
+									/>
+									<Tooltip content={<ComposeChartTooltip />} />
 									<Legend />
-									<Area
-										type='monotone'
-										dataKey='amt'
-										fill='#8884d8'
-										stroke='#8884d8'
-									/>
-									<Bar
-										dataKey='pv'
-										barSize={20}
-										fill='#413ea0'
-									/>
-									<Line
-										type='monotone'
-										dataKey='uv'
-										stroke='#ff7300'
-									/>
-									<Scatter
-										dataKey='cnt'
-										fill='red'
-									/>
+
+									{details.area ? (
+										<Area
+											type='monotone'
+											dataKey={details.area.key}
+											fill={details.area.color}
+											stroke='none'
+											activeDot={false}
+											fillOpacity={1}
+											yAxisId='right'
+										/>
+									) : (
+										<></>
+									)}
+									{details.bar ? (
+										<Bar
+											dataKey={details.bar.key}
+											barSize={20}
+											fill={details.bar.color}
+										/>
+									) : (
+										<></>
+									)}
+									{details.line ? (
+										<Line
+											dataKey={details.line.key}
+											stroke={details.line.color}
+											dot={false}
+											activeDot={false}
+										/>
+									) : (
+										<></>
+									)}
+									{details.scatter ? (
+										<Scatter
+											dataKey={details.scatter.key}
+											fill={details.scatter.color}
+										/>
+									) : (
+										<></>
+									)}
 								</ComposedChart>
 							</ResponsiveContainer>
 						</LazyLoad>

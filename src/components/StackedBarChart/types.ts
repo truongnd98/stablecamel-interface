@@ -6,6 +6,6 @@ export interface ChartDetailProps {
 export interface BarChartOptions {
 	id: string;
 	title: string;
-	data: any[];
+	data?: any[];
 	details: ChartDetailProps | ChartDetailProps[];
 }

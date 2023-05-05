@@ -7,6 +7,8 @@ import randomColor from 'randomcolor';
 import StackedBarChart from '../../../components/StackedBarChart';
 import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
 import { CustomLineChart } from '../../../components/LineChart/LineChart';
+import { ComposeChart } from '../../../components/ComposeChart/ComposeChart';
+import { ComposeChartDetails } from '../../../components/ComposeChart/types';
 
 const container: SxProps = {
 	width: '100%',
@@ -28,12 +30,16 @@ const singleChart: SxProps = {
 	height: 380
 };
 
-const details: ChartDetailProps[] = [
-	{
-		key: 'arbitrum',
-		color: randomColor({ seed: 'arbitrum' })
+const volumeDetails: ComposeChartDetails = {
+	bar: {
+		key: 'usd_volume',
+		color: '#001f54'
+	},
+	area: {
+		key: 'cum',
+		color: '#e9e9e9'
 	}
-];
+};
 
 const supplyDetails: ChartDetailProps[] = [
 	{
@@ -61,11 +67,11 @@ const supplyDetails: ChartDetailProps[] = [
 const priceDetails: ChartDetailProps[] = [
 	{
 		key: 'frax',
-		color: randomColor({ seed: 'frax' })
+		color: '#001f54'
 	},
 	{
 		key: 'stable',
-		color: randomColor({ seed: 'stable' })
+		color: '#d3d3d3'
 	}
 ];
 
@@ -84,6 +90,7 @@ export function CurveEcosystemMainCharts() {
 						title='FRAX Supply'
 						detail={supplyDetails}
 						id='frax-supply'
+						legend
 					/>
 				</Box>
 				<Box
@@ -97,14 +104,15 @@ export function CurveEcosystemMainCharts() {
 						title='FRAX Price'
 						details={priceDetails}
 						id='frax-price'
+						legend
 					/>
 				</Box>
 			</Box>
 			<Box sx={singleChart}>
-				<StackedBarChart
-					data={[]}
+				<ComposeChart
+					data={frax ? frax.swap_volume : undefined}
 					title='FraxSwap Volume'
-					details={details}
+					details={volumeDetails}
 					id='fraxswap-volume'
 				/>
 			</Box>

@@ -1,18 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+	CurveEcosystemFraxBPRes,
 	CurveEcosystemFraxRes,
 	CurvePrice,
 	CurveSupply,
 	CurveSwapVolume
 } from '../../pages/curve-ecosystem/types';
-import { getDataFrax } from './thunks';
+import { getDataFrax, getDataFraxBP } from './thunks';
 
 interface CurveEcosystemState {
 	frax: CurveEcosystemFraxRes | undefined;
+	fraxBP: CurveEcosystemFraxBPRes | undefined;
 }
 
 const initialState: CurveEcosystemState = {
-	frax: undefined
+	frax: undefined,
+	fraxBP: undefined
 };
 
 const curveSlice = createSlice({
@@ -22,6 +25,9 @@ const curveSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getDataFrax.fulfilled, (state, action) => {
 			state.frax = action.payload;
+		});
+		builder.addCase(getDataFraxBP.fulfilled, (state, action) => {
+			state.fraxBP = action.payload;
 		});
 	}
 });

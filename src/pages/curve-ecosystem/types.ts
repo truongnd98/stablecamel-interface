@@ -31,3 +31,49 @@ export interface CurveEcosystemFraxRes {
 	swap_volume: CurveSwapVolume[];
 	current_swap_volume: CurveSwapVolume;
 }
+
+export interface BPVolume {
+	day: string;
+	volume: number;
+	cumulative: number;
+	seven_day_average: number;
+}
+
+export interface ThreePoolVolume {
+	week: string;
+	volume: number;
+	cumulative: number;
+}
+
+export interface BP_TVL {
+	day: string;
+	frax: number;
+	usdc: number;
+	total: number;
+}
+
+export interface ThreePoolTVL {
+	dai: number;
+	usdc: number;
+	usdt: number;
+	total: number;
+	evt_date: string;
+}
+
+export interface CurrentBP {
+	week: string;
+	total: number;
+	volume: number;
+	liq_utilization: number;
+}
+
+export interface CurveEcosystemFraxBPRes {
+	current_bp: CurrentBP;
+	bp_tvl: BP_TVL[];
+	current_bp_tvl: BP_TVL;
+	three_pool: CurrentBP[];
+	three_pool_tvl: ThreePoolTVL[];
+	current_three_pool_tvl: ThreePoolTVL;
+	bp_volume: BPVolume[];
+	three_pool_volume: ThreePoolVolume;
+}

@@ -1,5 +1,20 @@
-export interface CompostAreaAndBarChartProps {
-  data: any[];
-  id: string;
-  title: string;
+import { StringLiteral } from 'typescript';
+
+export interface ComposeChartProps {
+	data?: any[];
+	id: string;
+	title: string;
+	details: ComposeChartDetails;
+}
+
+export interface ComposeChartDetails {
+	bar?: ChartDetails;
+	line?: ChartDetails;
+	area?: ChartDetails;
+	scatter?: ChartDetails;
+}
+
+export interface ChartDetails {
+	key: string;
+	color: string;
 }

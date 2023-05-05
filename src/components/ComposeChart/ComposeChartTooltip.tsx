@@ -10,11 +10,11 @@ const convertNumber = (value: number) => {
 	return new Intl.NumberFormat('en-US', {
 		// style: 'currency',
 		// currency: 'USD',
-		maximumFractionDigits: 6
+		maximumFractionDigits: 0
 	}).format(value);
 };
 
-export function LineChartTooltip({ active, payload, label }: any) {
+export function ComposeChartTooltip({ active, payload, label }: any) {
 	// console.log('payload', payload);
 	if (active && payload && payload.length) {
 		return (

@@ -20,7 +20,7 @@ const formatNumber = (number?: number) => {
 };
 export function CurveEcosystemMainMetrics() {
 	const { frax } = useCurveEcosystemState();
-	console.log('frax>>>', frax);
+
 	return !frax ? (
 		<></>
 	) : (
