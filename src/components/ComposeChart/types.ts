@@ -5,6 +5,12 @@ export interface ComposeChartProps {
 	id: string;
 	title: string;
 	details: ComposeChartDetails;
+	yAxisKey: ComposeChartAxisKey;
+}
+
+export interface ComposeChartAxisKey {
+	left?: string;
+	right?: string;
 }
 
 export interface ComposeChartDetails {

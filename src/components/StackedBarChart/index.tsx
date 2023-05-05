@@ -107,7 +107,19 @@ export default function StackedBarChart({
 								{title}
 							</Typography>
 							<CopyToClipboardButton
-								type={<LinkIcon color='primary' />}
+								type={
+									<Box
+										sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+									>
+										<LinkIcon color='primary' />
+										<Typography
+											variant='body1'
+											color='primary'
+										>
+											Copy chart
+										</Typography>
+									</Box>
+								}
 								content={`${window.location.toString().split('#')[0]}#${id}`}
 							/>
 						</Box>

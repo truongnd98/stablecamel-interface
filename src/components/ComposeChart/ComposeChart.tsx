@@ -67,7 +67,13 @@ const rowTitle: SxProps = {
 	alignItems: 'center'
 };
 
-export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
+export function ComposeChart({
+	id,
+	title,
+	data,
+	details,
+	yAxisKey
+}: ComposeChartProps) {
 	return (
 		<>
 			<section id={id}></section>
@@ -104,7 +110,19 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 								{title}
 							</Typography>
 							<CopyToClipboardButton
-								type={<LinkIcon color='primary' />}
+								type={
+									<Box
+										sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+									>
+										<LinkIcon color='primary' />
+										<Typography
+											variant='body1'
+											color='primary'
+										>
+											Copy chart
+										</Typography>
+									</Box>
+								}
 								content={`${window.location.toString().split('#')[0]}#${id}`}
 							/>
 						</Box>
@@ -140,17 +158,17 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 										minTickGap={50}
 									/>
 									<YAxis
-										// orientation='left'
+										orientation='left'
 										axisLine={false}
 										tickFormatter={formatTickY}
-										dataKey='usd_volume'
+										dataKey={yAxisKey.left}
 									/>
 									<YAxis
 										axisLine={false}
 										yAxisId='right'
 										tickFormatter={formatTickY}
 										orientation='right'
-										dataKey='cum'
+										dataKey={yAxisKey.right}
 									/>
 									<Tooltip content={<ComposeChartTooltip />} />
 									<Legend />
@@ -163,7 +181,12 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 											stroke='none'
 											activeDot={false}
 											fillOpacity={1}
-											yAxisId='right'
+											isAnimationActive={false}
+											yAxisId={
+												details.area.key === yAxisKey.right
+													? 'right'
+													: undefined
+											}
 										/>
 									) : (
 										<></>
@@ -173,6 +196,10 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 											dataKey={details.bar.key}
 											barSize={20}
 											fill={details.bar.color}
+											isAnimationActive={false}
+											yAxisId={
+												details.bar.key === yAxisKey.right ? 'right' : undefined
+											}
 										/>
 									) : (
 										<></>
@@ -183,6 +210,12 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 											stroke={details.line.color}
 											dot={false}
 											activeDot={false}
+											isAnimationActive={false}
+											yAxisId={
+												details.line.key === yAxisKey.right
+													? 'right'
+													: undefined
+											}
 										/>
 									) : (
 										<></>
@@ -191,6 +224,11 @@ export function ComposeChart({ id, title, data, details }: ComposeChartProps) {
 										<Scatter
 											dataKey={details.scatter.key}
 											fill={details.scatter.color}
+											yAxisId={
+												details.scatter.key === yAxisKey.right
+													? 'right'
+													: undefined
+											}
 										/>
 									) : (
 										<></>

@@ -4,6 +4,8 @@ import StackedBarChart from '../../../components/StackedBarChart';
 import { ChartDetailProps } from '../../../components/AreaChart/types';
 import randomColor from 'randomcolor';
 import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
+import { ComposeChart } from '../../../components/ComposeChart/ComposeChart';
+import { ComposeChartDetails } from '../../../components/ComposeChart/types';
 
 const container: SxProps = {
 	width: '100%',
@@ -52,16 +54,27 @@ const threePoolTVLDetails: ChartDetailProps[] = [
 	}
 ];
 
-const fraxBPVolumeDetails: ChartDetailProps[] = [
-	{
-		key: 'cumulative',
-		color: '#d3d3d3'
-	},
-	{
+const fraxBPVolumeDetails: ComposeChartDetails = {
+	bar: {
 		key: 'volume',
 		color: '#001f54'
+	},
+	line: {
+		key: 'cumulative',
+		color: '#d3d3d3'
 	}
-];
+};
+
+const threePoolVolumeDetails: ComposeChartDetails = {
+	bar: {
+		key: 'volume',
+		color: '#001f54'
+	},
+	line: {
+		key: 'cumulative',
+		color: '#d3d3d3'
+	}
+};
 
 export function CurveEcosystemSubContentCharts() {
 	const { fraxBP } = useCurveEcosystemState();
@@ -86,19 +99,27 @@ export function CurveEcosystemSubContentCharts() {
 				/>
 			</Box>
 			<Box sx={each}>
-				<StackedBarChart
+				<ComposeChart
 					data={fraxBP ? fraxBP.bp_volume : undefined}
 					title='FRAXBP Volume'
 					details={fraxBPVolumeDetails}
+					yAxisKey={{
+						left: 'volume',
+						right: 'cumulative'
+					}}
 					id='fraxbp-tvl'
 				/>
 			</Box>
 			<Box sx={each}>
-				<StackedBarChart
-					data={[]}
+				<ComposeChart
+					data={fraxBP ? fraxBP.three_pool_volume : undefined}
 					title='3pool Volume'
-					details={details}
+					details={threePoolVolumeDetails}
 					id='3pool-volume'
+					yAxisKey={{
+						left: 'volume',
+						right: 'cumulative'
+					}}
 				/>
 			</Box>
 		</Box>

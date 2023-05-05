@@ -114,6 +114,10 @@ export function CurveEcosystemMainCharts() {
 					title='FraxSwap Volume'
 					details={volumeDetails}
 					id='fraxswap-volume'
+					yAxisKey={{
+						left: 'usd_volume',
+						right: 'cum'
+					}}
 				/>
 			</Box>
 		</Box>

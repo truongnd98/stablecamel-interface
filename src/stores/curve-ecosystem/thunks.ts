@@ -8,7 +8,10 @@ import {
 	CurveEcosystemFraxRes,
 	CurveSupply,
 	CurveSwapVolume,
-	ThreePoolTVL
+	frxETHSupply,
+	fxsLocked,
+	ThreePoolTVL,
+	ThreePoolVolume
 } from '../../pages/curve-ecosystem/types';
 
 export const getDataFrax = createAsyncThunk(
@@ -67,12 +70,40 @@ export const getDataFraxBP = createAsyncThunk(
 					time: format(new Date(item.evt_date), 'PP')
 				}))
 				.reverse(),
-			bp_volume: data.bp_volume
-				.map((item: BPVolume) => ({
+			bp_volume: data.bp_volume.map((item: BPVolume) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			})),
+			three_pool_volume: data.three_pool_volume.map(
+				(item: ThreePoolVolume) => ({
+					...item,
+					time: format(new Date(item.week), 'PP')
+				})
+			)
+		};
+	}
+);
+
+export const getDatafrxETH = createAsyncThunk(
+	'curve-ecosystem/getDatafrxETH',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/frax/frax-eth-supply`
+		});
+		if (!data) throw new Error('Data frxETH not available');
+		return {
+			...data,
+			eth_supply: data.eth_supply
+				.map((item: frxETHSupply) => ({
 					...item,
 					time: format(new Date(item.day), 'PP')
 				}))
-				.reverse()
+				.reverse(),
+			locked_fxs: data.locked_fxs.map((item: fxsLocked) => ({
+				...item,
+				time: format(new Date(item.txn_date), 'PP')
+			}))
 		};
 	}
 );

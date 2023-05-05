@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { getDataFrax, getDataFraxBP } from './thunks';
+import { getDataFrax, getDataFraxBP, getDatafrxETH } from './thunks';
 
 export function useCurveEcosystemState() {
 	const state = useAppSelector((state) => state.curveEcosystem);
@@ -13,6 +13,7 @@ export function useGetDataCurveEcosystem() {
 		const fetchData = async () => {
 			await dispatch(getDataFrax());
 			await dispatch(getDataFraxBP());
+			await dispatch(getDatafrxETH());
 		};
 		fetchData();
 	}, []);

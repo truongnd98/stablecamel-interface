@@ -75,5 +75,30 @@ export interface CurveEcosystemFraxBPRes {
 	three_pool_tvl: ThreePoolTVL[];
 	current_three_pool_tvl: ThreePoolTVL;
 	bp_volume: BPVolume[];
-	three_pool_volume: ThreePoolVolume;
+	three_pool_volume: ThreePoolVolume[];
+}
+
+export interface frxETHSupply {
+	day: string;
+	frxETH_supply: number;
+	frxETH_supply_delta: number;
+}
+
+export interface fxsLocked {
+	delta: number | null;
+	veFXS: number;
+	txn_date: string;
+}
+
+export interface fxsLeaderboard {
+	wallet: string;
+	balance: number;
+	percent_of_total: number;
+}
+
+export interface CurveEcosystemFrxAndFxsRes {
+	eth_supply: frxETHSupply[];
+	current_eth_supply: frxETHSupply;
+	locked_fxs: fxsLocked[];
+	fxs_leader_board: fxsLeaderboard[];
 }
