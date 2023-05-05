@@ -1,39 +1,45 @@
-import React, { PureComponent } from 'react';
+import { SxProps } from '@mui/material';
 import {
-	BarChart,
-	Bar,
-	Cell,
+	AreaChart,
+	Area,
 	XAxis,
 	YAxis,
 	CartesianGrid,
 	Tooltip,
+	ResponsiveContainer,
 	Legend,
-	ReferenceLine,
-	ResponsiveContainer
+	LineChart,
+	Line
 } from 'recharts';
-import {
-	Box,
-	CircularProgress,
-	SxProps,
-	Typography,
-	Skeleton
-} from '@mui/material';
-import { ChartDetailProps, PositiveAndNegativeBarChartOptions } from './types';
+import { LineChartTooltip } from './LineChartTooltip';
+import { Box, Typography, Skeleton } from '@mui/material';
 import { v4 } from 'uuid';
-import PositiveAndNegativeChartTooltip from './Tooltip';
 import LazyLoad from 'react-lazyload';
-import { CopyToClipboardButton } from '../CopyToClipboardButton/CopyToClipboardButton';
+import CircularProgress from '@mui/material/CircularProgress';
 import LinkIcon from '@mui/icons-material/Link';
+import { CopyToClipboardButton } from '../CopyToClipboardButton/CopyToClipboardButton';
+import { LineChartProps, ChartDetailProps } from './types';
+
+const formatTickY = (value: number) => {
+	return new Intl.NumberFormat('en-US', {
+		notation: 'compact'
+	}).format(value);
+};
+
+const formatTickX = (value: string) => {
+	return value.slice(0, 3) + ' ' + value.slice(-4, value.length);
+};
 
 const main: SxProps = {
 	width: '100%',
 	height: '100%',
+	backgroundColor: '#ffffff',
 	display: 'flex',
 	flexDirection: 'column',
-	alignItems: 'center',
 	gap: '20px',
-	backgroundColor: '#ffffff',
 	padding: '24px 0',
+	alignItems: 'center',
+	borderRadius: '8px',
 	position: 'relative'
 };
 
@@ -47,20 +53,6 @@ const background: SxProps = {
 	zIndex: 1
 };
 
-const formatTickY = (value: number) => {
-	return new Intl.NumberFormat('en-US', {
-		notation: 'compact'
-	}).format(value);
-	// if (value > 1e9 || value < -1e9) return (value / 1e9).toFixed(0) + 'B';
-	// else if (value > 1e6 || value < -1e6) return (value / 1e6).toFixed(0) + 'M';
-	// else if (value > 1e3 || value < -1e3) return (value / 1e3).toFixed(0) + 'K';
-	// else return value.toFixed(0);
-};
-
-const formatTickX = (value: string) => {
-	return value.slice(0, 3) + ' ' + value.slice(-4, value.length);
-};
-
 const rowTitle: SxProps = {
 	width: '100%',
 	padding: '0 20px',
@@ -69,12 +61,13 @@ const rowTitle: SxProps = {
 	alignItems: 'center'
 };
 
-export default function PositiveAndNegativeBarChart({
+export function CustomLineChart({
+	data,
 	title,
 	details,
-	data,
+	legend = false,
 	id
-}: PositiveAndNegativeBarChartOptions) {
+}: LineChartProps) {
 	return (
 		<>
 			<section id={id}></section>
@@ -116,20 +109,21 @@ export default function PositiveAndNegativeBarChart({
 							/>
 						</Box>
 						<LazyLoad
+							height='100%'
+							offset={100}
 							style={{
 								width: '100%',
 								height: '100%'
 							}}
 							once
-							offset={100}
 						>
 							<ResponsiveContainer
 								width='100%'
 								height='100%'
 							>
-								<BarChart
+								<LineChart
 									width={500}
-									height={300}
+									height={400}
 									data={data}
 									margin={{
 										top: 12,
@@ -141,50 +135,54 @@ export default function PositiveAndNegativeBarChart({
 									{/* <CartesianGrid strokeDasharray='3 3' /> */}
 									<XAxis
 										dataKey='time'
-										axisLine={false}
 										tickFormatter={formatTickX}
 										minTickGap={50}
 									/>
 									<YAxis
-										axisLine={false}
 										tickFormatter={formatTickY}
+										domain={['dataMin', 'dataMax']}
+										axisLine={false}
 									/>
+									{legend ? (
+										<Legend
+											iconType='circle'
+											wrapperStyle={{
+												paddingLeft: '50px'
+											}}
+										/>
+									) : (
+										<></>
+									)}
 									<Tooltip
 										wrapperStyle={{
 											zIndex: 2
 										}}
-										content={<PositiveAndNegativeChartTooltip />}
-									/>
-									<Legend
-										iconType='circle'
-										wrapperStyle={{
-											paddingLeft: '50px'
-										}}
-									/>
-									<ReferenceLine
-										y={0}
-										stroke='#000'
+										content={<LineChartTooltip />}
 									/>
 									{!Array.isArray(details) ? (
-										<Bar
+										<Line
+											type='monotone'
 											dataKey={details.key}
-											stackId='a'
-											fill={details.color}
+											stroke={details.color}
+											activeDot={false}
+											dot={false}
 											fillOpacity={1}
 										/>
 									) : (
-										details.map((detail: ChartDetailProps) => (
-											<Bar
+										details.map((item: ChartDetailProps) => (
+											<Line
+												type='monotone'
+												dataKey={item.key}
+												stroke={item.color}
+												dot={false}
+												activeDot={false}
 												key={v4()}
-												dataKey={detail.key}
-												stackId={'a'}
-												fill={detail.key === 'total' ? 'none' : detail.color}
 												fillOpacity={1}
 												isAnimationActive={false}
 											/>
 										))
 									)}
-								</BarChart>
+								</LineChart>
 							</ResponsiveContainer>
 						</LazyLoad>
 					</Box>

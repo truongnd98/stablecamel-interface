@@ -4,7 +4,7 @@ export interface ChartDetailProps {
 }
 
 export interface PositiveAndNegativeBarChartOptions {
-	data: any[];
+	data?: any[];
 	title: string;
 	details: ChartDetailProps | ChartDetailProps[];
 	id: string;
