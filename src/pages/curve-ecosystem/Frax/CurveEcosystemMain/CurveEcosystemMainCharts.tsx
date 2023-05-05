@@ -1,14 +1,13 @@
 import { SxProps } from '@mui/material';
 import { Box } from '@mui/system';
-import CustomAreaChart from '../../../components/AreaChart';
-import PositiveAndNegativeBarChart from '../../../components/PositiveAndNegativeBarChart';
-import { ChartDetailProps } from '../../../components/PositiveAndNegativeBarChart/types';
+import CustomAreaChart from '../../../../components/AreaChart';
+import { ChartDetailProps } from '../../../../components/PositiveAndNegativeBarChart/types';
 import randomColor from 'randomcolor';
-import StackedBarChart from '../../../components/StackedBarChart';
-import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
-import { CustomLineChart } from '../../../components/LineChart/LineChart';
-import { ComposeChart } from '../../../components/ComposeChart/ComposeChart';
-import { ComposeChartDetails } from '../../../components/ComposeChart/types';
+
+import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
+import { CustomLineChart } from '../../../../components/LineChart/LineChart';
+import { ComposeChart } from '../../../../components/ComposeChart/ComposeChart';
+import { ComposeChartDetails } from '../../../../components/ComposeChart/types';
 
 const container: SxProps = {
 	width: '100%',

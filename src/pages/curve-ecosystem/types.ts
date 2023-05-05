@@ -102,3 +102,22 @@ export interface CurveEcosystemFrxAndFxsRes {
 	locked_fxs: fxsLocked[];
 	fxs_leader_board: fxsLeaderboard[];
 }
+
+export interface CurveVolume {
+	cum: number;
+	day: string;
+	usd_volume: number;
+}
+
+export interface CurvePoolVolume {
+	time: string;
+	'3pool': string;
+	other: string;
+	steth: string;
+	tricrypto2: string;
+}
+
+export interface Curve {
+	curve_volume: CurveVolume[];
+	curve_pool_volume: CurvePoolVolume[];
+}

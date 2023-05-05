@@ -1,13 +1,19 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { getDataFrax, getDataFraxBP, getDatafrxETH } from './thunks';
+import {
+	getDataCurvePoolVolume,
+	getDataCurveVolume,
+	getDataFrax,
+	getDataFraxBP,
+	getDatafrxETH
+} from './thunks';
 
 export function useCurveEcosystemState() {
 	const state = useAppSelector((state) => state.curveEcosystem);
 	return useMemo(() => state, [state]);
 }
 
-export function useGetDataCurveEcosystem() {
+export function useGetDataFrax() {
 	const dispatch = useAppDispatch();
 	return useEffect(() => {
 		const fetchData = async () => {
@@ -16,5 +22,13 @@ export function useGetDataCurveEcosystem() {
 			await dispatch(getDatafrxETH());
 		};
 		fetchData();
+	}, []);
+}
+
+export function useGetDataCurve() {
+	const dispatch = useAppDispatch();
+	return useEffect(() => {
+		dispatch(getDataCurveVolume());
+		dispatch(getDataCurvePoolVolume());
 	}, []);
 }

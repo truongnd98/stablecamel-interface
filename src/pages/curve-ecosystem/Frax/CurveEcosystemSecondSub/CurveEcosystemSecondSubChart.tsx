@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
-import StackedBarChart from '../../../components/StackedBarChart';
-import { ChartDetailProps } from '../../../components/StackedBarChart/types';
+import StackedBarChart from '../../../../components/StackedBarChart';
+import { ChartDetailProps } from '../../../../components/StackedBarChart/types';
 import randomColor from 'randomcolor';
-import { ComposeChart } from '../../../components/ComposeChart/ComposeChart';
-import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
-import { ComposeChartDetails } from '../../../components/ComposeChart/types';
+import { ComposeChart } from '../../../../components/ComposeChart/ComposeChart';
+import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
+import { ComposeChartDetails } from '../../../../components/ComposeChart/types';
 
 const frxETHSupplyDetails: ComposeChartDetails = {
 	bar: {

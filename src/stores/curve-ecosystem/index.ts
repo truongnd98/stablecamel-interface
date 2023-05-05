@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+	Curve,
 	CurveEcosystemFraxBPRes,
 	CurveEcosystemFraxRes,
 	CurvePrice,
@@ -9,7 +10,13 @@ import {
 	fxsLeaderboard,
 	fxsLocked
 } from '../../pages/curve-ecosystem/types';
-import { getDataFrax, getDataFraxBP, getDatafrxETH } from './thunks';
+import {
+	getDataCurvePoolVolume,
+	getDataCurveVolume,
+	getDataFrax,
+	getDataFraxBP,
+	getDatafrxETH
+} from './thunks';
 
 interface CurveEcosystemState {
 	frax: CurveEcosystemFraxRes | undefined;
@@ -23,13 +30,18 @@ interface CurveEcosystemState {
 				fxs_leader_board: fxsLeaderboard[];
 		  }
 		| undefined;
+	curve: Curve;
 }
 
 const initialState: CurveEcosystemState = {
 	frax: undefined,
 	fraxBP: undefined,
 	frxETH: undefined,
-	fxs: undefined
+	fxs: undefined,
+	curve: {
+		curve_volume: [],
+		curve_pool_volume: []
+	}
 };
 
 const curveSlice = createSlice({
@@ -52,6 +64,12 @@ const curveSlice = createSlice({
 				locked_fxs: action.payload.locked_fxs,
 				fxs_leader_board: action.payload.fxs_leader_board
 			};
+		});
+		builder.addCase(getDataCurveVolume.fulfilled, (state, action) => {
+			state.curve.curve_volume = action.payload;
+		});
+		builder.addCase(getDataCurvePoolVolume.fulfilled, (state, action) => {
+			state.curve.curve_pool_volume = action.payload;
 		});
 	}
 });

@@ -8,6 +8,7 @@ import {
 	CurveEcosystemFraxRes,
 	CurveSupply,
 	CurveSwapVolume,
+	CurveVolume,
 	frxETHSupply,
 	fxsLocked,
 	ThreePoolTVL,
@@ -105,5 +106,40 @@ export const getDatafrxETH = createAsyncThunk(
 				time: format(new Date(item.txn_date), 'PP')
 			}))
 		};
+	}
+);
+
+export const getDataCurveVolume = createAsyncThunk(
+	'curve-ecosystem/getDataCurveVolume',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/curve/volume`
+		});
+		if (!data) throw new Error('Curve Volume data undefined');
+		return data
+			.map((item: CurveVolume) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse();
+	}
+);
+
+export const getDataCurvePoolVolume = createAsyncThunk(
+	'curve-ecosystem/getDataCurvePoolVolume',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/curve/pool-volume`
+		});
+		if (!data) throw new Error('Curve Pool Volume undefined');
+		return data.map((item: any) => ({
+			time: format(new Date(item.day), 'PP'),
+			'3pool': item['3pool'].pool_usd_volume,
+			other: item.other.pool_usd_volume,
+			steth: item.steth.pool_usd_volume,
+			tricrypto2: item.tricrypto2.pool_usd_volume
+		}));
 	}
 );

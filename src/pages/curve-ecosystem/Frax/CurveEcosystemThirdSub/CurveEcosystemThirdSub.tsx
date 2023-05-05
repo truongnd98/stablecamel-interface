@@ -1,9 +1,9 @@
 import { Box, SxProps, Typography } from '@mui/material';
-import CustomAreaChart from '../../../components/AreaChart';
-import { ChartDetailProps } from '../../../components/AreaChart/types';
+import CustomAreaChart from '../../../../components/AreaChart';
+import { ChartDetailProps } from '../../../../components/AreaChart/types';
 import randomColor from 'randomcolor';
 import { CurveEcosystemThirdSubTable } from './CurveEcosystemThirdSubTable';
-import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
+import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
 
 const container: SxProps = {
 	width: '100%',

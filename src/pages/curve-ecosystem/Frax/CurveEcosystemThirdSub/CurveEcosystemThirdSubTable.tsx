@@ -1,8 +1,8 @@
 import { Box, SxProps, Typography } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { v4 } from 'uuid';
-import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
-import { fxsLeaderboard } from '../types';
+import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
+import { fxsLeaderboard } from '../../types';
 
 const main: SxProps = {
 	width: '100%',
@@ -74,7 +74,9 @@ const columns: GridColDef[] = [
 		headerName: 'Lokced FXS Balance',
 		field: 'balance',
 		flex: 1,
-		sortable: false
+		sortable: false,
+		renderCell: ({ value }) =>
+			new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(value)
 	},
 	{
 		headerName: '% of Total Locked',

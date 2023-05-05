@@ -1,6 +1,6 @@
 import { Box, SxProps } from '@mui/material';
-import { Metric } from '../../../components/Metric/Metric';
-import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
+import { Metric } from '../../../../components/Metric/Metric';
+import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
 
 const main: SxProps = {
 	width: '100%',
