@@ -11,6 +11,7 @@ import {
 	FeeRevenuePoolFormat,
 	FeeRevenue
 } from '../types';
+import { format } from 'date-fns';
 
 const wrap: SxProps = {
 	display: 'flex',
@@ -19,12 +20,7 @@ const wrap: SxProps = {
 	height: 380
 };
 
-const cumulativeDetail: ChartDetailProps[] = [
-	{
-		key: 'abc',
-		color: '#000000'
-	}
-];
+
 
 export function CurveContentCurveRevenueCharts() {
 	const { curve } = useCurveEcosystemState();
@@ -38,6 +34,20 @@ export function CurveContentCurveRevenueCharts() {
 		})
 	);
 
+	const cumulativeDetail: ChartDetailProps[] = [];
+	const dataCumulative = curve.fee_revenue_by_pool_cumulative
+
+	if (dataCumulative?.[dataCumulative.length - 1]) {
+		for (const key in dataCumulative[dataCumulative.length - 1]) {
+			cumulativeDetail.push({
+				key: key,
+				color: randomColor({
+					seed: key
+				})
+			})
+		}
+	}
+	
 	return (
 		<>
 			<Box sx={wrap}>
@@ -49,6 +59,7 @@ export function CurveContentCurveRevenueCharts() {
 					<CustomAreaChart
 						title='Curve Fee Revenue by Pool: Cumulative'
 						id='curve-fee-revenue-pool-cumulative'
+						data={dataCumulative}
 						detail={cumulativeDetail}
 					/>
 				</Box>

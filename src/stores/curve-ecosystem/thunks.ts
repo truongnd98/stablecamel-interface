@@ -12,7 +12,8 @@ import {
 	frxETHSupply,
 	fxsLocked,
 	ThreePoolTVL,
-	ThreePoolVolume
+	ThreePoolVolume,
+	FeeRevenuePool
 } from '../../pages/curve-ecosystem/types';
 
 export const getDataFrax = createAsyncThunk(
@@ -143,6 +144,16 @@ export const getDataCurveRevenue = createAsyncThunk(
 			url: `${HOST}/api/curve-ecosystem/curve/curve-revenue`
 		});
 		if (!data) throw new Error('Curve revenue not available');
-		return data;
+		
+		return {
+			...data,
+			fee_revenue_by_pool_type: data.fee_revenue_by_pool_type,
+			fee_revenue_by_pool_cumulative: data.fee_revenue_by_pool_cumulative.map(
+				(item: FeeRevenuePool) => ({
+					...item,
+					time: format(new Date(item.time), 'PP'),
+				})
+			)
+		};
 	}
 );
