@@ -1,6 +1,7 @@
 import { Box, SxProps, Typography } from '@mui/material';
 import { Metric } from '../../../components/Metric/Metric';
 import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
+import { CurveContentCurveRevenueCharts } from './CurveContentCurveRevenueCharts';
 
 const main: SxProps = {
 	width: '100%',
@@ -21,6 +22,7 @@ const formatNumber = (number?: number) => {
 
 export function CurveContentCurveRevenue() {
 	const { curve } = useCurveEcosystemState();
+	console.log('aaa', curve.total_volume?.usd_volume);
 	return (
 		<>
 			<Typography
@@ -32,21 +34,18 @@ export function CurveContentCurveRevenue() {
 			<Box sx={main}>
 				<Metric
 					title='Curve Volume'
-					value={formatNumber(
-						curve
-							? curve.curve_volume[curve.curve_volume.length - 1].usd_volume
-							: 0
-					)}
+					value={formatNumber(curve.total_volume?.usd_volume)}
 				/>
 				<Metric
 					title='Curve Revenue'
-					value={formatNumber(0)}
+					value={formatNumber(curve.total_fee_revenue[0]?.total_revenue * 1e6)}
 				/>
 				<Metric
 					title='Curve Revenue'
-					value={formatNumber(0)}
+					value={formatNumber(curve.admin_fee_revenue_per_vecrv?.admin_revenue)}
 				/>
 			</Box>
+			<CurveContentCurveRevenueCharts />
 		</>
 	);
 }

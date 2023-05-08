@@ -71,7 +71,7 @@ const columns: GridColDef[] = [
 				: value
 	},
 	{
-		headerName: 'Lokced FXS Balance',
+		headerName: 'Locked FXS Balance',
 		field: 'balance',
 		flex: 1,
 		sortable: false,

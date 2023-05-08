@@ -1,8 +1,8 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
-	getDataCurvePoolVolume,
-	getDataCurveVolume,
+	getDataCurve,
+	getDataCurveRevenue,
 	getDataFrax,
 	getDataFraxBP,
 	getDatafrxETH
@@ -28,7 +28,10 @@ export function useGetDataFrax() {
 export function useGetDataCurve() {
 	const dispatch = useAppDispatch();
 	return useEffect(() => {
-		dispatch(getDataCurveVolume());
-		dispatch(getDataCurvePoolVolume());
+		const fetchData = async () => {
+			await dispatch(getDataCurve());
+			await dispatch(getDataCurveRevenue());
+		};
+		fetchData();
 	}, []);
 }

@@ -117,7 +117,49 @@ export interface CurvePoolVolume {
 	tricrypto2: string;
 }
 
+export interface TotalRevenue {
+	total_revenue: number;
+}
+
+export interface AdminFeeRevenue {
+	day: string;
+	locked_crv: null;
+	admin_revenue: number;
+	rev_per_vecrv: null;
+}
+
+export interface FeeRevenuePoolType {
+	_col1: number;
+	token_type: string;
+}
+
+export interface FeeRevenue {
+	volume: number;
+	fee_usd: number;
+	token_type: string;
+	fee_usd_cum: number;
+	admin_fee_usd: number;
+	admin_fee_usd_cum: number;
+	project_contract_address: string;
+}
+
+export interface FeeRevenuePool {
+	[key: string]: FeeRevenue | string;
+	time: string;
+}
+
+export interface FeeRevenuePoolFormat {
+	[key: string]: number | string;
+	time: string;
+}
+
 export interface Curve {
 	curve_volume: CurveVolume[];
 	curve_pool_volume: CurvePoolVolume[];
+	total_volume: CurveVolume | undefined;
+	total_fee_revenue: TotalRevenue[];
+	admin_fee_revenue_per_vecrv: AdminFeeRevenue | undefined;
+	fee_revenue_by_pool_type: FeeRevenuePoolType[];
+	fee_revenue_by_pool_cumulative: FeeRevenuePool[];
+	fee_revenue_by_pool_daily: FeeRevenuePool[];
 }

@@ -12,8 +12,8 @@ const main: SxProps = {
 
 const formatNumber = (number: number) => {
 	return new Intl.NumberFormat('en-US', {
-		style: 'currency',
-		currency: 'USD',
+		// style: 'currency',
+		// currency: 'USD',
 		// notation: 'compact',
 		maximumFractionDigits: 0
 	}).format(number);

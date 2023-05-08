@@ -30,7 +30,7 @@ export function CurveEcosystemMainMetrics() {
 				value={formatNumber(frax.current_price.frax)}
 			/>
 			<Metric
-				title='FRAX Supply (Total)'
+				title='Total FRAX Supply'
 				value={new Intl.NumberFormat('en-US', {
 					notation: 'compact',
 					maximumFractionDigits: 2

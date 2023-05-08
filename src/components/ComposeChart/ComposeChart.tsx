@@ -170,7 +170,12 @@ export function ComposeChart({
 										orientation='right'
 										dataKey={yAxisKey.right}
 									/>
-									<Tooltip content={<ComposeChartTooltip />} />
+									<Tooltip
+										wrapperStyle={{
+											zIndex: 2
+										}}
+										content={<ComposeChartTooltip />}
+									/>
 									<Legend />
 
 									{details.area ? (

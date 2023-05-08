@@ -109,37 +109,40 @@ export const getDatafrxETH = createAsyncThunk(
 	}
 );
 
-export const getDataCurveVolume = createAsyncThunk(
-	'curve-ecosystem/getDataCurveVolume',
+export const getDataCurve = createAsyncThunk(
+	'curve-ecosystem/getDataCurve',
 	async () => {
 		const { data } = await axios({
 			method: 'GET',
-			url: `${HOST}/api/curve-ecosystem/curve/volume`
+			url: `${HOST}/api/curve-ecosystem/curve/curve`
 		});
-		if (!data) throw new Error('Curve Volume data undefined');
-		return data
-			.map((item: CurveVolume) => ({
-				...item,
-				time: format(new Date(item.day), 'PP')
+		if (!data) throw new Error('Curve data undefined');
+		return {
+			volume: data.volume
+				.map((item: CurveVolume) => ({
+					...item,
+					time: format(new Date(item.day), 'PP')
+				}))
+				.reverse(),
+			pool_volume: data.pool_volume.map((item: any) => ({
+				time: format(new Date(item.day), 'PP'),
+				'3pool': item['3pool'].pool_usd_volume,
+				other: item.other.pool_usd_volume,
+				steth: item.steth.pool_usd_volume,
+				tricrypto2: item.tricrypto2.pool_usd_volume
 			}))
-			.reverse();
+		};
 	}
 );
 
-export const getDataCurvePoolVolume = createAsyncThunk(
-	'curve-ecosystem/getDataCurvePoolVolume',
+export const getDataCurveRevenue = createAsyncThunk(
+	'curve-ecosystem/getDataCurveRevenue',
 	async () => {
 		const { data } = await axios({
 			method: 'GET',
-			url: `${HOST}/api/curve-ecosystem/curve/pool-volume`
+			url: `${HOST}/api/curve-ecosystem/curve/curve-revenue`
 		});
-		if (!data) throw new Error('Curve Pool Volume undefined');
-		return data.map((item: any) => ({
-			time: format(new Date(item.day), 'PP'),
-			'3pool': item['3pool'].pool_usd_volume,
-			other: item.other.pool_usd_volume,
-			steth: item.steth.pool_usd_volume,
-			tricrypto2: item.tricrypto2.pool_usd_volume
-		}));
+		if (!data) throw new Error('Curve revenue not available');
+		return data;
 	}
 );
