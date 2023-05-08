@@ -13,7 +13,8 @@ import {
 	fxsLocked,
 	ThreePoolTVL,
 	ThreePoolVolume,
-	FeeRevenuePool
+	FeeRevenuePool,
+	LockedCRV
 } from '../../pages/curve-ecosystem/types';
 
 export const getDataFrax = createAsyncThunk(
@@ -144,22 +145,50 @@ export const getDataCurveRevenue = createAsyncThunk(
 			url: `${HOST}/api/curve-ecosystem/curve/curve-revenue`
 		});
 		if (!data) throw new Error('Curve revenue not available');
-		
+
 		return {
 			...data,
 			fee_revenue_by_pool_type: data.fee_revenue_by_pool_type,
 			fee_revenue_by_pool_cumulative: data.fee_revenue_by_pool_cumulative.map(
 				(item: FeeRevenuePool) => ({
 					...item,
-					time: format(new Date(item.time), 'PP'),
+					time: format(new Date(item.time), 'PP')
 				})
 			),
 			fee_revenue_by_pool_daily: data.fee_revenue_by_pool_daily.map(
 				(item: FeeRevenuePool) => ({
 					...item,
-					time: format(new Date(item.time), 'PP'),
+					time: format(new Date(item.time), 'PP')
 				})
 			)
+		};
+	}
+);
+
+export const getDataLockedCRV = createAsyncThunk(
+	'curve-ecosystem/getDataLockedCRV',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/curve/locked-crv-statistics`
+		});
+		if (!data) throw new Error('Get data locked CRV not found');
+		return {
+			...data,
+			locked_crv_60d: data.locked_crv_60d.map((item: LockedCRV) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			})),
+			locked_crv: data.locked_crv
+				.map((item: LockedCRV) => ({
+					...item,
+					time: format(new Date(item.day), 'PP')
+				}))
+				.reverse(),
+			current_locked_crv: {
+				...data.current_locked_crv,
+				time: format(new Date(data.current_locked_crv.day), 'PP')
+			}
 		};
 	}
 );

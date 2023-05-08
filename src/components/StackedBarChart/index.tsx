@@ -69,7 +69,8 @@ export default function StackedBarChart({
 	id,
 	title,
 	data,
-	details
+	details,
+	legend = true
 }: BarChartOptions) {
 	return (
 		<>
@@ -116,7 +117,7 @@ export default function StackedBarChart({
 											variant='body1'
 											color='primary'
 										>
-											Copy chart
+											<b>Copy chart</b>
 										</Typography>
 									</Box>
 								}
@@ -162,12 +163,17 @@ export default function StackedBarChart({
 										}}
 										content={<StackedChartTooltip />}
 									/>
-									<Legend
-										iconType='circle'
-										wrapperStyle={{
-											paddingLeft: '50px'
-										}}
-									/>
+									{legend ? (
+										<Legend
+											iconType='circle'
+											wrapperStyle={{
+												paddingLeft: '50px'
+											}}
+										/>
+									) : (
+										<></>
+									)}
+
 									{!Array.isArray(details) ? (
 										<Bar
 											dataKey={details.key}

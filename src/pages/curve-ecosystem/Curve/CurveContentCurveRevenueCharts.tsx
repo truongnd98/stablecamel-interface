@@ -21,8 +21,6 @@ const wrap: SxProps = {
 	height: 380
 };
 
-
-
 export function CurveContentCurveRevenueCharts() {
 	const { curve } = useCurveEcosystemState();
 
@@ -36,7 +34,7 @@ export function CurveContentCurveRevenueCharts() {
 	);
 
 	const cumulativeDetail: ChartDetailProps[] = [];
-	const dataCumulative = curve.fee_revenue_by_pool_cumulative
+	const dataCumulative = curve.fee_revenue_by_pool_cumulative;
 
 	if (dataCumulative?.[dataCumulative.length - 1]) {
 		for (const key in dataCumulative[dataCumulative.length - 1]) {
@@ -45,15 +43,15 @@ export function CurveContentCurveRevenueCharts() {
 				color: randomColor({
 					seed: key
 				})
-			})
+			});
 		}
 	}
 	const dailyDetail: ChartDetailProps[] = [];
-	const dataDaily = curve.fee_revenue_by_pool_daily
+	const dataDaily = curve.fee_revenue_by_pool_daily;
 
 	if (dataDaily?.[dataDaily.length - 1]) {
 		for (const key in dataDaily[dataDaily.length - 1]) {
-			if(key !== 'time') {
+			if (key !== 'time') {
 				dailyDetail.push({
 					key: key,
 					color: randomColor({
@@ -92,19 +90,19 @@ export function CurveContentCurveRevenueCharts() {
 					/>
 				</Box>
 			</Box>
-			<Box sx={wrap}>
-				<Box
-					sx={{
-						width: 'calc((100% - 56px))'
-					}}
-				>
-					<StackedBarChart
-						title='Curve Fee Revenue by Pool: Daily'
-						id='curve-fee-revenue-pool-daily'
-						data={dataDaily}
-						details={dailyDetail}
-					/>
-				</Box>
+			<Box
+				sx={{
+					width: '100%',
+					height: 380
+				}}
+			>
+				<StackedBarChart
+					title='Curve Fee Revenue by Pool: Daily'
+					id='curve-fee-revenue-pool-daily'
+					data={dataDaily}
+					details={dailyDetail}
+					legend={false}
+				/>
 			</Box>
 		</>
 	);

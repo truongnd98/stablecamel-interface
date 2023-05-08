@@ -5,7 +5,8 @@ import {
 	getDataCurveRevenue,
 	getDataFrax,
 	getDataFraxBP,
-	getDatafrxETH
+	getDatafrxETH,
+	getDataLockedCRV
 } from './thunks';
 
 export function useCurveEcosystemState() {
@@ -31,6 +32,7 @@ export function useGetDataCurve() {
 		const fetchData = async () => {
 			await dispatch(getDataCurve());
 			await dispatch(getDataCurveRevenue());
+			await dispatch(getDataLockedCRV());
 		};
 		fetchData();
 	}, []);

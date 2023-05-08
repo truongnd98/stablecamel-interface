@@ -153,6 +153,18 @@ export interface FeeRevenuePoolFormat {
 	time: string;
 }
 
+export interface LockedCRV {
+	day: string;
+	delta: number | null;
+	locked_crv: number;
+}
+
+export interface CRVLeaderboard {
+	wallet: string;
+	balance: number;
+	percent_of_total: number;
+}
+
 export interface Curve {
 	curve_volume: CurveVolume[];
 	curve_pool_volume: CurvePoolVolume[];
@@ -162,4 +174,8 @@ export interface Curve {
 	fee_revenue_by_pool_type: FeeRevenuePoolType[];
 	fee_revenue_by_pool_cumulative: FeeRevenuePool[];
 	fee_revenue_by_pool_daily: FeeRevenuePool[];
+	locked_crv_60d: LockedCRV[];
+	locked_crv: LockedCRV[];
+	current_locked_crv: LockedCRV | undefined;
+	crv_leader_board: CRVLeaderboard[];
 }

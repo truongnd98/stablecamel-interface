@@ -8,4 +8,5 @@ export interface BarChartOptions {
 	title: string;
 	data?: any[];
 	details: ChartDetailProps | ChartDetailProps[];
+	legend?: boolean;
 }

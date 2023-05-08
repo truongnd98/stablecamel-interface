@@ -15,7 +15,8 @@ import {
 	getDataCurveRevenue,
 	getDataFrax,
 	getDataFraxBP,
-	getDatafrxETH
+	getDatafrxETH,
+	getDataLockedCRV
 } from './thunks';
 
 interface CurveEcosystemState {
@@ -46,7 +47,11 @@ const initialState: CurveEcosystemState = {
 		admin_fee_revenue_per_vecrv: undefined,
 		fee_revenue_by_pool_type: [],
 		fee_revenue_by_pool_cumulative: [],
-		fee_revenue_by_pool_daily: []
+		fee_revenue_by_pool_daily: [],
+		locked_crv_60d: [],
+		locked_crv: [],
+		current_locked_crv: undefined,
+		crv_leader_board: []
 	}
 };
 
@@ -86,6 +91,12 @@ const curveSlice = createSlice({
 				action.payload.fee_revenue_by_pool_type;
 			state.curve.fee_revenue_by_pool_daily =
 				action.payload.fee_revenue_by_pool_daily;
+		});
+		builder.addCase(getDataLockedCRV.fulfilled, (state, action) => {
+			state.curve.locked_crv = action.payload.locked_crv;
+			state.curve.locked_crv_60d = action.payload.locked_crv_60d;
+			state.curve.current_locked_crv = action.payload.current_locked_crv;
+			state.curve.crv_leader_board = action.payload.crv_leader_board;
 		});
 	}
 });

@@ -113,7 +113,7 @@ export function CustomLineChart({
 											variant='body1'
 											color='primary'
 										>
-											Copy chart
+											<b>Copy chart</b>
 										</Typography>
 									</Box>
 								}
