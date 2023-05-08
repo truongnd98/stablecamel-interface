@@ -168,7 +168,7 @@ export interface CRVLeaderboard {
 export interface Curve {
 	curve_volume: CurveVolume[];
 	curve_pool_volume: CurvePoolVolume[];
-	total_volume: CurveVolume | undefined;
+	total_volume: { total_volume: number } | undefined;
 	total_fee_revenue: TotalRevenue[];
 	admin_fee_revenue_per_vecrv: AdminFeeRevenue | undefined;
 	fee_revenue_by_pool_type: FeeRevenuePoolType[];

@@ -22,7 +22,7 @@ const formatNumber = (number?: number) => {
 
 export function CurveContentCurveRevenue() {
 	const { curve } = useCurveEcosystemState();
-	console.log('aaa', curve.total_volume?.usd_volume);
+
 	return (
 		<>
 			<Typography
@@ -34,7 +34,11 @@ export function CurveContentCurveRevenue() {
 			<Box sx={main}>
 				<Metric
 					title='Curve Volume'
-					value={formatNumber(curve.total_volume?.usd_volume)}
+					value={formatNumber(
+						curve.total_volume
+							? curve.total_volume.total_volume * 1e9
+							: undefined
+					)}
 				/>
 				<Metric
 					title='Curve Revenue'

@@ -178,6 +178,7 @@ export default function CustomAreaChart({
 											fill={detail.color}
 											activeDot={false}
 											fillOpacity={1}
+											isAnimationActive={false}
 										/>
 									) : (
 										detail.map((item: ChartDetailProps) => (
