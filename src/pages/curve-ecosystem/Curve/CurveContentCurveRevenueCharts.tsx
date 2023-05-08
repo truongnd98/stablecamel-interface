@@ -4,6 +4,7 @@ import { v4 } from 'uuid';
 import CustomAreaChart from '../../../components/AreaChart';
 import { ChartDetailProps } from '../../../components/AreaChart/types';
 import { CustomPieChart } from '../../../components/PieChart/PieChart';
+import StackedBarChart from '../../../components/StackedBarChart';
 import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
 import {
 	FeeRevenuePoolType,
@@ -47,7 +48,22 @@ export function CurveContentCurveRevenueCharts() {
 			})
 		}
 	}
-	
+	const dailyDetail: ChartDetailProps[] = [];
+	const dataDaily = curve.fee_revenue_by_pool_daily
+
+	if (dataDaily?.[dataDaily.length - 1]) {
+		for (const key in dataDaily[dataDaily.length - 1]) {
+			if(key !== 'time') {
+				dailyDetail.push({
+					key: key,
+					color: randomColor({
+						seed: key
+					})
+				});
+			}
+		}
+	}
+
 	return (
 		<>
 			<Box sx={wrap}>
@@ -73,6 +89,20 @@ export function CurveContentCurveRevenueCharts() {
 						title='Curve Fee Revenue by Pool Type'
 						id='curve-fee-revenue-pool-type'
 						legend
+					/>
+				</Box>
+			</Box>
+			<Box sx={wrap}>
+				<Box
+					sx={{
+						width: 'calc((100% - 56px))'
+					}}
+				>
+					<StackedBarChart
+						title='Curve Fee Revenue by Pool: Daily'
+						id='curve-fee-revenue-pool-daily'
+						data={dataDaily}
+						details={dailyDetail}
 					/>
 				</Box>
 			</Box>

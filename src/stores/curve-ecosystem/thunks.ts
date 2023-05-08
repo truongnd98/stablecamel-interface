@@ -153,6 +153,12 @@ export const getDataCurveRevenue = createAsyncThunk(
 					...item,
 					time: format(new Date(item.time), 'PP'),
 				})
+			),
+			fee_revenue_by_pool_daily: data.fee_revenue_by_pool_daily.map(
+				(item: FeeRevenuePool) => ({
+					...item,
+					time: format(new Date(item.time), 'PP'),
+				})
 			)
 		};
 	}
