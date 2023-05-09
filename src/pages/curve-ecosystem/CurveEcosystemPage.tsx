@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import { CurveContent } from './Curve/CurveContent';
 import { CurveEcosystemTitle } from './CurveEcosystemTitle/CurveEcosystemTitle';
 import { FraxContent } from './Frax/FraxContent';
+import { ConvexContent } from './Convex/ConvexContent';
 
 const container: SxProps = {
 	width: '100%',
@@ -22,6 +23,7 @@ export function CurveEcosystemPage() {
 			<CurveEcosystemTitle />
 			{network === 'frax-finance' ? <FraxContent /> : <></>}
 			{network === 'curve' ? <CurveContent /> : <></>}
+			{network === 'convex' ? <ConvexContent /> : <></>}
 			<Footer />
 		</Box>
 	);
