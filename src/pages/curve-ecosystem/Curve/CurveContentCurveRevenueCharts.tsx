@@ -67,7 +67,7 @@ export function CurveContentCurveRevenueCharts() {
 			<Box sx={wrap}>
 				<Box
 					sx={{
-						width: 'calc((100% - 56px) / 3 * 2 + 28px)'
+						width: 'calc(50% - 14px)'
 					}}
 				>
 					<CustomAreaChart
@@ -79,7 +79,7 @@ export function CurveContentCurveRevenueCharts() {
 				</Box>
 				<Box
 					sx={{
-						width: 'calc((100% - 56px) / 3)'
+						width: 'calc(50% - 14px)'
 					}}
 				>
 					<CustomPieChart

@@ -41,11 +41,11 @@ export function CurveContentCurveRevenue() {
 					)}
 				/>
 				<Metric
-					title='Curve Revenue'
+					title='Total Fee Revenue'
 					value={formatNumber(curve.total_fee_revenue[0]?.total_revenue * 1e6)}
 				/>
 				<Metric
-					title='Curve Revenue'
+					title='Admin Fee Revenue Per veCRV'
 					value={formatNumber(curve.admin_fee_revenue_per_vecrv?.admin_revenue)}
 				/>
 			</Box>

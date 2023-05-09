@@ -75,7 +75,7 @@ export function CurveEcosystemTitle() {
 					variant='h5'
 					color='primary'
 				>
-					{getProtocol(network)?.name}
+					Curve Ecosystem
 				</Typography>
 
 				<CurveEcosystemTitleTooltip />

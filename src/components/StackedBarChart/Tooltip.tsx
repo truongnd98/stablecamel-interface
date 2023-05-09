@@ -27,35 +27,38 @@ const StackedChartTooltip = ({ active, payload, label }: any) => {
 				>
 					<b>{label}</b>
 				</Typography>
-				{payload.map((item: any) =>
-					item.value > 0 ? (
-						<Box
-							sx={{
-								display: 'flex',
-								justifyContent: 'space-between'
-							}}
-							key={v4()}
-						>
-							<Typography
-								variant='body1'
+				{payload
+					.sort((a: any, b: any) => b.value - a.value)
+					.slice(0, 10)
+					.map((item: any) =>
+						item.value > 0 ? (
+							<Box
 								sx={{
-									color: item.color
+									display: 'flex',
+									justifyContent: 'space-between'
 								}}
-							>{`${item.name}:`}</Typography>
-
-							<Typography
-								variant='body1'
-								sx={{
-									color: item.color
-								}}
+								key={v4()}
 							>
-								{convertCurrency(item.value)}
-							</Typography>
-						</Box>
-					) : (
-						<></>
-					)
-				)}
+								<Typography
+									variant='body1'
+									sx={{
+										color: item.color
+									}}
+								>{`${item.name}:`}</Typography>
+
+								<Typography
+									variant='body1'
+									sx={{
+										color: item.color
+									}}
+								>
+									{convertCurrency(item.value)}
+								</Typography>
+							</Box>
+						) : (
+							<></>
+						)
+					)}
 				<Box
 					sx={{
 						display: 'flex',
