@@ -180,6 +180,7 @@ export default function PositiveAndNegativeBarChart({
 									{!Array.isArray(details) ? (
 										<Bar
 											dataKey={details.key}
+											name={details.name}
 											stackId='a'
 											fill={details.color}
 											fillOpacity={1}
@@ -189,6 +190,7 @@ export default function PositiveAndNegativeBarChart({
 											<Bar
 												key={v4()}
 												dataKey={detail.key}
+												name={detail.name}
 												stackId={'a'}
 												fill={detail.key === 'total' ? 'none' : detail.color}
 												fillOpacity={1}

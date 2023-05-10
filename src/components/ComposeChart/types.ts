@@ -14,13 +14,15 @@ export interface ComposeChartAxisKey {
 }
 
 export interface ComposeChartDetails {
-	bar?: ChartDetails;
-	line?: ChartDetails;
-	area?: ChartDetails;
-	scatter?: ChartDetails;
+	bar?: ChartDetails | ChartDetails[];
+	line?: ChartDetails | ChartDetails[];
+	area?: ChartDetails | ChartDetails[] ;
+	scatter?: ChartDetails | ChartDetails[];
 }
 
 export interface ChartDetails {
 	key: string;
 	color: string;
+	name?: string;
+	right?: boolean;
 }

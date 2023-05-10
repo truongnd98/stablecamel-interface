@@ -179,3 +179,69 @@ export interface Curve {
 	current_locked_crv: LockedCRV | undefined;
 	crv_leader_board: CRVLeaderboard[];
 }
+
+export interface LockedCVX {
+	day: string;
+	delta: number;
+	delta_7: number;
+	delta_30: number;
+	cum_from: number;
+}
+
+export interface CVXLeaderboard {
+	label: string;
+	balance: number;
+	percent_of_total: number;
+}
+
+export interface CVXBribeRevenue {
+	time: string;
+	[key:string]: any;
+}
+
+
+export interface CVXUnlockTrackerV2 {
+	cvx: number,
+	epoch: string,
+	unlock_date: string,
+	future_unlock: number,
+	expired_unlock: number,
+	future_unlock_usd: number,
+	expired_unlock_usd: number
+}
+
+export interface CVXCumulative3CRV {
+	day: string;
+	total_3crv: number;
+	total_3crv_usd: number;
+}
+
+export interface CRVFarmed {
+	day: string;
+	total_crv: number;
+	cum_farmed_crv: number;
+}
+
+
+export interface FSXFarmed {
+	day: string;
+	total_fxs: number;
+	fxs_to_LPs: number;
+	fxs_to_vlCVX: number;
+	fxs_to_cvxFXS: number;
+	total_fxs_usd: number;
+	fxs_to_LPs_usd: number;
+	fxs_to_vlCVX_usd: number;
+	fxs_to_cvxFXS_usd: number;
+}
+
+export interface Convex {
+	locked_cvx: LockedCVX[];
+	current_locked_cvx: LockedCVX | undefined;
+	cvx_leaderboard: CVXLeaderboard[]
+	bribe_revenue: CVXBribeRevenue[]
+	unlock_tracker_v2: CVXUnlockTrackerV2[]
+	cumulative_3crv: CVXCumulative3CRV[],
+	crv_farmed: CRVFarmed[],
+	fsx_farmed: FSXFarmed[],
+}

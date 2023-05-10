@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+	Convex,
 	Curve,
 	CurveEcosystemFraxBPRes,
 	CurveEcosystemFraxRes,
@@ -11,6 +12,7 @@ import {
 	fxsLocked
 } from '../../pages/curve-ecosystem/types';
 import {
+	getDataConvex,
 	getDataCurve,
 	getDataCurveRevenue,
 	getDataFrax,
@@ -32,6 +34,7 @@ interface CurveEcosystemState {
 		  }
 		| undefined;
 	curve: Curve;
+	convex: Convex;
 }
 
 const initialState: CurveEcosystemState = {
@@ -51,7 +54,18 @@ const initialState: CurveEcosystemState = {
 		locked_crv_60d: [],
 		locked_crv: [],
 		current_locked_crv: undefined,
-		crv_leader_board: []
+		crv_leader_board: [],
+		
+	},
+	convex: {
+		locked_cvx: [],
+		current_locked_cvx: undefined,
+		cvx_leaderboard: [],
+		bribe_revenue: [],
+		unlock_tracker_v2: [],
+		cumulative_3crv: [],
+		crv_farmed: [],
+		fsx_farmed: [],
 	}
 };
 
@@ -97,6 +111,16 @@ const curveSlice = createSlice({
 			state.curve.locked_crv_60d = action.payload.locked_crv_60d;
 			state.curve.current_locked_crv = action.payload.current_locked_crv;
 			state.curve.crv_leader_board = action.payload.crv_leader_board;
+		});
+		builder.addCase(getDataConvex.fulfilled, (state, action) => {
+			state.convex.locked_cvx = action.payload.locked_cvx;
+			state.convex.current_locked_cvx = action.payload.current_locked_cvx;
+			state.convex.cvx_leaderboard = action.payload.cvx_leaderboard;
+			state.convex.bribe_revenue = action.payload.bribe_revenue;
+			state.convex.unlock_tracker_v2 = action.payload.unlock_tracker_v2;
+			state.convex.cumulative_3crv = action.payload.cumulative_3crv;
+			state.convex.crv_farmed = action.payload.crv_farmed;
+			state.convex.fsx_farmed = action.payload.fsx_farmed;
 		});
 	}
 });

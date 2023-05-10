@@ -14,7 +14,11 @@ import {
 	ThreePoolTVL,
 	ThreePoolVolume,
 	FeeRevenuePool,
-	LockedCRV
+	LockedCRV,
+	LockedCVX,
+	CVXCumulative3CRV,
+	CRVFarmed,
+	FSXFarmed
 } from '../../pages/curve-ecosystem/types';
 
 export const getDataFrax = createAsyncThunk(
@@ -189,6 +193,57 @@ export const getDataLockedCRV = createAsyncThunk(
 				...data.current_locked_crv,
 				time: format(new Date(data.current_locked_crv.day), 'PP')
 			}
+		};
+	}
+);
+
+export const getDataConvex = createAsyncThunk(
+	'curve-ecosystem/getDataConvex',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/convex/convex`
+		});
+		if (!data) throw new Error('Convex data undefined');
+		return {
+			...data,
+			locked_cvx: data.locked_cvx.map((item: LockedCVX) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+			unlock_tracker_v2: data.unlock_tracker_v2
+			.sort((item1: { unlock_date: string }, item2: { unlock_date: string })=>
+				( - new Date(item1.unlock_date).getTime() + new Date(item2.unlock_date).getTime())
+			)
+			.map((item: { unlock_date: string }) => ({
+				...item,
+				time: format(new Date(item.unlock_date), 'PP')
+			}))
+			.reverse(),
+			cumulative_3crv: data.cumulative_3crv.map((item: CVXCumulative3CRV) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+			crv_farmed: data.crv_farmed
+			.sort((item1: { day: string }, item2: { day: string })=>
+				( - new Date(item1.day).getTime() + new Date(item2.day).getTime())
+			)
+			.map((item: CRVFarmed) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+			fsx_farmed: data.fsx_farmed
+			.sort((item1: { day: string }, item2: { day: string })=>
+				( - new Date(item1.day).getTime() + new Date(item2.day).getTime())
+			)
+			.map((item: FSXFarmed) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
 		};
 	}
 );

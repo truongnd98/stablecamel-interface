@@ -176,9 +176,9 @@ export function ComposeChart({
 										}}
 										content={<ComposeChartTooltip />}
 									/>
-									<Legend />
+									{/* <Legend /> */}
 
-									{details.area ? (
+									{details.area && (!Array.isArray(details.area) ? (
 										<Area
 											type='monotone'
 											dataKey={details.area.key}
@@ -188,28 +188,53 @@ export function ComposeChart({
 											fillOpacity={1}
 											isAnimationActive={false}
 											yAxisId={
-												details.area.key === yAxisKey.right
+												(details.area.right || details.area.key === yAxisKey.right)
 													? 'right'
 													: undefined
 											}
 										/>
-									) : (
-										<></>
-									)}
-									{details.bar ? (
+									) : details.area.map((item) =>  (
+										<Area
+											type='monotone'
+											dataKey={item.key}
+											key={item.key}
+											fill={item.color}
+											stroke='none'
+											activeDot={false}
+											fillOpacity={1}
+											isAnimationActive={false}
+											yAxisId={
+												(item.right || item.key === yAxisKey.right)
+													? 'right'
+													: undefined
+											}
+										/>
+									)))}
+									{details.bar && (!Array.isArray(details.bar) ? (
 										<Bar
 											dataKey={details.bar.key}
 											barSize={20}
 											fill={details.bar.color}
 											isAnimationActive={false}
 											yAxisId={
-												details.bar.key === yAxisKey.right ? 'right' : undefined
+												(details.bar.right ||  details.bar.key === yAxisKey.right) ? 'right' : undefined
 											}
 										/>
 									) : (
-										<></>
-									)}
-									{details.line ? (
+										details.bar.map(item=>(
+											<Bar
+											dataKey={item.key}
+											key={item.key}
+											barSize={20}
+											fill={item.color}
+											isAnimationActive={false}
+											yAxisId={
+												(item.right || item.key === yAxisKey.right) ? 'right' : undefined
+											}
+										/>
+										))
+									))}
+									{details.line &&(!Array.isArray(details.line) ? (
 										<Line
 											dataKey={details.line.key}
 											stroke={details.line.color}
@@ -217,27 +242,52 @@ export function ComposeChart({
 											activeDot={false}
 											isAnimationActive={false}
 											yAxisId={
-												details.line.key === yAxisKey.right
+												( details.line.right || details.line.key === yAxisKey.right)
 													? 'right'
 													: undefined
 											}
 										/>
 									) : (
-										<></>
-									)}
-									{details.scatter ? (
+										details.line.map(item => (
+											<Line
+											dataKey={item.key}
+											key={item.key}
+											stroke={item.color}
+											dot={false}
+											activeDot={false}
+											isAnimationActive={false}
+											yAxisId={
+												(item.right || item.key === yAxisKey.right)
+													? 'right'
+													: undefined
+											}
+										/>
+										))
+									))}
+									{details.scatter &&( !Array.isArray(details.scatter) ? (
 										<Scatter
 											dataKey={details.scatter.key}
 											fill={details.scatter.color}
 											yAxisId={
-												details.scatter.key === yAxisKey.right
+												(details.scatter.right ||  details.scatter.key === yAxisKey.right)
 													? 'right'
 													: undefined
 											}
 										/>
 									) : (
-										<></>
-									)}
+										details.scatter.map(item => (
+											<Scatter
+											dataKey={item.key}
+											key={item.key}
+											fill={item.color}
+											yAxisId={
+												(item.right || item.key === yAxisKey.right)
+													? 'right'
+													: undefined
+											}
+										/>
+										))
+									))}
 								</ComposedChart>
 							</ResponsiveContainer>
 						</LazyLoad>

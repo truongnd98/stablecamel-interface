@@ -174,6 +174,7 @@ export default function CustomAreaChart({
 										<Area
 											type='monotone'
 											dataKey={detail.key}
+											name={detail.name}
 											stroke='none'
 											fill={detail.color}
 											activeDot={false}
@@ -185,6 +186,7 @@ export default function CustomAreaChart({
 											<Area
 												type='monotone'
 												dataKey={item.key}
+												name={item.name}
 												stroke='none'
 												stackId={item.key === 'total' ? '1' : '0'}
 												fill={item.key === 'total' ? 'none' : item.color}
