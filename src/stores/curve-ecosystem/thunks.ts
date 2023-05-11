@@ -18,7 +18,12 @@ import {
 	LockedCVX,
 	CVXCumulative3CRV,
 	CRVFarmed,
-	FSXFarmed
+	FSXFarmed,
+	LockedCNC,
+	CNCTVLByToken,
+	DailyCNCNetLocked,
+	CNCUnlocksTrackerWeekly,
+	CLeverLockedCVXAndFlow
 } from '../../pages/curve-ecosystem/types';
 
 export const getDataFrax = createAsyncThunk(
@@ -242,6 +247,80 @@ export const getDataConvex = createAsyncThunk(
 			.map((item: FSXFarmed) => ({
 				...item,
 				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+		};
+	}
+);
+
+export const getDataConic = createAsyncThunk(
+	'curve-ecosystem/getDataConic',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/conic/conic`
+		});
+		if (!data) throw new Error('Conic data undefined');
+		return {
+			...data,
+			tvl_by_token: data.tvl_by_token
+			.sort((item1: { day: string }, item2: { day: string })=>
+				( - new Date(item1.day).getTime() + new Date(item2.day).getTime())
+			)
+			.map((item: CNCTVLByToken) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+			locked_cnc: data.locked_cnc
+			.sort((item1: { minute: string }, item2: { minute: string })=>
+				( - new Date(item1.minute).getTime() + new Date(item2.minute).getTime())
+			)
+			.map((item: LockedCNC) => ({
+				...item,
+				time: format(new Date(item.minute), 'PP')
+			}))
+			.reverse(),
+			daily_cnc_net_locked: data.daily_cnc_net_locked
+			.sort((item1: { day: string }, item2: { day: string })=>
+				( - new Date(item1.day).getTime() + new Date(item2.day).getTime())
+			)
+			.map((item: DailyCNCNetLocked) => ({
+				...item,
+				time: format(new Date(item.day), 'PP')
+			}))
+			.reverse(),
+			unlocks_tracker_weekly: data.unlocks_tracker_weekly
+			.sort((item1: { week: string }, item2: { week: string })=>
+				( - new Date(item1.week).getTime() + new Date(item2.week).getTime())
+			)
+			.map((item: CNCUnlocksTrackerWeekly) => ({
+				...item,
+				time: format(new Date(item.week), 'PP')
+			}))
+			.reverse(),
+		};
+	}
+);
+
+export const getDataCLever = createAsyncThunk(
+	'curve-ecosystem/getDataCLever',
+	async () => {
+		const { data } = await axios({
+			method: 'GET',
+			url: `${HOST}/api/curve-ecosystem/clever/clever`
+		});
+		if (!data) throw new Error('CLever data undefined');
+
+		return {
+			...data,
+			locked_cvx_and_flow: data.locked_cvx_and_flow
+			.sort((item1: { Date: string }, item2: { Date: string })=>
+				( - new Date(item1.Date).getTime() + new Date(item2.Date).getTime())
+			)
+			.map((item: CLeverLockedCVXAndFlow) => ({
+				...item,
+				time: format(new Date(item.Date), 'PP')
 			}))
 			.reverse(),
 		};

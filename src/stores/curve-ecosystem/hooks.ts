@@ -1,6 +1,8 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import {
+	getDataCLever,
+	getDataConic,
 	getDataConvex,
 	getDataCurve,
 	getDataCurveRevenue,
@@ -44,6 +46,26 @@ export function useGetDataConvex() {
 	return useEffect(() => {
 		const fetchData = async () => {
 			await dispatch(getDataConvex());
+		};
+		fetchData();
+	}, []);
+}
+
+export function useGetDataConic() {
+	const dispatch = useAppDispatch();
+	return useEffect(() => {
+		const fetchData = async () => {
+			await dispatch(getDataConic());
+		};
+		fetchData();
+	}, []);
+}
+
+export function useGetDataClever() {
+	const dispatch = useAppDispatch();
+	return useEffect(() => {
+		const fetchData = async () => {
+			await dispatch(getDataCLever());
 		};
 		fetchData();
 	}, []);
