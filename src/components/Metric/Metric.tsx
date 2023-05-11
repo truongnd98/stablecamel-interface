@@ -1,4 +1,4 @@
-import { Paper, Skeleton, SxProps, Typography } from '@mui/material';
+import { Box, Paper, Skeleton, SxProps, Typography } from '@mui/material';
 import { MetricProps } from './types';
 
 const paper: SxProps = {
@@ -12,18 +12,26 @@ const paper: SxProps = {
   borderRadius: '8px',
 };
 
-export function Metric({ title, value }: MetricProps) {
+export function Metric({ title, value, tooltip }: MetricProps) {
   return value ? (
     <Paper
       sx={paper}
       elevation={0}
     >
-      <Typography
-        variant='h5'
-        color='primary'
+      <Box
+        sx={{
+          display: 'flex',
+          gap: '12px',
+        }}
       >
-        <b>{title}</b>
-      </Typography>
+        <Typography
+          variant='h5'
+          color='primary'
+        >
+          <b>{title}</b>
+        </Typography>
+        {tooltip ? tooltip : <></>}
+      </Box>
       <Typography
         variant='h3'
         color='secondary'
