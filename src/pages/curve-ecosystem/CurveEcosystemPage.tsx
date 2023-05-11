@@ -20,7 +20,6 @@ export function CurveEcosystemPage() {
 	const { network } = useParams();
 	return (
 		<Box sx={container}>
-			<CurveEcosystemTitle />
 			{network === 'frax-finance' ? <FraxContent /> : <></>}
 			{network === 'curve' ? <CurveContent /> : <></>}
 			{network === 'convex' ? <ConvexContent /> : <></>}
