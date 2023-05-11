@@ -5,6 +5,8 @@ import { CurveContent } from './Curve/CurveContent';
 import { CurveEcosystemTitle } from './CurveEcosystemTitle/CurveEcosystemTitle';
 import { FraxContent } from './Frax/FraxContent';
 import { ConvexContent } from './Convex/ConvexContent';
+import { ConicContent } from './Conic/ConicConten';
+import { CleverContent } from './Clever/CleverContent';
 
 const container: SxProps = {
 	width: '100%',
@@ -23,6 +25,8 @@ export function CurveEcosystemPage() {
 			{network === 'frax-finance' ? <FraxContent /> : <></>}
 			{network === 'curve' ? <CurveContent /> : <></>}
 			{network === 'convex' ? <ConvexContent /> : <></>}
+			{network === 'conic' ? <ConicContent /> : <></>}
+			{network === 'clever' ? <CleverContent /> : <></>}
 			<Footer />
 		</Box>
 	);

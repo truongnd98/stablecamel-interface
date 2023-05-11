@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+	CLever,
+	Conic,
 	Convex,
 	Curve,
 	CurveEcosystemFraxBPRes,
@@ -12,6 +14,8 @@ import {
 	fxsLocked
 } from '../../pages/curve-ecosystem/types';
 import {
+	getDataCLever,
+	getDataConic,
 	getDataConvex,
 	getDataCurve,
 	getDataCurveRevenue,
@@ -35,6 +39,8 @@ interface CurveEcosystemState {
 		| undefined;
 	curve: Curve;
 	convex: Convex;
+	conic: Conic;
+	clever: CLever;
 }
 
 const initialState: CurveEcosystemState = {
@@ -55,7 +61,7 @@ const initialState: CurveEcosystemState = {
 		locked_crv: [],
 		current_locked_crv: undefined,
 		crv_leader_board: [],
-		
+
 	},
 	convex: {
 		locked_cvx: [],
@@ -66,6 +72,21 @@ const initialState: CurveEcosystemState = {
 		cumulative_3crv: [],
 		crv_farmed: [],
 		fsx_farmed: [],
+	},
+	conic: {
+		total_tvl: undefined,
+		current_cnc: undefined,
+		tvl_curve_pool_distribution: [],
+		tvl_by_token: [],
+		current_daily_cnc_net_locked: undefined,
+		daily_cnc_net_locked: [],
+		locked_cnc: [],
+		leaderboard: [],
+		unlocks_tracker_weekly: [],
+	},
+	clever: {
+		current_locked_cvx_and_flow: undefined,
+		locked_cvx_and_flow: [],
 	}
 };
 
@@ -121,6 +142,21 @@ const curveSlice = createSlice({
 			state.convex.cumulative_3crv = action.payload.cumulative_3crv;
 			state.convex.crv_farmed = action.payload.crv_farmed;
 			state.convex.fsx_farmed = action.payload.fsx_farmed;
+		});
+		builder.addCase(getDataConic.fulfilled, (state, action) => {
+			state.conic.total_tvl = action.payload.total_tvl;
+			state.conic.current_cnc = action.payload.current_cnc;
+			state.conic.tvl_curve_pool_distribution = action.payload.tvl_curve_pool_distribution;
+			state.conic.tvl_by_token =  action.payload.tvl_by_token;
+			state.conic.daily_cnc_net_locked = action.payload.daily_cnc_net_locked;
+			state.conic.current_daily_cnc_net_locked = action.payload.current_daily_cnc_net_locked;
+			state.conic.locked_cnc = action.payload.locked_cnc;
+			state.conic.leaderboard = action.payload.leaderboard;
+			state.conic.unlocks_tracker_weekly = action.payload.unlocks_tracker_weekly;
+		});
+		builder.addCase(getDataCLever.fulfilled, (state, action) => {
+			state.clever.current_locked_cvx_and_flow = action.payload.current_locked_cvx_and_flow;
+			state.clever.locked_cvx_and_flow = action.payload.locked_cvx_and_flow;
 		});
 	}
 });

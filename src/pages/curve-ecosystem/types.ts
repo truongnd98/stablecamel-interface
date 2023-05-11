@@ -238,10 +238,94 @@ export interface FSXFarmed {
 export interface Convex {
 	locked_cvx: LockedCVX[];
 	current_locked_cvx: LockedCVX | undefined;
-	cvx_leaderboard: CVXLeaderboard[]
-	bribe_revenue: CVXBribeRevenue[]
-	unlock_tracker_v2: CVXUnlockTrackerV2[]
-	cumulative_3crv: CVXCumulative3CRV[],
-	crv_farmed: CRVFarmed[],
-	fsx_farmed: FSXFarmed[],
+	cvx_leaderboard: CVXLeaderboard[];
+	bribe_revenue: CVXBribeRevenue[];
+	unlock_tracker_v2: CVXUnlockTrackerV2[];
+	cumulative_3crv: CVXCumulative3CRV[];
+	crv_farmed: CRVFarmed[];
+	fsx_farmed: FSXFarmed[];
+}
+
+export interface ConicTotalTvl {
+	TVL: number;
+	day: string;
+}
+
+export interface CNC {
+	ratio: number;
+	vlcnc: number;
+	minute: string;
+	circ_supply: number;
+	total_supply: number;
+	circ_cnc_locked: number;
+	circ_cnc_locked_counter: number;
+}
+
+export interface CNCTVLByToken {
+	day: string,
+	USDC: number;
+	DAI: number;
+	FRAX: number;
+	USDT: number;
+}
+
+export interface CNCTVLCurvePoolDistribution {
+	label: string;
+	amount: number;
+}
+
+export interface DailyCNCNetLocked {
+	day: string;
+	locked: number;
+	rolling_7_day_amount: number;
+	rolling_30_day_amount: number;
+}
+
+export interface LockedCNC {
+	delta: number;
+	vlcnc: number;
+	minute: string;
+}
+
+export interface CNCLeaderboard {
+	wallet: string;
+	balance: number;
+	percent_of_total: number;
+}
+
+export interface CNCUnlocksTrackerWeekly {
+	week: string;
+	unlock_usd: number;
+	locked_amount: number;
+	expired_unlock_usd: number;
+	expired_locked_amount: number;
+}
+
+export interface Conic {
+	total_tvl: ConicTotalTvl | undefined;
+	current_cnc: CNC | undefined;
+	tvl_curve_pool_distribution: CNCTVLCurvePoolDistribution[];
+	tvl_by_token: CNCTVLByToken[];
+	current_daily_cnc_net_locked: DailyCNCNetLocked | undefined;
+	daily_cnc_net_locked: DailyCNCNetLocked[];
+	locked_cnc: LockedCNC[];
+	leaderboard: CNCLeaderboard[];
+	unlocks_tracker_weekly: CNCUnlocksTrackerWeekly[];
+}
+
+export interface CLeverLockedCVXAndFlow {
+	Date: string;
+	inflow: number;
+	Holders: number;
+	outflow: number;
+	CVX_locked: number;
+	Net_borrowings: number;
+	clevCVX_supply: number;
+	clevCVX_upper_limit: number;
+	Net_borrowings_counter: number;
+}
+
+export interface CLever {
+	current_locked_cvx_and_flow: CLeverLockedCVXAndFlow | undefined;
+	locked_cvx_and_flow: CLeverLockedCVXAndFlow[];
 }

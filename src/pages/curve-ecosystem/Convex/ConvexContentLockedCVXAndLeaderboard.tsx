@@ -19,9 +19,7 @@ const lockedCVXDaily: ChartDetailProps = {
 
 
 export function ConvexContentLockedCVXAndLeaderboard() {
-	const { convex } = useCurveEcosystemState();
-
-	
+	const { convex } = useCurveEcosystemState();	
 
 	return (
 		<>
