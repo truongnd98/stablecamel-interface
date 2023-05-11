@@ -1,4 +1,5 @@
 import { useGetDataConic } from '../../../stores/curve-ecosystem/hooks';
+import { FraxTitle } from '../Frax/FraxTitle/FraxTitle';
 import { ConicContentCNCLockedMetrics } from './ConicContentCNCLockedMetrics';
 import { ConicContentDailyCNCNetLockedAndUnlocksCNCTrackerWeekly } from './ConicContentDailyCNCNetLockedAndUnlocksCNCTrackerWeekly';
 import { ConicContentLockedCNCAndLeaderboard } from './ConicContentLockedCNCAndLeaderboard';
@@ -9,6 +10,7 @@ export function ConicContent() {
 	useGetDataConic();
 	return (
 		<>
+      <FraxTitle />
       <ConicContentMetrics/>
       <ConicContentTVLByTokenAndTVLCurvePoolDistribution/>
       <ConicContentCNCLockedMetrics/>
