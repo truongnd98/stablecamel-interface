@@ -38,12 +38,13 @@ export function CurveContentCurveRevenueCharts() {
 
 	if (dataCumulative?.[dataCumulative.length - 1]) {
 		for (const key in dataCumulative[dataCumulative.length - 1]) {
-			cumulativeDetail.push({
-				key: key,
-				color: randomColor({
-					seed: key
-				})
-			});
+			if (key !== 'time')
+				cumulativeDetail.push({
+					key: key,
+					color: randomColor({
+						seed: key
+					})
+				});
 		}
 	}
 	const dailyDetail: ChartDetailProps[] = [];

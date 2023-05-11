@@ -69,11 +69,11 @@ export function CurveContentLockedCRV() {
 				}}
 			>
 				<Metric
-					title='Locked CRV (veCRV)'
+					title='Total Locked CRV (veCRV)'
 					value={formatNumber(curve.current_locked_crv?.locked_crv)}
 				/>
 				<Metric
-					title='Locked CRV (veCRV)'
+					title='1D Locked CRV (veCRV)'
 					value={formatNumber(curve.current_locked_crv?.delta)}
 				/>
 			</Box>

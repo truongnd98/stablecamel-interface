@@ -30,7 +30,7 @@ export function CurveEcosystemSecondSubMetrics() {
 				)}
 			/>
 			<Metric
-				title='frxETH Supply'
+				title='1D Change'
 				value={formatNumber(
 					frxETH ? frxETH.current_eth_supply.frxETH_supply_delta : 0
 				)}
