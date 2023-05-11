@@ -3,9 +3,9 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import InfoIcon from '@mui/icons-material/Info';
 import { Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { PopoverTooltipProps } from './types';
 
-export function FraxTitleTooltip() {
+export function PopoverTooltip({ content, component }: PopoverTooltipProps) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -30,12 +30,7 @@ export function FraxTitleTooltip() {
           alignItems: 'center',
         }}
       >
-        <InfoIcon
-          color='primary'
-          sx={{
-            height: 22,
-          }}
-        />
+        {component}
       </Box>
       <Popover
         id='mouse-over-popover'
@@ -63,23 +58,7 @@ export function FraxTitleTooltip() {
             borderRadius: '4px',
           }}
         >
-          <Typography sx={{ p: 1 }}>
-            Frax Protocol is a decentralized platform that issues three
-            stablecoins: FRAX, FPI, and frxETH. It also has three subprotocols:
-            Fraxlend, Fraxswap, and Fraxferry. Fraxlend is a permissionless
-            lending market for Frax-based stablecoins. Fraxswap is a native AMM
-            used by the Frax Protocol for rebalancing collateral and other
-            functions. Fraxferry transfers natively issued Frax Protocol tokens
-            across many blockchains. The governance token of the entire Frax
-            ecosystem is Frax Share (FXS), which accrues fees, revenue, and
-            excess collateral value.{' '}
-            <Link
-              to='https://docs.frax.finance/'
-              target='_blank'
-            >
-              Read more
-            </Link>
-          </Typography>
+          {content}
         </Box>
       </Popover>
     </div>
