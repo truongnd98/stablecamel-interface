@@ -13,7 +13,7 @@ const dailyCNCNetLockedDetail: ChartDetailProps = {
 };
 
 const unlockTrackerWeeklyDetail = {
-	bar: [{ key: "expired_locked_amount", color: "#6d3099" }, { key: "locked_amount", color: "#fd3099" }],
+	bar: [{ key: "expired_locked_amt", color: "#6d3099" }, { key: "locked_amount", color: "#fd3099" }],
 	line: [{ key : "expired_unlock_usd", color: "#6d3099", right: true }, { key : "unlock_usd", color: "#fd3099", right: true }]
 }
 
@@ -44,7 +44,7 @@ export function ConicContentDailyCNCNetLockedAndUnlocksCNCTrackerWeekly() {
 						title='vlCNC Unlocks Tracker - Weekly'
 						details={unlockTrackerWeeklyDetail}
 						yAxisKey={{
-							left:'expired_locked_amount',
+							left:'expired_locked_amt',
 							right: 'expired_unlock_usd',
 						}}
 						id='vlcnc-unlocks-tracker-weekly'
