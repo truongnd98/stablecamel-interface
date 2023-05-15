@@ -3,13 +3,18 @@ import { useCurveEcosystemState } from '../../../stores/curve-ecosystem/hooks';
 import { ComposeChart } from '../../../components/ComposeChart/ComposeChart';
 
 const cleverBorrowingAndSupplyDetail = {
-	area: [{ key: "clevCVX_supply", color: "#6d3099" }],
-	line: [{ key : "Net_borrowings_counter", color: "#6d3099", right: true }, { key : "clevCVX_upper_limit", color: "#fd3099" }]
+	area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#6d3099" }],
+	line: [
+		{ key : "Net_borrowings_counter", name: "Net Borrowings", color: "#6d3099", right: true },
+	 	{ key : "clevCVX_upper_limit", name: "clevCVX Limit",  color: "#fd3099" }]
 }
 
 const cleverLockedAndSupplyDetail = {
-	area: [{ key: "clevCVX_supply", color: "#6d3099" }],
-	line: [{ key : "CVX_locked", color: "#6d3099" }, { key : "clevCVX_upper_limit", color: "#fd3099" }]
+	area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#6d3099" }],
+	line: [
+		{ key : "CVX_locked", name : "CVX Locked", color: "#6d3099" },
+		{ key : "clevCVX_upper_limit", name: "clevCVX Limit", color: "#fd3099" }
+	]
 }
 
 export function CleverContentCharts() {

@@ -182,6 +182,7 @@ export function ComposeChart({
 										<Area
 											type='monotone'
 											dataKey={details.area.key}
+											name={details.area.name}
 											fill={details.area.color}
 											stroke='none'
 											activeDot={false}
@@ -197,6 +198,7 @@ export function ComposeChart({
 										<Area
 											type='monotone'
 											dataKey={item.key}
+											name={item.name}
 											key={item.key}
 											fill={item.color}
 											stroke='none'
@@ -213,6 +215,7 @@ export function ComposeChart({
 									{details.bar && (!Array.isArray(details.bar) ? (
 										<Bar
 											dataKey={details.bar.key}
+											name={details.bar.name}
 											barSize={20}
 											fill={details.bar.color}
 											isAnimationActive={false}
@@ -224,6 +227,7 @@ export function ComposeChart({
 										details.bar.map(item=>(
 											<Bar
 											dataKey={item.key}
+											name={item.name}
 											key={item.key}
 											barSize={20}
 											fill={item.color}
@@ -237,6 +241,7 @@ export function ComposeChart({
 									{details.line &&(!Array.isArray(details.line) ? (
 										<Line
 											dataKey={details.line.key}
+											name={details.line.name}
 											stroke={details.line.color}
 											dot={false}
 											activeDot={false}
@@ -251,6 +256,7 @@ export function ComposeChart({
 										details.line.map(item => (
 											<Line
 											dataKey={item.key}
+											name={item.name}
 											key={item.key}
 											stroke={item.color}
 											dot={false}
@@ -267,6 +273,7 @@ export function ComposeChart({
 									{details.scatter &&( !Array.isArray(details.scatter) ? (
 										<Scatter
 											dataKey={details.scatter.key}
+											name={details.scatter.name}
 											fill={details.scatter.color}
 											yAxisId={
 												(details.scatter.right ||  details.scatter.key === yAxisKey.right)
@@ -278,6 +285,7 @@ export function ComposeChart({
 										details.scatter.map(item => (
 											<Scatter
 											dataKey={item.key}
+											name={item.name}
 											key={item.key}
 											fill={item.color}
 											yAxisId={

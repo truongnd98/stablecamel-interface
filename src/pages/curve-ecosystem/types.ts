@@ -298,7 +298,7 @@ export interface CNCUnlocksTrackerWeekly {
 	unlock_usd: number;
 	locked_amount: number;
 	expired_unlock_usd: number;
-	expired_locked_amt: number;
+	expired_locked_amount: number;
 }
 
 export interface Conic {
