@@ -19,11 +19,17 @@ export function CleverContentMetrics() {
 		<Box sx={main}>
 			<Metric
 				title='CVX Locked'
-				value={String(clever.current_locked_cvx_and_flow?.CVX_locked.toFixed(0) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					maximumFractionDigits: 2,
+					notation: 'compact',
+				}).format(clever.current_locked_cvx_and_flow?.CVX_locked ?? 0)}
 			/>
 			<Metric
 				title='clevCVX Supply'
-				value={String(clever.current_locked_cvx_and_flow?.clevCVX_supply.toFixed(0) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					maximumFractionDigits: 2,
+					notation: 'compact',
+				}).format(clever.current_locked_cvx_and_flow?.clevCVX_supply ?? 0)}
 			/>
 			<Metric
 				title='Net Borrowing'

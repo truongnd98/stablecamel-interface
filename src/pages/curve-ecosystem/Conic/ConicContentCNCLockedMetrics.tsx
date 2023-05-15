@@ -27,15 +27,24 @@ export function ConicContentCNCLockedMetrics() {
 		<Box sx={main}>
 			<Metric
 				title={`Today's Net Locked`}
-				value={String(conic.current_daily_cnc_net_locked?.locked.toFixed(0) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					maximumFractionDigits: 2,
+					notation: 'compact',
+				}).format(conic.current_daily_cnc_net_locked?.locked ?? 0)}
 			/>
 			<Metric
 				title={`Net CNC Locked last 30 Days`}
-				value={String(conic.current_daily_cnc_net_locked?.rolling_30_day_amount.toFixed(0) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					maximumFractionDigits: 2,
+					notation: 'compact',
+				}).format(conic.current_daily_cnc_net_locked?.rolling_30_day_amount ?? 0)}
 			/>
 			<Metric
 				title={`Net CNC Locked Last 7 Days`}
-				value={String(conic.current_daily_cnc_net_locked?.rolling_7_day_amount.toFixed(0) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					maximumFractionDigits: 2,
+					notation: 'compact',
+				}).format(conic.current_daily_cnc_net_locked?.rolling_7_day_amount ?? 0)}
 			/>
 		</Box>
 	);

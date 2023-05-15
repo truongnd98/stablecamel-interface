@@ -31,7 +31,10 @@ export function ConicContentMetrics() {
 			/>
 			<Metric
 				title='Locked CNC'
-				value={String(conic.current_cnc?.vlcnc.toFixed(2) || 0)}
+				value={new Intl.NumberFormat('en-US', {
+					notation: 'compact',
+					maximumFractionDigits: 2
+				}).format(conic.current_cnc?.vlcnc ?? 0)}
 			/>
 			<Metric
 				title='Circulating CNC Locked'

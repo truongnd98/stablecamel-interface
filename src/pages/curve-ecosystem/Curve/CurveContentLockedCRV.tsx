@@ -23,7 +23,8 @@ const lockedCRV60dDetail: ChartDetailProps = {
 
 const formatNumber = (value?: number | null) => {
   return new Intl.NumberFormat('en-US', {
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 2,
+    notation: 'compact'
   }).format(value ?? 0);
 };
 
