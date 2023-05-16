@@ -4,6 +4,7 @@ export interface AreaChartOptions {
 	detail: ChartDetailProps | ChartDetailProps[];
 	legend?: boolean;
 	id: string;
+	tooltip?:any;
 }
 
 export interface ChartDetailProps {

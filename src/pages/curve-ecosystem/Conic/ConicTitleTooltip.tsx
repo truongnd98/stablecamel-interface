@@ -10,9 +10,8 @@ import {
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
-export function FraxTitleTooltip() {
+export function ConicTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const isMobile = useMediaQuery("(max-width:1000px)", { noSsr: true });
 
@@ -80,18 +79,15 @@ export function FraxTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-                Frax Protocol is a decentralized platform that issues three
-                stablecoins: FRAX, FPI, and frxETH. It also has three
-                subprotocols: Fraxlend, Fraxswap, and Fraxferry. Fraxlend is a
-                permissionless lending market for Frax-based stablecoins.
-                Fraxswap is a native AMM used by the Frax Protocol for
-                rebalancing collateral and other functions. Fraxferry transfers
-                natively issued Frax Protocol tokens across many blockchains.
-                The governance token of the entire Frax ecosystem is Frax Share
-                (FXS), which accrues fees, revenue, and excess collateral value.{" "}
-                <Link to="https://docs.frax.finance/" target="_blank">
-                  Read more
-                </Link>
+                Conic Finance introduces Conic Omnipools, which allocate
+                liquidity in a single asset across multiple Curve pools, giving
+                Conic liquidity providers (LPs) exposure to multiple Curve pools
+                through a single LP token. All Curve LP tokens are automatically
+                staked on Convex to earn CVX and CRV rewards. Additionally,
+                Conic LPs receive CNC, the Conic DAO token. Liquidity in an
+                Omnipool is allocated to Curve pools based on target allocation
+                weights, which get updated regularly through a liquidity
+                allocation vote held by the vote-locked CNC holders.
               </Typography>
             </Box>
           }

@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export function FraxTitleTooltip() {
+export function ConvexTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const isMobile = useMediaQuery("(max-width:1000px)", { noSsr: true });
 
@@ -80,16 +80,18 @@ export function FraxTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-                Frax Protocol is a decentralized platform that issues three
-                stablecoins: FRAX, FPI, and frxETH. It also has three
-                subprotocols: Fraxlend, Fraxswap, and Fraxferry. Fraxlend is a
-                permissionless lending market for Frax-based stablecoins.
-                Fraxswap is a native AMM used by the Frax Protocol for
-                rebalancing collateral and other functions. Fraxferry transfers
-                natively issued Frax Protocol tokens across many blockchains.
-                The governance token of the entire Frax ecosystem is Frax Share
-                (FXS), which accrues fees, revenue, and excess collateral value.{" "}
-                <Link to="https://docs.frax.finance/" target="_blank">
+                Convex allows Curve.fi liquidity providers to earn trading fees
+                and claim boosted CRV without locking CRV themselves. Liquidity
+                providers can receive boosted CRV and liquidity mining rewards
+                with minimal effort. If you would like to stake CRV, Convex lets
+                users receive trading fees as well as a share of boosted CRV
+                received by liquidity providers. This allows for a better
+                balance between liquidity providers and CRV stakers as well as
+                better capital efficiency.
+                <Link
+                  to="https://docs.convexfinance.com/convexfinance/general-information/why-convex"
+                  target="_blank"
+                >
                   Read more
                 </Link>
               </Typography>

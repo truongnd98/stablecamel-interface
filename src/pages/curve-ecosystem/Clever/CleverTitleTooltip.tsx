@@ -10,9 +10,8 @@ import {
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
-export function FraxTitleTooltip() {
+export function CleverTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const isMobile = useMediaQuery("(max-width:1000px)", { noSsr: true });
 
@@ -80,18 +79,9 @@ export function FraxTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-                Frax Protocol is a decentralized platform that issues three
-                stablecoins: FRAX, FPI, and frxETH. It also has three
-                subprotocols: Fraxlend, Fraxswap, and Fraxferry. Fraxlend is a
-                permissionless lending market for Frax-based stablecoins.
-                Fraxswap is a native AMM used by the Frax Protocol for
-                rebalancing collateral and other functions. Fraxferry transfers
-                natively issued Frax Protocol tokens across many blockchains.
-                The governance token of the entire Frax ecosystem is Frax Share
-                (FXS), which accrues fees, revenue, and excess collateral value.{" "}
-                <Link to="https://docs.frax.finance/" target="_blank">
-                  Read more
-                </Link>
+                Clever gives CVX holders a continuous, automated way to harvest
+                bribes and rewards AND allows users to claim their future bribes
+                and rewards today.
               </Typography>
             </Box>
           }

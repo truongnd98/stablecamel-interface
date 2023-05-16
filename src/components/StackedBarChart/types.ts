@@ -9,4 +9,5 @@ export interface BarChartOptions {
 	data?: any[];
 	details: ChartDetailProps | ChartDetailProps[];
 	legend?: boolean;
+	tooltip?: any;
 }

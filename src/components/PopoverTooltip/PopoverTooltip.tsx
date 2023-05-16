@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import InfoIcon from '@mui/icons-material/Info';
-import { Box } from '@mui/material';
-import { PopoverTooltipProps } from './types';
+import * as React from "react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import InfoIcon from "@mui/icons-material/Info";
+import { Box } from "@mui/material";
+import { PopoverTooltipProps } from "./types";
 
 export function PopoverTooltip({ content, component }: PopoverTooltipProps) {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -21,41 +21,41 @@ export function PopoverTooltip({ content, component }: PopoverTooltipProps) {
   return (
     <div>
       <Box
-        aria-owns={open ? 'mouse-over-popover' : undefined}
-        aria-haspopup='true'
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
         sx={{
-          display: 'flex',
-          alignItems: 'center',
+          display: "flex",
+          alignItems: "center",
         }}
       >
         {component}
       </Box>
       <Popover
-        id='mouse-over-popover'
+        id="mouse-over-popover"
         sx={{
-          pointerEvents: 'none',
+          pointerEvents: "none",
           //   opacity: 0.9,
-          width: 1200,
+          maxWidth: 820,
         }}
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
+          vertical: "bottom",
+          horizontal: "left",
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: "top",
+          horizontal: "left",
         }}
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
         <Box
           sx={{
-            border: '2px solid #8c00ef',
-            borderRadius: '4px',
+            border: "2px solid #8c00ef",
+            borderRadius: "4px",
           }}
         >
           {content}

@@ -1,15 +1,15 @@
-import { useGetDataClever } from '../../../stores/curve-ecosystem/hooks';
-import { FraxTitle } from '../Frax/FraxTitle/FraxTitle';
-import { CleverContentCharts } from './CleverContentCharts';
-import { CleverContentMetrics } from './CleverContentMetrics';
+import { useGetDataClever } from "../../../stores/curve-ecosystem/hooks";
+import { CleverContentCharts } from "./CleverContentCharts";
+import { CleverContentMetrics } from "./CleverContentMetrics";
+import { CleverTitle } from "./CleverTitle";
 
 export function CleverContent() {
-	useGetDataClever();
-	return (
-		<>
-      <FraxTitle/>
-      <CleverContentMetrics/>
-      <CleverContentCharts/>
-		</>
-	);
+  useGetDataClever();
+  return (
+    <>
+      <CleverTitle />
+      <CleverContentMetrics />
+      <CleverContentCharts />
+    </>
+  );
 }

@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import './App.css';
-import MainSideBar from './components/MainSideBar';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './constants/theme';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './Router';
-import Networks from './jsons/networks.json';
-import { NetworkContext } from './contexts';
-import { HelmetProvider } from 'react-helmet-async';
+import React, { useState } from "react";
+import styled from "styled-components";
+import "./App.css";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./constants/theme";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Router";
+import Networks from "./jsons/networks.json";
+import { NetworkContext } from "./contexts";
+import { HelmetProvider } from "react-helmet-async";
 
 export interface Network {
   chainId: string;
@@ -24,11 +23,11 @@ export interface Token {
 }
 
 export enum Chain {
-  ETHEREUM = 'ethereum',
-  BSC = 'BSC',
-  AVAX = 'avalanche',
-  ARBITRUM = 'arbitrum',
-  POLYGON = 'polygon',
+  ETHEREUM = "ethereum",
+  BSC = "BSC",
+  AVAX = "avalanche",
+  ARBITRUM = "arbitrum",
+  POLYGON = "polygon",
 }
 
 export interface Protocol {
