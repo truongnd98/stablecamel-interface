@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const fixed = {
-  position: "fixed",
-  top: 0,
-  right: 0,
-  width: "calc(100% - 260px)",
+  width: "100%",
   zIndex: "1000",
   flexGrow: 1,
 };
@@ -31,8 +28,19 @@ const buttons = {
   textTransform: "none",
   backgroundColor: "rgb(140 0 239)",
   minWidth: "max-content",
+  borderRadius: "8px",
+  p: "4px 16px",
+  fontWeight: 400,
+  fontSize: "14px",
+  boxShadow: "none",
+  textOverflow: "ellipsis",
+  whiteSpace: "nowrap",
+  ".MuiTouchRipple-root": {
+    backgroundColor: "rgba(0, 0, 0, 0.04) !important",
+  },
   ":hover": {
     backgroundColor: "rgb(140 0 239)",
+    boxShadow: "none",
   },
   a: {
     textDecoration: "none",
@@ -63,7 +71,8 @@ export default function Header() {
           sx={{
             width: "100%",
             justifyContent: "flex-end",
-            pl: { md: "0", lg: "24px" },
+            pl: { md: "0", lg: "28px" },
+            minHeight: { sm: "48px" },
           }}
         >
           <Box sx={{ overflow: "hidden", width: "100%" }}>
@@ -90,22 +99,47 @@ export default function Header() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", gap: "8px" }}>
             <Box>
-              <Button variant="contained" href="#outlined-buttons" sx={buttons}>
-                <Link to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755">
+              <Button
+                variant="contained"
+                href="#contained-buttons"
+                disableTouchRipple
+                sx={buttons}
+              >
+                <Link
+                  to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
+                  target="_blank"
+                >
                   Buy Stablecoins
                 </Link>
               </Button>
             </Box>
             <Box>
-              <Button variant="contained" href="#outlined-buttons" sx={buttons}>
-                <Link to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755">
+              <Button
+                variant="contained"
+                href="#contained-buttons"
+                sx={buttons}
+                disableTouchRipple
+              >
+                <Link
+                  to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
+                  target="_blank"
+                >
                   Off-Ramps
                 </Link>
               </Button>
             </Box>
             <Box>
-              <Button variant="contained" href="#outlined-buttons" sx={buttons}>
-                <Link to="https://discord.com/channels/978765464186540093/1022531141535813783">
+              <Button
+                variant="contained"
+                href="#contained-buttons"
+                color="secondary"
+                disableTouchRipple
+                sx={buttons}
+              >
+                <Link
+                  to="https://discord.com/channels/978765464186540093/1022531141535813783"
+                  target="_blank"
+                >
                   Join Community
                 </Link>
               </Button>

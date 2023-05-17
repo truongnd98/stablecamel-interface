@@ -15,15 +15,15 @@ const content: SxProps = {
   minHeight: "100vh",
   backgroundColor: "#f5f5f5",
   height: "fit-content",
-  pt: "64px",
+  // pt: "48px",
 };
 
 export function ApplicationLayout() {
   return (
     <Box sx={main}>
       <MainSideBar />
-      <Header />
       <Box sx={content}>
+        <Header />
         <Outlet />
       </Box>
     </Box>
