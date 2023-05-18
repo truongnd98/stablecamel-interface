@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { GridToolbarFilterButton } from "@mui/x-data-grid";
 
 const fixed = {
   width: "100%",
@@ -12,7 +13,7 @@ const fixed = {
 };
 
 const header = {
-  backgroundColor: "#dfdefc",
+  backgroundColor: "#f5f5f5",
   //   borderLeft: "1px solid #e2c7ff",
   boxShadow: "none",
   color: "#293845",
@@ -21,16 +22,17 @@ const header = {
   alignItems: "flex-end",
   justifyContent: "flex-between",
   width: "100%",
+  borderBottom: "1.2px solid #8c00ef",
 };
 
 const buttons = {
-  color: "#fff",
+  color: "inherit",
   textTransform: "none",
-  backgroundColor: "#8c00ef",
+  // backgroundColor: "#8c00ef",
   minWidth: "max-content",
   borderRadius: "8px",
-  p: "4px 16px",
-  fontWeight: 400,
+  p: "4px",
+  fontWeight: 600,
   fontSize: "14px",
   boxShadow: "none",
   textOverflow: "ellipsis",
@@ -39,13 +41,20 @@ const buttons = {
     backgroundColor: "rgba(0, 0, 0, 0.04) !important",
   },
   ":hover": {
-    backgroundColor: "#8c00ef",
-    boxShadow: "none",
+    color: "#8c00ef",
   },
   a: {
     textDecoration: "none",
     color: "inherit",
   },
+};
+
+const lined = {
+  minHeight: "20px",
+  maxHeight: "20px",
+  // width: "2px",
+  borderRight: "2px solid #dcdcdc",
+  transform: "translateY(4px)",
 };
 
 const animation = {
@@ -101,45 +110,31 @@ export default function Header() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", gap: "8px" }}>
-            <Box>
-              <Button
-                variant="contained"
-                href="#contained-buttons"
-                disableTouchRipple
-                sx={buttons}
+            <Box sx={buttons}>
+              <Link
+                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
+                target="_blank"
               >
-                <Link
-                  to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-                  target="_blank"
-                >
-                  Buy Stablecoins
-                </Link>
-              </Button>
+                Buy Stablecoins
+              </Link>
             </Box>
-            <Box>
-              <Button variant="contained" sx={buttons} disableTouchRipple>
-                <Link
-                  to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-                  target="_blank"
-                >
-                  Off-Ramps
-                </Link>
-              </Button>
-            </Box>
-            <Box>
-              <Button
-                variant="contained"
-                color="secondary"
-                disableTouchRipple
-                sx={buttons}
+            <Box sx={lined} />
+            <Box sx={buttons}>
+              <Link
+                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
+                target="_blank"
               >
-                <Link
-                  to="https://discord.com/channels/978765464186540093/1022531141535813783"
-                  target="_blank"
-                >
-                  Join Community
-                </Link>
-              </Button>
+                Off-Ramps
+              </Link>
+            </Box>
+            <Box sx={lined} />
+            <Box sx={buttons}>
+              <Link
+                to="https://discord.com/channels/978765464186540093/1022531141535813783"
+                target="_blank"
+              >
+                Join Community
+              </Link>
             </Box>
           </Box>
         </Toolbar>

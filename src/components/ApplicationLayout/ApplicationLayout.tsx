@@ -2,6 +2,7 @@ import { Box, SxProps } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import MainSideBar from "../MainSideBar";
 import Header from "../Header";
+import Footer from "../Footer";
 
 const main: SxProps = {
   width: "100%",
@@ -25,6 +26,7 @@ export function ApplicationLayout() {
       <Box sx={content}>
         <Header />
         <Outlet />
+        <Footer />
       </Box>
     </Box>
   );

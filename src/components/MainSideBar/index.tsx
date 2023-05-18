@@ -12,7 +12,7 @@ const main: SxProps = {
   position: "fixed",
   // zIndex: 2,
   overflow: "scroll",
-  borderRight: "1px solid #e2c7ff",
+  // borderRight: "1px solid #8c00ef",
   "&::-webkit-scrollbar": {
     display: "none",
   },

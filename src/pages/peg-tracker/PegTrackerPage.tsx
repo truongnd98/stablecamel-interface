@@ -1,25 +1,25 @@
-import { Box, SxProps } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
-import Footer from '../../components/Footer';
-import { useGetListPegTracker } from '../../stores/pegtracker/hooks';
-import { PegTrackerTable } from './PegTrackerTable';
-import { PegTrackerTitle } from './PegTrackerTitle';
+import { Box, SxProps } from "@mui/material";
+import { Helmet } from "react-helmet-async";
+import Footer from "../../components/Footer";
+import { useGetListPegTracker } from "../../stores/pegtracker/hooks";
+import { PegTrackerTable } from "./PegTrackerTable";
+import { PegTrackerTitle } from "./PegTrackerTitle";
 
 const container: SxProps = {
-  padding: '20px 28px',
-  paddingBottom: '0',
-  display: 'flex',
-  flexDirection: 'column',
-  height: 'fit-content',
+  padding: "20px 28px",
+  paddingBottom: "0",
+  display: "flex",
+  flexDirection: "column",
+  height: "fit-content",
 };
 
 const main: SxProps = {
-  minHeight: 'calc(100vh - 20px)',
-  display: 'flex',
-  flexDirection: 'column',
+  minHeight: "calc(100vh - 20px)",
+  display: "flex",
+  flexDirection: "column",
   // justifyContent: 'space-between',
-  gap: '28px',
-  width: '100%',
+  gap: "28px",
+  width: "100%",
 };
 
 export function PegTrackerPage() {
@@ -32,7 +32,7 @@ export function PegTrackerPage() {
         <Box sx={main}>
           <PegTrackerTitle />
           <PegTrackerTable />
-          <Footer />
+          {/* <Footer /> */}
         </Box>
       </Box>
     </>

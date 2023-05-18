@@ -1,38 +1,38 @@
-import { Box, SxProps, Typography, Link } from '@mui/material';
-import { Helmet } from 'react-helmet-async';
-import Footer from '../../components/Footer';
+import { Box, SxProps, Typography, Link } from "@mui/material";
+import { Helmet } from "react-helmet-async";
+import Footer from "../../components/Footer";
 
 const container: SxProps = {
-  width: '100%',
-  height: '100vh',
-  padding: '20px 28px',
-  paddingBottom: '0',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
+  width: "100%",
+  height: "100vh",
+  padding: "20px 28px",
+  paddingBottom: "0",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
 };
 
 const main: SxProps = {
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '28px',
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "28px",
 };
 
 const card: SxProps = {
-  backgroundColor: '#ffffff',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '20px',
-  padding: '20px',
-  borderRadius: '8px',
+  backgroundColor: "#ffffff",
+  display: "flex",
+  flexDirection: "column",
+  gap: "20px",
+  padding: "20px",
+  borderRadius: "8px",
 };
 
 const wrapInfoCard: SxProps = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
-  paddingBottom: '12px',
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+  paddingBottom: "12px",
 };
 
 export default function DisclaimerPage() {
@@ -41,20 +41,14 @@ export default function DisclaimerPage() {
       <Helmet>
         {/* <title>Disclaimer Page</title> */}
         <meta
-          property='og:description'
-          content='Stable Camel Disclaimer page'
+          property="og:description"
+          content="Stable Camel Disclaimer page"
         />
-        <meta
-          property='og:image'
-          content='/thumbnails/thumbnail-general.png'
-        />
+        <meta property="og:image" content="/thumbnails/thumbnail-general.png" />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>
-          <Typography
-            variant='h5'
-            color='primary'
-          >
+          <Typography variant="h5" color="primary">
             Disclaimer
           </Typography>
           <Box sx={card}>
@@ -67,10 +61,7 @@ export default function DisclaimerPage() {
 						}}>
 						About Stable Camel
 					</Typography> */}
-            <Typography
-              variant='body1'
-              color='primary'
-            >
+            <Typography variant="body1" color="primary">
               Nothing contained herein shall be considered financial advice or
               recommendation to buy or sell any security, commodity,
               cryptocurrency, digital asset, or any other financial instrument
@@ -144,7 +135,7 @@ export default function DisclaimerPage() {
 					</Box> */}
           </Box>
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </Box>
     </>
   );
