@@ -26,6 +26,7 @@ import { SoonChip } from "../SoonChip/SoonChip";
 import TrendingUpSharpIcon from "@mui/icons-material/TrendingUpSharp";
 import { MenuExtend, Network, Page } from "./types";
 import Protocols from "../../jsons/protocols.json";
+import MoneyPrinter from "../../jsons/money-printers.json";
 import { Protocol } from "../../App";
 
 const button: SxProps = {
@@ -81,6 +82,8 @@ const ListNav = () => {
       : MenuExtend.ANALYTICS
   );
   const navigate = useNavigate();
+
+  console.log("network --->", network);
 
   return (
     <List
@@ -216,25 +219,67 @@ const ListNav = () => {
       </Collapse>
       <ListItemButton
         sx={button}
-        className={pathname.includes(Page.MONEY_PRINTER) ? "active" : ""}
+        // className={pathname.includes(Page.CURVE_ECOSYSTEM) ? 'active' : ''}
         onClick={() => {
-          navigate(Page.MONEY_PRINTER);
+          if (extend !== MenuExtend.MONEY_PRINTER)
+            setExtend(MenuExtend.MONEY_PRINTER);
+          else setExtend(null);
         }}
       >
         <ListItemIcon sx={iconButton}>
           <AttachMoneyIcon
-            style={{
-              color: pathname.includes(Page.MONEY_PRINTER) ? "#f5f5f5" : "",
-            }}
+          // style={{
+          //   color: pathname.includes(Page.MONEY_PRINTER) ? "#f5f5f5" : "",
+          // }}
           />
         </ListItemIcon>
-        <ListItemText
-          primary={<b>USDC Money Printer</b>}
-          style={{
-            color: pathname.includes(Page.MONEY_PRINTER) ? "#f5f5f5" : "",
-          }}
-        />
+        <ListItemText primary={<b>Money Printer</b>} />
+        {extend === MenuExtend.MONEY_PRINTER ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
       </ListItemButton>
+      <Collapse
+        in={extend === MenuExtend.MONEY_PRINTER}
+        timeout="auto"
+        unmountOnExit
+      >
+        <List component="div" sx={subList}>
+          {MoneyPrinter.map((item: Protocol) => (
+            <ListItemButton
+              sx={subButton}
+              key={v4()}
+              className={network === item.slug ? "active" : ""}
+              onClick={() => {
+                if (
+                  item.slug === "usdt" ||
+                  item.slug === "frax-printer" ||
+                  item.slug === "crvUSD"
+                )
+                  navigate("#");
+                else navigate(`${Page.MONEY_PRINTER}/${item.slug}`);
+              }}
+            >
+              <ListItemText
+                primary={
+                  <>
+                    {item.name}{" "}
+                    {item.slug === "usdt" || item.slug === "frax-printer" ? (
+                      <SoonChip label="SOON" />
+                    ) : (
+                      <></>
+                    )}
+                  </>
+                }
+                // primary={item.name}
+                className={network === item.slug ? "active" : ""}
+                sx={subButtonText}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
       <ListItemButton
         sx={button}
         className={pathname.includes(Page.YIELDS) ? "active" : ""}

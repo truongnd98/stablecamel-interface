@@ -26,7 +26,7 @@ const header = {
 const buttons = {
   color: "#fff",
   textTransform: "none",
-  backgroundColor: "rgb(140 0 239)",
+  backgroundColor: "#8c00ef",
   minWidth: "max-content",
   borderRadius: "8px",
   p: "4px 16px",
@@ -39,7 +39,7 @@ const buttons = {
     backgroundColor: "rgba(0, 0, 0, 0.04) !important",
   },
   ":hover": {
-    backgroundColor: "rgb(140 0 239)",
+    backgroundColor: "#8c00ef",
     boxShadow: "none",
   },
   a: {
@@ -90,7 +90,10 @@ export default function Header() {
               }}
             >
               The cheapest & fastest place to off-ramp stablecoins in Web3 ⚡ -{" "}
-              <Link to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755">
+              <Link
+                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
+                target="_blank"
+              >
                 Try Now
               </Link>
             </Typography>
@@ -114,12 +117,7 @@ export default function Header() {
               </Button>
             </Box>
             <Box>
-              <Button
-                variant="contained"
-                href="#contained-buttons"
-                sx={buttons}
-                disableTouchRipple
-              >
+              <Button variant="contained" sx={buttons} disableTouchRipple>
                 <Link
                   to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
                   target="_blank"
@@ -131,7 +129,6 @@ export default function Header() {
             <Box>
               <Button
                 variant="contained"
-                href="#contained-buttons"
                 color="secondary"
                 disableTouchRipple
                 sx={buttons}

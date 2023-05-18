@@ -1,34 +1,34 @@
-import { elements } from 'chart.js';
-import React, { Suspense } from 'react';
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { ApplicationLayout } from './components/ApplicationLayout/ApplicationLayout';
-import CircularProgress from '@mui/material/CircularProgress';
-import { MoneyPrinterPage } from './pages/money-printer/MoneyPrinterPage';
-import { PegTrackerPage } from './pages/peg-tracker/PegTrackerPage';
-import { CurveEcosystemPage } from './pages/curve-ecosystem/CurveEcosystemPage';
+import { elements } from "chart.js";
+import React, { Suspense } from "react";
+import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
+import { ApplicationLayout } from "./components/ApplicationLayout/ApplicationLayout";
+import CircularProgress from "@mui/material/CircularProgress";
+import { MoneyPrinterPage } from "./pages/money-printer/MoneyPrinterPage";
+import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";
+import { CurveEcosystemPage } from "./pages/curve-ecosystem/CurveEcosystemPage";
 
-const AnalyticPage = React.lazy(() => import('./pages/analytic/AnalyticPage'));
+const AnalyticPage = React.lazy(() => import("./pages/analytic/AnalyticPage"));
 const DisclaimerPage = React.lazy(
-  () => import('./pages/disclaimer/DisclaimerPage')
+  () => import("./pages/disclaimer/DisclaimerPage")
 );
-const AboutPage = React.lazy(() => import('./pages/about/AboutPage'));
+const AboutPage = React.lazy(() => import("./pages/about/AboutPage"));
 const GraveYardPage = React.lazy(
-  () => import('./pages/graveyard/GraveYardPage')
+  () => import("./pages/graveyard/GraveYardPage")
 );
 const TradeStablecoin = React.lazy(
-  () => import('./pages/trade-stablecoins/TradeStablecoins')
+  () => import("./pages/trade-stablecoins/TradeStablecoins")
 );
-const YieldPage = React.lazy(() => import('./pages/yield/YieldPage'));
+const YieldPage = React.lazy(() => import("./pages/yield/YieldPage"));
 
 export const router = createBrowserRouter([
   {
-    id: 'index',
-    path: '/',
+    id: "index",
+    path: "/",
     element: <ApplicationLayout />,
     children: [
       {
-        id: 'home',
-        path: '',
+        id: "home",
+        path: "",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <AnalyticPage />
@@ -36,8 +36,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'analytics/network',
-        path: ':network',
+        id: "analytics/network",
+        path: ":network",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <AnalyticPage />
@@ -45,8 +45,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'yields',
-        path: 'stablecoin-yields',
+        id: "yields",
+        path: "stablecoin-yields",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <YieldPage />
@@ -54,8 +54,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'trading',
-        path: 'trade-stablecoins',
+        id: "trading",
+        path: "trade-stablecoins",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <TradeStablecoin />
@@ -63,8 +63,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'about',
-        path: 'about',
+        id: "about",
+        path: "about",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <AboutPage />
@@ -72,8 +72,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'graveyard',
-        path: 'stablecoin-graveyard',
+        id: "graveyard",
+        path: "stablecoin-graveyard",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <GraveYardPage />
@@ -81,8 +81,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'disclaimer',
-        path: 'disclaimer',
+        id: "disclaimer",
+        path: "disclaimer",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <DisclaimerPage />
@@ -90,8 +90,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'money-printer',
-        path: 'money-printer',
+        id: "money-printer",
+        path: "money-printer/:network",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <MoneyPrinterPage />
@@ -99,8 +99,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'activity-monitor',
-        path: 'activity-monitor',
+        id: "activity-monitor",
+        path: "activity-monitor",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <PegTrackerPage />
@@ -108,15 +108,15 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: 'curve-ecosystem',
-        path: 'curve-ecosystem/:network',
+        id: "curve-ecosystem",
+        path: "curve-ecosystem/:network",
         element: <CurveEcosystemPage />,
       },
     ],
   },
   {
-    id: '404',
-    path: '*',
+    id: "404",
+    path: "*",
     element: <h3>NOT FOUND</h3>,
   },
 ]);

@@ -1,8 +1,9 @@
-import * as React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import InfoIcon from '@mui/icons-material/Info';
-import { Box } from '@mui/material';
+import * as React from "react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import InfoIcon from "@mui/icons-material/Info";
+import { Box } from "@mui/material";
+import DuneLogo from "../../assets/logos/dune-logo.png";
 
 export default function Tooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -20,46 +21,46 @@ export default function Tooltip() {
   return (
     <div>
       <Box
-        aria-owns={open ? 'mouse-over-popover' : undefined}
-        aria-haspopup='true'
+        aria-owns={open ? "mouse-over-popover" : undefined}
+        aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
         sx={{
-          display: 'flex',
-          alignItems: 'center'
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <InfoIcon
-          color='primary'
+          color="primary"
           sx={{
-            height: 22
+            height: 22,
           }}
         />
       </Box>
       <Popover
-        id='mouse-over-popover'
+        id="mouse-over-popover"
         sx={{
-          pointerEvents: 'none',
+          pointerEvents: "none",
           //   opacity: 0.9,
-          width: 820
+          width: 820,
         }}
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+          vertical: "bottom",
+          horizontal: "left",
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
+          vertical: "top",
+          horizontal: "left",
         }}
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
         <Box
           sx={{
-            border: '2px solid #8c00ef',
-            borderRadius: '4px'
+            border: "2px solid #8c00ef",
+            borderRadius: "4px",
           }}
         >
           <Typography sx={{ p: 1 }}>
@@ -69,17 +70,17 @@ export default function Tooltip() {
           <Typography
             sx={{
               p: 1,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
+              display: "flex",
+              alignItems: "center",
+              gap: "12px",
             }}
           >
-            Data source:{' '}
+            Data source:{" "}
             <img
-              src='https://dune.com/docs/reference/images/dune-standard-logo.svg'
-              alt='dune-logo'
+              src={DuneLogo}
+              alt="dune-logo"
               style={{
-                height: 20
+                height: 36,
               }}
             />
           </Typography>

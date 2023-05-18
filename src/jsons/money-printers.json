@@ -1,0 +1,22 @@
+[
+  {
+    "name": "USDC",
+    "slug": "usdc",
+    "logo": ""
+  },
+  {
+    "name": "USDT",
+    "slug": "usdt",
+    "logo": ""
+  },
+  {
+    "name": "FRAX",
+    "slug": "frax-printer",
+    "logo": ""
+  },
+  {
+    "name": "crvUSD",
+    "slug": "crvUSD",
+    "logo": ""
+  }
+]

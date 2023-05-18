@@ -22,4 +22,5 @@ export interface Network {
 export enum MenuExtend {
   ANALYTICS = 'analytics',
   CURVE_ECOSYSTEM = 'curve_ecosystem',
+  MONEY_PRINTER = 'money-printer',
 }

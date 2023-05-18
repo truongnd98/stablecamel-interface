@@ -113,7 +113,7 @@ export default function StackedBarChart({
                   >
                     <LinkIcon color="primary" />
                     <Typography variant="body1" color="primary">
-                      <b>Copy chart</b>
+                      <b>Copy link</b>
                     </Typography>
                   </Box>
                 }

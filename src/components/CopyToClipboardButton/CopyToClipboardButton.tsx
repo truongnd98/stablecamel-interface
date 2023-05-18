@@ -1,5 +1,5 @@
-import { Alert, Button, Snackbar } from '@mui/material';
-import { ReactNode, useState } from 'react';
+import { Alert, Snackbar } from "@mui/material";
+import { ReactNode, useState } from "react";
 
 export function CopyToClipboardButton({
   type,
@@ -18,11 +18,11 @@ export function CopyToClipboardButton({
     <>
       <div
         onClick={handleClick}
-        title='Share'
+        title="Share"
         style={{
-          width: 'fit-content',
-          height: 'fit-content',
-          cursor: 'pointer',
+          width: "fit-content",
+          height: "fit-content",
+          cursor: "pointer",
         }}
       >
         {type}
@@ -32,13 +32,23 @@ export function CopyToClipboardButton({
         open={open}
         onClose={() => setOpen(false)}
         autoHideDuration={2000}
-        message='Copied to clipboard'
+        message="Copied to clipboard"
         anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
+          vertical: "bottom",
+          horizontal: "center",
         }}
       >
-        <Alert color='secondary'>Copied chart to share</Alert>
+        <Alert
+          sx={{
+            backgroundColor: "#8c00ef",
+            color: "#fff",
+            ".MuiAlert-icon": {
+              color: "#fff",
+            },
+          }}
+        >
+          Copied to clipboard
+        </Alert>
       </Snackbar>
     </>
   );
