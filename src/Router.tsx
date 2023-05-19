@@ -99,8 +99,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: "activity-monitor",
-        path: "activity-monitor",
+        id: "stablecoin-activity",
+        path: "stablecoin-activity",
         element: (
           <Suspense fallback={<CircularProgress />}>
             <PegTrackerPage />

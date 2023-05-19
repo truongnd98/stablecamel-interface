@@ -60,6 +60,7 @@ export function ConicContentLockedCNCAndLeaderboard() {
           />
         </Box>
         <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+          <section id="cnc-leaderboard" />
           <ConicContentLeaderboardTable />
         </Box>
       </Box>

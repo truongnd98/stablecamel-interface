@@ -31,6 +31,7 @@ const main: SxProps = {
   display: "flex",
   flexDirection: "column",
   gap: "20px",
+  borderRadius: "8px",
   alignItems: "center",
   padding: "24px 0",
   position: "relative",

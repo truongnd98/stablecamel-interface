@@ -69,6 +69,7 @@ export function ConvexContentLockedCVXAndLeaderboard() {
           />
         </Box>
         <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+          <section id="cvx-leaderboard" />
           <ConvexContentLeaderboardTable />
         </Box>
       </Box>

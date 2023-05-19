@@ -1,36 +1,36 @@
-import { Box, SxProps, Typography } from '@mui/material';
-import CustomAreaChart from '../../../../components/AreaChart';
-import { ChartDetailProps } from '../../../../components/AreaChart/types';
-import randomColor from 'randomcolor';
-import { CurveEcosystemThirdSubTable } from './CurveEcosystemThirdSubTable';
-import { useCurveEcosystemState } from '../../../../stores/curve-ecosystem/hooks';
-import { PopoverTooltip } from '../../../../components/PopoverTooltip/PopoverTooltip';
-import { Link } from 'react-router-dom';
-import InfoIcon from '@mui/icons-material/Info';
+import { Box, SxProps, Typography } from "@mui/material";
+import CustomAreaChart from "../../../../components/AreaChart";
+import { ChartDetailProps } from "../../../../components/AreaChart/types";
+import randomColor from "randomcolor";
+import { CurveEcosystemThirdSubTable } from "./CurveEcosystemThirdSubTable";
+import { useCurveEcosystemState } from "../../../../stores/curve-ecosystem/hooks";
+import { PopoverTooltip } from "../../../../components/PopoverTooltip/PopoverTooltip";
+import { Link } from "react-router-dom";
+import InfoIcon from "@mui/icons-material/Info";
 
 const container: SxProps = {
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '28px',
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "28px",
 };
 
 const wrap: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 380,
-  display: 'flex',
-  justifyContent: 'space-between',
+  display: "flex",
+  justifyContent: "space-between",
 };
 
 const each: SxProps = {
-  width: 'calc(50% - 14px)',
-  height: '100%',
+  width: "calc(50% - 14px)",
+  height: "100%",
 };
 
 const details: ChartDetailProps[] = [
   {
-    key: 'veFXS',
-    color: '#001f54',
+    key: "veFXS",
+    color: "#001f54",
   },
 ];
 
@@ -40,14 +40,11 @@ export function CurveEcosystemThirdSub() {
     <Box sx={container}>
       <Box
         sx={{
-          display: 'flex',
-          gap: '12px',
+          display: "flex",
+          gap: "12px",
         }}
       >
-        <Typography
-          variant='h5'
-          color='primary'
-        >
+        <Typography variant="h5" color="primary">
           Locked FXS
         </Typography>
         <PopoverTooltip
@@ -60,10 +57,10 @@ export function CurveEcosystemThirdSub() {
                 more veFXS tokens the user receives. veFXS is not a transferable
                 token and does not trade on liquid markets. Holding veFXS
                 provides multiple benefits such as special boosts, special
-                governance rights, and AMO profits.{' '}
+                governance rights, and AMO profits.{" "}
                 <Link
-                  to='https://docs.frax.finance/vefxs/vefxs'
-                  target='_blank'
+                  to="https://docs.frax.finance/vefxs/vefxs"
+                  target="_blank"
                 >
                   Read more
                 </Link>
@@ -72,7 +69,7 @@ export function CurveEcosystemThirdSub() {
           }
           component={
             <InfoIcon
-              color='primary'
+              color="primary"
               sx={{
                 height: 22,
               }}
@@ -84,12 +81,13 @@ export function CurveEcosystemThirdSub() {
         <Box sx={each}>
           <CustomAreaChart
             data={fxs ? fxs.locked_fxs : undefined}
-            title='Locked FXS (veFXS)'
+            title="Locked FXS (veFXS)"
             detail={details}
-            id='locked-fxs'
+            id="locked-fxs"
           />
         </Box>
         <Box sx={each}>
+          <section id="fxs-leaderboard" />
           <CurveEcosystemThirdSubTable />
         </Box>
       </Box>

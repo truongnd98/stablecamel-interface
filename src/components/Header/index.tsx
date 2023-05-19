@@ -3,8 +3,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
-import Button from "@mui/material/Button";
-import { GridToolbarFilterButton } from "@mui/x-data-grid";
 
 const fixed = {
   width: "100%",
@@ -26,7 +24,7 @@ const header = {
 };
 
 const buttons = {
-  color: "inherit",
+  color: "#293845",
   textTransform: "none",
   // backgroundColor: "#8c00ef",
   minWidth: "max-content",
@@ -72,6 +70,20 @@ const animation = {
   },
 };
 
+const link = {
+  fontSize: { md: "13px", lg: "14px" },
+  fontWeight: 600,
+  ...animation,
+  animation: { md: "slide-left 12s linear infinite", lg: "none" },
+  overflow: "visible",
+  textOverflow: "unset",
+  a: {
+    color: "#293845",
+    ":active": {
+      color: "#293845",
+    },
+  },
+};
 export default function Header() {
   return (
     <Box sx={fixed}>
@@ -81,23 +93,12 @@ export default function Header() {
             width: "100%",
             justifyContent: "flex-end",
             pl: { md: "0", lg: "28px" },
+            pr: "28px",
             minHeight: { sm: "48px" },
           }}
         >
           <Box sx={{ overflow: "hidden", width: "100%" }}>
-            <Typography
-              noWrap
-              component="div"
-              sx={{
-                //   display: { xs: "none", sm: "block" },
-                fontSize: { md: "13px", lg: "14px" },
-                fontWeight: 600,
-                ...animation,
-                animation: { md: "slide-left 12s linear infinite", lg: "none" },
-                overflow: "visible",
-                textOverflow: "unset",
-              }}
-            >
+            <Typography noWrap component="div" sx={link}>
               The cheapest & fastest place to off-ramp stablecoins in Web3 ⚡ -{" "}
               <Link
                 to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"

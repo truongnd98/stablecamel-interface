@@ -9,7 +9,7 @@ export enum Page {
   BUG = 'bug',
   ABOUT = 'about',
   DISCLAIMER = 'disclaimer',
-  ACTIVITY_MONITOR = 'activity-monitor',
+  ACTIVITY_MONITOR = 'stablecoin-activity',
 }
 
 export interface Network {

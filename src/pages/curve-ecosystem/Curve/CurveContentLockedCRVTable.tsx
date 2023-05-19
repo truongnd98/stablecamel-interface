@@ -4,6 +4,8 @@ import { v4 } from "uuid";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 
 import { CRVLeaderboard } from "../types";
+import { CopyToClipboardButton } from "../../../components/CopyToClipboardButton/CopyToClipboardButton";
+import LinkIcon from "@mui/icons-material/Link";
 
 const main: SxProps = {
   width: "100%",
@@ -13,10 +15,6 @@ const main: SxProps = {
   padding: "0 15px",
   paddingBottom: "12px",
   overflowY: "scroll",
-  // scrollbarWidth: 'thin',
-  // '::-webkit-scrollbar': {
-  //   width: '8px',
-  // },
 
   "@media (max-width: 1280px)": {
     padding: "0 8px",
@@ -25,12 +23,15 @@ const main: SxProps = {
 
 const grid: SxProps = {
   "div.MuiDataGrid-row": {
-    maxHeight: "42px !important",
-    minHeight: "42px !important",
+    maxHeight: "48px !important",
+    minHeight: "48px !important",
+    alignItems: "center",
+    borderRadius: "8px",
     ":hover": {
-      backgroundColor: "#FAFAFA !important",
+      backgroundColor: "#1c273014 !important",
     },
   },
+
   "div.MuiDataGrid-columnHeaderTitle": {
     fontSize: 14,
     fontWeight: 600,
@@ -38,8 +39,11 @@ const grid: SxProps = {
       fontSize: 14,
     },
   },
+
   "div.MuiDataGrid-cell": {
     borderBottom: "none",
+    maxHeight: "42px !important",
+    minHeight: "42px !important",
     ":focus": {
       outline: "none",
     },
@@ -47,15 +51,34 @@ const grid: SxProps = {
       outline: "none",
     },
   },
+
+  ".MuiDataGrid-cell--textLeft": {
+    "&:nth-child(2)": {
+      justifyContent: "flex-end",
+    },
+    "&:nth-child(3)": {
+      justifyContent: "flex-end",
+    },
+  },
+
   "div.MuiDataGrid-columnHeaders": {
     borderBottom: "none",
   },
+
   "div.MuiDataGrid-columnHeader": {
     ":focus": {
       outline: "none",
     },
     ":focus-within": {
       outline: "none",
+    },
+  },
+
+  ".MuiDataGrid-columnHeader": {
+    "&:nth-child(3)": {
+      ".MuiDataGrid-columnHeaderTitleContainer": {
+        justifyContent: "flex-end",
+      },
     },
   },
   border: "none",
@@ -108,33 +131,53 @@ export function CurveContentLockedCRVTable() {
         id: v4(),
       }));
   return (
-    <Box sx={main}>
-      <Box p="24px 10px 12px">
-        <Typography fontSize="18px" color="#293845" fontWeight="600">
-          CRV Leaderboard
-        </Typography>
-      </Box>
-      <DataGrid
-        autoHeight
-        rows={formatList}
-        columns={columns}
-        initialState={
-          {
-            //   pagination: {
-            //     paginationModel: {
-            //       pageSize: 0,
-            //     },
-            //   },
+    <>
+      <Box sx={main}>
+        <Box
+          p="24px 10px 12px"
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+        >
+          <Typography fontSize="18px" color="#293845" fontWeight="600">
+            CRV Leaderboard
+          </Typography>
+          <CopyToClipboardButton
+            type={
+              <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
+                <LinkIcon color="primary" />
+                <Typography variant="body1" color="primary">
+                  <b>Copy link</b>
+                </Typography>
+              </Box>
+            }
+            content={`${
+              window.location.toString().split("#")[0]
+            }#crv-leaderboard`}
+          />
+        </Box>
+        <DataGrid
+          autoHeight
+          rows={formatList}
+          columns={columns}
+          initialState={
+            {
+              //   pagination: {
+              //     paginationModel: {
+              //       pageSize: 0,
+              //     },
+              //   },
+            }
           }
-        }
-        columnHeaderHeight={22}
-        pageSizeOptions={[5]}
-        disableColumnMenu
-        disableRowSelectionOnClick
-        hideFooterPagination
-        hideFooter
-        sx={grid}
-      />
-    </Box>
+          columnHeaderHeight={22}
+          pageSizeOptions={[5]}
+          disableColumnMenu
+          disableRowSelectionOnClick
+          hideFooterPagination
+          hideFooter
+          sx={grid}
+        />
+      </Box>
+    </>
   );
 }
