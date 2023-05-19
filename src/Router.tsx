@@ -6,6 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { MoneyPrinterPage } from "./pages/money-printer/MoneyPrinterPage";
 import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";
 import { CurveEcosystemPage } from "./pages/curve-ecosystem/CurveEcosystemPage";
+import { MoneyPrinterPageRouter } from "./pages/money-printer/MoneyPrinterPageRouter";
 
 const AnalyticPage = React.lazy(() => import("./pages/analytic/AnalyticPage"));
 const DisclaimerPage = React.lazy(
@@ -94,7 +95,8 @@ export const router = createBrowserRouter([
         path: "money-printer/:network",
         element: (
           <Suspense fallback={<CircularProgress />}>
-            <MoneyPrinterPage />
+            {/* <MoneyPrinterPage /> */}
+            <MoneyPrinterPageRouter />
           </Suspense>
         ),
       },

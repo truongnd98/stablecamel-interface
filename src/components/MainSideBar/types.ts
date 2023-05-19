@@ -10,6 +10,7 @@ export enum Page {
   ABOUT = 'about',
   DISCLAIMER = 'disclaimer',
   ACTIVITY_MONITOR = 'activity-monitor',
+  CURVE_CRVUSD = 'curve-crvusd',
 }
 
 export interface Network {
