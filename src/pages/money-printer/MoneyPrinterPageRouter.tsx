@@ -20,8 +20,6 @@ export function MoneyPrinterPageRouter() {
 		<Box sx={container}>
 			{network === 'usdc' ? <MoneyPrinterPage /> : <></>}
 			{network === 'crvUSD' ? <CurveCrvUSDPage /> : <></>}
-			
-			<Footer />
 		</Box>
 	);
 }
