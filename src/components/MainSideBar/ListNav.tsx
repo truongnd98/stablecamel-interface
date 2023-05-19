@@ -254,8 +254,8 @@ const ListNav = () => {
               onClick={() => {
                 if (
                   item.slug === "usdt" ||
-                  item.slug === "frax-printer" ||
-                  item.slug === "crvUSD"
+                  item.slug === "frax-printer" 
+                  // || item.slug === "crvUSD"
                 )
                   navigate("#");
                 else navigate(`${Page.MONEY_PRINTER}/${item.slug}`);
