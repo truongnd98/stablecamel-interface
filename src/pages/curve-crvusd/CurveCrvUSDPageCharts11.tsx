@@ -23,7 +23,7 @@ export function CurveCrvUSDPageCharts11() {
 						title='crvUSD Supply'
 						detail={[	{
 							key: 'supply',
-							color: randomColor({ seed: 'supply' }),
+							color: '#aaaacd',
 							name: 'Supply'
 						}]}
 						id='crvusd-supply-chart'
@@ -36,7 +36,7 @@ export function CurveCrvUSDPageCharts11() {
 						title='Total crvUSD borrowed'
 						detail={[{
 							key: 'amount',
-							color: randomColor({ seed: 'amount' }),
+							color: '#aaaacd',
 							name: 'Total Borrowed'
 						}]}
 						id='total-crvusd-borrowed-chart'

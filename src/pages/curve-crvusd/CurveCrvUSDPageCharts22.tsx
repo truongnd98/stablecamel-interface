@@ -24,12 +24,12 @@ export function CurveCrvUSDPageCharts22() {
 						detail={[
 								{
 									key: 'usdc',
-									color: randomColor({ seed: 'usdc' }),
+									color: '#7c6af0',
 									name: 'USDC'
 								},
 								{
 									key: 'crvusd',
-									color: randomColor({ seed: 'crvusd' }),
+									color: '#a7a7a7',
 									name: 'crvUSD'
 								}
 							]}
@@ -44,12 +44,12 @@ export function CurveCrvUSDPageCharts22() {
 						detail={[
 								{
 									key: 'usdt',
-									color: randomColor({ seed: 'usdt' }),
+									color: '#328ef5',
 									name: 'USDT'
 								},
 								{
 									key: 'crvusd',
-									color: randomColor({ seed: 'crvusd' }),
+									color: '#a7a7a7',
 									name: 'crvUSD'
 								}
 							]}

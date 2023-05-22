@@ -23,7 +23,7 @@ export function CurveCrvUSDPageCharts12() {
 						title='Token: crvUSD Collateral'
 						detail={[	{
 							key: 'supply',
-							color: randomColor({ seed: "supply"}),
+							color: '#aaaacd',
 							name: 'sfrxETH'
 						}]}
 						id='token-crvusd-collateral-chart'
@@ -36,7 +36,7 @@ export function CurveCrvUSDPageCharts12() {
 						title='USD: crvUSD Collateral'
 						detail={[{
 							key: 'usd',
-							color: randomColor({ seed: "usd"}),
+							color: '#aaaacd',
 							name: '$ Collateral'
 						}]}
 						id='usd-crvusd-collateral-chart'
