@@ -11,13 +11,13 @@ import InfoIcon from "@mui/icons-material/Info";
 
 const lockedCVX: ChartDetailProps = {
   key: "cum_from",
-  color: "#6d3099",
+  color: "#949494",
   name: "vlCVX",
 };
 
 const lockedCVXDaily: ChartDetailProps = {
   key: "delta",
-  color: "#6d3099",
+  color: "#7c7c7c",
   name: "Locked",
 };
 

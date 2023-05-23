@@ -36,12 +36,16 @@ const wrapInfoCard: SxProps = {
 };
 
 export default function AboutPage() {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <>
       <Helmet>
         {/* <title>About Page</title> */}
         <meta property="og:description" content="Stable Camel About page" />
-        <meta property="og:image" content="/thumbnails/thumbnail-general.png" />
+        <meta
+          property="og:image"
+          content={`${baseUrl}/thumbnails/thumbnail-general.png`}
+        />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>

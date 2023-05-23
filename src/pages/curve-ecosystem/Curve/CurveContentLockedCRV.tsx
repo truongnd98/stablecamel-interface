@@ -3,13 +3,13 @@ import CustomAreaChart from "../../../components/AreaChart";
 import { ChartDetailProps } from "../../../components/AreaChart/types";
 import { Metric } from "../../../components/Metric/Metric";
 import PositiveAndNegativeBarChart from "../../../components/PositiveAndNegativeBarChart";
-import StackedBarChart from "../../../components/StackedBarChart";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import { LockedCRV } from "../types";
 import { CurveContentLockedCRVTable } from "./CurveContentLockedCRVTable";
 import { PopoverTooltip } from "../../../components/PopoverTooltip/PopoverTooltip";
 import InfoIcon from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
+import { HoverTooltip } from "../../../components/HoverToolitp";
 
 const lockedCRVDetail: ChartDetailProps = {
   key: "locked_crv",
@@ -46,7 +46,7 @@ export function CurveContentLockedCRV() {
         <Typography variant="h5" color="primary">
           Locked CRV
         </Typography>
-        <PopoverTooltip
+        <HoverTooltip
           content={
             <>
               <Typography sx={{ p: 1 }}>
@@ -63,14 +63,14 @@ export function CurveContentLockedCRV() {
               </Typography>
             </>
           }
-          component={
-            <InfoIcon
-              color="primary"
-              sx={{
-                height: 22,
-              }}
-            />
-          }
+          // component={
+          //   <InfoIcon
+          //     color="primary"
+          //     sx={{
+          //       height: 22,
+          //     }}
+          //   />
+          // }
         />
       </Box>
       <Box

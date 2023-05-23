@@ -1,6 +1,5 @@
 import { Box, SxProps, Typography } from "@mui/material";
 import { Helmet } from "react-helmet-async";
-import Footer from "../../components/Footer";
 import {
   useFetchData,
   useMoneyPrinterState,
@@ -41,6 +40,8 @@ export function MoneyPrinterPage() {
     usdcDeployedBridgesByBridge,
   } = useMoneyPrinterState();
   useFetchData();
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+
   return (
     <>
       <Helmet>
@@ -51,7 +52,7 @@ export function MoneyPrinterPage() {
         />
         <meta
           property="og:image"
-          content="/thumbnails/thumbnail-moneyprinter.png"
+          content={`${baseUrl}/thumbnails/thumbnail-moneyprinter.png`}
         />
       </Helmet>
       <Box sx={container}>
@@ -75,25 +76,37 @@ export function MoneyPrinterPage() {
             <Typography variant="h5" color="primary">
               USDC Exchange Balances
             </Typography>
-            <MoneyPrinterGroupLayoutBalance data={exchangeBalanceByCEXList} />
+            <MoneyPrinterGroupLayoutBalance
+              data={exchangeBalanceByCEXList}
+              title="USDC Exchange Balances"
+            />
           </Box>
           <Box sx={group}>
             <Typography variant="h5" color="primary">
               USDC Deployed to Lending Protocols
             </Typography>
-            <MoneyPrinterGroupLayout data={usdcDeployedLendingProtocolList} />
+            <MoneyPrinterGroupLayout
+              data={usdcDeployedLendingProtocolList}
+              title="USDC Deployed to Lending Protocols"
+            />
           </Box>
           <Box sx={group}>
             <Typography variant="h5" color="primary">
               USDC Deployed to LPs
             </Typography>
-            <MoneyPrinterGroupLayout data={usdcDeployedToLPs} />
+            <MoneyPrinterGroupLayout
+              data={usdcDeployedToLPs}
+              title="USDC Deployed to LPs"
+            />
           </Box>
           <Box sx={group}>
             <Typography variant="h5" color="primary">
               USDC Deployed to Bridges
             </Typography>
-            <MoneyPrinterGroupLayout data={usdcDeployedBridgesByBridge} />
+            <MoneyPrinterGroupLayout
+              data={usdcDeployedBridgesByBridge}
+              title="USDC Deployed to Bridges"
+            />
           </Box>
           {/* <Footer /> */}
         </Box>

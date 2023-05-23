@@ -14,30 +14,30 @@ const main: SxProps = {
 
 const cumulative3CRV: ChartDetailProps = {
   key: "total_3crv_usd",
-  color: "#6d3099",
+  color: "#436b9e",
   name: "cvxCRV",
 };
 
 const crvFarmed: ChartDetailProps = {
   key: "cum_farmed_crv",
-  color: "#6d3099",
+  color: "#3465A4",
   name: "CRV",
 };
 
 const fsxFarmed: ChartDetailProps[] = [
   {
     key: "fxs_to_LPs_usd",
-    color: randomColor({ seed: "fxs_to_LPs_usd" }),
+    color: "#3465A4",
     name: "to LPs",
   },
   {
     key: "fxs_to_vlCVX_usd",
-    color: randomColor({ seed: "fxs_to_vlCVX_usd" }),
+    color: "#2312B3",
     name: "to vlCVX",
   },
   {
     key: "fxs_to_cvxFXS_usd",
-    color: randomColor({ seed: "fxs_to_cvxFXS_usd" }),
+    color: "#34A39D",
     name: "to cvxFXS",
   },
 ];
@@ -53,16 +53,16 @@ export function ConvexContentCumulative() {
         <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
           <CustomAreaChart
             data={convex.cumulative_3crv}
-            title={"Cumulative 3CRV Admin Fees Earned by Convex ($)"}
+            title={"3CRV Admin Fees Earned by Convex ($)"}
             detail={cumulative3CRV}
-            id="cumulative-3crv"
+            id="3crv-admin-fees-earned"
             legend
           />
         </Box>
         <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
           <CustomAreaChart
             data={convex.crv_farmed}
-            title={"Cumulative Farmed CRV ($)"}
+            title={"Farmed CRV ($)"}
             detail={crvFarmed}
             id="crv-farmed"
             legend

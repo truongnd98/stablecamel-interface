@@ -44,7 +44,8 @@ export default function AnalyticPage() {
         />
         <meta
           property="og:image"
-          content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
+          content="%PUBLIC_URL%/thumbnails/thumbnail-general.png"
+          // content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
         />
       </Helmet>
       <NetworkContext.Provider value={currentNetwork}>

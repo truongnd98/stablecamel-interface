@@ -71,7 +71,7 @@ export function CleverTitleTooltip() {
           title={
             <Box
               sx={{
-                border: "2px solid #8c00ef",
+                border: "1.2px solid #8c00ef",
                 backgroundColor: "#fff",
                 borderRadius: "4px",
                 boxShadow:

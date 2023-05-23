@@ -1,44 +1,41 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { Avatar, AvatarGroup, Box, SxProps, Typography } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
-
-import { useNavigate } from 'react-router-dom';
-import Tokens from '../../jsons/tokens.json';
-import Networks from '../../jsons/networks.json';
-import { v4 } from 'uuid';
-import { Chain, Network, Token } from '../../App';
-import { usePegTrackerState } from '../../stores/pegtracker/hooks';
-import { PegTrackerRes } from './types';
-import { useAnalyticState } from '../../stores/analytic/hooks';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { Avatar, AvatarGroup, Box, SxProps, Typography } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
+import Tokens from "../../jsons/tokens.json";
+import Networks from "../../jsons/networks.json";
+import { v4 } from "uuid";
+import { Network, Token } from "../../App";
+import { usePegTrackerState } from "../../stores/pegtracker/hooks";
+import { PegTrackerRes } from "./types";
 
 const header: SxProps = {
   fontSize: 18,
   fontWeight: 600,
   height: 80,
   // flexWrap: 'nowrap',
-  padding: '0 24px',
-  whiteSpace: 'nowrap',
-  '@media (max-width: 1280px)': {
+  padding: "0 24px",
+  whiteSpace: "nowrap",
+  "@media (max-width: 1280px)": {
     fontSize: 16,
   },
 };
 
 const cell: SxProps = {
-  padding: '0 24px',
-  whiteSpace: 'nowrap',
+  padding: "0 24px",
+  whiteSpace: "nowrap",
 };
 
 const stablecoin: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
+  display: "flex",
+  alignItems: "center",
 
-  gap: '8px',
+  gap: "8px",
   img: {
     width: 20,
     height: 20,
@@ -46,33 +43,33 @@ const stablecoin: SxProps = {
 };
 
 const row: SxProps = {
-  '&:last-child td, &:last-child th': {
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
-  width: '100%',
+  width: "100%",
   height: 50,
-  ':hover': {
-    backgroundColor: '#FAFAFA !important',
+  ":hover": {
+    backgroundColor: "#1c273014 !important",
   },
 };
 
 const body: SxProps = {
-  '&:last-child ': {
+  "&:last-child ": {
     height: 62,
-    paddingBottom: '12px',
+    paddingBottom: "12px",
   },
 };
 
 const skeleton: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 50,
 };
 
 const avatar: SxProps = {
   width: 20,
   height: 20,
-  '$.MuiAvatar-root': {
-    border: 'none',
+  "$.MuiAvatar-root": {
+    border: "none",
     fontSize: 8,
   },
 };
@@ -80,11 +77,11 @@ const avatar: SxProps = {
 const handleColor = (value: number) => {
   if (value > 0)
     return {
-      main: '#2e8c57',
-      background: '#dcfce7',
+      main: "#2e8c57",
+      background: "#dcfce7",
     };
-  else if (value < 0) return { main: '#be3832', background: '#fde2e1' };
-  else return { main: '#676b74', background: '#f3f4f6' };
+  else if (value < 0) return { main: "#be3832", background: "#fde2e1" };
+  else return { main: "#676b74", background: "#f3f4f6" };
 };
 
 const handleIcon = (symbol?: string): Token | undefined => {
@@ -96,7 +93,7 @@ const handleIcon = (symbol?: string): Token | undefined => {
 const handleAvatar = (data: Record<string, string>) => {
   const listAvatar: Network[] = [];
   for (const network in data) {
-    const networkName = network.split('-')[0];
+    const networkName = network.split("-")[0];
     const avatar = Networks.slice(1).find((item: Network) =>
       item.slug.toLowerCase().includes(networkName.toLowerCase())
     );
@@ -107,32 +104,31 @@ const handleAvatar = (data: Record<string, string>) => {
 
 const handleNumber = (data?: number | null) => {
   return data
-    ? new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation: 'compact',
+    ? new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        notation: "compact",
         maximumFractionDigits: 2,
       }).format(data)
-    : '';
+    : "";
 };
 
 export function PegTrackerTable() {
   const { list } = usePegTrackerState();
-  const { dataAggregateSummary } = useAnalyticState();
 
-  const usdc = list.find((item: PegTrackerRes) => item.symbol === 'usdc');
-  const usdt = list.find((item: PegTrackerRes) => item.symbol === 'usdt');
-  const busd = list.find((item: PegTrackerRes) => item.symbol === 'busd');
-  const frax = list.find((item: PegTrackerRes) => item.symbol === 'frax');
-  const dai = list.find((item: PegTrackerRes) => item.symbol === 'dai');
+  const usdc = list.find((item: PegTrackerRes) => item.symbol === "usdc");
+  const usdt = list.find((item: PegTrackerRes) => item.symbol === "usdt");
+  const busd = list.find((item: PegTrackerRes) => item.symbol === "busd");
+  const frax = list.find((item: PegTrackerRes) => item.symbol === "frax");
+  const dai = list.find((item: PegTrackerRes) => item.symbol === "dai");
 
   const tempList: PegTrackerRes[] = list.filter(
     (item: PegTrackerRes) =>
-      item.symbol !== 'usdc' &&
-      item.symbol !== 'usdt' &&
-      item.symbol !== 'busd' &&
-      item.symbol !== 'frax' &&
-      item.symbol !== 'dai'
+      item.symbol !== "usdc" &&
+      item.symbol !== "usdt" &&
+      item.symbol !== "busd" &&
+      item.symbol !== "frax" &&
+      item.symbol !== "dai"
   );
   const listData = [usdc, usdt, dai, frax, busd, ...tempList];
   // const formatList = list?.sort(
@@ -141,18 +137,18 @@ export function PegTrackerTable() {
   return (
     <TableContainer
       sx={{
-        backgroundColor: '#ffffff',
-        borderRadius: '8px',
-        width: '100%',
-        overflow: 'scroll',
+        backgroundColor: "#ffffff",
+        borderRadius: "8px",
+        width: "100%",
+        overflow: "scroll",
       }}
     >
       <Table
         sx={{
           minWidth: 650,
         }}
-        size='small'
-        aria-label='a dense table'
+        size="small"
+        aria-label="a dense table"
       >
         <TableHead>
           <TableRow>
@@ -172,11 +168,7 @@ export function PegTrackerTable() {
         {list && list.length > 0 ? (
           <TableBody sx={body}>
             {listData.map((data: PegTrackerRes | undefined, index: number) => (
-              <TableRow
-                key={v4()}
-                sx={row}
-                hover
-              >
+              <TableRow key={v4()} sx={row} hover>
                 <TableCell
                   // component='th'
                   // scope='row'
@@ -185,7 +177,7 @@ export function PegTrackerTable() {
                   <Box sx={stablecoin}>
                     <img
                       src={handleIcon(data?.symbol)?.icon}
-                      alt={handleIcon(data?.symbol)?.name ?? 'not-found'}
+                      alt={handleIcon(data?.symbol)?.name ?? "not-found"}
                     />
                     {handleIcon(data?.symbol)?.name ?? data?.symbol}
                   </Box>
@@ -195,12 +187,12 @@ export function PegTrackerTable() {
                   {data?.platforms ? (
                     <AvatarGroup
                       sx={{
-                        justifyContent: 'flex-end',
-                        '.MuiAvatarGroup-avatar': {
+                        justifyContent: "flex-end",
+                        ".MuiAvatarGroup-avatar": {
                           width: 20,
                           height: 20,
                           fontSize: 10,
-                          backgroundColor: '#293845',
+                          backgroundColor: "#293845",
                         },
                       }}
                     >
@@ -219,49 +211,49 @@ export function PegTrackerTable() {
                   )}
                 </TableCell>
                 <TableCell sx={cell}>
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    notation: 'compact',
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                    notation: "compact",
                     maximumFractionDigits: 6,
                     minimumFractionDigits: 6,
                   }).format(data?.usd ?? 0)}
                 </TableCell>
                 <TableCell sx={cell}>
                   <Typography
-                    variant='body1'
+                    variant="body1"
                     color={handleColor(data?.current_off_per ?? 0).main}
                     sx={{
-                      width: 'fit-content',
-                      padding: '0 8px',
+                      width: "fit-content",
+                      padding: "0 8px",
                       backgroundColor: handleColor(data?.current_off_per ?? 0)
                         .background,
                     }}
                   >
                     {data?.current_off_per
                       ? data?.current_off_per > 0
-                        ? '+'
-                        : ''
-                      : ''}
+                        ? "+"
+                        : ""
+                      : ""}
                     {data?.current_off_per.toFixed(2)}%
                   </Typography>
                 </TableCell>
                 <TableCell sx={cell}>
                   <Typography
-                    variant='body1'
+                    variant="body1"
                     color={handleColor(data?.thirty_off_per ?? 0).main}
                     sx={{
-                      width: 'fit-content',
-                      padding: '0 8px',
+                      width: "fit-content",
+                      padding: "0 8px",
                       backgroundColor: handleColor(data?.thirty_off_per ?? 0)
                         .background,
                     }}
                   >
                     {data?.thirty_off_per
                       ? data?.thirty_off_per > 0
-                        ? '+'
-                        : ''
-                      : ''}
+                        ? "+"
+                        : ""
+                      : ""}
                     {data?.thirty_off_per.toFixed(2)}%
                   </Typography>
                 </TableCell>
@@ -284,8 +276,8 @@ export function PegTrackerTable() {
         ) : (
           <Box
             sx={{
-              width: '100%',
-              padding: '0 20px',
+              width: "100%",
+              padding: "0 20px",
             }}
           >
             <Skeleton sx={skeleton} />

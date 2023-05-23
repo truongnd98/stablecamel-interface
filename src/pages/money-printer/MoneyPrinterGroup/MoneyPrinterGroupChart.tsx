@@ -1,10 +1,18 @@
-import { Box, Skeleton } from '@mui/material';
-import { ChartDetailProps } from '../../../components/AreaChart/types';
-import randomColor from 'randomcolor';
-import { format } from 'date-fns';
-import { MoneyPrinterGroupAreaChart } from './MoneyPrinterGroupAreaChart';
+import { Box, Skeleton } from "@mui/material";
+import { ChartDetailProps } from "../../../components/AreaChart/types";
+import randomColor from "randomcolor";
+import { format } from "date-fns";
+import { MoneyPrinterGroupAreaChart } from "./MoneyPrinterGroupAreaChart";
 
-export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
+export function MoneyPrinterGroupChart({
+  data,
+  title,
+  id,
+}: {
+  data: any[];
+  title: string;
+  id?: string;
+}) {
   const details: ChartDetailProps[] = [];
   for (let exchange in data[0]) {
     details.push({ key: exchange, color: randomColor({ seed: exchange }) });
@@ -19,7 +27,7 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
         // }))
         .map((item: any) => {
           const result: any = {
-            time: format(new Date(item.day ?? item.time), 'PP'),
+            time: format(new Date(item.day ?? item.time), "PP"),
           };
           const temp = { ...item };
           delete temp.time;
@@ -37,21 +45,19 @@ export function MoneyPrinterGroupChart({ data }: { data: any[] }) {
   return (
     <Box
       sx={{
-        width: 'calc(50% - 14px)',
+        width: "calc(50% - 14px)",
       }}
     >
+      <section id={id} />
       {data.length > 0 ? (
         <MoneyPrinterGroupAreaChart
           data={list}
-          title='Stablecoin Exchange Flow'
+          title={title}
           detail={details}
+          id={id}
         />
       ) : (
-        <Skeleton
-          variant='rounded'
-          width='100%'
-          height='100%'
-        />
+        <Skeleton variant="rounded" width="100%" height="100%" />
       )}
     </Box>
   );

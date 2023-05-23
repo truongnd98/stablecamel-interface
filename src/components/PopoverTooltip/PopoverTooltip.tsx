@@ -1,7 +1,5 @@
 import * as React from "react";
 import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import InfoIcon from "@mui/icons-material/Info";
 import { Box } from "@mui/material";
 import { PopoverTooltipProps } from "./types";
 
@@ -54,7 +52,7 @@ export function PopoverTooltip({ content, component }: PopoverTooltipProps) {
       >
         <Box
           sx={{
-            border: "2px solid #8c00ef",
+            border: "1.2px solid #8c00ef",
             borderRadius: "4px",
           }}
         >

@@ -9,6 +9,7 @@ import { PopoverTooltip } from "../../../components/PopoverTooltip/PopoverToolti
 import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
+import { bribe_color } from "./color";
 
 const bribeRevenueDetail: ChartDetailProps[] = [
   "DAI",
@@ -52,6 +53,7 @@ const bribeRevenueDetail: ChartDetailProps[] = [
 
 export function ConvexContentBribeRevenueAndUnlockTracker() {
   const { convex } = useCurveEcosystemState();
+  console.log("bribe ---> ", bribeRevenueDetail);
 
   const unlockTrackerV2 = convex.unlock_tracker_v2;
   const unlockTrackerV2Detail = {
@@ -105,7 +107,7 @@ export function ConvexContentBribeRevenueAndUnlockTracker() {
             data={convex.bribe_revenue}
             title="vlCVX Bribe Revenue"
             id="vlcvx-bribe-revenue"
-            details={bribeRevenueDetail}
+            details={bribe_color}
             legend={false}
             tooltip={<Tooltip />}
           />

@@ -3,7 +3,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { v4 } from "uuid";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 
-import { CNCLeaderboard, CRVLeaderboard, CVXLeaderboard } from "../types";
+import { CNCLeaderboard } from "../types";
 import { CopyToClipboardButton } from "../../../components/CopyToClipboardButton/CopyToClipboardButton";
 import LinkIcon from "@mui/icons-material/Link";
 

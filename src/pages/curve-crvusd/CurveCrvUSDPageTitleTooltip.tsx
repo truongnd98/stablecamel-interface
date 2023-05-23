@@ -72,7 +72,7 @@ export function CurveCrvUSDPageTitleTooltip() {
           title={
             <Box
               sx={{
-                border: "2px solid #8c00ef",
+                border: "1.2px solid #8c00ef",
                 backgroundColor: "#fff",
                 borderRadius: "4px",
                 boxShadow:
@@ -80,15 +80,25 @@ export function CurveCrvUSDPageTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-              crvUSD is Curve's new decentralized stablecoin. More metrics will be added as developments continue
-
-The most notable aspect of crvUSD is LLAMMA, which stands for "Lending-Liquidating AMM Algorithm."
-
-On other lending platforms, if your token's value decreases, your loan's stability deteriorates quickly, leading to immediate liquidation. This unpleasant experience results in frequent price fluctuations, yet there have been few attempts to improve this process.
-
-In the $crvUSD system, after providing your collateral, your portfolio contains 100% of that collateral. If the LLAMMA detects a decline in the collateral's value, it automatically converts your portfolio into $crvUSD. If the value increases, your collateral is repurchased. As a result, instead of an abrupt liquidation, the process takes place gradually over a continuous range.
-
-This approach significantly reduces potential losses and enables more hands-off management of your position. Nonetheless, liquidations are still possible and remain a crucial component of the ecosystem. Conveniently, the $crvUSD protocol also provides self-liquidation in such cases..{" "}
+                crvUSD is Curve's new decentralized stablecoin. More metrics
+                will be added as developments continue The most notable aspect
+                of crvUSD is LLAMMA, which stands for "Lending-Liquidating AMM
+                Algorithm." On other lending platforms, if your token's value
+                decreases, your loan's stability deteriorates quickly, leading
+                to immediate liquidation. This unpleasant experience results in
+                frequent price fluctuations, yet there have been few attempts to
+                improve this process. In the $crvUSD system, after providing
+                your collateral, your portfolio contains 100% of that
+                collateral. If the LLAMMA detects a decline in the collateral's
+                value, it automatically converts your portfolio into $crvUSD. If
+                the value increases, your collateral is repurchased. As a
+                result, instead of an abrupt liquidation, the process takes
+                place gradually over a continuous range. This approach
+                significantly reduces potential losses and enables more
+                hands-off management of your position. Nonetheless, liquidations
+                are still possible and remain a crucial component of the
+                ecosystem. Conveniently, the $crvUSD protocol also provides
+                self-liquidation in such cases.{" "}
                 <Link to="https://docs.frax.finance/" target="_blank">
                   Read more
                 </Link>

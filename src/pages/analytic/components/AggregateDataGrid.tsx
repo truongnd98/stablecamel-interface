@@ -1,40 +1,34 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import { Avatar, AvatarGroup, Box, SxProps, Typography } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
-import { useAnalyticState } from '../../../stores/analytic/hooks';
-
-import {
-  convertCurrency,
-  convertCurrencyUSD,
-} from '../../../utils/convertCurrency';
-import { useNetworkContext } from '../AnalyticPage';
-import { AggregateDataSummary, DataDetail, Stablecoin } from '../type';
-import { Chain, Network, Token } from '../../../App';
-import Networks from '../../../jsons/networks.json';
-import Tokens from '../../../jsons/tokens.json';
-import { useNavigate } from 'react-router-dom';
-import { v4 } from 'uuid';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import { Avatar, AvatarGroup, Box, SxProps, Typography } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
+import { useAnalyticState } from "../../../stores/analytic/hooks";
+import { AggregateDataSummary, Stablecoin } from "../type";
+import { Chain, Network, Token } from "../../../App";
+import Networks from "../../../jsons/networks.json";
+import Tokens from "../../../jsons/tokens.json";
+import { useNavigate } from "react-router-dom";
+import { v4 } from "uuid";
 
 const header: SxProps = {
   fontSize: 18,
   fontWeight: 600,
   height: 80,
-  '@media (max-width: 1280px)': {
+  "@media (max-width: 1280px)": {
     fontSize: 16,
   },
 };
 
 const cell: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  paddingLeft: '12px',
-  gap: '8px',
+  display: "flex",
+  alignItems: "center",
+  paddingLeft: "12px",
+  gap: "8px",
   img: {
     width: 20,
     height: 20,
@@ -42,44 +36,44 @@ const cell: SxProps = {
 };
 
 const row: SxProps = {
-  '&:last-child td, &:last-child th': {
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
-  width: '100%',
+  width: "100%",
   height: 50,
-  ':hover': {
-    backgroundColor: '#FAFAFA !important',
+  ":hover": {
+    backgroundColor: "#1c273014 !important",
   },
 };
 
 const body: SxProps = {
-  '&:last-child ': {
+  "&:last-child ": {
     height: 62,
-    paddingBottom: '12px',
+    paddingBottom: "12px",
   },
 };
 
 const skeleton: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 50,
 };
 
 const avatar: SxProps = {
   width: 20,
   height: 20,
-  '$.MuiAvatar-root': {
-    border: 'none',
+  "$.MuiAvatar-root": {
+    border: "none",
   },
 };
 
 const handleColor = (value: number) => {
   if (value > 0)
     return {
-      main: '#2e8c57',
-      background: '#dcfce7',
+      main: "#2e8c57",
+      background: "#dcfce7",
     };
-  else if (value < 0) return { main: '#be3832', background: '#fde2e1' };
-  else return { main: '#676b74', background: '#f3f4f6' };
+  else if (value < 0) return { main: "#be3832", background: "#fde2e1" };
+  else return { main: "#676b74", background: "#f3f4f6" };
 };
 
 const handleIcon = (slug: string): Network | undefined => {
@@ -100,20 +94,20 @@ export default function AggregateDataGrid() {
   return (
     <TableContainer
       sx={{
-        backgroundColor: '#ffffff',
-        borderRadius: '8px',
+        backgroundColor: "#ffffff",
+        borderRadius: "8px",
       }}
     >
       <Table
         sx={{
           minWidth: 650,
         }}
-        size='small'
-        aria-label='a dense table'
+        size="small"
+        aria-label="a dense table"
       >
         <TableHead>
           <TableRow>
-            <TableCell sx={{ ...header, paddingLeft: '32px' }}>Chain</TableCell>
+            <TableCell sx={{ ...header, paddingLeft: "32px" }}>Chain</TableCell>
             <TableCell sx={header}>Stablecoins</TableCell>
             <TableCell sx={header}>Supply</TableCell>
             <TableCell sx={header}>TVL</TableCell>
@@ -125,11 +119,7 @@ export default function AggregateDataGrid() {
           <TableBody sx={body}>
             {dataAggregateSummary.map(
               (token: AggregateDataSummary, index: number) => (
-                <TableRow
-                  key={v4()}
-                  sx={row}
-                  hover
-                >
+                <TableRow key={v4()} sx={row} hover>
                   <TableCell
                   // component='th'
                   // scope='row'
@@ -137,9 +127,9 @@ export default function AggregateDataGrid() {
                     <Box
                       sx={{
                         ...cell,
-                        cursor: 'pointer',
-                        ':hover': {
-                          textDecoration: 'underline',
+                        cursor: "pointer",
+                        ":hover": {
+                          textDecoration: "underline",
                         },
                       }}
                       onClick={() => {
@@ -154,7 +144,7 @@ export default function AggregateDataGrid() {
                     </Box>
                   </TableCell>
                   <TableCell>
-                    <AvatarGroup sx={{ justifyContent: 'flex-end' }}>
+                    <AvatarGroup sx={{ justifyContent: "flex-end" }}>
                       {handleNetwork(token.chain).map((token: Token) => (
                         <Avatar
                           src={token.icon}
@@ -171,41 +161,41 @@ export default function AggregateDataGrid() {
                     </AvatarGroup>
                   </TableCell>
                   <TableCell>
-                    {new Intl.NumberFormat('en-US', {
-                      style: 'currency',
-                      currency: 'USD',
-                      notation: 'compact',
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                      notation: "compact",
                       maximumFractionDigits: 2,
                     }).format(token.totalSupply)}
                   </TableCell>
                   <TableCell>
-                    {new Intl.NumberFormat('en-US', {
-                      style: 'currency',
-                      currency: 'USD',
-                      notation: 'compact',
+                    {new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                      notation: "compact",
                       maximumFractionDigits: 2,
                     }).format(token.totalTvl)}
                   </TableCell>
                   <TableCell>
                     <Typography
-                      variant='body1'
+                      variant="body1"
                       color={handleColor(token.sevenDayChange).main}
                       sx={{
-                        width: 'fit-content',
-                        padding: '0 8px',
+                        width: "fit-content",
+                        padding: "0 8px",
                         backgroundColor: handleColor(token.sevenDayChange)
                           .background,
                       }}
                     >
-                      {token.sevenDayChange > 0 ? '+' : ''}
+                      {token.sevenDayChange > 0 ? "+" : ""}
                       {token.sevenDayChange.toFixed(2)}%
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    {token.chain !== Chain.BSC ? 'USDC:' : 'BUSD:'}{' '}
+                    {token.chain !== Chain.BSC ? "USDC:" : "BUSD:"}{" "}
                     {token.usdcDominance
-                      ? token.usdcDominance.toFixed(2) + '%'
-                      : token.busdDominance.toFixed(2) + '%'}
+                      ? token.usdcDominance.toFixed(2) + "%"
+                      : token.busdDominance.toFixed(2) + "%"}
                   </TableCell>
                 </TableRow>
               )
@@ -214,8 +204,8 @@ export default function AggregateDataGrid() {
         ) : (
           <Box
             sx={{
-              width: '100%',
-              padding: '0 20px',
+              width: "100%",
+              padding: "0 20px",
             }}
           >
             <Skeleton sx={skeleton} />

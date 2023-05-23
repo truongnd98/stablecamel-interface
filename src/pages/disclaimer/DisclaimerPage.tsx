@@ -36,6 +36,7 @@ const wrapInfoCard: SxProps = {
 };
 
 export default function DisclaimerPage() {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <>
       <Helmet>
@@ -44,7 +45,10 @@ export default function DisclaimerPage() {
           property="og:description"
           content="Stable Camel Disclaimer page"
         />
-        <meta property="og:image" content="/thumbnails/thumbnail-general.png" />
+        <meta
+          property="og:image"
+          content={`${baseUrl}/thumbnails/thumbnail-general.png`}
+        />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>

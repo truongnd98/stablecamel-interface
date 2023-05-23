@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { SxProps, Typography } from "@mui/material";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
+import { SxProps } from "@mui/material";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useYieldState } from "../../stores/yield/hooks";
 import { YieldRes } from "./types";
 import Networks from "../../jsons/networks.json";
@@ -103,7 +103,7 @@ const columns: GridColDef[] = [
 const grid: SxProps = {
   "div.MuiDataGrid-row": {
     ":hover": {
-      backgroundColor: "#FAFAFA !important",
+      backgroundColor: "#1c273014 !important",
     },
   },
   "div.MuiDataGrid-columnHeaderTitle": {

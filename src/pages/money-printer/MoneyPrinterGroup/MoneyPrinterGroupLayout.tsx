@@ -1,20 +1,31 @@
-import { Box, SxProps } from '@mui/material';
-import { MoneyPrinterGroupChart } from './MoneyPrinterGroupChart';
+import { Box, SxProps } from "@mui/material";
+import { MoneyPrinterGroupChart } from "./MoneyPrinterGroupChart";
 
-import { MoneyPrinterGroupDataGrid } from './MoneyPrinterGroupDataGrid';
+import { MoneyPrinterGroupDataGrid } from "./MoneyPrinterGroupDataGrid";
 
 const container: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 380,
-  display: 'flex',
-  justifyContent: 'space-between',
+  display: "flex",
+  justifyContent: "space-between",
 };
 
-export function MoneyPrinterGroupLayout({ data }: { data: any[] }) {
+export function MoneyPrinterGroupLayout({
+  data,
+  title,
+}: {
+  data: any[];
+  title: string;
+}) {
+  const id = title?.toLowerCase().replaceAll(" ", "-");
+  const chartId = id + "-chart";
   return (
-    <Box sx={container}>
-      <MoneyPrinterGroupChart data={data} />
-      <MoneyPrinterGroupDataGrid data={data} />
-    </Box>
+    <>
+      <section id={id} />
+      <Box sx={container}>
+        <MoneyPrinterGroupChart data={data} title={title} id={chartId} />
+        <MoneyPrinterGroupDataGrid data={data} title={title} id={id} />
+      </Box>
+    </>
   );
 }

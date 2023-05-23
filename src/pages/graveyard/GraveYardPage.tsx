@@ -38,7 +38,7 @@ export default function GraveYardPage() {
         <meta property="og:description" content="Stable Camel Graveyard page" />
         <meta
           property="og:image"
-          content="/thumbnails/thumbnail-graveyard.png"
+          content="%PUBLIC_URL%/thumbnails/thumbnail-graveyard.png"
         />
       </Helmet>
       <Box sx={container}>

@@ -3,7 +3,7 @@ import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { v4 } from "uuid";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 
-import { CRVLeaderboard, CVXLeaderboard } from "../types";
+import { CVXLeaderboard } from "../types";
 import { CopyToClipboardButton } from "../../../components/CopyToClipboardButton/CopyToClipboardButton";
 import LinkIcon from "@mui/icons-material/Link";
 
@@ -27,7 +27,7 @@ const grid: SxProps = {
     alignItems: "center",
     borderRadius: "8px",
     ":hover": {
-      backgroundColor: "#FAFAFA !important",
+      backgroundColor: "#1c273014 !important",
     },
   },
   "div.MuiDataGrid-columnHeaderTitle": {

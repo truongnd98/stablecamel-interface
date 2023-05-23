@@ -38,7 +38,10 @@ export default function YieldPage() {
         {/* <title>Yield Page</title> */}
 
         <meta property="og:description" content="Stable Camel Yield page" />
-        <meta property="og:image" content="/thumbnails/thumbnail-yield.png" />
+        <meta
+          property="og:image"
+          content="%PUBLIC_URL%/thumbnails/thumbnail-yield.png"
+        />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>
