@@ -4,7 +4,8 @@ import { TradeStablecoinsDisclaimer } from "./components/TradeStablecoinsDisclai
 import { TradingWidget } from "./components/TradingWidget";
 
 const main: SxProps = {
-  minHeight: "100vh",
+  minHeight: "calc(100vh - 48px - 48px - 28px)",
+  mb: "-28px",
   //   height: '100vh',
 };
 

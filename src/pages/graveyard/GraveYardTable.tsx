@@ -16,6 +16,15 @@ const tooltip: SxProps = {
     backgroundColor: "unset",
   },
 };
+const handleColor = (value: number) => {
+  if (value > 0)
+    return {
+      main: "#2e8c57",
+      background: "#dcfce7",
+    };
+  else if (value < 0) return { main: "#be3832", background: "#fde2e1" };
+  else return { main: "#676b74", background: "#f3f4f6" };
+};
 const columns: GridColDef[] = [
   // { field: 'id', headerName: 'ID', flex: 1, maxWidth: 50, hideable: true },
   {
@@ -51,12 +60,37 @@ const columns: GridColDef[] = [
     field: "price",
     flex: 1,
     minWidth: 120,
+    renderCell: ({ value }) => (
+      <>
+        {new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          notation: "compact",
+          maximumFractionDigits: 6,
+          minimumFractionDigits: 6,
+        }).format(value ?? 0)}
+      </>
+    ),
   },
   {
-    headerName: "12M Supply Change",
-    field: "supply",
+    headerName: "3M Supply Change",
+    field: "three_month_market_cap_change",
     flex: 1,
     minWidth: 200,
+    renderCell: ({ value }) => (
+      <Typography
+        variant="body1"
+        color={handleColor(value).main}
+        sx={{
+          width: "fit-content",
+          padding: "0 8px",
+          backgroundColor: handleColor(value).background,
+        }}
+      >
+        {value > 0 ? "+" : ""}
+        {value ? value?.toFixed(2) + "%" : ""}
+      </Typography>
+    ),
   },
   {
     headerName: "Status",
@@ -66,13 +100,13 @@ const columns: GridColDef[] = [
     renderCell: ({ value }) => (
       <Box sx={status}>
         <Tooltip
-          title={value ? "barely alive" : "dead"}
+          title={value === 1 ? "barely alive" : "dead"}
           placement="top"
           arrow
           disableInteractive
           sx={tooltip}
         >
-          <IconButton>{value ? "🫠" : "🪦"}</IconButton>
+          <IconButton>{value === 1 ? "🫠" : "🪦"}</IconButton>
         </Tooltip>
       </Box>
     ),

@@ -1,4 +1,4 @@
-import { Box, Chip, Menu, MenuItem, SxProps, Typography } from "@mui/material";
+import { Box, SxProps, Typography } from "@mui/material";
 import { CurveCrvUSDPageTitleTooltip } from "./CurveCrvUSDPageTitleTooltip";
 
 const pageTitle: SxProps = {

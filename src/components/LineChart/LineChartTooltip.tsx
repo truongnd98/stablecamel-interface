@@ -1,74 +1,71 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 
 const sumData = (list: any[]): number => {
-	return list.reduce((partialSum, a) => partialSum + a.value, 0);
+  return list.reduce((partialSum, a) => partialSum + a.value, 0);
 };
 
 const convertNumber = (value: number) => {
-	return new Intl.NumberFormat('en-US', {
-		// style: 'currency',
-		// currency: 'USD',
-		maximumFractionDigits: 6
-	}).format(value);
+  return new Intl.NumberFormat("en-US", {
+    // style: 'currency',
+    // currency: 'USD',
+    maximumFractionDigits: 6,
+  }).format(value);
 };
 
 export function LineChartTooltip({ active, payload, label }: any) {
-	// console.log('payload', payload);
-	if (active && payload && payload.length) {
-		return (
-			<Box
-				sx={{
-					width: 200,
-					display: 'flex',
-					flexDirection: 'column',
-					backgroundColor: '#ffffff',
-					padding: ' 12px',
-					borderRadius: '8px',
-					border: '2px solid #8c00ef',
-					'&.recharts-tooltip-wrapper': {
-						zIndex: 100
-					}
-				}}
-			>
-				<Typography
-					variant='body1'
-					color='primary'
-				>
-					<b>{label}</b>
-				</Typography>
-				{payload.map((item: any) => (
-					<Box
-						sx={{
-							display: 'flex',
-							justifyContent: 'space-between'
-						}}
-						key={v4()}
-					>
-						{item.value > 0 ? (
-							<>
-								<Typography
-									variant='body1'
-									sx={{
-										color: item.color
-									}}
-								>{`${item.name}:`}</Typography>
-								<Typography
-									variant='body1'
-									sx={{
-										color: item.color
-									}}
-								>
-									{convertNumber(item.value)}
-								</Typography>
-							</>
-						) : (
-							<></>
-						)}
-					</Box>
-				))}
-				{/* <Box
+  // console.log('payload', payload);
+  if (active && payload && payload.length) {
+    return (
+      <Box
+        sx={{
+          width: 200,
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#ffffff",
+          padding: " 12px",
+          borderRadius: "4px",
+          border: "1.2px solid #8c00ef",
+          "&.recharts-tooltip-wrapper": {
+            zIndex: 100,
+          },
+        }}
+      >
+        <Typography variant="body1" color="primary">
+          <b>{label}</b>
+        </Typography>
+        {payload.map((item: any) => (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+            key={v4()}
+          >
+            {item.value > 0 ? (
+              <>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: item.color,
+                  }}
+                >{`${item.name}:`}</Typography>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: item.color,
+                  }}
+                >
+                  {convertNumber(item.value)}
+                </Typography>
+              </>
+            ) : (
+              <></>
+            )}
+          </Box>
+        ))}
+        {/* <Box
 					sx={{
 						display: 'flex',
 						justifyContent: 'space-between',
@@ -95,9 +92,9 @@ export function LineChartTooltip({ active, payload, label }: any) {
 						{convertNumber(sumData(payload))}
 					</Typography>
 				</Box> */}
-			</Box>
-		);
-	}
+      </Box>
+    );
+  }
 
-	return null;
+  return null;
 }

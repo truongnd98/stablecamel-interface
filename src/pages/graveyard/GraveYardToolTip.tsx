@@ -67,9 +67,9 @@ export default function GraveYardToolTip() {
             We{"’"}ve conducted internal research and come up with these rules
             to determine whether a stablecoin is barely alive or dead:
             <br />
-            • If the current price is in $0.90 - $0.95 AND 12M mcap change is
+            • If the current price is in $0.90 - $0.95 AND 3M mcap change is
             positive, the stablecoin is barely alive
-            <br />• If the current price is in $0.90 - $1.00 AND 12M mcap change
+            <br />• If the current price is in $0.90 - $1.00 AND 3M mcap change
             is negative, the stablecoin is dead <br />• If the current price is{" "}
             {"<"}
             $0.90, the stablecoin is dead <br />• If the current price is not

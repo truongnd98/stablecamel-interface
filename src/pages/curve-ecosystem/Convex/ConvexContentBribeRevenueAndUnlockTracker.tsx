@@ -53,16 +53,16 @@ const bribeRevenueDetail: ChartDetailProps[] = [
 
 export function ConvexContentBribeRevenueAndUnlockTracker() {
   const { convex } = useCurveEcosystemState();
-  console.log("bribe ---> ", bribeRevenueDetail);
 
   const unlockTrackerV2 = convex.unlock_tracker_v2;
   const unlockTrackerV2Detail = {
     bar: [
-      { key: "expired_unlock", color: "#6d3099" },
+      { key: "expired_unlock", color: "#7c7c7c" },
+      // { key: "expired_unlock", color: "#6d3099" },
       { key: "future_unlock", color: "#fd3099" },
     ],
     line: [
-      { key: "expired_unlock_usd", color: "#6d3099", right: true },
+      { key: "expired_unlock_usd", color: "#7c7c7c", right: true },
       { key: "future_unlock_usd", color: "#fd3099", right: true },
     ],
   };

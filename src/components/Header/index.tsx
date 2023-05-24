@@ -100,33 +100,18 @@ export default function Header() {
           <Box sx={{ overflow: "hidden", width: "100%" }}>
             <Typography noWrap component="div" sx={link}>
               The cheapest & fastest place to off-ramp stablecoins in Web3 ⚡ -{" "}
-              <Link
-                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-                target="_blank"
-              >
-                Try Now
-              </Link>
+              <Link to="/trade-stablecoins">Try Now</Link>
             </Typography>
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: "flex", gap: "8px" }}>
             <Box sx={buttons}>
-              <Link
-                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-                target="_blank"
-              >
-                Buy Stablecoins
-              </Link>
+              <Link to="/trade-stablecoins">Buy Stablecoins</Link>
             </Box>
             <Box sx={lined} />
             <Box sx={buttons}>
-              <Link
-                to="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-                target="_blank"
-              >
-                Off-Ramps
-              </Link>
+              <Link to="/trade-stablecoins">Off-Ramps</Link>
             </Box>
             <Box sx={lined} />
             <Box sx={buttons}>

@@ -9,7 +9,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { PopoverTooltip } from "../../../components/PopoverTooltip/PopoverTooltip";
 const lockedCNC: ChartDetailProps = {
   key: "vlcnc",
-  color: "#6d3099",
+  color: "#4BDBB3",
   name: "vlCNC",
 };
 

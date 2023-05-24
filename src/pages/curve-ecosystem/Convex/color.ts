@@ -1,6 +1,11 @@
 export const bribe_color = [
 {key: 'DAI', color: '#FAC146'},
 {key: 'WETH', color: '#c71a67'},
+{key: 'ETH', color: '#6f7bba'},
+{key: 'ARB', color: '#1569a1'},
+{key: 'AVAX', color: '#e84142'},
+{key: 'FTM', color: '#1969ff'},
+{key: 'OP', color: '#ff0420'},
 {key: 'ALCX', color: '#deaf8f'},
 {key: 'FXS', color: '#000000'},
 {key: 'MTA', color: '#ffffff'},
@@ -30,5 +35,7 @@ export const bribe_color = [
 {key: 'TUSD', color: '#1a59fd'},
 {key: 'USDD', color: '#23705c'},
 {key: 'FRAX', color: '#000000'},
-{key: 'USDC', color: '#2775ca'}
+{key: 'USDC', color: '#2775ca'},
+{key: 'USDT', color: '#52b095'},
+{key: 'CNC', color: '#4BDBB3'}
 ]

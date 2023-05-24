@@ -83,8 +83,6 @@ const ListNav = () => {
   );
   const navigate = useNavigate();
 
-  console.log("network --->", network);
-
   return (
     <List
       sx={list}
@@ -254,7 +252,7 @@ const ListNav = () => {
               onClick={() => {
                 if (
                   item.slug === "usdt" ||
-                  item.slug === "frax-printer" 
+                  item.slug === "frax-printer"
                   // || item.slug === "crvUSD"
                 )
                   navigate("#");

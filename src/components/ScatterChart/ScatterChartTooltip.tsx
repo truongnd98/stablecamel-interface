@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 
-import { convertCurrency } from '../../utils/convertCurrency';
-import { v4 } from 'uuid';
+import { convertCurrency } from "../../utils/convertCurrency";
+import { v4 } from "uuid";
 
 const sumData = (list: any[]) => {
   return list.reduce((partialSum, a) => partialSum + a.value, 0);
@@ -14,41 +14,38 @@ export const ScatterChartTooltip = ({ active, payload, label }: any) => {
       <Box
         sx={{
           width: 200,
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: '#ffffff',
-          padding: ' 12px',
-          borderRadius: '8px',
-          border: '2px solid #8c00ef',
-          '&.recharts-tooltip-wrapper': {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#ffffff",
+          padding: " 12px",
+          borderRadius: "4px",
+          border: "1.2px solid #8c00ef",
+          "&.recharts-tooltip-wrapper": {
             zIndex: 100,
           },
         }}
       >
-        <Typography
-          variant='body1'
-          color='primary'
-        >
+        <Typography variant="body1" color="primary">
           <b>{label}</b>
         </Typography>
         {payload.map((item: any) => (
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
+              display: "flex",
+              justifyContent: "space-between",
             }}
             key={v4()}
           >
             {item.value > 0 ? (
               <>
                 <Typography
-                  variant='body1'
+                  variant="body1"
                   sx={{
                     color: item.color,
                   }}
                 >{`${item.name}:`}</Typography>
                 <Typography
-                  variant='body1'
+                  variant="body1"
                   sx={{
                     color: item.color,
                   }}
@@ -63,25 +60,25 @@ export const ScatterChartTooltip = ({ active, payload, label }: any) => {
         ))}
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            marginTop: '12px',
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "12px",
           }}
           key={v4()}
         >
           <Typography
-            variant='body1'
+            variant="body1"
             sx={{
-              color: '#000000',
+              color: "#000000",
               fontWeight: 600,
             }}
           >
-            Total:{' '}
+            Total:{" "}
           </Typography>
           <Typography
-            variant='body1'
+            variant="body1"
             sx={{
-              color: '#000000',
+              color: "#000000",
               fontWeight: 600,
             }}
           >

@@ -202,7 +202,7 @@ export function MoneyPrinterGroupDataGrid({
               </Typography>
             </Box>
           }
-          content={`${window.location.toString().split("#")[0]}#-leaderboard`}
+          content={`${window.location.toString().split("#")[0]}#${id}`}
         />
       </Box>
       <DataGrid

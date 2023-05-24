@@ -73,36 +73,36 @@ export function MoneyPrinterPage() {
             <MoneyPrinterMainChart />
           </Box>
           <Box sx={group}>
-            <Typography variant="h5" color="primary">
+            {/* <Typography variant="h5" color="primary">
               USDC Exchange Balances
-            </Typography>
+            </Typography> */}
             <MoneyPrinterGroupLayoutBalance
               data={exchangeBalanceByCEXList}
               title="USDC Exchange Balances"
             />
           </Box>
           <Box sx={group}>
-            <Typography variant="h5" color="primary">
+            {/* <Typography variant="h5" color="primary">
               USDC Deployed to Lending Protocols
-            </Typography>
+            </Typography> */}
             <MoneyPrinterGroupLayout
               data={usdcDeployedLendingProtocolList}
               title="USDC Deployed to Lending Protocols"
             />
           </Box>
           <Box sx={group}>
-            <Typography variant="h5" color="primary">
+            {/* <Typography variant="h5" color="primary">
               USDC Deployed to LPs
-            </Typography>
+            </Typography> */}
             <MoneyPrinterGroupLayout
               data={usdcDeployedToLPs}
               title="USDC Deployed to LPs"
             />
           </Box>
           <Box sx={group}>
-            <Typography variant="h5" color="primary">
+            {/* <Typography variant="h5" color="primary">
               USDC Deployed to Bridges
-            </Typography>
+            </Typography> */}
             <MoneyPrinterGroupLayout
               data={usdcDeployedBridgesByBridge}
               title="USDC Deployed to Bridges"

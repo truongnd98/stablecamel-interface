@@ -1,12 +1,10 @@
 import { Box, SxProps, Typography } from "@mui/material";
 import CustomAreaChart from "../../../../components/AreaChart";
 import { ChartDetailProps } from "../../../../components/AreaChart/types";
-import randomColor from "randomcolor";
 import { CurveEcosystemThirdSubTable } from "./CurveEcosystemThirdSubTable";
 import { useCurveEcosystemState } from "../../../../stores/curve-ecosystem/hooks";
-import { PopoverTooltip } from "../../../../components/PopoverTooltip/PopoverTooltip";
 import { Link } from "react-router-dom";
-import InfoIcon from "@mui/icons-material/Info";
+import { HoverTooltip } from "../../../../components/HoverToolitp";
 
 const container: SxProps = {
   width: "100%",
@@ -30,7 +28,7 @@ const each: SxProps = {
 const details: ChartDetailProps[] = [
   {
     key: "veFXS",
-    color: "#001f54",
+    color: "#000000",
   },
 ];
 
@@ -47,7 +45,7 @@ export function CurveEcosystemThirdSub() {
         <Typography variant="h5" color="primary">
           Locked FXS
         </Typography>
-        <PopoverTooltip
+        <HoverTooltip
           content={
             <>
               <Typography sx={{ p: 1 }}>
@@ -66,14 +64,6 @@ export function CurveEcosystemThirdSub() {
                 </Link>
               </Typography>
             </>
-          }
-          component={
-            <InfoIcon
-              color="primary"
-              sx={{
-                height: 22,
-              }}
-            />
           }
         />
       </Box>

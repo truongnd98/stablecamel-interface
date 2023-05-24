@@ -1,8 +1,8 @@
-import { Box, Typography } from '@mui/material';
-import { v4 } from 'uuid';
+import { Box, Typography } from "@mui/material";
+import { v4 } from "uuid";
 
 const convertNumber = (value: number) => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat("en-US", {
     // style: 'currency',
     // currency: 'USD',
     maximumFractionDigits: 0,
@@ -20,21 +20,18 @@ export const MoneyPrinterGroupAreaChartTooltip = ({
       <Box
         sx={{
           width: 200,
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: '#ffffff',
-          padding: ' 12px',
-          borderRadius: '8px',
-          border: '2px solid #8c00ef',
-          '&.recharts-tooltip-wrapper': {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#ffffff",
+          padding: " 12px",
+          borderRadius: "4px",
+          border: "1.2px solid #8c00ef",
+          "&.recharts-tooltip-wrapper": {
             zIndex: 100,
           },
         }}
       >
-        <Typography
-          variant='body1'
-          color='primary'
-        >
+        <Typography variant="body1" color="primary">
           <b>{label}</b>
         </Typography>
         {payload
@@ -43,21 +40,21 @@ export const MoneyPrinterGroupAreaChartTooltip = ({
           .map((item: any) => (
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
+                display: "flex",
+                justifyContent: "space-between",
               }}
               key={v4()}
             >
               {item.value > 0 ? (
                 <>
                   <Typography
-                    variant='body1'
+                    variant="body1"
                     sx={{
                       color: item.color,
                     }}
                   >{`${item.name}:`}</Typography>
                   <Typography
-                    variant='body1'
+                    variant="body1"
                     sx={{
                       color: item.color,
                     }}

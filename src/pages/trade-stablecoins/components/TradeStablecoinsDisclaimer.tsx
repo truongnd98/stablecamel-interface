@@ -1,4 +1,4 @@
-import { Box, SxProps, Typography } from '@mui/material';
+import { Box, SxProps, Typography } from "@mui/material";
 
 const main: SxProps = {
   // position: 'absolute',
@@ -6,18 +6,19 @@ const main: SxProps = {
   // margin: '0 10%',
   // marginBottom: '20px',
   // textAlign: 'center',
-  backgroundColor: '#ffffff',
-  padding: '20px',
-  width: '100%',
+  backgroundColor: "#ffffff",
+  padding: "20px 28px",
+  width: "100%",
+};
+const text = {
+  color: "#293845",
+  textAlign: "justify",
 };
 
 export function TradeStablecoinsDisclaimer() {
   return (
     <Box sx={main}>
-      <Typography
-        variant='body1'
-        color='secondary'
-      >
+      <Typography variant="body1" color="secondary" sx={text}>
         Risk disclaimer: <br />
         Nothing contained herein shall be considered financial advice or
         recommendation to buy or sell any security, commodity, cryptocurrency,

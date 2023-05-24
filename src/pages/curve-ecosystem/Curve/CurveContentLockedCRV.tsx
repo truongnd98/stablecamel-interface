@@ -13,12 +13,12 @@ import { HoverTooltip } from "../../../components/HoverToolitp";
 
 const lockedCRVDetail: ChartDetailProps = {
   key: "locked_crv",
-  color: "#6d3099",
+  color: "#3465A4",
 };
 
 const lockedCRV60dDetail: ChartDetailProps = {
   key: "CRV Locked",
-  color: "#6d3099",
+  color: "#3465A4",
 };
 
 const formatNumber = (value?: number | null) => {
@@ -109,7 +109,7 @@ export function CurveContentLockedCRV() {
           tooltip={
             <PopoverTooltip
               content={
-                <Typography sx={{ p: 1 }}>
+                <Typography sx={{ p: 1, minWidth: 420, maxWidth: 640 }}>
                   veCRV stands for voting escrow CRV. They are your CRV locked
                   for voting. The longer you lock your CRV for, the more voting
                   power you have (and the bigger boost you can reach).
@@ -132,7 +132,7 @@ export function CurveContentLockedCRV() {
           tooltip={
             <PopoverTooltip
               content={
-                <Typography sx={{ p: 1 }}>
+                <Typography sx={{ p: 1, minWidth: 420, maxWidth: 640 }}>
                   When vote locking CRV, you will also earn a boost on your
                   provided liquidity of up to 2.5x. The goal is to incentivise
                   users to participate in governance by rewarding them with a

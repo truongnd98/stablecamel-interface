@@ -18,56 +18,52 @@ import { useGetDataCurveCrvUSD } from "../../stores/curve-crvusd/hook";
 // };
 
 const container: SxProps = {
-  padding: '20px 28px',
-  paddingBottom: '0',
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: '100vh',
-  height: 'fit-content',
+  padding: "20px 28px",
+  paddingBottom: "0",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  height: "fit-content",
+  gap: "20px",
 };
 
 const main: SxProps = {
-  minHeight: 'calc(100vh - 20px)',
-  display: 'flex',
-  flexDirection: 'column',
+  minHeight: "calc(100vh - 20px)",
+  display: "flex",
+  flexDirection: "column",
   // justifyContent: 'space-between',
-  gap: '28px',
+  gap: "28px",
 };
 
 const group: SxProps = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '20px',
+  display: "flex",
+  flexDirection: "column",
 };
 
 export function CurveCrvUSDPage() {
-	useGetDataCurveCrvUSD()
-	return (
-		<Box sx={container}>
-			<Box>
-				<CurveCrvUSDPageTitle/>
-			</Box>
-			<Box>
-				<CurveCrvUSDPageMetrics/>
-				<CurveCrvUSDPageCharts11/>
-				<CurveCrvUSDPageCharts12/>
-				<Box 
-					sx={{
-						display: 'flex',
-						paddingTop: '28px',
-					}}
-				>
-					<Typography
-						variant='h5'
-						color='primary'
-					>
-						crvUSD Liquidity
-					</Typography>
-				</Box>
-				<CurveCrvUSDPageCharts21/>
-				<CurveCrvUSDPageCharts22/>
-			</Box>
-		</Box>
-
-	);
+  useGetDataCurveCrvUSD();
+  return (
+    <Box sx={container}>
+      <Box>
+        <CurveCrvUSDPageTitle />
+      </Box>
+      <Box>
+        <CurveCrvUSDPageMetrics />
+        <CurveCrvUSDPageCharts11 />
+        <CurveCrvUSDPageCharts12 />
+        <Box
+          sx={{
+            display: "flex",
+            paddingTop: "28px",
+          }}
+        >
+          <Typography variant="h5" color="primary">
+            crvUSD Liquidity
+          </Typography>
+        </Box>
+        <CurveCrvUSDPageCharts21 />
+        <CurveCrvUSDPageCharts22 />
+      </Box>
+    </Box>
+  );
 }
