@@ -1,16 +1,16 @@
 import { Box, SxProps } from "@mui/material";
 
-export function TradingWidget() {
+export function TradingWidget({ url }: { url: string }) {
   const wrapper: SxProps = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    pt: "4rem",
+    pt: { sm: "3rem", lg: "4rem" },
     mb: "3rem",
   };
   const iframeStyle = {
     width: "400px",
-    height: "565px",
+    height: "575px",
     border: "none",
     borderRadius: "8px",
     maxWidth: "100%",
@@ -18,11 +18,7 @@ export function TradingWidget() {
   };
   return (
     <Box sx={wrapper}>
-      <iframe
-        src="https://ramp.stably.io/?integrationId=stablecamel-5c58e755"
-        title="Stably Widget"
-        style={iframeStyle}
-      />
+      <iframe src={url} title="Stably Widget" style={iframeStyle} />
     </Box>
   );
 }

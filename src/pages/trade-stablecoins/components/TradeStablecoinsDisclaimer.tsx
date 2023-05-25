@@ -7,19 +7,19 @@ const main: SxProps = {
   // marginBottom: '20px',
   // textAlign: 'center',
   backgroundColor: "#ffffff",
-  padding: "20px 28px",
-  width: "100%",
+  padding: "20px",
+  m: "0 28px",
+  borderRadius: "8px",
 };
 const text = {
   color: "#293845",
-  textAlign: "justify",
 };
 
 export function TradeStablecoinsDisclaimer() {
   return (
     <Box sx={main}>
       <Typography variant="body1" color="secondary" sx={text}>
-        Risk disclaimer: <br />
+        <b>RISK DISCLAIMER: </b>
         Nothing contained herein shall be considered financial advice or
         recommendation to buy or sell any security, commodity, cryptocurrency,
         digital asset, or any other financial instrument or asset.

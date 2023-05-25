@@ -9,8 +9,14 @@ const main: SxProps = {
   //   height: '100vh',
 };
 
-export default function TradeStablecoin() {
+export default function TradeStablecoin({ action }: { action: string }) {
   const baseUrl = process.env.REACT_APP_BASE_URL;
+
+  const stablyUrl =
+    action === "buy"
+      ? "https://ramp.stably.io/?integrationId=stablecamel-5c58e755&asset=USDS&asset=USD&asset=VeUSD&asset=USDC&asset=USDT&asset=FRAX&asset=USDP&asset=TUSD&asset=DAI&asset=AVALANCHE_BRIDGED_DAI&asset=GUSD&lock=true"
+      : "https://ramp.stably.io/?integrationId=stablecamel-5c58e755";
+
   return (
     <>
       <Helmet>
@@ -26,7 +32,7 @@ export default function TradeStablecoin() {
         />
       </Helmet>
       <Box sx={main}>
-        <TradingWidget />
+        <TradingWidget url={stablyUrl} />
         <TradeStablecoinsDisclaimer />
       </Box>
     </>

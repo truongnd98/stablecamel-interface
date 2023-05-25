@@ -8,6 +8,7 @@ import { MoneyPrinterGroupLayout } from "./MoneyPrinterGroup/MoneyPrinterGroupLa
 import { MoneyPrinterGroupLayoutBalance } from "./MoneyPrinterGroup/MoneyPrinterGroupLayoutBalance";
 import { MoneyPrinterMainChart } from "./MoneyPrinterMainChart/MoneyPrinterMainChart";
 import { MoneyPrinterMetrics } from "./MoneyPrinterMetrics/MoneyPrinterMetrics";
+import { useEffect } from "react";
 
 const container: SxProps = {
   padding: "20px 28px",
@@ -41,6 +42,21 @@ export function MoneyPrinterPage() {
   } = useMoneyPrinterState();
   useFetchData();
   const baseUrl = process.env.REACT_APP_BASE_URL;
+
+  const handleElementScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.split("#")[1].toString();
+      handleElementScroll(id);
+    }
+  }, []);
 
   return (
     <>

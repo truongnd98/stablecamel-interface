@@ -6,6 +6,7 @@ import { CurveCrvUSDPageCharts12 } from "./CurveCrvUSDPageCharts12";
 import { CurveCrvUSDPageCharts21 } from "./CurveCrvUSDPageCharts21";
 import { CurveCrvUSDPageCharts22 } from "./CurveCrvUSDPageCharts22";
 import { useGetDataCurveCrvUSD } from "../../stores/curve-crvusd/hook";
+import { useEffect } from "react";
 
 // const container: SxProps = {
 // 	width: '100%',
@@ -42,6 +43,22 @@ const group: SxProps = {
 
 export function CurveCrvUSDPage() {
   useGetDataCurveCrvUSD();
+
+  const handleElementScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const id = hash.split("#")[1].toString();
+      handleElementScroll(id);
+    }
+  }, []);
+
   return (
     <Box sx={container}>
       <Box>

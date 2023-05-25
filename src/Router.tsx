@@ -1,9 +1,7 @@
-import { elements } from "chart.js";
 import React, { Suspense } from "react";
 import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
 import { ApplicationLayout } from "./components/ApplicationLayout/ApplicationLayout";
 import CircularProgress from "@mui/material/CircularProgress";
-import { MoneyPrinterPage } from "./pages/money-printer/MoneyPrinterPage";
 import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";
 import { CurveEcosystemPage } from "./pages/curve-ecosystem/CurveEcosystemPage";
 import { MoneyPrinterPageRouter } from "./pages/money-printer/MoneyPrinterPageRouter";
@@ -55,11 +53,20 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        id: "trading",
-        path: "trade-stablecoins",
+        id: "buy",
+        path: "buy-stablecoins",
         element: (
           <Suspense fallback={<CircularProgress />}>
-            <TradeStablecoin />
+            <TradeStablecoin action="buy" />
+          </Suspense>
+        ),
+      },
+      {
+        id: "sell",
+        path: "sell-stablecoins",
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <TradeStablecoin action="sell" />
           </Suspense>
         ),
       },
