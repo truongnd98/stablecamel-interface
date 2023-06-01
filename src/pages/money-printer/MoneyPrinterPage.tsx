@@ -1,5 +1,4 @@
 import { Box, SxProps, Typography } from "@mui/material";
-import { Helmet } from "react-helmet-async";
 import {
   useFetchData,
   useMoneyPrinterState,
@@ -34,8 +33,6 @@ export function MoneyPrinterPage() {
     usdcDeployedBridgesByBridge,
   } = useMoneyPrinterState();
 
-  const baseUrl = process.env.REACT_APP_BASE_URL;
-
   const handleElementScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -54,17 +51,6 @@ export function MoneyPrinterPage() {
 
   return (
     <>
-      <Helmet>
-        {/* <title>Money Printer Page</title> */}
-        <meta
-          property="og:description"
-          content="Stable Camel Money Printer page"
-        />
-        <meta
-          property="og:image"
-          content={`${baseUrl}/thumbnails/thumbnail-moneyprinter.png`}
-        />
-      </Helmet>
       <Box sx={container}>
         <Box sx={main}>
           {/* <Box sx={group}> */}
@@ -106,7 +92,7 @@ export function MoneyPrinterPage() {
             </Typography> */}
           <MoneyPrinterGroupLayout
             data={usdcDeployedToLPs}
-            title="USDC Deployed to LPs"
+            title="USDC Deployed to DEXs"
           />
           {/* </Box> */}
           {/* <Box sx={group}> */}

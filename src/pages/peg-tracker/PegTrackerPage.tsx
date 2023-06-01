@@ -26,12 +26,20 @@ export function PegTrackerPage() {
 
   return (
     <>
-      <Helmet>{/* <title></title> */}</Helmet>
+      <Helmet>
+        <meta
+          property="og:description"
+          content="Stable Camel Activity Dashboard"
+        />
+        <meta
+          property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-activity.png`}
+        />
+      </Helmet>
       <Box sx={container}>
         <Box sx={main}>
           <PegTrackerTitle />
           <PegTrackerTable />
-          {/* <Footer /> */}
         </Box>
       </Box>
     </>

@@ -1,11 +1,10 @@
-import { Box, SxProps, Typography } from "@mui/material";
-import Footer from "../../components/Footer";
+import { Box, SxProps } from "@mui/material";
 import Overview from "./AnalyticPageContent";
 import Title from "./AnalyticPageTitle";
 import Networks from "../../jsons/networks.json";
 import { createContext, useContext } from "react";
 import { Network } from "../../App";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useScrollToId } from "../../hooks/useScrollToId";
 import { Helmet } from "react-helmet-async";
 
@@ -32,27 +31,29 @@ export default function AnalyticPage() {
     : Networks.slice(1, Networks.length).find((item: Network) =>
         network.includes(item.slug)
       );
-  const location = useLocation();
+
+  // const location = useLocation();
   useScrollToId();
   return (
     <>
-      <Helmet>
-        {/* <title>Analytic Page</title> */}
-        <meta
-          property="og:description"
-          content={`Stablecoin TVL Dashboard (${currentNetwork?.name})`}
-        />
-        <meta
-          property="og:image"
-          content="%PUBLIC_URL%/thumbnails/thumbnail-general.png"
-          // content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
-        />
-      </Helmet>
+      {currentNetwork?.slug ? (
+        <Helmet>
+          <meta
+            property="og:description"
+            content={`Stablecoin TVL Dashboard`}
+          />
+          <meta
+            property="og:image"
+            content={`https://www.stablecamel.com/thumbnails/thumbnail-${currentNetwork?.slug?.toLowerCase()}.png`}
+          />
+        </Helmet>
+      ) : (
+        <></>
+      )}
       <NetworkContext.Provider value={currentNetwork}>
         <Box sx={main}>
           <Title />
           <Overview />
-          {/* <Footer /> */}
         </Box>
       </NetworkContext.Provider>
     </>

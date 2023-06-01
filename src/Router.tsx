@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { ApplicationLayout } from "./components/ApplicationLayout/ApplicationLayout";
 import CircularProgress from "@mui/material/CircularProgress";
 import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";

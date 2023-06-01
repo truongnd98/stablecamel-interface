@@ -1,12 +1,11 @@
 import { Box, SxProps } from "@mui/material";
 import { useParams } from "react-router-dom";
-import Footer from "../../components/Footer";
 import { CurveContent } from "./Curve/CurveContent";
-import { CurveEcosystemTitle } from "./CurveEcosystemTitle/CurveEcosystemTitle";
 import { FraxContent } from "./Frax/FraxContent";
 import { ConvexContent } from "./Convex/ConvexContent";
 import { ConicContent } from "./Conic/ConicConten";
 import { CleverContent } from "./Clever/CleverContent";
+import { Helmet } from "react-helmet-async";
 
 const container: SxProps = {
   width: "100%",
@@ -20,14 +19,24 @@ const container: SxProps = {
 
 export function CurveEcosystemPage() {
   const { network } = useParams();
+
   return (
-    <Box sx={container}>
-      {network === "frax-finance" ? <FraxContent /> : <></>}
-      {network === "curve" ? <CurveContent /> : <></>}
-      {network === "convex" ? <ConvexContent /> : <></>}
-      {network === "conic" ? <ConicContent /> : <></>}
-      {network === "clever" ? <CleverContent /> : <></>}
-      {/* <Footer /> */}
-    </Box>
+    <>
+      <Helmet>
+        <meta property="og:description" content={`Stablecoin TVL Dashboard`} />
+        <meta
+          property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-${network?.toLowerCase()}.png`}
+        />
+      </Helmet>
+      <Box sx={container}>
+        {network === "frax-finance" ? <FraxContent /> : <></>}
+        {network === "curve" ? <CurveContent /> : <></>}
+        {network === "convex" ? <ConvexContent /> : <></>}
+        {network === "conic" ? <ConicContent /> : <></>}
+        {network === "clever" ? <CleverContent /> : <></>}
+        {/* <Footer /> */}
+      </Box>
+    </>
   );
 }

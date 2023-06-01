@@ -1,27 +1,26 @@
-import { Box, SxProps, Paper, Typography } from '@mui/material';
-import Skeleton from '@mui/material/Skeleton';
-import { useMoneyPrinterState } from '../../../stores/moneyprinter/hooks';
-import { MoneyPrinterSingleMetric } from './MoneyPrinterSingleMetric';
+import { Box, SxProps, Paper, Typography } from "@mui/material";
+import { useMoneyPrinterState } from "../../../stores/moneyprinter/hooks";
+import { MoneyPrinterSingleMetric } from "./MoneyPrinterSingleMetric";
 
 const main: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 120,
-  display: 'flex',
-  justifyContent: 'space-between',
+  display: "flex",
+  justifyContent: "space-between",
 };
 
 const wrap: SxProps = {
-  width: 'calc(50% - 14px)',
-  height: '100%',
-  display: 'flex',
-  gap: '28px',
+  width: "calc(50% - 14px)",
+  height: "100%",
+  display: "flex",
+  gap: "20px",
 };
 
 const formatNumber = (value: number): string => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    notation: 'compact',
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    notation: "compact",
     maximumFractionDigits: 2,
   }).format(value);
 };
@@ -50,21 +49,21 @@ export function MoneyPrinterMetrics() {
       <Box sx={wrap}>
         <MoneyPrinterSingleMetric
           value={dataExchange}
-          title='USDC Exchange Balances'
+          title="USDC Exchange Balances"
         />
         <MoneyPrinterSingleMetric
           value={dataLPs}
-          title='USDC Deployed to LPs'
+          title="USDC Deployed to DEXs"
         />
       </Box>
       <Box sx={wrap}>
         <MoneyPrinterSingleMetric
           value={dataLenders}
-          title='USDC Deployed to Lenders'
+          title="USDC Deployed to Lenders"
         />
         <MoneyPrinterSingleMetric
           value={dataBridges}
-          title='USDC Deployed to Bridges'
+          title="USDC Deployed to Bridges"
         />
       </Box>
     </Box>

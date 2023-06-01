@@ -28,26 +28,17 @@ const card: SxProps = {
   borderRadius: "8px",
 };
 
-const wrapInfoCard: SxProps = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "8px",
-  paddingBottom: "12px",
-};
-
 export default function DisclaimerPage() {
-  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <>
       <Helmet>
-        {/* <title>Disclaimer Page</title> */}
         <meta
           property="og:description"
-          content="Stable Camel Disclaimer page"
+          content="Stable Camel Disclaimer Page"
         />
         <meta
           property="og:image"
-          content={`${baseUrl}/thumbnails/thumbnail-general.png`}
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}
         />
       </Helmet>
       <Box sx={container}>

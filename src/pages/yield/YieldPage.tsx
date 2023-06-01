@@ -1,5 +1,4 @@
 import { Box, SxProps } from "@mui/material";
-import Footer from "../../components/Footer";
 import { YieldTable } from "./YieldTable";
 import { YieldTitle } from "./YieldTitle";
 import { YieldMetrics } from "./YieldMetrics";
@@ -27,7 +26,7 @@ const main: SxProps = {
 const wrapData: SxProps = {
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "28px",
 };
 
 export default function YieldPage() {
@@ -37,10 +36,13 @@ export default function YieldPage() {
       <Helmet>
         {/* <title>Yield Page</title> */}
 
-        <meta property="og:description" content="Stable Camel Yield page" />
+        <meta
+          property="og:description"
+          content="Stable Camel Yield Dashboard"
+        />
         <meta
           property="og:image"
-          content="%PUBLIC_URL%/thumbnails/thumbnail-yield.png"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-yield.png"
         />
       </Helmet>
       <Box sx={container}>

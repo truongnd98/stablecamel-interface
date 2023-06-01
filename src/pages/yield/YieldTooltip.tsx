@@ -3,6 +3,7 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import InfoIcon from "@mui/icons-material/Info";
 import { Box } from "@mui/material";
+import DefillamaLogo from "../../assets/logos/defillama-logo.png";
 
 export default function YieldTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -74,14 +75,14 @@ export default function YieldTooltip() {
               gap: "12px",
             }}
           >
-            Data source: DefiLlama
-            {/* <img
-							src='https://dune.com/docs/reference/images/dune-standard-logo.svg'
-							alt='dune-logo'
-							style={{
-								height: 20
-							}}
-						/> */}
+            Data source:
+            <img
+              src={DefillamaLogo}
+              alt="defillama-logo"
+              style={{
+                height: 36,
+              }}
+            />
           </Typography>
         </Box>
       </Popover>

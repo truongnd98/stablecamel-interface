@@ -1,5 +1,4 @@
 import { Box, SxProps, Typography, Link } from "@mui/material";
-import Footer from "../../components/Footer";
 import { Helmet } from "react-helmet-async";
 
 const container: SxProps = {
@@ -36,16 +35,14 @@ const wrapInfoCard: SxProps = {
 };
 
 export default function AboutPage() {
-  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <>
       <Helmet>
-        {/* <title>About Page</title> */}
-        <meta property="og:description" content="Stable Camel About page" />
-        <meta
+        <meta property="og:description" content="Stable Camel About Page" />
+        {/* <meta
           property="og:image"
-          content={`${baseUrl}/thumbnails/thumbnail-general.png`}
-        />
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}
+        /> */}
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>

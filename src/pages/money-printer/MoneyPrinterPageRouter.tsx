@@ -1,8 +1,8 @@
 import { Box, SxProps } from "@mui/material";
 import { useParams } from "react-router-dom";
-import Footer from "../../components/Footer";
 import { MoneyPrinterPage } from "./MoneyPrinterPage";
 import { CurveCrvUSDPage } from "../curve-crvusd/CurveCrvUSDPage";
+import { Helmet } from "react-helmet-async";
 
 const container: SxProps = {
   width: "100%",
@@ -19,6 +19,16 @@ export function MoneyPrinterPageRouter() {
 
   return (
     <Box sx={container}>
+      <Helmet>
+        <meta
+          property="og:description"
+          content="Stable Camel Money Printer page"
+        />
+        <meta
+          property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-moneyprinter-${network?.toLocaleLowerCase()}.png`}
+        />
+      </Helmet>
       {network === "usdc" ? <MoneyPrinterPage /> : <></>}
       {network === "crvUSD" ? <CurveCrvUSDPage /> : <></>}
     </Box>

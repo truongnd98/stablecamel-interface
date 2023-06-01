@@ -2,6 +2,10 @@
   "name": "stable-camel-interface",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.x",
+    "npm": "9.6.x"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -41,7 +45,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": [
@@ -65,7 +70,14 @@
     "@types/randomcolor": "^0.5.7",
     "@types/react-helmet": "^6.1.6",
     "@types/styled-components": "^5.1.26",
-    "@types/uuid": "^9.0.1"
+    "@types/uuid": "^9.0.1",
+    "react-snap": "^1.23.0"
+  },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   },
   "main": "index.js",
   "repository": "https://github.com/briannguyen9192/stable-camel.git",

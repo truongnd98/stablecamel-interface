@@ -26,7 +26,7 @@ const container: SxProps = {
   flexDirection: "column",
   minHeight: "100vh",
   height: "fit-content",
-  gap: "20px",
+  gap: "28px",
 };
 
 export function CurveCrvUSDPage() {

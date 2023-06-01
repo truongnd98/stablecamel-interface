@@ -25,7 +25,7 @@ const main: SxProps = {
 const wrapData: SxProps = {
   display: "flex",
   flexDirection: "column",
-  gap: "20px",
+  gap: "28px",
 };
 
 export default function GraveYardPage() {
@@ -35,10 +35,13 @@ export default function GraveYardPage() {
       <Helmet>
         {/* <title>Grave Yard Page</title> */}
 
-        <meta property="og:description" content="Stable Camel Graveyard page" />
+        <meta
+          property="og:description"
+          content="Stable Camel Graveyard Dashboard"
+        />
         <meta
           property="og:image"
-          content="%PUBLIC_URL%/thumbnails/thumbnail-graveyard.png"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-graveyard.png"
         />
       </Helmet>
       <Box sx={container}>
