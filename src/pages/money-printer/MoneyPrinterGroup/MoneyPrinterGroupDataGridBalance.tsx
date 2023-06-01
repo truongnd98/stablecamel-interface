@@ -134,7 +134,7 @@ const grid: SxProps = {
 };
 
 const main: SxProps = {
-  width: "50%",
+  width: "calc(50% - 14px)",
   height: "100%",
   backgroundColor: "#ffffff",
   borderRadius: "8px",
@@ -184,6 +184,7 @@ export function MoneyPrinterGroupDataGridBalance({
   list = list.sort((a, b) => b.balance - a.balance);
   return (
     <Box sx={main}>
+      <section id={id} />
       <Box
         p="24px 10px 12px"
         display="flex"

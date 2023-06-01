@@ -1,4 +1,4 @@
-import { SxProps } from "@mui/material";
+import { SxProps, Skeleton } from "@mui/material";
 import {
   AreaChart,
   Area,
@@ -74,7 +74,9 @@ export function MoneyPrinterGroupAreaChart({
   legend?: boolean;
   id?: string;
 }) {
-  return (
+  return !data.length ? (
+    <Skeleton variant="rounded" width="100%" height="100%" />
+  ) : (
     <Box sx={main}>
       <Box sx={background}>
         <img src="/logos/logo-bw.png" alt="logo" />

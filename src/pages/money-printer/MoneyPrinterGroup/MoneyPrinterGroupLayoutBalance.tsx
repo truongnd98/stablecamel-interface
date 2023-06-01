@@ -6,6 +6,7 @@ const container: SxProps = {
   width: "100%",
   height: 380,
   display: "flex",
+  justifyContent: "space-between",
   gap: "28px",
 };
 
@@ -22,7 +23,6 @@ export function MoneyPrinterGroupLayoutBalance({
 
   return (
     <>
-      <section id={id} />
       <Box sx={container}>
         <MoneyPrinterGroupChart data={data} title={title} id={chartId} />
         <MoneyPrinterGroupDataGridBalance data={data} title={title} id={id} />

@@ -8,7 +8,6 @@ import { MoneyPrinterGroupLayout } from "./MoneyPrinterGroup/MoneyPrinterGroupLa
 import { MoneyPrinterGroupLayoutBalance } from "./MoneyPrinterGroup/MoneyPrinterGroupLayoutBalance";
 import { MoneyPrinterMainChart } from "./MoneyPrinterMainChart/MoneyPrinterMainChart";
 import { MoneyPrinterMetrics } from "./MoneyPrinterMetrics/MoneyPrinterMetrics";
-import { useEffect } from "react";
 
 const container: SxProps = {
   padding: "20px 28px",
@@ -27,12 +26,6 @@ const main: SxProps = {
   gap: "28px",
 };
 
-const group: SxProps = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "20px",
-};
-
 export function MoneyPrinterPage() {
   const {
     exchangeBalanceByCEXList,
@@ -40,23 +33,24 @@ export function MoneyPrinterPage() {
     usdcDeployedToLPs,
     usdcDeployedBridgesByBridge,
   } = useMoneyPrinterState();
-  useFetchData();
+
   const baseUrl = process.env.REACT_APP_BASE_URL;
 
   const handleElementScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      // 👇 Will scroll smoothly to the top of the next section
-      element.scrollIntoView({ behavior: "smooth" });
+      // 👇 Will scroll smoothly to the top of the next section // set time out for the render can catch after api fetched
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
     }
   };
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const id = hash.split("#")[1].toString();
-      handleElementScroll(id);
-    }
-  }, []);
+
+  const hash = window.location.hash;
+
+  const id = hash.split("#")[1] ? hash.split("#")[1].toString() : "#";
+
+  useFetchData(() => handleElementScroll(id));
 
   return (
     <>
@@ -73,57 +67,57 @@ export function MoneyPrinterPage() {
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>
-          <Box sx={group}>
-            <Typography
-              variant="h5"
-              color="primary"
-              sx={{
-                "@media (max-width: 1280px)": {
-                  fontSize: "18px !important",
-                },
-              }}
-            >
-              USDC Money Printer (Ethereum)
-            </Typography>
-            <MoneyPrinterMetrics />
-            <MoneyPrinterMainChart />
-          </Box>
-          <Box sx={group}>
-            {/* <Typography variant="h5" color="primary">
+          {/* <Box sx={group}> */}
+          <Typography
+            variant="h5"
+            color="primary"
+            sx={{
+              "@media (max-width: 1280px)": {
+                fontSize: "18px !important",
+              },
+            }}
+          >
+            USDC Money Printer (Ethereum)
+          </Typography>
+          <MoneyPrinterMetrics />
+          <MoneyPrinterMainChart />
+          {/* </Box> */}
+          {/* <Box sx={group}> */}
+          {/* <Typography variant="h5" color="primary">
               USDC Exchange Balances
             </Typography> */}
-            <MoneyPrinterGroupLayoutBalance
-              data={exchangeBalanceByCEXList}
-              title="USDC Exchange Balances"
-            />
-          </Box>
-          <Box sx={group}>
-            {/* <Typography variant="h5" color="primary">
+          <MoneyPrinterGroupLayoutBalance
+            data={exchangeBalanceByCEXList}
+            title="USDC Exchange Balances"
+          />
+          {/* </Box> */}
+          {/* <Box sx={group}> */}
+          {/* <Typography variant="h5" color="primary">
               USDC Deployed to Lending Protocols
             </Typography> */}
-            <MoneyPrinterGroupLayout
-              data={usdcDeployedLendingProtocolList}
-              title="USDC Deployed to Lending Protocols"
-            />
-          </Box>
-          <Box sx={group}>
-            {/* <Typography variant="h5" color="primary">
+          <MoneyPrinterGroupLayout
+            data={usdcDeployedLendingProtocolList}
+            title="USDC Deployed to Lending Protocols"
+          />
+          {/* </Box> */}
+          {/* <Box sx={group}> */}
+          {/* <Typography variant="h5" color="primary">
               USDC Deployed to LPs
             </Typography> */}
-            <MoneyPrinterGroupLayout
-              data={usdcDeployedToLPs}
-              title="USDC Deployed to LPs"
-            />
-          </Box>
-          <Box sx={group}>
-            {/* <Typography variant="h5" color="primary">
+          <MoneyPrinterGroupLayout
+            data={usdcDeployedToLPs}
+            title="USDC Deployed to LPs"
+          />
+          {/* </Box> */}
+          {/* <Box sx={group}> */}
+          {/* <Typography variant="h5" color="primary">
               USDC Deployed to Bridges
             </Typography> */}
-            <MoneyPrinterGroupLayout
-              data={usdcDeployedBridgesByBridge}
-              title="USDC Deployed to Bridges"
-            />
-          </Box>
+          <MoneyPrinterGroupLayout
+            data={usdcDeployedBridgesByBridge}
+            title="USDC Deployed to Bridges"
+          />
+          {/* </Box> */}
           {/* <Footer /> */}
         </Box>
       </Box>

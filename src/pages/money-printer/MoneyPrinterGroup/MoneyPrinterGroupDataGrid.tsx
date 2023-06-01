@@ -184,6 +184,7 @@ export function MoneyPrinterGroupDataGrid({
   list = list.sort((a, b) => b.tvl - a.tvl);
   return (
     <Box sx={main}>
+      <section id={id} />
       <Box
         p="24px 10px 12px"
         display="flex"

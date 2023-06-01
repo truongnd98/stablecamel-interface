@@ -21,7 +21,7 @@ export function CurveContent() {
       const id = hash.split("#")[1].toString();
       const timer1 = setTimeout(() => {
         handleElementScroll(id);
-      }, 1200);
+      }, 3200);
       return () => {
         clearTimeout(timer1);
       };

@@ -87,7 +87,7 @@ export function ConvexTitleTooltip() {
                 users receive trading fees as well as a share of boosted CRV
                 received by liquidity providers. This allows for a better
                 balance between liquidity providers and CRV stakers as well as
-                better capital efficiency.
+                better capital efficiency.{" "}
                 <Link
                   to="https://docs.convexfinance.com/convexfinance/general-information/why-convex"
                   target="_blank"

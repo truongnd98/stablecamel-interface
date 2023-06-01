@@ -5,7 +5,7 @@ import { TradingWidget } from "./components/TradingWidget";
 
 const main: SxProps = {
   minHeight: "calc(100vh - 48px - 48px - 28px)",
-  mb: "-28px",
+  mb: "0",
   //   height: '100vh',
 };
 

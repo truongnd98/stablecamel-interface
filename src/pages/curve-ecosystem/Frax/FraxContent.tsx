@@ -21,7 +21,7 @@ export function FraxContent() {
       const id = hash.split("#")[1].toString();
       const timer1 = setTimeout(() => {
         handleElementScroll(id);
-      }, 2000);
+      }, 3200);
       return () => {
         clearTimeout(timer1);
       };

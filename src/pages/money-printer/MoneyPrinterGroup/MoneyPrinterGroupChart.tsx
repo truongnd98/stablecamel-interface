@@ -49,16 +49,16 @@ export function MoneyPrinterGroupChart({
       }}
     >
       <section id={id} />
-      {data.length > 0 ? (
-        <MoneyPrinterGroupAreaChart
-          data={list}
-          title={title}
-          detail={details}
-          id={id}
-        />
-      ) : (
+      {/* {data.length > 0 ? ( */}
+      <MoneyPrinterGroupAreaChart
+        data={list}
+        title={title}
+        detail={details}
+        id={id}
+      />
+      {/* ) : (
         <Skeleton variant="rounded" width="100%" height="100%" />
-      )}
+      )} */}
     </Box>
   );
 }

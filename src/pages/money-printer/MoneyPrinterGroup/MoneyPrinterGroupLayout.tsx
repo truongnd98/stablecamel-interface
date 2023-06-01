@@ -21,7 +21,6 @@ export function MoneyPrinterGroupLayout({
   const chartId = id + "-chart";
   return (
     <>
-      <section id={id} />
       <Box sx={container}>
         <MoneyPrinterGroupChart data={data} title={title} id={chartId} />
         <MoneyPrinterGroupDataGrid data={data} title={title} id={id} />
