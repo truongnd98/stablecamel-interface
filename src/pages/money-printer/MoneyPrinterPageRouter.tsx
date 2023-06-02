@@ -22,7 +22,7 @@ export function MoneyPrinterPageRouter() {
       <Helmet>
         <meta
           property="og:description"
-          content="Stable Camel Money Printer page"
+          content="Stable Camel Money Printer dashboard"
         />
         <meta
           property="og:image"

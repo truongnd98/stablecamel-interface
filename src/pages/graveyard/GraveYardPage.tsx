@@ -37,7 +37,7 @@ export default function GraveYardPage() {
 
         <meta
           property="og:description"
-          content="Stable Camel Graveyard Dashboard"
+          content="Stable Camel Graveyard dashboard"
         />
         <meta
           property="og:image"

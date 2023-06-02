@@ -20,10 +20,55 @@ const container: SxProps = {
 export function CurveEcosystemPage() {
   const { network } = useParams();
 
+  const hash = window.location.hash;
+  const animationWrap = {
+    hash: {
+      position: "relative",
+      "::after": {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        borderRadius: "8px",
+        animation: "noti 1 3s",
+      },
+    },
+    "@keyframes noti": {
+      "0%": {
+        backgroundColor: "transparent",
+        display: "block",
+      },
+      "50%": {
+        backgroundColor: "#cf99fc80",
+      },
+      "99%": {
+        backgroundColor: "transparent",
+      },
+      "100%": {
+        display: "none",
+        zIndex: -1,
+      },
+    },
+  };
+
+  const pageName =
+    network === "frax-finance"
+      ? "frax-finance"
+      : network === "curve"
+      ? "Curve"
+      : network === "convex"
+      ? "Convex"
+      : "Clever";
+
   return (
     <>
       <Helmet>
-        <meta property="og:description" content={`Stablecoin TVL Dashboard`} />
+        <meta
+          property="og:description"
+          content={`Curve Ecosystem ${pageName} dashboard`}
+        />
         <meta
           property="og:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-${network?.toLowerCase()}.png`}

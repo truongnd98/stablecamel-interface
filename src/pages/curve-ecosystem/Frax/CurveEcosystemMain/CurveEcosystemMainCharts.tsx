@@ -20,7 +20,6 @@ const wrapChart: SxProps = {
   width: "100%",
   display: "flex",
   justifyContent: "space-between",
-
   height: 380,
 };
 
@@ -80,6 +79,7 @@ export function CurveEcosystemMainCharts() {
     <Box sx={container}>
       <Box sx={wrapChart}>
         <Box
+          id="frax-supply"
           sx={{
             width: "40%",
           }}
@@ -107,7 +107,7 @@ export function CurveEcosystemMainCharts() {
           />
         </Box>
       </Box>
-      <Box sx={singleChart}>
+      <Box sx={singleChart} id="fraxswap-volume">
         <ComposeChart
           data={frax ? frax.swap_volume : undefined}
           title="FraxSwap Volume"

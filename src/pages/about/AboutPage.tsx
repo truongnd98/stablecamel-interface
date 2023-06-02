@@ -38,11 +38,11 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <meta property="og:description" content="Stable Camel About Page" />
-        {/* <meta
+        <meta property="og:description" content="Stable Camel About page" />
+        <meta
           property="og:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}
-        /> */}
+        />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>

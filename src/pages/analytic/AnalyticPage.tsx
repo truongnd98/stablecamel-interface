@@ -33,6 +33,18 @@ export default function AnalyticPage() {
       );
 
   // const location = useLocation();
+  const pageName =
+    network === "ethereum"
+      ? "Ethereum"
+      : network === "avalanche"
+      ? "Avalanche"
+      : network === "BSC"
+      ? "BSC"
+      : network === "arbitrum"
+      ? "Arbitrum"
+      : "";
+  console.log("network ==>", network);
+
   useScrollToId();
   return (
     <>
@@ -40,7 +52,7 @@ export default function AnalyticPage() {
         <Helmet>
           <meta
             property="og:description"
-            content={`Stablecoin TVL Dashboard`}
+            content={`Stablecoin TVL ${pageName} dashboard`}
           />
           <meta
             property="og:image"

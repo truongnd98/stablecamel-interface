@@ -38,7 +38,7 @@ export default function YieldPage() {
 
         <meta
           property="og:description"
-          content="Stable Camel Yield Dashboard"
+          content="Stable Camel Yield dashboard"
         />
         <meta
           property="og:image"

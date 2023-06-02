@@ -32,10 +32,7 @@ export default function DisclaimerPage() {
   return (
     <>
       <Helmet>
-        <meta
-          property="og:description"
-          content="Stable Camel Disclaimer Page"
-        />
+        <meta property="og:description" content="Stable Camel Disclaimer" />
         <meta
           property="og:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}
