@@ -183,7 +183,7 @@ export function MoneyPrinterGroupDataGridBalance({
 
   list = list.sort((a, b) => b.balance - a.balance);
   return (
-    <Box sx={main}>
+    <Box id={id + "-wrap"} sx={main}>
       <section id={id} />
       <Box
         p="24px 10px 12px"

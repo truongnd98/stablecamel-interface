@@ -2,8 +2,6 @@ import { SxProps } from "@mui/material";
 import { Box } from "@mui/system";
 import CustomAreaChart from "../../../../components/AreaChart";
 import { ChartDetailProps } from "../../../../components/PositiveAndNegativeBarChart/types";
-import randomColor from "randomcolor";
-
 import { useCurveEcosystemState } from "../../../../stores/curve-ecosystem/hooks";
 import { CustomLineChart } from "../../../../components/LineChart/LineChart";
 import { ComposeChart } from "../../../../components/ComposeChart/ComposeChart";
@@ -79,7 +77,7 @@ export function CurveEcosystemMainCharts() {
     <Box sx={container}>
       <Box sx={wrapChart}>
         <Box
-          id="frax-supply"
+          id="frax-supply-wrap"
           sx={{
             width: "40%",
           }}
@@ -93,6 +91,7 @@ export function CurveEcosystemMainCharts() {
           />
         </Box>
         <Box
+          id="frax-price-wrap"
           sx={{
             width: "calc(60% - 28px)",
           }}
@@ -107,7 +106,7 @@ export function CurveEcosystemMainCharts() {
           />
         </Box>
       </Box>
-      <Box sx={singleChart} id="fraxswap-volume">
+      <Box sx={singleChart} id="fraxswap-volume-wrap">
         <ComposeChart
           data={frax ? frax.swap_volume : undefined}
           title="FraxSwap Volume"

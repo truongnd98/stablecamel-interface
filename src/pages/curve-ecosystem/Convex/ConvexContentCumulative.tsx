@@ -50,7 +50,10 @@ export function ConvexContentCumulative() {
   ) : (
     <>
       <Box sx={main}>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="3crv-admin-fees-earned-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             data={convex.cumulative_3crv}
             title={"3CRV Admin Fees Earned by Convex ($)"}
@@ -59,7 +62,10 @@ export function ConvexContentCumulative() {
             legend
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="crv-farmed-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             data={convex.crv_farmed}
             title={"Farmed CRV ($)"}
@@ -69,7 +75,7 @@ export function ConvexContentCumulative() {
           />
         </Box>
       </Box>
-      <Box sx={main}>
+      <Box id="fsx-farmed-wrap" sx={main}>
         <CustomAreaChart
           data={convex.fsx_farmed}
           title={"Cumulative Farmed FSX ($)"}

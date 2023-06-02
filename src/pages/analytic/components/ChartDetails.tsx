@@ -566,7 +566,7 @@ const ChartDetails = () => {
   return (
     <Box sx={main}>
       <Box sx={wrap}>
-        <Box sx={chart}>
+        <Box id="total-usdc-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataUSDC}
             title={`Total USDC TVL (${currentNetwork.name})`}
@@ -574,7 +574,7 @@ const ChartDetails = () => {
             id="total-usdc-tvl"
           />
         </Box>
-        <Box sx={chart}>
+        <Box id="total-usdt-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataUSDT}
             title={`Total USDT TVL (${currentNetwork.name})`}
@@ -585,7 +585,7 @@ const ChartDetails = () => {
       </Box>
 
       <Box sx={wrap}>
-        <Box sx={chart}>
+        <Box sx={chart} id="total-dai-tvl-wrap">
           <CustomAreaChart
             data={dataDAI}
             title={`Total DAI TVL (${currentNetwork.name})`}
@@ -593,7 +593,7 @@ const ChartDetails = () => {
             id="total-dai-tvl"
           />
         </Box>
-        <Box sx={chart}>
+        <Box id="total-frax-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataFRAX}
             title={`Total FRAX TVL (${currentNetwork.name})`}
@@ -605,7 +605,7 @@ const ChartDetails = () => {
 
       {currentNetwork.chainId === "1" || currentNetwork.chainId === "56" ? (
         <Box sx={wrap}>
-          <Box sx={chart}>
+          <Box sx={chart} id="total-busd-tvl-wrap">
             <CustomAreaChart
               data={dataBUSD}
               title={`Total BUSD TVL (${currentNetwork.name})`}

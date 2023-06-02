@@ -81,7 +81,10 @@ export function CurveContentLockedCRV() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="locked-crv-area-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             data={curve.locked_crv}
             title="Locked CRV (veCRV)"
@@ -89,7 +92,10 @@ export function CurveContentLockedCRV() {
             detail={lockedCRVDetail}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="crv-leaderboard-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <section id="crv-leaderboard" />
           <CurveContentLockedCRVTable />
         </Box>
@@ -151,7 +157,7 @@ export function CurveContentLockedCRV() {
           }
         />
       </Box>
-      <Box sx={{ width: "100%", height: 380 }}>
+      <Box id="locked-crv-bar-wrap" sx={{ width: "100%", height: 380 }}>
         <PositiveAndNegativeBarChart
           data={dataLockedCRV60d}
           title="Locked CRV (veCRV)"

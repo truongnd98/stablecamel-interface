@@ -1,72 +1,82 @@
-import { useEffect, useMemo } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { useEffect, useMemo } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import {
-	getDataCLever,
-	getDataConic,
-	getDataConvex,
-	getDataCurve,
-	getDataCurveRevenue,
-	getDataFrax,
-	getDataFraxBP,
-	getDatafrxETH,
-	getDataLockedCRV
-} from './thunks';
+  getDataCLever,
+  getDataConic,
+  getDataConvex,
+  getDataCurve,
+  getDataCurveRevenue,
+  getDataFrax,
+  getDataFraxBP,
+  getDatafrxETH,
+  getDataLockedCRV,
+} from "./thunks";
 
 export function useCurveEcosystemState() {
-	const state = useAppSelector((state) => state.curveEcosystem);
-	return useMemo(() => state, [state]);
+  const state = useAppSelector((state) => state.curveEcosystem);
+  return useMemo(() => state, [state]);
 }
 
-export function useGetDataFrax() {
-	const dispatch = useAppDispatch();
-	return useEffect(() => {
-		const fetchData = async () => {
-			await dispatch(getDataFrax());
-			await dispatch(getDataFraxBP());
-			await dispatch(getDatafrxETH());
-		};
-		fetchData();
-	}, []);
+export function useGetDataFrax(callback: () => void) {
+  const dispatch = useAppDispatch();
+  return useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getDataFrax());
+      await dispatch(getDataFraxBP());
+      await dispatch(getDatafrxETH());
+    };
+    fetchData().then(() => {
+      callback();
+    });
+  }, []);
 }
 
-export function useGetDataCurve() {
-	const dispatch = useAppDispatch();
-	return useEffect(() => {
-		const fetchData = async () => {
-			await dispatch(getDataCurve());
-			await dispatch(getDataCurveRevenue());
-			await dispatch(getDataLockedCRV());
-		};
-		fetchData();
-	}, []);
+export function useGetDataCurve(callback: () => void) {
+  const dispatch = useAppDispatch();
+  return useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getDataCurve());
+      await dispatch(getDataCurveRevenue());
+      await dispatch(getDataLockedCRV());
+    };
+    fetchData().then(() => {
+      callback();
+    });
+  }, []);
 }
 
-export function useGetDataConvex() {
-	const dispatch = useAppDispatch();
-	return useEffect(() => {
-		const fetchData = async () => {
-			await dispatch(getDataConvex());
-		};
-		fetchData();
-	}, []);
+export function useGetDataConvex(callback: () => void) {
+  const dispatch = useAppDispatch();
+  return useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getDataConvex());
+    };
+    fetchData().then(() => {
+      callback();
+    });
+  }, []);
 }
 
-export function useGetDataConic() {
-	const dispatch = useAppDispatch();
-	return useEffect(() => {
-		const fetchData = async () => {
-			await dispatch(getDataConic());
-		};
-		fetchData();
-	}, []);
+export function useGetDataConic(callback: () => void) {
+  const dispatch = useAppDispatch();
+  return useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getDataConic());
+    };
+    fetchData().then(() => {
+      callback();
+    });
+  }, []);
 }
 
-export function useGetDataClever() {
-	const dispatch = useAppDispatch();
-	return useEffect(() => {
-		const fetchData = async () => {
-			await dispatch(getDataCLever());
-		};
-		fetchData();
-	}, []);
+export function useGetDataClever(callback: () => void) {
+  const dispatch = useAppDispatch();
+  return useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getDataCLever());
+    };
+    fetchData().then(() => {
+      callback();
+    });
+  }, []);
 }

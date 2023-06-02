@@ -1,28 +1,20 @@
-import { Box, SxProps } from '@mui/material';
-import StackedBarChart from '../../../components/StackedBarChart';
-import { useAnalyticState } from '../../../stores/analytic/hooks';
-import Skeleton from '@mui/material/Skeleton';
-import { StablecoinChartDetail, stableCoinDetailProps } from '../type';
-import LazyLoad from 'react-lazyload';
-import CircularProgress from '@mui/material/CircularProgress';
-import { useNetworkContext } from '../AnalyticPage';
+import { Box, SxProps } from "@mui/material";
+import StackedBarChart from "../../../components/StackedBarChart";
+import { useAnalyticState } from "../../../stores/analytic/hooks";
+import { StablecoinChartDetail, stableCoinDetailProps } from "../type";
+import { useNetworkContext } from "../AnalyticPage";
 
 const main: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 380,
-  display: 'flex',
-  justifyContent: 'space-between',
-  gap: '28px',
+  display: "flex",
+  justifyContent: "space-between",
+  gap: "28px",
 };
 
 const chart: SxProps = {
-  width: 'calc(100% - 14px)',
-  height: '100%',
-};
-
-const skeleton: SxProps = {
-  width: '100%',
-  height: '100%',
+  width: "calc(100% - 14px)",
+  height: "100%",
 };
 
 export default function ChartActivities() {
@@ -30,7 +22,7 @@ export default function ChartActivities() {
   const currentNetwork = useNetworkContext();
   return (
     <Box sx={main}>
-      <Box sx={chart}>
+      <Box id="dau-per-stable-wrap" sx={chart}>
         <StackedBarChart
           title={`DAU Per Stable (${currentNetwork.name})`}
           data={dataDAU}
@@ -38,14 +30,14 @@ export default function ChartActivities() {
             (item: StablecoinChartDetail) =>
               dataDAU &&
               dataDAU.length > 0 &&
-              (typeof dataDAU[0][item.key] !== 'undefined' ||
-                typeof dataDAU[dataDAU.length - 1][item.key] !== 'undefined')
+              (typeof dataDAU[0][item.key] !== "undefined" ||
+                typeof dataDAU[dataDAU.length - 1][item.key] !== "undefined")
           )}
-          id='dau-per-stable'
+          id="dau-per-stable"
         />
       </Box>
 
-      <Box sx={chart}>
+      <Box id="daily-transfer-amount-wrap" sx={chart}>
         <StackedBarChart
           data={dataDaily}
           title={`Daily Transfer Amount (${currentNetwork.name})`}
@@ -53,11 +45,11 @@ export default function ChartActivities() {
             (item: StablecoinChartDetail) =>
               dataDaily &&
               dataDaily.length > 0 &&
-              (typeof dataDaily[0][item.key] !== 'undefined' ||
+              (typeof dataDaily[0][item.key] !== "undefined" ||
                 typeof dataDaily[dataDaily.length - 1][item.key] !==
-                  'undefined')
+                  "undefined")
           )}
-          id='daily-transfer-amount'
+          id="daily-transfer-amount"
         />
       </Box>
     </Box>

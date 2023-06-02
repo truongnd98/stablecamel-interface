@@ -14,6 +14,37 @@ const main: SxProps = {
   display: "flex",
   flexDirection: "column",
   height: "fit-content",
+  ".animation-active": {
+    position: "relative",
+    "::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      borderRadius: "8px",
+      animation: "noti 1 4s",
+      animationDelay: ".5s",
+      animationFillMode: "forwards",
+    },
+  },
+  "@keyframes noti": {
+    "0%": {
+      backgroundColor: "transparent",
+      display: "block",
+    },
+    "30%": {
+      backgroundColor: "#cf99fc80",
+    },
+    "99%": {
+      backgroundColor: "transparent",
+    },
+    "100%": {
+      display: "none",
+      zIndex: -1,
+    },
+  },
 };
 
 const NetworkContext = createContext<Network | undefined>(undefined);
@@ -43,7 +74,6 @@ export default function AnalyticPage() {
       : network === "arbitrum"
       ? "Arbitrum"
       : "";
-  console.log("network ==>", network);
 
   useScrollToId();
   return (

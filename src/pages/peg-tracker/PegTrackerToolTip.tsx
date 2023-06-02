@@ -79,7 +79,7 @@ export function PegTrackerToolTip() {
             Data source:{" "}
             <img
               src={CoingeckoLogo}
-              alt="coingecko-logo"
+              alt="Stable-Camel-Activity-coingecko-logo"
               style={{
                 height: 46,
               }}

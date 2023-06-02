@@ -1,4 +1,4 @@
-import { Box, Skeleton } from "@mui/material";
+import { Box } from "@mui/material";
 import { ChartDetailProps } from "../../../components/AreaChart/types";
 import randomColor from "randomcolor";
 import { format } from "date-fns";
@@ -44,21 +44,18 @@ export function MoneyPrinterGroupChart({
         .reverse();
   return (
     <Box
+      id={id + "-wrap"}
       sx={{
         width: "calc(50% - 14px)",
       }}
     >
       <section id={id} />
-      {/* {data.length > 0 ? ( */}
       <MoneyPrinterGroupAreaChart
         data={list}
         title={title}
         detail={details}
         id={id}
       />
-      {/* ) : (
-        <Skeleton variant="rounded" width="100%" height="100%" />
-      )} */}
     </Box>
   );
 }

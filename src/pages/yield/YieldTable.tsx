@@ -39,7 +39,7 @@ const columns: GridColDef[] = [
               network.slug.toLowerCase().includes(value.toLowerCase())
           )?.logo
         }
-        alt={`Stable-Camel-${value}-logo-network`}
+        alt={`Stable-Camel-${value}-network-icon`}
         style={{
           width: "20px",
         }}

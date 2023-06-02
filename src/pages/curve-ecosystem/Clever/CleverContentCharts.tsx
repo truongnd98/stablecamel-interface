@@ -36,7 +36,10 @@ export function CleverContentCharts() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="overall-borrowing-vs-clevcvx-supply-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <ComposeChart
             data={clever.locked_cvx_and_flow}
             title="Overall Borrowing vs clevCVX Supply"
@@ -48,7 +51,10 @@ export function CleverContentCharts() {
             id="overall-borrowing-vs-clevcvx-supply"
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="cvx-locked-vs-clevcvx-supply-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <ComposeChart
             data={clever.locked_cvx_and_flow}
             title="CVX Locked vs clevCVX supply"

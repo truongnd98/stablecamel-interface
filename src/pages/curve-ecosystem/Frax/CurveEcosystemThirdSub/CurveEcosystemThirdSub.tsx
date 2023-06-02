@@ -68,7 +68,7 @@ export function CurveEcosystemThirdSub() {
         />
       </Box>
       <Box sx={wrap}>
-        <Box sx={each}>
+        <Box id="locked-fxs-wrap" sx={each}>
           <CustomAreaChart
             data={fxs ? fxs.locked_fxs : undefined}
             title="Locked FXS (veFXS)"
@@ -76,7 +76,7 @@ export function CurveEcosystemThirdSub() {
             id="locked-fxs"
           />
         </Box>
-        <Box sx={each}>
+        <Box id="fxs-leaderboard-wrap" sx={each}>
           <section id="fxs-leaderboard" />
           <CurveEcosystemThirdSubTable />
         </Box>

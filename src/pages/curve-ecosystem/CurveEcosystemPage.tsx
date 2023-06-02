@@ -15,43 +15,41 @@ const container: SxProps = {
   flexDirection: "column",
   height: "fit-content",
   gap: "28px",
+  ".animation-active": {
+    position: "relative",
+    "::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      borderRadius: "8px",
+      animation: "noti 1 4s",
+      animationDelay: "2s",
+      animationFillMode: "forwards",
+    },
+  },
+  "@keyframes noti": {
+    "0%": {
+      backgroundColor: "transparent",
+      display: "block",
+    },
+    "30%": {
+      backgroundColor: "#cf99fc80",
+    },
+    "99%": {
+      backgroundColor: "transparent",
+    },
+    "100%": {
+      display: "none",
+      zIndex: -1,
+    },
+  },
 };
 
 export function CurveEcosystemPage() {
   const { network } = useParams();
-
-  const hash = window.location.hash;
-  const animationWrap = {
-    hash: {
-      position: "relative",
-      "::after": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        borderRadius: "8px",
-        animation: "noti 1 3s",
-      },
-    },
-    "@keyframes noti": {
-      "0%": {
-        backgroundColor: "transparent",
-        display: "block",
-      },
-      "50%": {
-        backgroundColor: "#cf99fc80",
-      },
-      "99%": {
-        backgroundColor: "transparent",
-      },
-      "100%": {
-        display: "none",
-        zIndex: -1,
-      },
-    },
-  };
 
   const pageName =
     network === "frax-finance"
@@ -75,12 +73,19 @@ export function CurveEcosystemPage() {
         />
       </Helmet>
       <Box sx={container}>
-        {network === "frax-finance" ? <FraxContent /> : <></>}
-        {network === "curve" ? <CurveContent /> : <></>}
-        {network === "convex" ? <ConvexContent /> : <></>}
-        {network === "conic" ? <ConicContent /> : <></>}
-        {network === "clever" ? <CleverContent /> : <></>}
-        {/* <Footer /> */}
+        {network === "frax-finance" ? (
+          <FraxContent />
+        ) : network === "curve" ? (
+          <CurveContent />
+        ) : network === "convex" ? (
+          <ConvexContent />
+        ) : network === "conic" ? (
+          <ConicContent />
+        ) : network === "clever" ? (
+          <CleverContent />
+        ) : (
+          <></>
+        )}
       </Box>
     </>
   );

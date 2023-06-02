@@ -47,7 +47,10 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="cnc-tvl-by-token-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             title="Conic TVL by Token"
             id="cnc-tvl-by-token"
@@ -56,7 +59,10 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
             legend
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="tvl-curve-pool-distribution-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomPieChart
             title="Conic TVL Curve Pool Distribution"
             data={dataTVLCurvePoolDistribution}

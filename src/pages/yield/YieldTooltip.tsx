@@ -78,7 +78,7 @@ export default function YieldTooltip() {
             Data source:
             <img
               src={DefillamaLogo}
-              alt="defillama-logo"
+              alt="Stable-Camel-defillama-logo"
               style={{
                 height: 36,
               }}

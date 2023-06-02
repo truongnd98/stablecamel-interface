@@ -17,7 +17,10 @@ export function CurveCrvUSDPageCharts22() {
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="crvusd-usdc-pool-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomAreaChart
           data={usdc_pool_chart}
           title="crvUSD USDC Pool"
@@ -37,7 +40,10 @@ export function CurveCrvUSDPageCharts22() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="crvusd-usdt-pool-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomAreaChart
           data={usdt_pool_chart}
           title="crvUSD USDT Pool"

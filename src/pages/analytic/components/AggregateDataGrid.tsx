@@ -138,7 +138,9 @@ export default function AggregateDataGrid() {
                     >
                       <img
                         src={handleIcon(token.chain)?.logo}
-                        alt={handleIcon(token.chain)?.name}
+                        alt={`Stable-Camel-Stablecoin-TVL-${handleIcon(
+                          token.chain
+                        )?.name?.replaceAll(" ", "-")}-icon`}
                       />
                       {handleIcon(token.chain)?.name}
                     </Box>
@@ -148,7 +150,10 @@ export default function AggregateDataGrid() {
                       {handleNetwork(token.chain).map((token: Token) => (
                         <Avatar
                           src={token.icon}
-                          alt={token.name}
+                          alt={`Stable-Camel-Stablecoin-TVL-${token?.name?.replaceAll(
+                            " ",
+                            "-"
+                          )}-icon`}
                           // style={{
                           // 	width: 20,
                           // 	height: 20

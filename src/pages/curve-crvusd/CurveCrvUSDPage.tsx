@@ -6,8 +6,6 @@ import { CurveCrvUSDPageCharts12 } from "./CurveCrvUSDPageCharts12";
 import { CurveCrvUSDPageCharts21 } from "./CurveCrvUSDPageCharts21";
 import { CurveCrvUSDPageCharts22 } from "./CurveCrvUSDPageCharts22";
 import { useGetDataCurveCrvUSD } from "../../stores/curve-crvusd/hook";
-import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
 
 // const container: SxProps = {
 // 	width: '100%',
@@ -27,6 +25,37 @@ const container: SxProps = {
   minHeight: "100vh",
   height: "fit-content",
   gap: "28px",
+  ".animation-active": {
+    position: "relative",
+    "::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      borderRadius: "8px",
+      animation: "noti 1 4s",
+      animationDelay: ".5s",
+      animationFillMode: "forwards",
+    },
+  },
+  "@keyframes noti": {
+    "0%": {
+      backgroundColor: "transparent",
+      display: "block",
+    },
+    "30%": {
+      backgroundColor: "#cf99fc80",
+    },
+    "99%": {
+      backgroundColor: "transparent",
+    },
+    "100%": {
+      display: "none",
+      zIndex: -1,
+    },
+  },
 };
 
 export function CurveCrvUSDPage() {
@@ -34,11 +63,13 @@ export function CurveCrvUSDPage() {
 
   const handleElementScroll = (id: string) => {
     const element = document.getElementById(id);
+    const elementWrap = document.getElementById(id + "-wrap");
     if (element) {
       // 👇 Will scroll smoothly to the top of the next section // set time out for the render can catch after api fetched
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
-        console.log("!", id);
+        elementWrap?.classList.add("animation-active");
+        console.log("", id);
       }, 1000);
     }
   };

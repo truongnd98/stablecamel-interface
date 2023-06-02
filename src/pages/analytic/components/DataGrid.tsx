@@ -101,7 +101,13 @@ const DataGrid = () => {
                 // scope='row'
                 >
                   <Box sx={cell}>
-                    <img src={token.icon} alt={token.name} />
+                    <img
+                      src={token.icon}
+                      alt={`Stable-Camel-Stablecoin-TVL-${token?.name?.replaceAll(
+                        " ",
+                        "-"
+                      )}-icon`}
+                    />
                     {token.name} ({token.symbol})
                   </Box>
                 </TableCell>

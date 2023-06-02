@@ -102,7 +102,10 @@ export function ConvexContentBribeRevenueAndUnlockTracker() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="vlcvx-bribe-revenue-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <StackedBarChart
             data={convex.bribe_revenue}
             title="vlCVX Bribe Revenue"
@@ -112,7 +115,10 @@ export function ConvexContentBribeRevenueAndUnlockTracker() {
             tooltip={<Tooltip />}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="vlcvx-unlock-tracker-v2-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <ComposeChart
             data={unlockTrackerV2}
             title="vlCVX Unlock Tracker v2"

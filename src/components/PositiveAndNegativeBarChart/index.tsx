@@ -95,7 +95,7 @@ export default function PositiveAndNegativeBarChart({
         >
           <Box sx={main}>
             <Box sx={background}>
-              <img src="/logos/logo-bw.png" alt="logo" />
+              <img src="/logos/logo-bw.png" alt="Stable-Camel-watermark" />
             </Box>
             <Box sx={rowTitle}>
               <Typography variant="h5" color="primary">

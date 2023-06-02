@@ -1,7 +1,4 @@
 import { Box } from "@mui/material";
-import StackedBarChart from "../../../../components/StackedBarChart";
-import { ChartDetailProps } from "../../../../components/StackedBarChart/types";
-import randomColor from "randomcolor";
 import { ComposeChart } from "../../../../components/ComposeChart/ComposeChart";
 import { useCurveEcosystemState } from "../../../../stores/curve-ecosystem/hooks";
 import { ComposeChartDetails } from "../../../../components/ComposeChart/types";
@@ -21,6 +18,7 @@ export function CurveEcosystemSecondSubChart() {
   const { frxETH } = useCurveEcosystemState();
   return (
     <Box
+      id="frxETH-supply-wrap"
       sx={{
         width: "100%",
         height: 380,

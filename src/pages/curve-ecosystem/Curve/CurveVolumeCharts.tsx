@@ -48,6 +48,7 @@ export function CurveVolumeCharts() {
       }}
     >
       <Box
+        id="curve-volume-wrap"
         sx={{
           width: "calc(50% - 14px)",
           height: "100%",
@@ -65,6 +66,7 @@ export function CurveVolumeCharts() {
         />
       </Box>
       <Box
+        id="curve-pool-volume-wrap"
         sx={{
           width: "calc(50% - 14px)",
           height: "100%",

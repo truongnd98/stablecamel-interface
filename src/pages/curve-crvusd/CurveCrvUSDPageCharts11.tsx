@@ -17,7 +17,10 @@ export function CurveCrvUSDPageCharts11() {
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        id="crvusd-supply-chart-wrap"
+      >
         <CustomAreaChart
           data={supply_chart}
           title="crvUSD Supply"
@@ -32,7 +35,10 @@ export function CurveCrvUSDPageCharts11() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        id="total-crvusd-borrowed-chart-wrap"
+      >
         <CustomAreaChart
           data={total_borrowed_chart}
           title="Total crvUSD borrowed"

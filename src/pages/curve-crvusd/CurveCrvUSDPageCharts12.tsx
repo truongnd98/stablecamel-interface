@@ -17,7 +17,10 @@ export function CurveCrvUSDPageCharts12() {
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="token-crvusd-collateral-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomAreaChart
           data={collateral_chart}
           title="Token: crvUSD Collateral"
@@ -32,7 +35,10 @@ export function CurveCrvUSDPageCharts12() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usd-crvusd-collateral-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomAreaChart
           data={collateral_chart}
           title="USD: crvUSD Collateral"

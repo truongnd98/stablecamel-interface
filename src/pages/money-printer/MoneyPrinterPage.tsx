@@ -21,8 +21,38 @@ const main: SxProps = {
   minHeight: "calc(100vh - 20px)",
   display: "flex",
   flexDirection: "column",
-  // justifyContent: 'space-between',
   gap: "28px",
+  ".animation-active": {
+    position: "relative",
+    "::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      borderRadius: "8px",
+      animation: "noti 1 4s",
+      animationDelay: ".5s",
+      animationFillMode: "forwards",
+    },
+  },
+  "@keyframes noti": {
+    "0%": {
+      backgroundColor: "transparent",
+      display: "block",
+    },
+    "30%": {
+      backgroundColor: "#cf99fc80",
+    },
+    "99%": {
+      backgroundColor: "transparent",
+    },
+    "100%": {
+      display: "none",
+      zIndex: -1,
+    },
+  },
 };
 
 export function MoneyPrinterPage() {
@@ -35,10 +65,13 @@ export function MoneyPrinterPage() {
 
   const handleElementScroll = (id: string) => {
     const element = document.getElementById(id);
+    const elementWrap = document.getElementById(id + "-wrap");
     if (element) {
       // 👇 Will scroll smoothly to the top of the next section // set time out for the render can catch after api fetched
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
+        elementWrap?.classList.add("animation-active");
+        console.log("", id);
       }, 1000);
     }
   };
@@ -53,7 +86,6 @@ export function MoneyPrinterPage() {
     <>
       <Box sx={container}>
         <Box sx={main}>
-          {/* <Box sx={group}> */}
           <Typography
             variant="h5"
             color="primary"
@@ -67,44 +99,22 @@ export function MoneyPrinterPage() {
           </Typography>
           <MoneyPrinterMetrics />
           <MoneyPrinterMainChart />
-          {/* </Box> */}
-          {/* <Box sx={group}> */}
-          {/* <Typography variant="h5" color="primary">
-              USDC Exchange Balances
-            </Typography> */}
           <MoneyPrinterGroupLayoutBalance
             data={exchangeBalanceByCEXList}
             title="USDC Exchange Balances"
           />
-          {/* </Box> */}
-          {/* <Box sx={group}> */}
-          {/* <Typography variant="h5" color="primary">
-              USDC Deployed to Lending Protocols
-            </Typography> */}
           <MoneyPrinterGroupLayout
             data={usdcDeployedLendingProtocolList}
             title="USDC Deployed to Lending Protocols"
           />
-          {/* </Box> */}
-          {/* <Box sx={group}> */}
-          {/* <Typography variant="h5" color="primary">
-              USDC Deployed to LPs
-            </Typography> */}
           <MoneyPrinterGroupLayout
             data={usdcDeployedToLPs}
             title="USDC Deployed to DEXs"
           />
-          {/* </Box> */}
-          {/* <Box sx={group}> */}
-          {/* <Typography variant="h5" color="primary">
-              USDC Deployed to Bridges
-            </Typography> */}
           <MoneyPrinterGroupLayout
             data={usdcDeployedBridgesByBridge}
             title="USDC Deployed to Bridges"
           />
-          {/* </Box> */}
-          {/* <Footer /> */}
         </Box>
       </Box>
     </>

@@ -79,7 +79,7 @@ export function CurveEcosystemSubContentCharts() {
   const { fraxBP } = useCurveEcosystemState();
   return (
     <Box sx={container}>
-      <Box sx={each}>
+      <Box sx={each} id="fraxbp-tvl-wrap">
         <CustomAreaChart
           data={fraxBP ? fraxBP.bp_tvl : undefined}
           title="FRAXBP TVL"
@@ -88,7 +88,7 @@ export function CurveEcosystemSubContentCharts() {
           legend
         />
       </Box>
-      <Box sx={each}>
+      <Box id="3pool-tvl-wrap" sx={each}>
         <CustomAreaChart
           data={fraxBP ? fraxBP.three_pool_tvl : undefined}
           title="3pool TVL"
@@ -97,7 +97,7 @@ export function CurveEcosystemSubContentCharts() {
           legend
         />
       </Box>
-      <Box sx={each}>
+      <Box id="fraxbp-volume-wrap" sx={each}>
         <ComposeChart
           data={fraxBP ? fraxBP.bp_volume : undefined}
           title="FRAXBP Volume"
@@ -106,10 +106,10 @@ export function CurveEcosystemSubContentCharts() {
             left: "volume",
             right: "cumulative",
           }}
-          id="fraxbp-tvl"
+          id="fraxbp-volume"
         />
       </Box>
-      <Box sx={each}>
+      <Box id="3pool-volume-wrap" sx={each}>
         <ComposeChart
           data={fraxBP ? fraxBP.three_pool_volume : undefined}
           title="3pool Volume"

@@ -50,7 +50,10 @@ export function ConicContentLockedCNCAndLeaderboard() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="locked-cnc-vlcnc-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             data={conic.locked_cnc}
             title="Locked CNC (vlCNC)"
@@ -59,7 +62,10 @@ export function ConicContentLockedCNCAndLeaderboard() {
             tooltip={<Tooltip />}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="cnc-leaderboard-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <section id="cnc-leaderboard" />
           <ConicContentLeaderboardTable />
         </Box>

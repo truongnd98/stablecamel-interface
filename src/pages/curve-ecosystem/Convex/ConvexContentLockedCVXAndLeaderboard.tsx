@@ -59,7 +59,10 @@ export function ConvexContentLockedCVXAndLeaderboard() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="total-locked-cvx-vlcvx-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <CustomAreaChart
             data={convex.locked_cvx}
             title="Total Locked CVX (vlCVX)"
@@ -68,12 +71,15 @@ export function ConvexContentLockedCVXAndLeaderboard() {
             tooltip={<Tooltip />}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="cvx-leaderboard-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <section id="cvx-leaderboard" />
           <ConvexContentLeaderboardTable />
         </Box>
       </Box>
-      <Box sx={{ width: "100%", height: 380 }}>
+      <Box id="locked-cvx-daily-wrap" sx={{ width: "100%", height: 380 }}>
         <PositiveAndNegativeBarChart
           data={convex.locked_cvx}
           title="Daily Locked CVX (vlCVX)"

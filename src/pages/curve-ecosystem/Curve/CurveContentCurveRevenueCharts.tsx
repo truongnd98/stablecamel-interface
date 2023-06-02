@@ -62,6 +62,7 @@ export function CurveContentCurveRevenueCharts() {
     <>
       <Box sx={wrap}>
         <Box
+          id="curve-fee-revenue-pool-cumulative-wrap"
           sx={{
             width: "calc(50% - 14px)",
           }}
@@ -74,6 +75,7 @@ export function CurveContentCurveRevenueCharts() {
           />
         </Box>
         <Box
+          id="curve-fee-revenue-pool-type-wrap"
           sx={{
             width: "calc(50% - 14px)",
           }}
@@ -87,6 +89,7 @@ export function CurveContentCurveRevenueCharts() {
         </Box>
       </Box>
       <Box
+        id="curve-fee-revenue-pool-daily-wrap"
         sx={{
           width: "100%",
           height: 380,

@@ -87,7 +87,12 @@ export function ConicTitle() {
         clickable
         label={
           <Box sx={chipLabel}>
-            <img src={getProtocol(network)?.logo} alt="protocol-logo" />
+            <img
+              src={getProtocol(network)?.logo}
+              alt={`Stable-Camel-Curve-Ecosystem-${getProtocol(
+                network
+              )?.name?.replaceAll(" ", "-")}-icon`}
+            />
             <b>{getProtocol(network)?.name}</b>
             <KeyboardArrowDownIcon />
           </Box>
@@ -114,7 +119,13 @@ export function ConicTitle() {
               handleClickItem(protocol.name.toLowerCase().replace(" ", "-"));
             }}
           >
-            <img src={protocol.logo} alt={`${protocol.name}-logo`} />
+            <img
+              src={protocol.logo}
+              alt={`Stable-Camel-Curve-Ecosystem-${protocol?.name?.replaceAll(
+                " ",
+                "-"
+              )}-icon`}
+            />
             {protocol.name}
           </MenuItem>
         ))}

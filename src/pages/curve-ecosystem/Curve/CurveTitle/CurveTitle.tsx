@@ -1,26 +1,26 @@
-import { Box, Chip, Menu, MenuItem, SxProps, Typography } from '@mui/material';
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Box, Chip, Menu, MenuItem, SxProps, Typography } from "@mui/material";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { v4 } from 'uuid';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Protocol } from '../../../../App';
-import { Page } from '../../../../components/MainSideBar/types';
-import Protocols from '../../../../jsons/protocols.json';
-import { CurveTitleTooltip } from './CurveTitleTooltip';
+import { v4 } from "uuid";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Protocol } from "../../../../App";
+import { Page } from "../../../../components/MainSideBar/types";
+import Protocols from "../../../../jsons/protocols.json";
+import { CurveTitleTooltip } from "./CurveTitleTooltip";
 
 const pageTitle: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 32,
-  display: 'flex',
-  alignItems: 'center',
-  gap: '20px',
+  display: "flex",
+  alignItems: "center",
+  gap: "20px",
 };
 
 const chipLabel: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
   img: {
     width: 20,
     height: 20,
@@ -28,13 +28,13 @@ const chipLabel: SxProps = {
 };
 
 const menu: SxProps = {
-  borderRadius: '8px',
+  borderRadius: "8px",
 };
 
 const menuItem: SxProps = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
   img: {
     width: 20,
     height: 20,
@@ -42,10 +42,10 @@ const menuItem: SxProps = {
 };
 
 const wrap: SxProps = {
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '12px',
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  gap: "12px",
 };
 
 export function CurveTitle() {
@@ -65,16 +65,13 @@ export function CurveTitle() {
   };
 
   const getProtocol = (slug?: string) => {
-    if (!slug) navigate('/');
+    if (!slug) navigate("/");
     return Protocols.find((protocol: Protocol) => protocol.slug === slug);
   };
   return (
     <Box sx={pageTitle}>
       <Box sx={wrap}>
-        <Typography
-          variant='h5'
-          color='primary'
-        >
+        <Typography variant="h5" color="primary">
           Curve Ecosystem
         </Typography>
 
@@ -82,33 +79,35 @@ export function CurveTitle() {
       </Box>
 
       <Chip
-        id='network'
-        aria-controls={open ? 'network-menu' : undefined}
-        aria-haspopup='true'
-        aria-expanded={open ? 'true' : undefined}
+        id="network"
+        aria-controls={open ? "network-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         clickable
         label={
           <Box sx={chipLabel}>
             <img
               src={getProtocol(network)?.logo}
-              alt='protocol-logo'
+              alt={`Stable-Camel-Curve-Ecosystem-${getProtocol(
+                network
+              )?.name?.replaceAll(" ", "-")}-icon`}
             />
             <b>{getProtocol(network)?.name}</b>
             <KeyboardArrowDownIcon />
           </Box>
         }
         sx={{
-          backgroundColor: '#EDEDED',
+          backgroundColor: "#EDEDED",
         }}
       />
       <Menu
         open={open}
         onClose={handleClose}
         anchorEl={anchorEl}
-        id='network-menu'
+        id="network-menu"
         MenuListProps={{
-          'aria-labelledby': 'network',
+          "aria-labelledby": "network",
         }}
         sx={menu}
       >
@@ -117,12 +116,15 @@ export function CurveTitle() {
             key={v4()}
             sx={menuItem}
             onClick={() => {
-              handleClickItem(protocol.name.toLowerCase().replace(' ', '-'));
+              handleClickItem(protocol.name.toLowerCase().replace(" ", "-"));
             }}
           >
             <img
               src={protocol.logo}
-              alt={`${protocol.name}-logo`}
+              alt={`Stable-Camel-Curve-Ecosystem-${protocol?.name?.replaceAll(
+                " ",
+                "-"
+              )}-icon`}
             />
             {protocol.name}
           </MenuItem>

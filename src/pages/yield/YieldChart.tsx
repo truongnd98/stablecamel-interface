@@ -109,7 +109,7 @@ export function YieldChart() {
   return (
     <Box sx={main}>
       <Box sx={background}>
-        <img src="/logos/logo-bw.png" alt="logo" />
+        <img src="/logos/logo-bw.png" alt="Stable-Camel-wartermark" />
       </Box>
       <Typography variant="h5" color="primary">
         Scatterplot of Total APY vs TVL

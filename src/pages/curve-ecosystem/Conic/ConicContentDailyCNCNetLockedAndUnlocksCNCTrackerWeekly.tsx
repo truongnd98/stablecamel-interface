@@ -47,7 +47,10 @@ export function ConicContentDailyCNCNetLockedAndUnlocksCNCTrackerWeekly() {
           justifyContent: "space-between",
         }}
       >
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="daily-cnc-net-locked-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <PositiveAndNegativeBarChart
             data={conic.daily_cnc_net_locked}
             title="Daily CNC Net Locked"
@@ -55,7 +58,10 @@ export function ConicContentDailyCNCNetLockedAndUnlocksCNCTrackerWeekly() {
             details={dailyCNCNetLockedDetail}
           />
         </Box>
-        <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+        <Box
+          id="vlcnc-unlocks-tracker-weekly-wrap"
+          sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        >
           <ComposeChart
             data={conic.unlocks_tracker_weekly}
             title="vlCNC Unlocks Tracker - Weekly"
