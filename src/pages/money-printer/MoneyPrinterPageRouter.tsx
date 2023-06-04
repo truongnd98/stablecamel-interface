@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { MoneyPrinterPage } from "./MoneyPrinterPage";
 import { CurveCrvUSDPage } from "../curve-crvusd/CurveCrvUSDPage";
 import { Helmet } from "react-helmet-async";
+import { USDTMoneyPrinterPage } from "../usdt-money-printer/USDTMoneyPrinterPage";
 
 const container: SxProps = {
   width: "100%",
@@ -31,6 +32,7 @@ export function MoneyPrinterPageRouter() {
       </Helmet>
       {network === "usdc" ? <MoneyPrinterPage /> : <></>}
       {network === "crvUSD" ? <CurveCrvUSDPage /> : <></>}
+      {network === "usdt" ? <USDTMoneyPrinterPage /> : <></>}
     </Box>
   );
 }

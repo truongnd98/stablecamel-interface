@@ -9,4 +9,5 @@ export interface LineChartProps {
 export interface ChartDetailProps {
 	color: string;
 	key: string;
+	name?: string,
 }

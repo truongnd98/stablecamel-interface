@@ -251,7 +251,7 @@ const ListNav = () => {
               className={network === item.slug ? "active" : ""}
               onClick={() => {
                 if (
-                  item.slug === "usdt" ||
+                  // item.slug === "usdt" ||
                   item.slug === "frax-printer"
                   // || item.slug === "crvUSD"
                 )
@@ -263,7 +263,7 @@ const ListNav = () => {
                 primary={
                   <>
                     {item.name}{" "}
-                    {item.slug === "usdt" || item.slug === "frax-printer" ? (
+                    {item.slug === "frax-printer" ? (
                       <SoonChip label="SOON" />
                     ) : (
                       <></>
