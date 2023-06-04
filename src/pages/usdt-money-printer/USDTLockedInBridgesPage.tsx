@@ -13,38 +13,42 @@ const main: SxProps = {
 };
 
 export function USDTLockedInBridgesPage() {
-  const { usdtDeployedToBridgesTotal, usdtDeployedToBridgesByBridge } = useUSDTMoneyPrinterState();
+  const { usdtDeployedToBridgesTotal, usdtDeployedToBridgesByBridge } =
+    useUSDTMoneyPrinterState();
 
   const chartDetails: ChartDetailProps[] = [
     {
-        "key": "Avalanche",
-        "color": "#f7bca0"
+      key: "Avalanche",
+      color: "#f7bca0",
     },
     {
-        "key": "Gravity Bridge",
-        "color": "#bfe9fc"
+      key: "Gravity Bridge",
+      color: "#bfe9fc",
     },
     {
-        "key": "Arbitrum One",
-        "color": "#66e2c5"
+      key: "Arbitrum One",
+      color: "#66e2c5",
     },
     {
-        "key": "Optimism",
-        "color": "#f7d199"
+      key: "Optimism",
+      color: "#f7d199",
     },
     {
-        "key": "HECO Chain",
-        "color": "#eaf49a"
+      key: "HECO Chain",
+      color: "#eaf49a",
     },
     {
-        "key": "other",
-        "color": "#fcb3bb"
-    }
-];
+      key: "other",
+      color: "#fcb3bb",
+    },
+  ];
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-deployed-to-bridges-total-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtDeployedToBridgesTotal}
           title="USDT Deployed to Bridges - Total"
@@ -53,13 +57,16 @@ export function USDTLockedInBridgesPage() {
               key: "value",
               color: "#2775ca",
               name: "USDC Locked in Bridges",
-            }
+            },
           ]}
           id="usdt-deployed-to-bridges-total-chart"
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-deployed-to-bridges-by-bridge-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtDeployedToBridgesByBridge}
           title="USDT Deployed to Bridges by Bridge"

@@ -14,54 +14,55 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation3Page() {
-  const { exchangeBalancesOfUSDT, exchangeBalancesOfUSDTByCEX } = useUSDTMoneyPrinterState();
+  const { exchangeBalancesOfUSDT, exchangeBalancesOfUSDTByCEX } =
+    useUSDTMoneyPrinterState();
 
   const exchangeBalancesOfUSDTByCEXDetails: ChartDetailProps[] = [
     {
-        "key": "Kraken",
-        "color": "#58bc36"
+      key: "Kraken",
+      color: "#58bc36",
     },
     {
-        "key": "other",
-        "color": "#fcb3bb"
+      key: "other",
+      color: "#fcb3bb",
     },
     {
-        "key": "Bittrex",
-        "color": "#4360d3"
+      key: "Bittrex",
+      color: "#4360d3",
     },
     {
-        "key": "Huobi",
-        "color": "#b8f48d"
+      key: "Huobi",
+      color: "#b8f48d",
     },
     {
-        "key": "Crypto.com",
-        "color": "#4df23e"
+      key: "Crypto.com",
+      color: "#4df23e",
     },
     {
-        "key": "Poloniex",
-        "color": "#cc1253"
+      key: "Poloniex",
+      color: "#cc1253",
     },
     {
-        "key": "Gate.io",
-        "color": "#ce504c"
+      key: "Gate.io",
+      color: "#ce504c",
     },
     {
-        "key": "Binance",
-        "color": "#2341ea"
+      key: "Binance",
+      color: "#2341ea",
     },
     {
-        "key": "BitMEX",
-        "color": "#e59099"
+      key: "BitMEX",
+      color: "#e59099",
     },
     {
-        "key": "OKX",
-        "color": "#bc01a0"
+      key: "OKX",
+      color: "#bc01a0",
     },
     {
-        "key": "KuCoin",
-        "color": "#38cff4"
-    }
-];
+      key: "KuCoin",
+      color: "#38cff4",
+    },
+  ];
 
   // for (const key in exchangeBalancesOfUSDTByCEX?.[exchangeBalancesOfUSDTByCEX.length - 1]) {
   //  if (key!=='time') {
@@ -74,10 +75,12 @@ export function LiquidityAggregation3Page() {
   //  }
   // }
 
-
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="exchange-balances-of-usdt-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={exchangeBalancesOfUSDT}
           title="Exchange Balances of USDT"
@@ -92,7 +95,10 @@ export function LiquidityAggregation3Page() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="exchange-balances-of-usdt-chart-by-cex-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomAreaChart
           data={exchangeBalancesOfUSDTByCEX}
           title="Exchange Balances of USDT"

@@ -14,39 +14,42 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation4Page() {
-  const {  totalUSDTDeployedToLenders , usdtDeployedToLendersByProtocol} = useUSDTMoneyPrinterState();
+  const { totalUSDTDeployedToLenders, usdtDeployedToLendersByProtocol } =
+    useUSDTMoneyPrinterState();
 
   const usdtDeployedToLendersByProtocolDetails: ChartDetailProps[] = [
     {
-        "key": "Aave",
-        "color": "#8af2b3"
+      key: "Aave",
+      color: "#8af2b3",
     },
     {
-        "key": "Compound",
-        "color": "#6da3d6"
+      key: "Compound",
+      color: "#6da3d6",
     },
     {
-        "key": "other",
-        "color": "#fcb3bb"
+      key: "other",
+      color: "#fcb3bb",
     },
     {
-        "key": "Ironbank",
-        "color": "#f9a9d8"
+      key: "Ironbank",
+      color: "#f9a9d8",
     },
     {
-        "key": "Silo",
-        "color": "#09a066"
+      key: "Silo",
+      color: "#09a066",
     },
     {
-        "key": "Uwulend",
-        "color": "#937ad3"
-    }
-];
-
+      key: "Uwulend",
+      color: "#937ad3",
+    },
+  ];
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="total-usdt-deployed-to-lenders-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={totalUSDTDeployedToLenders}
           title="Total USDT Deployed to Lenders"
@@ -61,7 +64,10 @@ export function LiquidityAggregation4Page() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-deployed-to-lenders-by-protocol-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtDeployedToLendersByProtocol}
           title="USDT Deployed to Lenders - By Protocol"

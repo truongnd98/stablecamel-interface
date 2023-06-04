@@ -23,7 +23,15 @@ export function MoneyPrinterPageRouter() {
       <Helmet>
         <meta
           property="og:description"
-          content="Stable Camel Money Printer dashboard"
+          content={`Stable Camel Money Printer ${
+            network === "usdc"
+              ? "USDC"
+              : network === "crvUSD"
+              ? "crvUSD"
+              : network === "usdt"
+              ? "USDT"
+              : ""
+          } dashboard`}
         />
         <meta
           property="og:image"

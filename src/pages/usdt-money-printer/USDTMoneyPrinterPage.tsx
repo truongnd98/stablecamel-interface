@@ -16,17 +16,49 @@ const container: SxProps = {
   minHeight: "100vh",
   height: "fit-content",
   gap: "28px",
+  ".animation-active": {
+    position: "relative",
+    "::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      borderRadius: "8px",
+      animation: "noti 1 4s",
+      animationDelay: "1.2s",
+      animationFillMode: "forwards",
+    },
+  },
+  "@keyframes noti": {
+    "0%": {
+      backgroundColor: "transparent",
+      display: "block",
+    },
+    "30%": {
+      backgroundColor: "#cf99fc80",
+    },
+    "99%": {
+      backgroundColor: "transparent",
+    },
+    "100%": {
+      display: "none",
+      zIndex: -1,
+    },
+  },
 };
 
 export function USDTMoneyPrinterPage() {
-
   const handleElementScroll = (id: string) => {
     const element = document.getElementById(id);
+    const elementWrap = document.getElementById(id + "-wrap");
     if (element) {
       // 👇 Will scroll smoothly to the top of the next section // set time out for the render can catch after api fetched
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
-        console.log("!", id);
+        elementWrap?.classList.add("animation-active");
+        console.log("", id);
       }, 1000);
     }
   };
@@ -44,7 +76,7 @@ export function USDTMoneyPrinterPage() {
       </Box>
       <Box>
         <Typography variant="h5" color="primary">
-            Liquidity Aggregation 1 - Total Supply
+          Liquidity Aggregation 1 - Total Supply
         </Typography>
         <LiquidityAggregation1Page />
         <Box

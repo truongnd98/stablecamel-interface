@@ -17,7 +17,10 @@ export function LiquidityAggregation1Page() {
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-supply-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtSupply}
           title="USDT Supply"
@@ -32,9 +35,12 @@ export function LiquidityAggregation1Page() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-supply-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <USDTMoneyPrinterGroupDataGrid
-          id="usdt-supply-table"
+          id="usdt-supply"
           title="USDT Supply"
           data={usdtSupply}
         />

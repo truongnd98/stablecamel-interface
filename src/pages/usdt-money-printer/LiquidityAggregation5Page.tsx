@@ -13,59 +13,62 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation5Page() {
-  const { totalUSDTDeployedToDEXs, usdtDeployedToLPsByProtocol } = useUSDTMoneyPrinterState();
-
+  const { totalUSDTDeployedToDEXs, usdtDeployedToLPsByProtocol } =
+    useUSDTMoneyPrinterState();
 
   const usdtDeployedToLPsByProtocolDetails: ChartDetailProps[] = [
     {
-        "key": "other",
-        "color": "#fcb3bb"
+      key: "other",
+      color: "#fcb3bb",
     },
     {
-        "key": "Kyber",
-        "color": "#99e6e8"
+      key: "Kyber",
+      color: "#99e6e8",
     },
     {
-        "key": "Uniswap",
-        "color": "#e827e8"
+      key: "Uniswap",
+      color: "#e827e8",
     },
     {
-        "key": "Curvefi",
-        "color": "#d86b11"
+      key: "Curvefi",
+      color: "#d86b11",
     },
     {
-        "key": "Sushi",
-        "color": "#d1922e"
+      key: "Sushi",
+      color: "#d1922e",
     },
     {
-        "key": "Pancakeswap",
-        "color": "#3be596"
+      key: "Pancakeswap",
+      color: "#3be596",
     },
     {
-        "key": "Balancer",
-        "color": "#b631ea"
+      key: "Balancer",
+      color: "#b631ea",
     },
     {
-        "key": "Saddle",
-        "color": "#c1b8f2"
+      key: "Saddle",
+      color: "#c1b8f2",
     },
     {
-        "key": "Clipper",
-        "color": "#e532b5"
+      key: "Clipper",
+      color: "#e532b5",
     },
     {
-        "key": "Shibaswap",
-        "color": "#b0f298"
+      key: "Shibaswap",
+      color: "#b0f298",
     },
     {
-        "key": "Hashflow",
-        "color": "#73a313"
-    }
-];
+      key: "Hashflow",
+      color: "#73a313",
+    },
+  ];
 
   return (
     <Box sx={main}>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="total-usdt-deployed-to-dexs-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={totalUSDTDeployedToDEXs}
           title="Total USDT Deployed to DEXs"
@@ -80,7 +83,10 @@ export function LiquidityAggregation5Page() {
           legend
         />
       </Box>
-      <Box sx={{ width: "calc(50% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-deployed-to-lps-by-protocol-chart-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtDeployedToLPsByProtocol}
           title="USDT Deployed to LPs - By Protocol"

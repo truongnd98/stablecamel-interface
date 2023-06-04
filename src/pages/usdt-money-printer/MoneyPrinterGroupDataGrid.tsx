@@ -19,14 +19,14 @@ const handleColor = (value: number) => {
 
 const columns: GridColDef[] = [
   {
-    headerName: "day",
+    headerName: "Day",
     field: "time",
     flex: 1,
     minWidth: 100,
     sortable: false,
   },
   {
-    headerName: "supply",
+    headerName: "Supply",
     field: "supply",
     flex: 1,
     minWidth: 100,
@@ -54,7 +54,7 @@ const columns: GridColDef[] = [
           backgroundColor: handleColor(value).background,
         }}
       >
-        {(value* 100).toFixed(2) + "%"}
+        {(value * 100).toFixed(2) + "%"}
       </Typography>
     ),
   },
@@ -75,7 +75,7 @@ const columns: GridColDef[] = [
           backgroundColor: handleColor(value).background,
         }}
       >
-        {(value* 100).toFixed(2) + "%"}
+        {(value * 100).toFixed(2) + "%"}
       </Typography>
     ),
   },
@@ -134,9 +134,9 @@ const main: SxProps = {
   padding: "0 22px",
   paddingBottom: "12px",
   overflowY: "scroll",
-  scrollbarWidth: 'thin',
-  '::-webkit-scrollbar': {
-    width: '8px',
+  scrollbarWidth: "thin",
+  "::-webkit-scrollbar": {
+    width: "8px",
   },
 
   "@media (max-width: 1280px)": {
@@ -155,9 +155,9 @@ export function USDTMoneyPrinterGroupDataGrid({
 }) {
   let list: USDTSupply[] = [];
 
-  list = data.map(item=>({...item, id: v4()}));
+  list = data.map((item) => ({ ...item, id: v4() }));
 
-  list.sort((a, b) => (- new  Date(a.day).getTime() + new Date(b.day).getTime()));
+  list.sort((a, b) => -new Date(a.day).getTime() + new Date(b.day).getTime());
 
   return (
     <Box sx={main}>

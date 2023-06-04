@@ -16,22 +16,28 @@ const main: SxProps = {
 export function LiquidityAggregation2Page() {
   const { usdtDeployedToLPsAndLendingPools } = useUSDTMoneyPrinterState();
 
-  const currentUsdtDeployedToLPsAndLendingPools = usdtDeployedToLPsAndLendingPools[usdtDeployedToLPsAndLendingPools.length - 1]?.value;
+  const currentUsdtDeployedToLPsAndLendingPools =
+    usdtDeployedToLPsAndLendingPools[
+      usdtDeployedToLPsAndLendingPools.length - 1
+    ]?.value;
 
   return (
     <Box sx={main}>
       <Box sx={{ width: "calc(40% - 14px)", height: "100%" }}>
-          <Metric 
-						title='USDT Deployed to LPs and Lending Pools'
-						value={new Intl.NumberFormat('en-US', {
-              style: 'currency',
-							currency: 'USD',
-							notation: 'standard',
-							maximumFractionDigits: 0,
-						}).format(currentUsdtDeployedToLPsAndLendingPools ?? 0)}
-					/>
+        <Metric
+          title="USDT Deployed to LPs and Lending Pools"
+          value={new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "standard",
+            maximumFractionDigits: 0,
+          }).format(currentUsdtDeployedToLPsAndLendingPools ?? 0)}
+        />
       </Box>
-      <Box sx={{ width: "calc(60% - 14px)", height: "100%" }}>
+      <Box
+        id="usdt-deployed-to-lps-and-lending-pools-wrap"
+        sx={{ width: "calc(60% - 14px)", height: "100%" }}
+      >
         <CustomLineChart
           data={usdtDeployedToLPsAndLendingPools}
           title="USDT Deployed to LPs and Lending Pools"
