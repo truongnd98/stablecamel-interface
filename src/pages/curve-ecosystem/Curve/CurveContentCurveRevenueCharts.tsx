@@ -7,6 +7,7 @@ import { CustomPieChart } from "../../../components/PieChart/PieChart";
 import StackedBarChart from "../../../components/StackedBarChart";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import { FeeRevenuePoolType } from "../types";
+import { colors } from "../../../utils/colors/colors";
 
 const wrap: SxProps = {
   display: "flex",

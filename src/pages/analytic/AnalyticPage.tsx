@@ -25,7 +25,7 @@ const main: SxProps = {
       right: 0,
       borderRadius: "8px",
       animation: "noti 1 4s",
-      animationDelay: ".5s",
+      animationDelay: "1.5s",
       animationFillMode: "forwards",
     },
   },
