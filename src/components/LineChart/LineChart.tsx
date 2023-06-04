@@ -23,6 +23,7 @@ import { LineChartProps, ChartDetailProps } from "./types";
 const formatTickY = (value: number) => {
   return new Intl.NumberFormat("en-US", {
     notation: "compact",
+    maximumFractionDigits : 0
   }).format(value);
 };
 
@@ -159,6 +160,7 @@ export function CustomLineChart({
                     <Line
                       type="monotone"
                       dataKey={details.key}
+                      name={details.name}
                       stroke={details.color}
                       activeDot={false}
                       dot={false}
@@ -170,6 +172,7 @@ export function CustomLineChart({
                         type="monotone"
                         dataKey={item.key}
                         stroke={item.color}
+                        name={item.name}
                         dot={false}
                         activeDot={false}
                         key={v4()}

@@ -6,6 +6,7 @@ import _yield from './yield';
 import pegtracker from './pegtracker';
 import curveEcosystem from './curve-ecosystem';
 import curveCrvUSD from './curve-crvusd';
+import usdt_moneyprinter from './usdt-moneyprinter'
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     pegtracker,
     curveEcosystem,
     curveCrvUSD,
+    usdt_moneyprinter,
   },
 });
 
