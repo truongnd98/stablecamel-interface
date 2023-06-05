@@ -1,5 +1,4 @@
 import { Box, SxProps } from "@mui/material";
-import { USDTMoneyPrinterGroupDataGrid } from "./MoneyPrinterGroupDataGrid";
 import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
 
@@ -19,7 +18,7 @@ export function LiquidityAggregation1Page() {
     <Box sx={main}>
       <Box
         id="usdt-supply-chart-wrap"
-        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+        sx={{ width: "calc(100% - 14px)", height: "100%" }}
       >
         <CustomLineChart
           data={usdtSupply}
@@ -33,16 +32,6 @@ export function LiquidityAggregation1Page() {
           ]}
           id="usdt-supply-chart"
           legend
-        />
-      </Box>
-      <Box
-        id="usdt-supply-wrap"
-        sx={{ width: "calc(50% - 14px)", height: "100%" }}
-      >
-        <USDTMoneyPrinterGroupDataGrid
-          id="usdt-supply"
-          title="USDT Supply"
-          data={usdtSupply}
         />
       </Box>
     </Box>
