@@ -20,11 +20,11 @@ export function LiquidityAggregation4Page() {
   const usdtDeployedToLendersByProtocolDetails: ChartDetailProps[] = [
     {
       key: "Aave",
-      color: "#8af2b3",
+      color: "#B6509E",
     },
     {
       key: "Compound",
-      color: "#6da3d6",
+      color: "#00d395",
     },
     {
       key: "other",
@@ -32,15 +32,15 @@ export function LiquidityAggregation4Page() {
     },
     {
       key: "Ironbank",
-      color: "#f9a9d8",
+      color: "#1fa647",
     },
     {
       key: "Silo",
-      color: "#09a066",
+      color: "#171717",
     },
     {
       key: "Uwulend",
-      color: "#937ad3",
+      color: "#5959ff",
     },
   ];
 
@@ -56,7 +56,7 @@ export function LiquidityAggregation4Page() {
           details={[
             {
               key: "value",
-              color: "#2775ca",
+              color: "#52b095",
               name: "USDT (Lending)",
             },
           ]}

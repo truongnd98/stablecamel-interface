@@ -38,7 +38,7 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <meta property="og:description" content="Stable Camel About page" />
+        <meta property="og:description" content="Stable Camel - About" />
         <meta
           property="og:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}

@@ -22,7 +22,7 @@ export default function TradeStablecoin({ action }: { action: string }) {
 
         <meta
           property="og:description"
-          content={`Stable Camel ${
+          content={`Stable Camel - ${
             action === "buy" ? "Buy" : "Sell"
           } Stablecoin dashboard`}
         />

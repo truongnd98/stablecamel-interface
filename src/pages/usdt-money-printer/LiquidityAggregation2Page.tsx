@@ -44,7 +44,7 @@ export function LiquidityAggregation2Page() {
           details={[
             {
               key: "value",
-              color: randomColor({ seed: "usdt" }),
+              color: "#52b095",
               name: "USDT",
             },
           ]}
