@@ -8,8 +8,8 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import CustomTooltip from "./Tooltip";
-import { Box, Typography, Skeleton } from "@mui/material";
+import DefaultCustomTooltip from "./Tooltip";
+import { Box , Typography, Skeleton } from "@mui/material";
 import { v4 } from "uuid";
 import LazyLoad from "react-lazyload";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -17,14 +17,14 @@ import LinkIcon from "@mui/icons-material/Link";
 import { CopyToClipboardButton } from "../CopyToClipboardButton/CopyToClipboardButton";
 import { AreaChartOptions, ChartDetailProps } from "./types";
 
-const formatTickY = (value: number) => {
+const defaultFormatTickY = (value: number) => {
   if (value > 1e9) return (value / 1e9).toFixed(0) + "B";
   else if (value > 1e6 || value < -1e6) return (value / 1e6).toFixed(0) + "M";
   else if (value > 1e3 || value < -1e3) return (value / 1e3).toFixed(0) + "K";
   else return value.toFixed(0);
 };
 
-const formatTickX = (value: string) => {
+const defaultFormatTickX = (value: string) => {
   return value.slice(0, 3) + " " + value.slice(-4, value.length);
 };
 
@@ -66,6 +66,10 @@ export default function CustomAreaChart({
   legend = false,
   id,
   tooltip,
+  XAxisKey,
+  formatTickX,
+  formatTickY,
+  CustomTooltip,
 }: AreaChartOptions) {
   return (
     <>
@@ -137,12 +141,12 @@ export default function CustomAreaChart({
                 >
                   {/* <CartesianGrid strokeDasharray='3 3' /> */}
                   <XAxis
-                    dataKey="time"
-                    tickFormatter={formatTickX}
+                    dataKey={XAxisKey || "time"}
+                    tickFormatter={formatTickX || defaultFormatTickX}
                     minTickGap={50}
                   />
                   <YAxis
-                    tickFormatter={formatTickY}
+                    tickFormatter={formatTickY || defaultFormatTickY}
                     domain={["dataMin", "dataMax"]}
                     axisLine={false}
                   />
@@ -160,7 +164,7 @@ export default function CustomAreaChart({
                     wrapperStyle={{
                       zIndex: 2,
                     }}
-                    content={<CustomTooltip />}
+                    content={ CustomTooltip? CustomTooltip :<DefaultCustomTooltip />}
                   />
                   {!Array.isArray(detail) ? (
                     <Area
