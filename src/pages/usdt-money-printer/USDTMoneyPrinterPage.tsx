@@ -7,6 +7,7 @@ import { LiquidityAggregation4Page } from "./LiquidityAggregation4Page";
 import { LiquidityAggregation5Page } from "./LiquidityAggregation5Page";
 import { USDTLockedInBridgesPage } from "./USDTLockedInBridgesPage";
 import { useGetUSDTMoneyPrinterData } from "../../stores/usdt-moneyprinter/hooks";
+import { USDTMoneyPrinterMetric } from "./USDTMoneyPrinterMetric";
 
 const container: SxProps = {
   padding: "20px 28px",
@@ -74,10 +75,13 @@ export function USDTMoneyPrinterPage() {
       <Box>
         <USDTMoneyPrinterPageTitle />
       </Box>
-      <Box>
-        {/* <Typography variant="h5" color="primary">
+      {/* <Typography variant="h5" color="primary">
           Total Supply
-        </Typography> */}
+      </Typography> */}
+      <Box>
+        <USDTMoneyPrinterMetric />
+      </Box>
+      <Box>
         <LiquidityAggregation1Page />
         {/* <Box
           sx={{
