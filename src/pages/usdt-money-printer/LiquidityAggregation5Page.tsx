@@ -23,43 +23,43 @@ export function LiquidityAggregation5Page() {
     },
     {
       key: "Kyber",
-      color: "#99e6e8",
+      color: "#33ca9d",
     },
     {
       key: "Uniswap",
-      color: "#e827e8",
+      color: "#ff007a",
     },
     {
       key: "Curvefi",
-      color: "#d86b11",
+      color: "#3465A4", //d86b11
     },
     {
       key: "Sushi",
-      color: "#d1922e",
+      color: "#fc6bd7", //d1922e
     },
     {
       key: "Pancakeswap",
-      color: "#3be596",
+      color: "#53dee9",
     },
     {
       key: "Balancer",
-      color: "#b631ea",
+      color: "#09213c",
     },
     {
       key: "Saddle",
-      color: "#c1b8f2",
+      color: "#65b0a9",
     },
     {
       key: "Clipper",
-      color: "#e532b5",
+      color: "#e4c662",
     },
     {
       key: "Shibaswap",
-      color: "#b0f298",
+      color: "#ffa409",
     },
     {
       key: "Hashflow",
-      color: "#73a313",
+      color: "#171b21",
     },
   ];
 
@@ -75,7 +75,7 @@ export function LiquidityAggregation5Page() {
           details={[
             {
               key: "value",
-              color: "#2775ca",
+              color: "#52b095",
               name: "USDT (Lending)",
             },
           ]}

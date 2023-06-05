@@ -29,7 +29,7 @@ export function PegTrackerPage() {
       <Helmet>
         <meta
           property="og:description"
-          content="Stable Camel Activity dashboard"
+          content="Stable Camel - Activity Monitor dashboard"
         />
         <meta
           property="og:image"

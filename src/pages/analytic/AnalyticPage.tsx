@@ -82,7 +82,7 @@ export default function AnalyticPage() {
         <Helmet>
           <meta
             property="og:description"
-            content={`Stablecoin TVL ${pageName} dashboard`}
+            content={`Stable Camel - Stablecoin TVL ${pageName} dashboard`}
           />
           <meta
             property="og:image"

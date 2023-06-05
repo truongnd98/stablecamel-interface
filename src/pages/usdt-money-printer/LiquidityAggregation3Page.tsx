@@ -20,7 +20,7 @@ export function LiquidityAggregation3Page() {
   const exchangeBalancesOfUSDTByCEXDetails: ChartDetailProps[] = [
     {
       key: "Kraken",
-      color: "#58bc36",
+      color: "#5d45dc",
     },
     {
       key: "other",
@@ -28,39 +28,39 @@ export function LiquidityAggregation3Page() {
     },
     {
       key: "Bittrex",
-      color: "#4360d3",
+      color: "#1c6fe8",
     },
     {
       key: "Huobi",
-      color: "#b8f48d",
+      color: "#008cd6",
     },
     {
       key: "Crypto.com",
-      color: "#4df23e",
+      color: "#002d74",
     },
     {
       key: "Poloniex",
-      color: "#cc1253",
+      color: "#1a8f5c",
     },
     {
       key: "Gate.io",
-      color: "#ce504c",
+      color: "#14e0a1",
     },
     {
       key: "Binance",
-      color: "#2341ea",
+      color: "#f0b90b",
     },
     {
       key: "BitMEX",
-      color: "#e59099",
+      color: "#ff0201",
     },
     {
       key: "OKX",
-      color: "#bc01a0",
+      color: "#121212",
     },
     {
       key: "KuCoin",
-      color: "#38cff4",
+      color: "#23af91",
     },
   ];
 
@@ -87,7 +87,7 @@ export function LiquidityAggregation3Page() {
           details={[
             {
               key: "balance",
-              color: "#3465A4",
+              color: "#52b095",
               name: "USDT on CEXs",
             },
           ]}

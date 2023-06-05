@@ -65,7 +65,7 @@ export function CurveEcosystemPage() {
       <Helmet>
         <meta
           property="og:description"
-          content={`Curve Ecosystem ${pageName} dashboard`}
+          content={`Stable Camel - Curve Ecosystem ${pageName} dashboard`}
         />
         <meta
           property="og:image"

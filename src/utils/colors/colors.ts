@@ -58,6 +58,66 @@ export const colors = [
   { key: "eurusd", color: "#3e2cdd" },
   { key: "fraxbp", color: "#e091d9" },
   { key: "frxeth", color: "#0a9345" },
+  {
+    key: "Uniswap",
+    color: "#ff007a",
+  },
+  {
+    key: "Kyber",
+    color: "#33ca9d",
+  },
+  {
+    key: "Curvefi",
+    color: "#3465A4",
+  },
+  {
+    key: "Sushi",
+    color: "#fc6bd7",
+  },
+  {
+    key: "Pancakeswap",
+    color: "#53dee9",
+  },
+  {
+    key: "Balancer",
+    color: "#09213c",
+  },
+  {
+    key: "Saddle",
+    color: "#65b0a9",
+  },
+  {
+    key: "Clipper",
+    color: "#e4c662",
+  },
+  {
+    key: "Shibaswap",
+    color: "#ffa409",
+  },
+  {
+    key: "Hashflow",
+    color: "#171b21",
+  },
+  {
+    key: "Aave",
+    color: "#B6509E",
+  },
+  {
+    key: "Compound",
+    color: "#00d395",
+  },
+  {
+    key: "Ironbank",
+    color: "#1fa647",
+  },
+  {
+    key: "Silo",
+    color: "#171717",
+  },
+  {
+    key: "Uwulend",
+    color: "#5959ff",
+  },
   { key: "CNC/ETH", color: "#82e0e5" },
   { key: "LDO_ETH", color: "#e84ad0" },
   { key: "YFI/ETH", color: "#bfffb2" },

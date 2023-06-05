@@ -19,23 +19,23 @@ export function USDTLockedInBridgesPage() {
   const chartDetails: ChartDetailProps[] = [
     {
       key: "Avalanche",
-      color: "#f7bca0",
+      color: "#e84142",
     },
     {
       key: "Gravity Bridge",
-      color: "#bfe9fc",
+      color: "#002fa7",
     },
     {
       key: "Arbitrum One",
-      color: "#66e2c5",
+      color: "#1569a1",
     },
     {
       key: "Optimism",
-      color: "#f7d199",
+      color: "#ff0420",
     },
     {
       key: "HECO Chain",
-      color: "#eaf49a",
+      color: "#aefb19",
     },
     {
       key: "other",
@@ -55,8 +55,8 @@ export function USDTLockedInBridgesPage() {
           details={[
             {
               key: "value",
-              color: "#2775ca",
-              name: "USDC Locked in Bridges",
+              color: "#52b095",
+              name: "USDT Locked in Bridges",
             },
           ]}
           id="usdt-deployed-to-bridges-total-chart"
