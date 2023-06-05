@@ -1,7 +1,8 @@
 import { Box, SxProps } from "@mui/material";
-import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
 import { ChartDetailProps } from "../../components/LineChart/types";
+import CustomAreaChart from "../../components/AreaChart";
+import { USDTMoneyPrinterGroupDataGridBalance } from "./USDTMoneyPrinterGroupDataGrid";
 
 const main: SxProps = {
   width: "100%",
@@ -13,8 +14,7 @@ const main: SxProps = {
 };
 
 export function USDTLockedInBridgesPage() {
-  const { usdtDeployedToBridgesTotal, usdtDeployedToBridgesByBridge } =
-    useUSDTMoneyPrinterState();
+  const { usdtDeployedToBridgesByBridge } = useUSDTMoneyPrinterState();
 
   const chartDetails: ChartDetailProps[] = [
     {
@@ -46,33 +46,26 @@ export function USDTLockedInBridgesPage() {
   return (
     <Box sx={main}>
       <Box
-        id="usdt-deployed-to-bridges-total-chart-wrap"
+        id="usdt-deployed-to-bridges-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
-          data={usdtDeployedToBridgesTotal}
-          title="USDT Deployed to Bridges - Total"
-          details={[
-            {
-              key: "value",
-              color: "#52b095",
-              name: "USDT Locked in Bridges",
-            },
-          ]}
-          id="usdt-deployed-to-bridges-total-chart"
-          legend
+        <CustomAreaChart
+          data={usdtDeployedToBridgesByBridge}
+          title="USDT Deployed to Bridges"
+          detail={chartDetails}
+          id="usdt-deployed-to-bridges-chart"
+          // legend
         />
       </Box>
       <Box
-        id="usdt-deployed-to-bridges-by-bridge-chart-wrap"
+        id="usdt-deployed-to-bridges-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
+        <USDTMoneyPrinterGroupDataGridBalance
           data={usdtDeployedToBridgesByBridge}
-          title="USDT Deployed to Bridges by Bridge"
-          details={chartDetails}
-          id="usdt-deployed-to-bridges-by-bridge-chart"
-          legend
+          title="USDT Deployed to Bridges"
+          id="usdt-deployed-to-bridges"
+          // legend
         />
       </Box>
     </Box>

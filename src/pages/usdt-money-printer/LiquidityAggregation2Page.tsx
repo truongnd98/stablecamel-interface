@@ -49,7 +49,7 @@ export function LiquidityAggregation2Page() {
             },
           ]}
           id="usdt-deployed-to-lps-and-lending-pools"
-          legend
+          // legend
         />
       </Box>
     </Box>

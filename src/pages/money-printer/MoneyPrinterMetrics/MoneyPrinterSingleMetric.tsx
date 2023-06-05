@@ -27,7 +27,7 @@ export function MoneyPrinterSingleMetric({
         variant="h5"
         color="primary"
         sx={{
-          fontSize: { sm: "11px", md: "13px", lg: "15px", xl: "18px" },
+          fontSize: { sm: "11px", md: "12px", lg: "15px", xl: "18px" },
         }}
       >
         <b>{title}</b>

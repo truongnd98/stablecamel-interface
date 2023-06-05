@@ -32,7 +32,7 @@ const curvePoolVolumeDetail: ChartDetailProps[] = [
   },
   {
     key: "steth",
-    color: randomColor({ seed: "steth" }),
+    color: "#00a3ff",
   },
 ];
 

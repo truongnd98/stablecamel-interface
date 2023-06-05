@@ -1,8 +1,8 @@
 import { Box, SxProps } from "@mui/material";
 import CustomAreaChart from "../../components/AreaChart";
-import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
 import { ChartDetailProps } from "../money-printer/MoneyPrinterGroup/MoneyPrinterGroupAreaChart";
+import { USDTMoneyPrinterGroupDataGridBalance } from "./USDTMoneyPrinterGroupDataGrid";
 
 const main: SxProps = {
   width: "100%",
@@ -14,8 +14,7 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation3Page() {
-  const { exchangeBalancesOfUSDT, exchangeBalancesOfUSDTByCEX } =
-    useUSDTMoneyPrinterState();
+  const { exchangeBalancesOfUSDTByCEX } = useUSDTMoneyPrinterState();
 
   const exchangeBalancesOfUSDTByCEXDetails: ChartDetailProps[] = [
     {
@@ -78,33 +77,25 @@ export function LiquidityAggregation3Page() {
   return (
     <Box sx={main}>
       <Box
-        id="exchange-balances-of-usdt-chart-wrap"
-        sx={{ width: "calc(50% - 14px)", height: "100%" }}
-      >
-        <CustomLineChart
-          data={exchangeBalancesOfUSDT}
-          title="Exchange Balances of USDT"
-          details={[
-            {
-              key: "balance",
-              color: "#52b095",
-              name: "USDT on CEXs",
-            },
-          ]}
-          id="exchange-balances-of-usdt-chart"
-          legend
-        />
-      </Box>
-      <Box
-        id="exchange-balances-of-usdt-chart-by-cex-wrap"
+        id="usdt-exchange-balances-chartwrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomAreaChart
           data={exchangeBalancesOfUSDTByCEX}
-          title="Exchange Balances of USDT"
+          title="USDT Exchange Balances"
           detail={exchangeBalancesOfUSDTByCEXDetails}
-          id="exchange-balances-of-usdt-chart-by-cex"
-          legend
+          id="usdt-exchange-balances-chart"
+          // legend
+        />
+      </Box>
+      <Box
+        id="usdt-exchange-balances-wrap"
+        sx={{ width: "calc(50% - 14px)", height: "100%" }}
+      >
+        <USDTMoneyPrinterGroupDataGridBalance
+          data={exchangeBalancesOfUSDTByCEX}
+          title="USDT Exchange Balances"
+          id="usdt-exchange-balances"
         />
       </Box>
     </Box>

@@ -1,8 +1,8 @@
 import { Box, SxProps } from "@mui/material";
-import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
 import { ChartDetailProps } from "../../components/LineChart/types";
-import randomColor from "randomcolor";
+import CustomAreaChart from "../../components/AreaChart";
+import { USDTMoneyPrinterGroupDataGridBalance } from "./USDTMoneyPrinterGroupDataGrid";
 
 const main: SxProps = {
   width: "100%",
@@ -14,8 +14,7 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation4Page() {
-  const { totalUSDTDeployedToLenders, usdtDeployedToLendersByProtocol } =
-    useUSDTMoneyPrinterState();
+  const { usdtDeployedToLendersByProtocol } = useUSDTMoneyPrinterState();
 
   const usdtDeployedToLendersByProtocolDetails: ChartDetailProps[] = [
     {
@@ -47,33 +46,25 @@ export function LiquidityAggregation4Page() {
   return (
     <Box sx={main}>
       <Box
-        id="total-usdt-deployed-to-lenders-chart-wrap"
+        id="usdt-deployed-to-lenders-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
-          data={totalUSDTDeployedToLenders}
-          title="Total USDT Deployed to Lenders"
-          details={[
-            {
-              key: "value",
-              color: "#52b095",
-              name: "USDT (Lending)",
-            },
-          ]}
-          id="total-usdt-deployed-to-lenders-chart"
-          legend
+        <CustomAreaChart
+          data={usdtDeployedToLendersByProtocol}
+          title="USDT Deployed to Lenders"
+          detail={usdtDeployedToLendersByProtocolDetails}
+          id="usdt-deployed-to-lenders-chart"
+          // legend
         />
       </Box>
       <Box
-        id="usdt-deployed-to-lenders-by-protocol-chart-wrap"
+        id="usdt-deployed-to-lenders-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
+        <USDTMoneyPrinterGroupDataGridBalance
           data={usdtDeployedToLendersByProtocol}
-          title="USDT Deployed to Lenders - By Protocol"
-          details={usdtDeployedToLendersByProtocolDetails}
-          id="usdt-deployed-to-lenders-by-protocol-chart"
-          legend
+          title="USDT Deployed to Lenders"
+          id="usdt-deployed-to-lenders"
         />
       </Box>
     </Box>

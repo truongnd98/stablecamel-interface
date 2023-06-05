@@ -1,7 +1,8 @@
 import { Box, SxProps } from "@mui/material";
-import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
 import { ChartDetailProps } from "../../components/LineChart/types";
+import CustomAreaChart from "../../components/AreaChart";
+import { USDTMoneyPrinterGroupDataGridBalance } from "./USDTMoneyPrinterGroupDataGrid";
 
 const main: SxProps = {
   width: "100%",
@@ -13,8 +14,7 @@ const main: SxProps = {
 };
 
 export function LiquidityAggregation5Page() {
-  const { totalUSDTDeployedToDEXs, usdtDeployedToLPsByProtocol } =
-    useUSDTMoneyPrinterState();
+  const { usdtDeployedToLPsByProtocol } = useUSDTMoneyPrinterState();
 
   const usdtDeployedToLPsByProtocolDetails: ChartDetailProps[] = [
     {
@@ -66,33 +66,26 @@ export function LiquidityAggregation5Page() {
   return (
     <Box sx={main}>
       <Box
-        id="total-usdt-deployed-to-dexs-chart-wrap"
+        id="usdt-deployed-to-lps-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
-          data={totalUSDTDeployedToDEXs}
-          title="Total USDT Deployed to DEXs"
-          details={[
-            {
-              key: "value",
-              color: "#52b095",
-              name: "USDT (Lending)",
-            },
-          ]}
-          id="total-usdt-deployed-to-dexs-chart"
-          legend
+        <CustomAreaChart
+          data={usdtDeployedToLPsByProtocol}
+          title="USDT Deployed to LPs"
+          detail={usdtDeployedToLPsByProtocolDetails}
+          id="usdt-deployed-to-lps-chart"
+          // legend
         />
       </Box>
       <Box
-        id="usdt-deployed-to-lps-by-protocol-chart-wrap"
+        id="usdt-deployed-to-lps-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
+        <USDTMoneyPrinterGroupDataGridBalance
           data={usdtDeployedToLPsByProtocol}
-          title="USDT Deployed to LPs - By Protocol"
-          details={usdtDeployedToLPsByProtocolDetails}
-          id="usdt-deployed-to-lps-by-protocol-chart"
-          legend
+          title="USDT Deployed to LPs"
+          id="usdt-deployed-to-lps"
+          // legend
         />
       </Box>
     </Box>

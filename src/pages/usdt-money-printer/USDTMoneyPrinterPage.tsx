@@ -1,7 +1,6 @@
-import { Box, SxProps, Typography } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import { USDTMoneyPrinterPageTitle } from "./USDTMoneyPrinterPageTitle";
 import { LiquidityAggregation1Page } from "./LiquidityAggregation1Page";
-import { LiquidityAggregation2Page } from "./LiquidityAggregation2Page";
 import { LiquidityAggregation3Page } from "./LiquidityAggregation3Page";
 import { LiquidityAggregation4Page } from "./LiquidityAggregation4Page";
 import { LiquidityAggregation5Page } from "./LiquidityAggregation5Page";
@@ -75,68 +74,14 @@ export function USDTMoneyPrinterPage() {
       <Box>
         <USDTMoneyPrinterPageTitle />
       </Box>
-      {/* <Typography variant="h5" color="primary">
-          Total Supply
-      </Typography> */}
       <Box>
         <USDTMoneyPrinterMetric />
       </Box>
       <Box>
         <LiquidityAggregation1Page />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            USDT TVL in DEXs and Lending Protocols
-          </Typography>
-        </Box> */}
-        <LiquidityAggregation2Page />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            USDT Balance on Exchanges
-          </Typography>
-        </Box> */}
         <LiquidityAggregation3Page />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            USDT Deployed to Lending Protocols
-          </Typography>
-        </Box> */}
         <LiquidityAggregation4Page />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            USDC Deployed to DEXs
-          </Typography>
-        </Box> */}
         <LiquidityAggregation5Page />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            USDT Locked in Bridges
-          </Typography>
-        </Box> */}
         <USDTLockedInBridgesPage />
       </Box>
     </Box>

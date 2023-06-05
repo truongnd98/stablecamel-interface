@@ -44,6 +44,7 @@ export function MoneyPrinterMetrics() {
   const dataBridges = formatNumber(
     deployedBridgeList[0] ? deployedBridgeList[0].value : 0
   );
+
   return (
     <Box sx={main}>
       <Box sx={wrap}>
