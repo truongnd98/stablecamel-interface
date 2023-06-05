@@ -17,9 +17,10 @@ export const getUSDTMoneyPrinterData = createAsyncThunk(
 			.sort((item1: { day: string }, item2: { day: string })=>
 				(new Date(item1.day).getTime() - new Date(item2.day).getTime())
 			)
-			.map((item: { day: string }) => ({
+			.map((item: { day: string , supply: number }) => ({
 				...item,
-				time: format(new Date(item.day), 'PP')
+				time: format(new Date(item.day), 'PP'),
+				supply: item.supply?.toFixed(0) || 0
 			})),
 			usdt_deployed_to_lps_and_lending_pools: data.usdt_deployed_to_lps_and_lending_pools
 			.sort((item1: { day: string }, item2: { day: string })=>
