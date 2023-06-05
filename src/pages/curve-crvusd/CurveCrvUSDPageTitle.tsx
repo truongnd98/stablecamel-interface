@@ -3,7 +3,7 @@ import { CurveCrvUSDPageTitleTooltip } from "./CurveCrvUSDPageTitleTooltip";
 
 const pageTitle: SxProps = {
   width: "100%",
-  height: 32,
+  // height: 32,
   display: "flex",
   alignItems: "center",
   gap: "20px",

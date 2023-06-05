@@ -35,33 +35,30 @@ const formatTickY = (value: number) => {
 };
 
 export function MoneyPrinterMainChart() {
-  const {
-    supplyUSDCList,
-  } = useMoneyPrinterState();
-
+  const { supplyUSDCList } = useMoneyPrinterState();
 
   return (
-    <Box sx={main}>
+    <Box id="usdc-supply-chart-wrap" sx={main}>
       <Box sx={background}>
         <img src="/logos/logo-bw.png" alt="Stable Camel - Stable Camel icon" />
       </Box>
       {supplyUSDCList && supplyUSDCList.length > 0 ? (
         <CustomAreaChart
-          CustomTooltip = {<MoneyPrinterMainChartTooltip />}
+          CustomTooltip={<MoneyPrinterMainChartTooltip />}
           XAxisKey="day"
           formatTickX={formatTickX}
           formatTickY={formatTickY}
           detail={[
             {
               key: "supply",
-              color: "#2975ca"
-            }
+              color: "#2975ca",
+            },
           ]}
           data={supplyUSDCList}
           id="usdc-supply-chart"
           title="USDC Supply"
-        />): null
-      }
+        />
+      ) : null}
     </Box>
   );
 }
