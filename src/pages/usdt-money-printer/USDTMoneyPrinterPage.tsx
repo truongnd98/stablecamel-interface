@@ -75,13 +75,13 @@ export function USDTMoneyPrinterPage() {
       <Box>
         <USDTMoneyPrinterPageTitle />
       </Box>
+      {/* <Typography variant="h5" color="primary">
+          Total Supply
+      </Typography> */}
       <Box>
         <USDTMoneyPrinterMetric />
       </Box>
       <Box>
-        {/* <Typography variant="h5" color="primary">
-          Total Supply
-        </Typography> */}
         <LiquidityAggregation1Page />
         {/* <Box
           sx={{
