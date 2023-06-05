@@ -43,7 +43,7 @@ export function MoneyPrinterMainChart() {
   return (
     <Box sx={main}>
       <Box sx={background}>
-        <img src="/logos/logo-bw.png" alt="Stable-Camel-wartermark" />
+        <img src="/logos/logo-bw.png" alt="Stable Camel - Stable Camel icon" />
       </Box>
       {supplyUSDCList && supplyUSDCList.length > 0 ? (
         <CustomAreaChart

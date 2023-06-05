@@ -103,10 +103,7 @@ const DataGrid = () => {
                   <Box sx={cell}>
                     <img
                       src={token.icon}
-                      alt={`Stable-Camel-Stablecoin-TVL-${token?.name?.replaceAll(
-                        " ",
-                        "-"
-                      )}-icon`}
+                      alt={`Stable Camel - Stablecoin TVL ${token?.name} icon`}
                     />
                     {token.name} ({token.symbol})
                   </Box>

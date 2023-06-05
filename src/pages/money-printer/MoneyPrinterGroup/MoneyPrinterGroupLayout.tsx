@@ -17,7 +17,7 @@ export function MoneyPrinterGroupLayout({
   data: any[];
   title: string;
 }) {
-  const id = title?.toLowerCase().replaceAll(" ", "-");
+  const id = title?.toLowerCase().replace(/ /g, "-");
   const chartId = id + "-chart";
   return (
     <>

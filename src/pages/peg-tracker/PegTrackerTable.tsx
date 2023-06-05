@@ -177,10 +177,9 @@ export function PegTrackerTable() {
                   <Box sx={stablecoin}>
                     <img
                       src={handleIcon(data?.symbol)?.icon}
-                      alt={`Stable-Camel-Activity-Monitor-${
-                        handleIcon(data?.symbol)?.name.replaceAll(" ", "-") ??
-                        ""
-                      }-icon`}
+                      alt={`Stable Camel - Activity Monitor ${
+                        handleIcon(data?.symbol)?.name ?? ""
+                      } icon`}
                     />
                     {handleIcon(data?.symbol)?.name ?? data?.symbol}
                   </Box>
@@ -202,7 +201,7 @@ export function PegTrackerTable() {
                       {handleAvatar(data.platforms).map((item: Network) => (
                         <Avatar
                           src={item.logo}
-                          alt={`Stable-Camel-Activity-Monitor-${item.name}-logo`}
+                          alt={`Stable Camel - Activity Monitor ${item.name} logo`}
                           sx={avatar}
                           key={v4()}
                           title={item.name}

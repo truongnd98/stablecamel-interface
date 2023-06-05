@@ -86,7 +86,7 @@ export default function GraveYardToolTip() {
             Data source:{" "}
             <img
               src={CoingeckoLogo}
-              alt="Stable-Camel-Graveyard-Coingecko-icon"
+              alt="Stable Camel - Graveyard Coingecko icon"
               style={{
                 height: 46,
               }}
