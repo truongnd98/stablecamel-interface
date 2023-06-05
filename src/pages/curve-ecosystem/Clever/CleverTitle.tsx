@@ -89,9 +89,9 @@ export function CleverTitle() {
           <Box sx={chipLabel}>
             <img
               src={getProtocol(network)?.logo}
-              alt={`Stable-Camel-Curve-Ecosystem-${getProtocol(
-                network
-              )?.name?.replaceAll(" ", "-")}-icon`}
+              alt={`Stable Camel - Curve Ecosystem ${
+                getProtocol(network)?.name
+              } icon`}
             />
             <b>{getProtocol(network)?.name}</b>
             <KeyboardArrowDownIcon />
@@ -121,10 +121,7 @@ export function CleverTitle() {
           >
             <img
               src={protocol.logo}
-              alt={`Stable-Camel-Curve-Ecosystem-${protocol?.name?.replaceAll(
-                " ",
-                "-"
-              )}-icon`}
+              alt={`Stable Camel - Curve Ecosystem ${protocol?.name} icon`}
             />
             {protocol.name}
           </MenuItem>

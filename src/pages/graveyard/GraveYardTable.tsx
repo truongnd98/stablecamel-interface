@@ -47,13 +47,13 @@ const columns: GridColDef[] = [
               network.slug.toLowerCase().includes(value.toLowerCase())
           )?.logo
         }
-        alt={`Stable-Camel-Graveyard-${
+        alt={`Stable Camel - Graveyard ${
           Networks.find(
             (network: Network) =>
               network.name.toLowerCase().includes(value.toLowerCase()) ||
               network.slug.toLowerCase().includes(value.toLowerCase())
           )?.name
-        }-network-icon`}
+        } network icon`}
         style={{
           width: "20px",
         }}

@@ -52,7 +52,7 @@ const MainSideBar = () => {
         <Link href="/">
           <img
             src="/logos/logo.png"
-            alt="Stable-Camel-Stably-Stablecoin-icon"
+            alt="Stable Camel - Stably Stablecoin icon"
           />
         </Link>
         <ListNav />
@@ -103,7 +103,7 @@ const MainSideBar = () => {
           <Link target="_blank" href="https://t.me/stably_official" sx={link}>
             <img
               src="/telegram-plane.svg"
-              alt="Stable-Camel-Stablecoin-Telegram-icon"
+              alt="Stable Camel - Stablecoin Telegram icon"
               style={{
                 height: "20px",
               }}
@@ -124,7 +124,7 @@ const MainSideBar = () => {
           >
             <img
               src="https://stably.io/wp-content/uploads/2023/02/stably-logo-dark.png"
-              alt="Stable-Camel-Stably-Stablecoin-powered-icon"
+              alt="Stable Camel - Stably Stablecoin powered icon"
               style={{
                 height: "16px",
               }}

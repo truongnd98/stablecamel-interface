@@ -129,10 +129,7 @@ const Title = () => {
           <Box sx={chipLabel}>
             <img
               src={currentNetwork.logo}
-              alt={`Stable-Camel-Stablecoin-TVL-${currentNetwork?.name?.replaceAll(
-                " ",
-                "-"
-              )}-icon`}
+              alt={`Stable Camel - Stablecoin TVL ${currentNetwork?.name} icon`}
             />
             <b>{currentNetwork.name}</b>
             <KeyboardArrowDownIcon />
@@ -169,10 +166,7 @@ const Title = () => {
           >
             <img
               src={network.logo}
-              alt={`Stable-Camel-Stablecoin-TVL-${network?.name?.replaceAll(
-                " ",
-                "-"
-              )}-icon`}
+              alt={`Stable Camel - Stablecoin TVL ${network?.name} icon`}
             />
             {network.name}
           </MenuItem>

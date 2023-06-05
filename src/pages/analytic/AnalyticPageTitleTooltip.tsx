@@ -78,7 +78,7 @@ export default function Tooltip() {
             Data source:{" "}
             <img
               src={DuneLogo}
-              alt="Stable-Camel-Stablecoin-TVL-Dune-logo"
+              alt="Stable Camel - Stablecoin TVL Dune logo"
               style={{
                 height: 36,
               }}
