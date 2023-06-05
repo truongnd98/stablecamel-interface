@@ -8,7 +8,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  // padding: "28px 0px 0px 0px",
 };
 
 export function LiquidityAggregation1Page() {
@@ -26,7 +26,7 @@ export function LiquidityAggregation1Page() {
           detail={[
             {
               key: "supply",
-              color: "#3465A4",
+              color: "#52b095",
               name: "Supply",
             },
           ]}
