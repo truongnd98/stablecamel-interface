@@ -1,6 +1,6 @@
 import { Box, SxProps } from "@mui/material";
-import { CustomLineChart } from "../../components/LineChart/LineChart";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
+import CustomAreaChart from "../../components/AreaChart";
 
 const main: SxProps = {
   width: "100%",
@@ -20,10 +20,10 @@ export function LiquidityAggregation1Page() {
         id="usdt-supply-chart-wrap"
         sx={{ width: "calc(100% - 14px)", height: "100%" }}
       >
-        <CustomLineChart
+        <CustomAreaChart
           data={usdtSupply}
           title="USDT Supply"
-          details={[
+          detail={[
             {
               key: "supply",
               color: "#3465A4",
