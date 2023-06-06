@@ -7,6 +7,7 @@ import { OrdinalsMarketplacesSection4 } from "./OrdinalsMarketplacesSection4";
 import { OrdinalsMarketplacesSection5 } from "./OrdinalsMarketplacesSection5";
 import { OrdinalsMarketplacesMetric } from "./OrdinalsMarketplacesMetric";
 import { useGetOrdinalsMarketplacesData } from "../../stores/ordinals-marketplaces/hooks";
+import { Helmet } from "react-helmet-async";
 
 const container: SxProps = {
   padding: "20px 28px",
@@ -70,6 +71,16 @@ export function OrdinalsMarketplacesPage() {
 
   return (
     <Box sx={container}>
+      <Helmet>
+        <meta
+          property="og:description"
+          content={`Stable Camel - Ordinals BRC-20 Marketplaces dashboard`}
+        />
+        <meta
+          property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-ordinal-marketplaces.png`}
+        />
+      </Helmet>
       <Box>
         <OrdinalsMarketplacesTitle />
       </Box>
@@ -81,15 +92,14 @@ export function OrdinalsMarketplacesPage() {
       </Box>
       <Box>
         <OrdinalsMarketplacesSection1 />
-       
+
         <OrdinalsMarketplacesSection2 />
-        
+
         <OrdinalsMarketplacesSection3 />
-       
+
         <OrdinalsMarketplacesSection4 />
-       
+
         <OrdinalsMarketplacesSection5 />
-       
       </Box>
     </Box>
   );
