@@ -77,7 +77,7 @@ export function LiquidityAggregation3Page() {
   return (
     <Box sx={main}>
       <Box
-        id="usdt-exchange-balances-chartwrap"
+        id="usdt-exchange-balances-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomAreaChart

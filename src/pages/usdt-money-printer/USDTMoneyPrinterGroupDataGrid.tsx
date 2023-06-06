@@ -163,15 +163,19 @@ export function USDTMoneyPrinterGroupDataGridBalance({
   let i: number = 0;
   for (let exchange in data[data.length - 1]) {
     if (exchange !== "time" && exchange !== "other") {
+      const change_7d_value =
+        data[data.length - 1][exchange] - data[data.length - 7][exchange] || 0;
+
+      const change_7d_rate =
+        (data[data.length - 1][exchange] - data[data.length - 7][exchange]) /
+          data[data.length - 1][exchange] || 0;
+
       list.push({
         id: i,
         exchange,
         balance: data[data.length - 1][exchange],
-        change_7d:
-          data[data.length - 1][exchange] - data[data.length - 7][exchange],
-        change_7d_rate:
-          (data[data.length - 1][exchange] - data[data.length - 7][exchange]) /
-          data[data.length - 1][exchange],
+        change_7d: change_7d_value,
+        change_7d_rate: change_7d_rate,
       });
     }
     i++;
