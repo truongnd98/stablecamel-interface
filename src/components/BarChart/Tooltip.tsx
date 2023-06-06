@@ -68,7 +68,7 @@ const CustomTooltip = ({ active, payload, label, showTotal, customLabel, customC
               )}
             </Box>
           ))}
-        <Box
+        { !showTotal? "": <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -76,7 +76,6 @@ const CustomTooltip = ({ active, payload, label, showTotal, customLabel, customC
           }}
           key={v4()}
         >
-          { !showTotal? "": (
           <><Typography
               variant="body1"
               sx={{
@@ -93,8 +92,9 @@ const CustomTooltip = ({ active, payload, label, showTotal, customLabel, customC
               }}
             >
                 {convertNumber(sumData(payload))}
-              </Typography></>)}
+              </Typography></>
         </Box>
+        }
       </Box>
     );
   }
