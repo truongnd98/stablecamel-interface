@@ -28,6 +28,7 @@ import { MenuExtend, Network, Page } from "./types";
 import Protocols from "../../jsons/protocols.json";
 import MoneyPrinter from "../../jsons/money-printers.json";
 import { Protocol } from "../../App";
+import { DataSaverOffSharp } from "@mui/icons-material";
 
 const button: SxProps = {
   padding: "2px 8px",
@@ -332,6 +333,27 @@ const ListNav = () => {
           primary={<b>Stablecoin Activity Monitor</b>}
           style={{
             color: pathname.includes(Page.ACTIVITY_MONITOR) ? "#f5f5f5" : "",
+          }}
+        />
+      </ListItemButton>
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.ORDINALS_MARKETPLACES) ? "active" : ""}
+        onClick={() => {
+          navigate(Page.ORDINALS_MARKETPLACES);
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <DataSaverOffSharp
+            style={{
+              color: pathname.includes(Page.ORDINALS_MARKETPLACES) ? "#f5f5f5" : "",
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={<b>Ordinals Marketplaces</b>}
+          style={{
+            color: pathname.includes(Page.ORDINALS_MARKETPLACES) ? "#f5f5f5" : "",
           }}
         />
       </ListItemButton>

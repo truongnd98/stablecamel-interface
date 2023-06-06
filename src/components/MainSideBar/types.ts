@@ -11,6 +11,7 @@ export enum Page {
   DISCLAIMER = 'disclaimer',
   ACTIVITY_MONITOR = 'stablecoin-activity',
   CURVE_CRVUSD = 'curve-crvusd',
+  ORDINALS_MARKETPLACES = 'ordinals-marketplaces'
 }
 
 export interface Network {
