@@ -16,72 +16,86 @@ const main: SxProps = {
 export function OrdinalsMarketplacesSection1() {
   const { marketplace2, marketplace3 } = useOrdinalsMarketplacesState();
 
-  const marketplace2Details:ChartDetailProps[] = [
+  const marketplace2Details: ChartDetailProps[] = [
     {
-        "key": "ordswap",
-        "color": "#F504D3"
+      key: "ordswap",
+      color: "#F504D3",
+      name: "Ordswap",
     },
     {
-        "key": "ordinals market",
-        "color": "#40404A"
+      key: "ordinals market",
+      color: "#40404A",
+      name: "Ordinals Market",
     },
     {
-        "key": "open ordex",
-        "color": "#278081"
+      key: "open ordex",
+      color: "#278081",
+      name: "Open Ordex",
     },
     {
-        "key": "ordinals wallet",
-        "color": "#905DFF"
+      key: "ordinals wallet",
+      color: "#905DFF",
+      name: "Ordinals Wallet",
     },
     {
-        "key": "gamma",
-        "color": "#DE2D02"
+      key: "gamma",
+      color: "#DE2D02",
+      name: "Gamma",
     },
     {
-        "key": "magic eden",
-        "color": "#FF8E00"
+      key: "magic eden",
+      color: "#FF8E00",
+      name: "Magic Eden",
     },
     {
-        "key": "unisat",
-        "color": "#E5BE4A"
-    }
+      key: "unisat",
+      color: "#E5BE4A",
+      name: "Unisat",
+    },
   ];
 
-  const marketplace3Details:ChartDetailProps[] = [
+  const marketplace3Details: ChartDetailProps[] = [
     {
-        "key": "ordswap",
-        "color": "#F504D3"
+      key: "ordswap",
+      color: "#F504D3",
+      name: "Ordswap",
     },
     {
-        "key": "ordinals market",
-        "color": "#40404A"
+      key: "ordinals market",
+      color: "#40404A",
+      name: "Ordinals Market",
     },
     {
-        "key": "open ordex",
-        "color": "#278081"
+      key: "open ordex",
+      color: "#278081",
+      name: "Open Ordex",
     },
     {
-        "key": "ordinals wallet",
-        "color": "#905DFF"
+      key: "ordinals wallet",
+      color: "#905DFF",
+      name: "Ordinals Wallet",
     },
     {
-        "key": "gamma",
-        "color": "#DE2D02"
+      key: "gamma",
+      color: "#DE2D02",
+      name: "Gamma",
     },
     {
-        "key": "magic eden",
-        "color": "#FF8E00"
+      key: "magic eden",
+      color: "#FF8E00",
+      name: "Magic Eden",
     },
     {
-        "key": "unisat",
-        "color": "#E5BE4A"
-    }
+      key: "unisat",
+      color: "#E5BE4A",
+      name: "Unisat",
+    },
   ];
 
   return (
     <Box sx={main}>
       <Box
-        id="usdt-supply-chart-wrap"
+        id="volume-by-marketplace-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomBarChart
@@ -89,18 +103,19 @@ export function OrdinalsMarketplacesSection1() {
           XAxisKey="time"
           title="Volume by Marketplace $"
           details={marketplace2Details}
-          CustomTooltip={<CustomTooltip 
-            showTotal={true} 
-            customLabel={formatDateTransform("PP",(item)=>item)}
+          CustomTooltip={
+            <CustomTooltip
+              showTotal={true}
+              customLabel={formatDateTransform("PP", (item) => item)}
             />
           }
-          formatTickX={formatDateTransform("PP",(item)=>item)}
-          id="volume-by-marketplace"
-          legend
+          formatTickX={formatDateTransform("PP", (item) => item)}
+          id="volume-by-marketplace-chart"
+          // legend
         />
       </Box>
       <Box
-        id="usdt-supply-chart-wrap"
+        id="transactions-by-marketplace-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomBarChart
@@ -108,10 +123,15 @@ export function OrdinalsMarketplacesSection1() {
           XAxisKey="time"
           title="Transactions by Marketplace"
           details={marketplace3Details}
-          CustomTooltip={<CustomTooltip showTotal={true} customLabel={formatDateTransform("PP",(item)=>item)}/>}
-          formatTickX={formatDateTransform("PP",(item)=>item)}
-          id="transactions-by-marketplace"
-          legend
+          CustomTooltip={
+            <CustomTooltip
+              showTotal={true}
+              customLabel={formatDateTransform("PP", (item) => item)}
+            />
+          }
+          formatTickX={formatDateTransform("PP", (item) => item)}
+          id="transactions-by-marketplace-chart"
+          // legend
         />
       </Box>
     </Box>

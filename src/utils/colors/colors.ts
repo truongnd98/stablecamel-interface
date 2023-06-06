@@ -51,7 +51,7 @@ export const colors = [
   { key: "susd", color: "#443d5d" },
   { key: "3pool", color: "#2F627C" },
   { key: "alusd", color: "#d3a789" },
-  { key: "steth", color: "#1D84B5" },
+  { key: "steth", color: "#00a3ff" },
   { key: "busdv2", color: "#f0b90b" },
   { key: "crveth", color: "#95b724" },
   { key: "cvxeth", color: "#1e9e73" },

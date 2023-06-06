@@ -17,41 +17,48 @@ const main: SxProps = {
 export function OrdinalsMarketplacesSection5() {
   const { dailyusers } = useOrdinalsMarketplacesState();
 
-  const dailyusersDetails:ChartDetailProps[] = [
+  const dailyusersDetails: ChartDetailProps[] = [
     {
-        "key": "ordswap",
-        "color": "#F504D3"
+      key: "ordswap",
+      color: "#F504D3",
+      name: "Ordswap",
     },
     {
-        "key": "ordinals market",
-        "color": "#40404A"
+      key: "ordinals market",
+      color: "#40404A",
+      name: "Ordinals Market",
     },
     {
-        "key": "open ordex",
-        "color": "#278081"
+      key: "open ordex",
+      color: "#278081",
+      name: "Open Ordex",
     },
     {
-        "key": "ordinals wallet",
-        "color": "#905DFF"
+      key: "ordinals wallet",
+      color: "#905DFF",
+      name: "Ordinals Wallet",
     },
     {
-        "key": "gamma",
-        "color": "#DE2D02"
+      key: "gamma",
+      color: "#DE2D02",
+      name: "Gamma",
     },
     {
-        "key": "magic eden",
-        "color": "#FF8E00"
+      key: "magic eden",
+      color: "#FF8E00",
+      name: "Magic Eden",
     },
     {
-        "key": "unisat",
-        "color": "#E5BE4A"
-    }
+      key: "unisat",
+      color: "#E5BE4A",
+      name: "Unisat",
+    },
   ];
 
   return (
     <Box sx={main}>
       <Box
-        id="usdt-supply-chart-wrap"
+        id="unique-daily-users-by-marketplace-chart-wrap"
         sx={{ width: "calc(100% - 14px)", height: "100%" }}
       >
         <CustomBarChart
@@ -59,10 +66,15 @@ export function OrdinalsMarketplacesSection5() {
           XAxisKey="time"
           title="Unique Daily Users by Marketplace"
           details={dailyusersDetails}
-          formatTickX={formatDateTransform("PP",(item)=>item)}
-          CustomTooltip={<CustomTooltip showTotal={true} customLabel={formatDateTransform("PP",(item)=>item)}/>}
-          id="unique-daily-users-by-marketplace"
-          legend
+          formatTickX={formatDateTransform("PP", (item) => item)}
+          CustomTooltip={
+            <CustomTooltip
+              showTotal={true}
+              customLabel={formatDateTransform("PP", (item) => item)}
+            />
+          }
+          id="unique-daily-users-by-marketplace-chart"
+          // legend
         />
       </Box>
     </Box>

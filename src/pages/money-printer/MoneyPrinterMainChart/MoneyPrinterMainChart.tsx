@@ -13,16 +13,6 @@ const main: SxProps = {
   justifyContent: "center",
 };
 
-const background: SxProps = {
-  position: "absolute",
-  top: 150,
-  img: {
-    width: 150,
-    opacity: 0.35,
-  },
-  zIndex: 1,
-};
-
 const formatTickX = (value: string) => {
   const time: string = format(new Date(value), "PP");
   return time.slice(0, 3) + " " + time.slice(-4, time.length);
@@ -39,9 +29,6 @@ export function MoneyPrinterMainChart() {
 
   return (
     <Box id="usdc-supply-chart-wrap" sx={main}>
-      <Box sx={background}>
-        <img src="/logos/logo-bw.png" alt="Stable Camel - Stable Camel icon" />
-      </Box>
       {supplyUSDCList && supplyUSDCList.length > 0 ? (
         <CustomAreaChart
           CustomTooltip={<MoneyPrinterMainChartTooltip />}
@@ -52,11 +39,13 @@ export function MoneyPrinterMainChart() {
             {
               key: "supply",
               color: "#2975ca",
+              name: "Supply",
             },
           ]}
           data={supplyUSDCList}
           id="usdc-supply-chart"
           title="USDC Supply"
+          legend
         />
       ) : null}
     </Box>

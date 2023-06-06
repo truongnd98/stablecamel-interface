@@ -17,32 +17,36 @@ const main: SxProps = {
 export function OrdinalsMarketplacesSection3() {
   const { marketplace5, marketplace6 } = useOrdinalsMarketplacesState();
 
-  const marketplace5Details:ChartDetailProps[] = [
+  const marketplace5Details: ChartDetailProps[] = [
     {
-        "key": "bitcoin",
-        "color": "#F79319"
+      key: "bitcoin",
+      color: "#F79319",
+      name: "Bitcoin",
     },
     {
-        "key": "ethereum",
-        "color": "#1C335E"
+      key: "ethereum",
+      color: "#1C335E",
+      name: "Ethereum",
     },
   ];
 
-  const marketplace6Details:ChartDetailProps[] = [
+  const marketplace6Details: ChartDetailProps[] = [
     {
-      "key": "bitcoin",
-      "color": "#F79319"
+      key: "bitcoin",
+      color: "#F79319",
+      name: "Bitcoin",
     },
     {
-      "key": "ethereum",
-      "color": "#1C335E"
+      key: "ethereum",
+      color: "#1C335E",
+      name: "Ethereum",
     },
   ];
 
   return (
     <Box sx={main}>
       <Box
-        id="usdt-supply-chart-wrap"
+        id="volume-by-blockchain-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomBarChart
@@ -50,35 +54,41 @@ export function OrdinalsMarketplacesSection3() {
           XAxisKey="time"
           title="Volume by Blockchain $"
           details={marketplace5Details}
-          CustomTooltip={<CustomTooltip 
-            showTotal={true} 
-            customLabel={formatDateTransform("PP",(item)=>item)}
-            customContent={(value: number) => {
-              return new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                maximumFractionDigits: 0,
-              }).format(value);
-            }}
+          CustomTooltip={
+            <CustomTooltip
+              showTotal={true}
+              customLabel={formatDateTransform("PP", (item) => item)}
+              customContent={(value: number) => {
+                return new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  maximumFractionDigits: 0,
+                }).format(value);
+              }}
             />
           }
-          formatTickX={formatDateTransform("PP",(item)=>item)}
-          id="volume-by-blockchain"
-          legend
+          formatTickX={formatDateTransform("PP", (item) => item)}
+          id="volume-by-blockchain-chart"
+          // legend
         />
       </Box>
       <Box
-        id="usdt-supply-chart-wrap"
+        id="transactions-by-blockchain-chart-wrap"
         sx={{ width: "calc(50% - 14px)", height: "100%" }}
       >
         <CustomBarChart
           data={marketplace6}
           title="Transactions by Blockchain"
           details={marketplace6Details}
-          CustomTooltip={<CustomTooltip showTotal={true} customLabel={formatDateTransform("PP",(item)=>item)}/>}
-          formatTickX={formatDateTransform("PP",(item)=>item)}
-          id="transactions-by-blockchain"
-          legend
+          CustomTooltip={
+            <CustomTooltip
+              showTotal={true}
+              customLabel={formatDateTransform("PP", (item) => item)}
+            />
+          }
+          formatTickX={formatDateTransform("PP", (item) => item)}
+          id="transactions-by-blockchain-chart"
+          // legend
         />
       </Box>
     </Box>

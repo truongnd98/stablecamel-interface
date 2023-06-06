@@ -73,6 +73,7 @@ export function CurveContentCurveRevenueCharts() {
             id="curve-fee-revenue-pool-cumulative"
             data={dataCumulative}
             detail={cumulativeDetail}
+            // detail={colors}
           />
         </Box>
         <Box
