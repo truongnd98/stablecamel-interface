@@ -5,6 +5,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";
 import { CurveEcosystemPage } from "./pages/curve-ecosystem/CurveEcosystemPage";
 import { MoneyPrinterPageRouter } from "./pages/money-printer/MoneyPrinterPageRouter";
+import { OrdinalsMarketplacesPage } from "./pages/ordinals-marketplaces/OrdinalsMarketplacesPage";
 
 const AnalyticPage = React.lazy(() => import("./pages/analytic/AnalyticPage"));
 const DisclaimerPage = React.lazy(
@@ -113,6 +114,16 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<CircularProgress />}>
             <PegTrackerPage />
+          </Suspense>
+        ),
+      },
+
+      {
+        id: "ordinals-marketplaces",
+        path: "ordinals-marketplaces",
+        element: (
+          <Suspense fallback={<CircularProgress />}>
+            <OrdinalsMarketplacesPage />
           </Suspense>
         ),
       },
