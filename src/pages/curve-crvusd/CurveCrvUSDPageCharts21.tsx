@@ -8,7 +8,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function CurveCrvUSDPageCharts21() {
@@ -37,7 +37,7 @@ export function CurveCrvUSDPageCharts21() {
             },
           ]}
           id="crvusd-tusd-pool-chart"
-          legend
+          // legend
         />
       </Box>
       <Box
@@ -61,7 +61,7 @@ export function CurveCrvUSDPageCharts21() {
             },
           ]}
           id="crvusd-usdp-pool-chart"
-          legend
+          // legend
         />
       </Box>
     </Box>

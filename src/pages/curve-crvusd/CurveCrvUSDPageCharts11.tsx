@@ -9,7 +9,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function CurveCrvUSDPageCharts11() {
@@ -32,7 +32,7 @@ export function CurveCrvUSDPageCharts11() {
             },
           ]}
           id="crvusd-supply-chart"
-          legend
+          // legend
         />
       </Box>
       <Box
@@ -41,7 +41,7 @@ export function CurveCrvUSDPageCharts11() {
       >
         <CustomAreaChart
           data={total_borrowed_chart}
-          title="Total crvUSD borrowed"
+          title="Total crvUSD Borrowed"
           detail={[
             {
               key: "amount",
@@ -50,7 +50,7 @@ export function CurveCrvUSDPageCharts11() {
             },
           ]}
           id="total-crvusd-borrowed-chart"
-          legend
+          // legend
         />
       </Box>
     </Box>

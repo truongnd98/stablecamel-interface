@@ -101,7 +101,7 @@ export function OrdinalsMarketplacesSection1() {
         <CustomBarChart
           data={marketplace2}
           XAxisKey="time"
-          title="Volume by Marketplace $"
+          title="Volume by Marketplace"
           details={marketplace2Details}
           CustomTooltip={
             <CustomTooltip

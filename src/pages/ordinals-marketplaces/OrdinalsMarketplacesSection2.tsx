@@ -11,7 +11,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function OrdinalsMarketplacesSection2() {
@@ -102,7 +102,7 @@ export function OrdinalsMarketplacesSection2() {
         <CustomBarChart
           data={marketplace2p}
           XAxisKey="time"
-          title="Percentage Share of Volume by Marketplace $"
+          title="% Share of Volume by Marketplace"
           details={marketplace2pDetails}
           CustomTooltip={
             <CustomTooltip
@@ -129,7 +129,7 @@ export function OrdinalsMarketplacesSection2() {
       >
         <CustomBarChart
           data={marketplace3p}
-          title="Percentage Share of Transactions by Marketplace"
+          title="% Share of Transactions by Marketplace"
           details={marketplace3pDetails}
           formatTickX={formatDateTransform("PP", (item) => item)}
           formatTickY={(item) => {

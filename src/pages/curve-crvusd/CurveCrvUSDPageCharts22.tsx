@@ -1,7 +1,6 @@
 import { Box, SxProps } from "@mui/material";
 import CustomAreaChart from "../../components/AreaChart";
 import { useCurveCrvUSDState } from "../../stores/curve-crvusd/hook";
-import randomColor from "randomcolor";
 
 const main: SxProps = {
   width: "100%",
@@ -9,7 +8,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function CurveCrvUSDPageCharts22() {
@@ -37,7 +36,7 @@ export function CurveCrvUSDPageCharts22() {
             },
           ]}
           id="crvusd-usdc-pool-chart"
-          legend
+          // legend
         />
       </Box>
       <Box
@@ -60,7 +59,7 @@ export function CurveCrvUSDPageCharts22() {
             },
           ]}
           id="crvusd-usdt-pool-chart"
-          legend
+          // legend
         />
       </Box>
     </Box>

@@ -89,7 +89,7 @@ export function CurveCrvUSDPage() {
         <CurveCrvUSDPageMetrics />
         <CurveCrvUSDPageCharts11 />
         <CurveCrvUSDPageCharts12 />
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             paddingTop: "28px",
@@ -98,7 +98,7 @@ export function CurveCrvUSDPage() {
           <Typography variant="h5" color="primary">
             crvUSD Liquidity
           </Typography>
-        </Box>
+        </Box> */}
         <CurveCrvUSDPageCharts21 />
         <CurveCrvUSDPageCharts22 />
       </Box>

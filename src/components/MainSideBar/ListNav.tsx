@@ -72,6 +72,7 @@ const list: SxProps = {
   display: "flex",
   flexDirection: "column",
   gap: "4px",
+  mb: "2rem",
 };
 
 const ListNav = () => {
@@ -338,7 +339,9 @@ const ListNav = () => {
       </ListItemButton>
       <ListItemButton
         sx={button}
-        className={pathname.includes(Page.ORDINALS_MARKETPLACES) ? "active" : ""}
+        className={
+          pathname.includes(Page.ORDINALS_MARKETPLACES) ? "active" : ""
+        }
         onClick={() => {
           navigate(Page.ORDINALS_MARKETPLACES);
         }}
@@ -346,14 +349,18 @@ const ListNav = () => {
         <ListItemIcon sx={iconButton}>
           <DataSaverOffSharp
             style={{
-              color: pathname.includes(Page.ORDINALS_MARKETPLACES) ? "#f5f5f5" : "",
+              color: pathname.includes(Page.ORDINALS_MARKETPLACES)
+                ? "#f5f5f5"
+                : "",
             }}
           />
         </ListItemIcon>
         <ListItemText
           primary={<b>Ordinals Marketplaces</b>}
           style={{
-            color: pathname.includes(Page.ORDINALS_MARKETPLACES) ? "#f5f5f5" : "",
+            color: pathname.includes(Page.ORDINALS_MARKETPLACES)
+              ? "#f5f5f5"
+              : "",
           }}
         />
       </ListItemButton>

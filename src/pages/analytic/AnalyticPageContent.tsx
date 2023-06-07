@@ -14,7 +14,7 @@ import { useNetworkContext } from "./AnalyticPage";
 
 const main: SxProps = {
   width: "100%",
-  padding: "20px 0",
+  padding: "28px 0 20px",
   display: "flex",
   flexDirection: "column",
   gap: "28px",

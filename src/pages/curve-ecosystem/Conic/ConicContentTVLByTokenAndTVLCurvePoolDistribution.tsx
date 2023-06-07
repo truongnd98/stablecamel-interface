@@ -27,6 +27,32 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
       color: "#52b095",
     },
   ];
+  const pieChartColor = [
+    {
+      key: "mim+3crv",
+      color: "#F504D3",
+    },
+    {
+      key: "frax+usdc",
+      color: "#905DFF",
+    },
+    {
+      key: "3pool",
+      color: "#E5BE4A",
+    },
+    {
+      key: "frax+3crv",
+      color: "#DE2D02",
+    },
+    {
+      key: "gusd+fraxbp",
+      color: "#278081",
+    },
+    {
+      key: "DAI+USDC+USDT+sUSD",
+      color: "#40404A",
+    },
+  ];
 
   const dataTVLCurvePoolDistribution = conic.tvl_curve_pool_distribution.map(
     (item) => ({
@@ -36,6 +62,10 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
       value: item.amount,
     })
   );
+
+  for (let i in dataTVLCurvePoolDistribution) {
+    dataTVLCurvePoolDistribution[i].color = pieChartColor[i].color;
+  }
 
   return (
     <>

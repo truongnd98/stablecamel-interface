@@ -1,36 +1,36 @@
-import { Box, SxProps, Paper, Typography } from '@mui/material';
-import { useAnalyticState } from '../../../stores/analytic/hooks';
-import Skeleton from '@mui/material/Skeleton';
-import { useNetworkContext } from '../AnalyticPage';
+import { Box, SxProps, Paper, Typography } from "@mui/material";
+import { useAnalyticState } from "../../../stores/analytic/hooks";
+import Skeleton from "@mui/material/Skeleton";
+import { useNetworkContext } from "../AnalyticPage";
 
 const main: SxProps = {
-  width: '100%',
+  width: "100%",
   height: 120,
-  display: 'flex',
-  justifyContent: 'space-between',
+  display: "flex",
+  justifyContent: "space-between",
 };
 
 const paper: SxProps = {
-  width: '50%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: '#ffffff',
-  borderRadius: '8px',
+  width: "50%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#ffffff",
+  borderRadius: "8px",
 };
 
 const wrap: SxProps = {
-  width: 'calc(50% - 14px)',
-  height: '100%',
-  display: 'flex',
-  gap: '28px',
+  width: "calc(50% - 14px)",
+  height: "100%",
+  display: "flex",
+  gap: "28px",
 };
 
 const skeleton: SxProps = {
-  width: '100%',
-  height: '100%',
+  width: "100%",
+  height: "100%",
 };
 
 // @lazyload({
@@ -57,107 +57,107 @@ export default function SummaryInfo() {
     <Box sx={main}>
       <Box sx={wrap}>
         {supply() ? (
-          <Paper
-            sx={paper}
-            elevation={0}
-          >
+          <Paper sx={paper} elevation={0}>
             <Typography
-              variant='h5'
-              color='primary'
+              variant="h5"
+              color="primary"
+              sx={{
+                fontSize: { sm: "11px", md: "16px", lg: "18px" },
+              }}
             >
               <b>Stablecoin Supply</b>
             </Typography>
             <Typography
-              variant='h3'
-              color='secondary'
+              variant="h3"
+              color="secondary"
+              sx={{
+                fontSize: { sm: "26px", md: "28px", lg: "35px" },
+              }}
             >
               ${(supply() / 1e9).toFixed(2)}B
             </Typography>
           </Paper>
         ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
+          <Skeleton variant="rounded" sx={skeleton} />
         )}
 
         {data && data.total ? (
-          <Paper
-            sx={paper}
-            elevation={0}
-          >
+          <Paper sx={paper} elevation={0}>
             <Typography
-              variant='h5'
-              color='primary'
+              variant="h5"
+              color="primary"
+              sx={{
+                fontSize: { sm: "11px", md: "16px", lg: "18px" },
+              }}
             >
               <b>Stablecoin TVL</b>
             </Typography>
             <Typography
-              variant='h3'
-              color='secondary'
+              variant="h3"
+              color="secondary"
+              sx={{
+                fontSize: { sm: "26px", md: "28px", lg: "35px" },
+              }}
             >
               ${(data.total / 1e9).toFixed(2)}B
             </Typography>
           </Paper>
         ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
+          <Skeleton variant="rounded" sx={skeleton} />
         )}
       </Box>
       <Box sx={wrap}>
         {data && data.seven_d_chng ? (
-          <Paper
-            sx={paper}
-            elevation={0}
-          >
+          <Paper sx={paper} elevation={0}>
             <Typography
-              variant='h5'
-              color='primary'
+              variant="h5"
+              color="primary"
+              sx={{
+                fontSize: { sm: "11px", md: "16px", lg: "18px" },
+              }}
             >
               <b>TVL Change (7D)</b>
             </Typography>
             <Typography
-              variant='h3'
-              color='secondary'
+              variant="h3"
+              color="secondary"
+              sx={{
+                fontSize: { sm: "26px", md: "28px", lg: "35px" },
+              }}
             >
               {data.seven_d_chng.toFixed(2)}%
             </Typography>
           </Paper>
         ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
+          <Skeleton variant="rounded" sx={skeleton} />
         )}
         {data && data.dominance ? (
-          <Paper
-            sx={paper}
-            elevation={0}
-          >
+          <Paper sx={paper} elevation={0}>
             <Typography
-              variant='h5'
-              color='primary'
+              variant="h5"
+              color="primary"
+              sx={{
+                fontSize: { sm: "11px", md: "16px", lg: "18px" },
+              }}
             >
               <b>
-                {currentNetwork.slug === 'BSC'
-                  ? 'BUSD Dominance'
-                  : 'USDC Dominance'}
+                {currentNetwork.slug === "BSC"
+                  ? "BUSD Dominance"
+                  : "USDC Dominance"}
               </b>
             </Typography>
             <Typography
-              variant='h3'
-              color='secondary'
+              variant="h3"
+              color="secondary"
+              sx={{
+                fontSize: { sm: "26px", md: "28px", lg: "35px" },
+              }}
             >
               {data.dominance.toFixed(2)}%
             </Typography>
           </Paper>
         ) : (
-          <Skeleton
-            variant='rounded'
-            sx={skeleton}
-          />
+          <Skeleton variant="rounded" sx={skeleton} />
         )}
       </Box>
     </Box>

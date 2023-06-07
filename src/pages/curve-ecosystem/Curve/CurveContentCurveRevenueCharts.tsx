@@ -72,8 +72,8 @@ export function CurveContentCurveRevenueCharts() {
             title="Curve Fee Revenue by Pool: Cumulative"
             id="curve-fee-revenue-pool-cumulative"
             data={dataCumulative}
-            detail={cumulativeDetail}
-            // detail={colors}
+            // detail={cumulativeDetail}
+            detail={colors}
           />
         </Box>
         <Box
@@ -101,7 +101,7 @@ export function CurveContentCurveRevenueCharts() {
           title="Curve Fee Revenue by Pool: Daily"
           id="curve-fee-revenue-pool-daily"
           data={dataDaily}
-          details={dailyDetail}
+          details={colors}
           legend={false}
         />
       </Box>

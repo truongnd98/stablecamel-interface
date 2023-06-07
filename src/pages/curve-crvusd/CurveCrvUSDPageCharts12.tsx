@@ -9,7 +9,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function CurveCrvUSDPageCharts12() {
@@ -32,7 +32,7 @@ export function CurveCrvUSDPageCharts12() {
             },
           ]}
           id="token-crvusd-collateral-chart"
-          legend
+          // legend
         />
       </Box>
       <Box
@@ -50,7 +50,7 @@ export function CurveCrvUSDPageCharts12() {
             },
           ]}
           id="usd-crvusd-collateral-chart"
-          legend
+          // legend
         />
       </Box>
     </Box>

@@ -11,7 +11,7 @@ const main: SxProps = {
   display: "flex",
   justifyContent: "space-between",
   gap: "28px",
-  padding: "28px 0px 0px 0px",
+  m: "28px 0px 0px 0px",
 };
 
 export function OrdinalsMarketplacesSection3() {
@@ -52,7 +52,7 @@ export function OrdinalsMarketplacesSection3() {
         <CustomBarChart
           data={marketplace5}
           XAxisKey="time"
-          title="Volume by Blockchain $"
+          title="Volume by Blockchain"
           details={marketplace5Details}
           CustomTooltip={
             <CustomTooltip

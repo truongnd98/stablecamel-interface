@@ -13,26 +13,26 @@ const curveVolumeDetail: ComposeChartDetails = {
   },
   area: {
     key: "cum",
-    color: "#a3a3a3",
+    color: "#a3a3a3", //
   },
 };
 
 const curvePoolVolumeDetail: ChartDetailProps[] = [
   {
     key: "other",
-    color: randomColor({ seed: "other" }),
+    color: "#F504D3",
   },
   {
     key: "tricrypto2",
-    color: randomColor({ seed: "tricrypto2" }),
+    color: "#E5BE4A",
   },
   {
     key: "3pool",
-    color: randomColor({ seed: "3pool" }),
+    color: "#FF8E00",
   },
   {
     key: "steth",
-    color: "#00a3ff",
+    color: "#905DFF",
   },
 ];
 

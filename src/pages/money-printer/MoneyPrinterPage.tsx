@@ -7,6 +7,7 @@ import { MoneyPrinterGroupLayout } from "./MoneyPrinterGroup/MoneyPrinterGroupLa
 import { MoneyPrinterGroupLayoutBalance } from "./MoneyPrinterGroup/MoneyPrinterGroupLayoutBalance";
 import { MoneyPrinterMainChart } from "./MoneyPrinterMainChart/MoneyPrinterMainChart";
 import { MoneyPrinterMetrics } from "./MoneyPrinterMetrics/MoneyPrinterMetrics";
+import { USDCMoneyPrinterTitleTooltip } from "./USDCMoneyPrinterTitleTooltip";
 
 const container: SxProps = {
   padding: "20px 28px",
@@ -55,6 +56,13 @@ const main: SxProps = {
   },
 };
 
+const wrap: SxProps = {
+  height: 32,
+  display: "flex",
+  alignItems: "center",
+  gap: "12px",
+};
+
 export function MoneyPrinterPage() {
   const {
     exchangeBalanceByCEXList,
@@ -86,17 +94,20 @@ export function MoneyPrinterPage() {
     <>
       <Box sx={container}>
         <Box sx={main}>
-          <Typography
-            variant="h5"
-            color="primary"
-            sx={{
-              "@media (max-width: 1280px)": {
-                fontSize: "18px !important",
-              },
-            }}
-          >
-            USDC Money Printer (Ethereum)
-          </Typography>
+          <Box sx={wrap}>
+            <Typography
+              variant="h5"
+              color="primary"
+              sx={{
+                "@media (max-width: 1280px)": {
+                  fontSize: "18px !important",
+                },
+              }}
+            >
+              USDC Money Printer (Ethereum)
+            </Typography>
+            <USDCMoneyPrinterTitleTooltip />
+          </Box>
           <MoneyPrinterMetrics />
           <MoneyPrinterMainChart />
           <MoneyPrinterGroupLayoutBalance

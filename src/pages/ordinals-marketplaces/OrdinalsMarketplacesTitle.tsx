@@ -1,8 +1,9 @@
 import { Box, SxProps, Typography } from "@mui/material";
+import { OrdinalsMarketplacesTooltip } from "./OrdinalsMarketplacesTooltip";
 
 const pageTitle: SxProps = {
   width: "100%",
-  // height: 32,
+  height: 32,
   display: "flex",
   alignItems: "center",
   gap: "20px",
@@ -22,6 +23,7 @@ export function OrdinalsMarketplacesTitle() {
         <Typography variant="h5" color="primary">
           Ordinals BRC-20 Marketplaces
         </Typography>
+        <OrdinalsMarketplacesTooltip />
       </Box>
     </Box>
   );
