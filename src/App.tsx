@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./constants/theme";
@@ -8,6 +7,7 @@ import { router } from "./Router";
 import Networks from "./jsons/networks.json";
 import { NetworkContext } from "./contexts";
 import { HelmetProvider } from "react-helmet-async";
+import { image } from "./assets/logos/favicon";
 
 export interface Network {
   chainId: string;
@@ -38,21 +38,33 @@ export interface Protocol {
 
 function App() {
   const [network, setNetwork] = useState<Network>(Networks[0]);
+  const [load, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(true);
+    setTimeout(() => {
+      setLoaded(false);
+    }, 500);
+  }, []);
 
   return (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
         <NetworkContext.Provider value={{ network, setNetwork }}>
-          <RouterProvider router={router} />
+          {load ? (
+            <div className="divLoader">
+              <img
+                className="imgLoader"
+                src={image}
+                alt="Stable Camel - Stable Camel favicon"
+              ></img>
+            </div>
+          ) : (
+            <RouterProvider router={router} />
+          )}
         </NetworkContext.Provider>
       </ThemeProvider>
     </HelmetProvider>
   );
 }
-
-const Main = styled.div`
-  width: 100%;
-  display: flex;
-`;
 
 export default App;

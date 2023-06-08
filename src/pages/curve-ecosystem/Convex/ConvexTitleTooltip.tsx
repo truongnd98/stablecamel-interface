@@ -11,6 +11,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import DuneLogo from "../../../assets/logos/dune-logo.png";
 
 export function ConvexTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -94,6 +95,25 @@ export function ConvexTitleTooltip() {
                 >
                   Read more
                 </Link>
+                <br />
+                <Typography
+                  sx={{
+                    // p: 1,
+                    mt: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  Data source:{" "}
+                  <img
+                    src={DuneLogo}
+                    alt="Stable Camel - Stablecoin TVL Dune logo"
+                    style={{
+                      height: 36,
+                    }}
+                  />
+                </Typography>
               </Typography>
             </Box>
           }

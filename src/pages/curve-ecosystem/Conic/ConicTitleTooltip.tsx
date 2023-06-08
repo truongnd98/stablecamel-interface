@@ -10,6 +10,7 @@ import {
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
+import DuneLogo from "../../../assets/logos/dune-logo.png";
 
 export function ConicTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -88,6 +89,25 @@ export function ConicTitleTooltip() {
                 Omnipool is allocated to Curve pools based on target allocation
                 weights, which get updated regularly through a liquidity
                 allocation vote held by the vote-locked CNC holders.
+                <br />
+                <Typography
+                  sx={{
+                    // p: 1,
+                    mt: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  Data source:{" "}
+                  <img
+                    src={DuneLogo}
+                    alt="Stable Camel - Stablecoin TVL Dune logo"
+                    style={{
+                      height: 36,
+                    }}
+                  />
+                </Typography>
               </Typography>
             </Box>
           }

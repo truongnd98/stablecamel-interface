@@ -10,6 +10,7 @@ import {
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
+import DuneLogo from "../../../assets/logos/dune-logo.png";
 
 export function CleverTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -82,6 +83,25 @@ export function CleverTitleTooltip() {
                 Clever gives CVX holders a continuous, automated way to harvest
                 bribes and rewards AND allows users to claim their future bribes
                 and rewards today.
+                <br />
+                <Typography
+                  sx={{
+                    // p: 1,
+                    mt: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  Data source:{" "}
+                  <img
+                    src={DuneLogo}
+                    alt="Stable Camel - Stablecoin TVL Dune logo"
+                    style={{
+                      height: 36,
+                    }}
+                  />
+                </Typography>
               </Typography>
             </Box>
           }

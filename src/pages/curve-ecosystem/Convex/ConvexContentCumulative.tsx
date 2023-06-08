@@ -2,7 +2,6 @@ import { Box, SxProps } from "@mui/material";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import CustomAreaChart from "../../../components/AreaChart";
 import { ChartDetailProps } from "../../../components/AreaChart/types";
-import randomColor from "randomcolor";
 
 const main: SxProps = {
   width: "100%",
@@ -14,13 +13,13 @@ const main: SxProps = {
 
 const cumulative3CRV: ChartDetailProps = {
   key: "total_3crv_usd",
-  color: "#436b9e",
+  color: "#000080",
   name: "cvxCRV",
 };
 
 const crvFarmed: ChartDetailProps = {
   key: "cum_farmed_crv",
-  color: "#3465A4",
+  color: "#008080",
   name: "CRV",
 };
 
@@ -32,12 +31,12 @@ const fsxFarmed: ChartDetailProps[] = [
   },
   {
     key: "fxs_to_vlCVX_usd",
-    color: "#2312B3",
+    color: "#cc61b0",
     name: "to vlCVX",
   },
   {
     key: "fxs_to_cvxFXS_usd",
-    color: "#34A39D",
+    color: "#008080",
     name: "to cvxFXS",
   },
 ];

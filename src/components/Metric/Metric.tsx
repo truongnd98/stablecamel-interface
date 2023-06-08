@@ -25,7 +25,8 @@ export function Metric({ title, value, tooltip }: MetricProps) {
           variant="h5"
           color="primary"
           sx={{
-            fontSize: { sm: "11px", md: "16px", lg: "18px" },
+            fontSize: { sm: "13px", md: "16px", lg: "18px" },
+            textAlign: "center",
           }}
         >
           <b>{title}</b>

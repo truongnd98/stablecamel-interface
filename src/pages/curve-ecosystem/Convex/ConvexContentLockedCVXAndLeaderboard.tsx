@@ -5,19 +5,18 @@ import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import { ConvexContentLeaderboardTable } from "./ConvexContentLeaderboardTable";
 import PositiveAndNegativeBarChart from "../../../components/PositiveAndNegativeBarChart";
 import { PopoverTooltip } from "../../../components/PopoverTooltip/PopoverTooltip";
-import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
 const lockedCVX: ChartDetailProps = {
   key: "cum_from",
-  color: "#949494",
+  color: "#000080",
   name: "vlCVX",
 };
 
 const lockedCVXDaily: ChartDetailProps = {
   key: "delta",
-  color: "#7c7c7c",
+  color: "#000080",
   name: "Locked",
 };
 

@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 
 const container: SxProps = {
   width: "100%",
+  minHeight: "calc(100vh - 124px)",
   padding: "20px 28px",
   paddingBottom: "0",
   display: "flex",

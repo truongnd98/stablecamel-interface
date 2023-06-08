@@ -27,7 +27,7 @@ export function CurveCrvUSDPageCharts12() {
           detail={[
             {
               key: "supply",
-              color: "#000000",
+              color: "#aaaacd",
               name: "sfrxETH",
             },
           ]}
@@ -45,7 +45,7 @@ export function CurveCrvUSDPageCharts12() {
           detail={[
             {
               key: "usd",
-              color: randomColor({ seed: "usd" }),
+              color: "#aaaacd",
               name: "$ Collateral",
             },
           ]}

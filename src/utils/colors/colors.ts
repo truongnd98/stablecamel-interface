@@ -49,7 +49,7 @@ export const colors = [
   { key: "lusd", color: "#745ddf" },
   { key: "seth", color: "#c9db74" },
   { key: "susd", color: "#443d5d" },
-  { key: "3pool", color: "#F504D3" },
+  { key: "3pool", color: "#474747" },
   { key: "alusd", color: "#d3b484" },
   { key: "steth", color: "#f2b701" },
   { key: "busdv2", color: "#56569b" },
@@ -125,7 +125,7 @@ export const colors = [
   { key: "CLEV/ETH", color: "#f4603e" },
   { key: "FPI2Pool", color: "#4343a1" },
   { key: "KP3R/ETH", color: "#a5aa99" },
-  { key: "STG/USDC", color: "#DE2D02" }, //
+  { key: "STG/USDC", color: "#a5aa99" }, //
   { key: "eCFX/ETH", color: "#b3b3b3" },
   { key: "frax3crv", color: "#ffea4a" },
   { key: "DCHF/3CRV", color: "#dcb0f2" },
@@ -142,7 +142,7 @@ export const colors = [
   { key: "XAI/FRAXBP", color: "#4343a1" },
   { key: "cvxCrv/Crv", color: "#f6cf71" },
   { key: "cvxFxs/Fxs", color: "#99c945" },
-  { key: "tricrypto2", color: "#FF8E00" }, //
+  { key: "tricrypto2", color: "#6d3099" }, //
   { key: "DOLA/FRAXBP", color: "#b497e7" },
   { key: "alusdfraxbp", color: "#cc61b0" },
   { key: "eUSD+FRAXBP", color: "#66c5cc" },

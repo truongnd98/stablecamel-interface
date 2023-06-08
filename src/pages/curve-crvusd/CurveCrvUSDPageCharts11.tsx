@@ -27,7 +27,7 @@ export function CurveCrvUSDPageCharts11() {
           detail={[
             {
               key: "supply",
-              color: "#3465A4",
+              color: "#aaaacd",
               name: "Supply",
             },
           ]}
@@ -45,7 +45,7 @@ export function CurveCrvUSDPageCharts11() {
           detail={[
             {
               key: "amount",
-              color: "#3465A4",
+              color: "#aaaacd",
               name: "Total Borrowed",
             },
           ]}

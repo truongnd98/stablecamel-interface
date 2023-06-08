@@ -1,6 +1,7 @@
 import { Box, SxProps } from "@mui/material";
 import { Metric } from "../../components/Metric/Metric";
 import { useUSDTMoneyPrinterState } from "../../stores/usdt-moneyprinter/hooks";
+import { MoneyPrinterSingleMetric } from "../money-printer/MoneyPrinterMetrics/MoneyPrinterSingleMetric";
 
 const main: SxProps = {
   width: "100%",
@@ -31,7 +32,7 @@ export function USDTMoneyPrinterMetric() {
 
   return (
     <Box sx={main}>
-      <Metric
+      <MoneyPrinterSingleMetric
         title="USDT Exchange Balances"
         value={new Intl.NumberFormat("en-US", {
           style: "currency",
@@ -40,7 +41,7 @@ export function USDTMoneyPrinterMetric() {
           maximumFractionDigits: 2,
         }).format(exchangeBalance)}
       />
-      <Metric
+      <MoneyPrinterSingleMetric
         title="USDT Deployed to DEXs"
         value={new Intl.NumberFormat("en-US", {
           style: "currency",
@@ -49,7 +50,7 @@ export function USDTMoneyPrinterMetric() {
           maximumFractionDigits: 2,
         }).format(usdtDeployedToDEX)}
       />
-      <Metric
+      <MoneyPrinterSingleMetric
         title="USDT Deployed to Lenders"
         value={new Intl.NumberFormat("en-US", {
           style: "currency",
@@ -58,7 +59,7 @@ export function USDTMoneyPrinterMetric() {
           maximumFractionDigits: 2,
         }).format(usdtDeployedToLender)}
       />
-      <Metric
+      <MoneyPrinterSingleMetric
         title="USDT Deployed to Bridges"
         value={new Intl.NumberFormat("en-US", {
           style: "currency",

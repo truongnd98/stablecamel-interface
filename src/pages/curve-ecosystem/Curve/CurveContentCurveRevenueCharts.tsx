@@ -19,10 +19,19 @@ const wrap: SxProps = {
 export function CurveContentCurveRevenueCharts() {
   const { curve } = useCurveEcosystemState();
 
+  const pieChartColors = [
+    {
+      color: "#6d3099",
+    },
+    {
+      color: "#474747",
+    },
+  ];
+
   const dataPie = curve.fee_revenue_by_pool_type.map(
-    (item: FeeRevenuePoolType) => ({
+    (item: FeeRevenuePoolType, idx) => ({
       key: v4(),
-      color: randomColor({ seed: item.token_type }),
+      color: pieChartColors[idx]?.color,
       name: item.token_type,
       value: item._col1,
     })

@@ -69,7 +69,7 @@ export function CurveCrvUSDPage() {
       setTimeout(() => {
         element.scrollIntoView({ behavior: "smooth" });
         elementWrap?.classList.add("animation-active");
-        console.log("", id);
+        console.log("");
       }, 1000);
     }
   };
@@ -89,16 +89,6 @@ export function CurveCrvUSDPage() {
         <CurveCrvUSDPageMetrics />
         <CurveCrvUSDPageCharts11 />
         <CurveCrvUSDPageCharts12 />
-        {/* <Box
-          sx={{
-            display: "flex",
-            paddingTop: "28px",
-          }}
-        >
-          <Typography variant="h5" color="primary">
-            crvUSD Liquidity
-          </Typography>
-        </Box> */}
         <CurveCrvUSDPageCharts21 />
         <CurveCrvUSDPageCharts22 />
       </Box>

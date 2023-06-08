@@ -1,6 +1,7 @@
-import { Box, SxProps } from "@mui/material";
-import { Metric } from "../../components/Metric/Metric";
+import { Box, Paper, Skeleton, SxProps, Typography } from "@mui/material";
+// import { Metric } from "../../components/Metric/Metric";
 import { useOrdinalsMarketplacesState } from "../../stores/ordinals-marketplaces/hooks";
+import { MetricProps } from "../../components/Metric/types";
 
 const main: SxProps = {
   width: "100%",
@@ -9,6 +10,51 @@ const main: SxProps = {
   justifyContent: "space-between",
   gap: "28px",
 };
+const paper: SxProps = {
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "#ffffff",
+  borderRadius: "8px",
+};
+
+function Metric({ title, value, tooltip }: MetricProps) {
+  return value ? (
+    <Paper sx={paper} elevation={0}>
+      <Box
+        sx={{
+          display: "flex",
+          gap: "12px",
+        }}
+      >
+        <Typography
+          variant="h5"
+          color="primary"
+          sx={{
+            fontSize: { sm: "13px", md: "18px", lg: "20px" },
+          }}
+        >
+          <b>{title}</b>
+        </Typography>
+        {tooltip ? tooltip : <></>}
+      </Box>
+      <Typography
+        variant="h3"
+        color="secondary"
+        sx={{
+          fontSize: { sm: "26px", md: "28px", lg: "35px" },
+        }}
+      >
+        {value}
+      </Typography>
+    </Paper>
+  ) : (
+    <Skeleton variant="rounded" width="100%" height="100%" />
+  );
+}
 
 export function OrdinalsMarketplacesMetric() {
   const { marketplace12, marketplace13 } = useOrdinalsMarketplacesState();

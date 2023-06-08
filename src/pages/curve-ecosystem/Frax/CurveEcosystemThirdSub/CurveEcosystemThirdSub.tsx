@@ -28,7 +28,7 @@ const each: SxProps = {
 const details: ChartDetailProps[] = [
   {
     key: "veFXS",
-    color: "#000000",
+    color: "#001f54",
   },
 ];
 

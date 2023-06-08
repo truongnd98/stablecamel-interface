@@ -27,12 +27,12 @@ export function CurveCrvUSDPageCharts21() {
           detail={[
             {
               key: "tusd",
-              color: "#1C59FB",
+              color: "#56569b",
               name: "TUSD",
             },
             {
               key: "crvusd",
-              color: "#3465A4",
+              color: "#a7a7a7",
               name: "crvUSD",
             },
           ]}
@@ -51,12 +51,12 @@ export function CurveCrvUSDPageCharts21() {
           detail={[
             {
               key: "usdp",
-              color: "#50B849",
+              color: "#56569b",
               name: "USDP",
             },
             {
               key: "crvusd",
-              color: "#3465A4",
+              color: "#a7a7a7",
               name: "crvUSD",
             },
           ]}

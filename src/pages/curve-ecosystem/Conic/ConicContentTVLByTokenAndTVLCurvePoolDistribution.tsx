@@ -12,25 +12,25 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
   const tvlByTokenDetail: ChartDetailProps[] = [
     {
       key: "FRAX",
-      color: "#000000",
+      color: "#000080",
     },
     {
       key: "DAI",
-      color: "#FAC146",
+      color: "#708090",
     },
     {
       key: "USDC",
-      color: "#2775ca",
+      color: "#007fff",
     },
     {
       key: "USDT",
-      color: "#52b095",
+      color: "#6a5acd",
     },
   ];
   const pieChartColor = [
     {
       key: "mim+3crv",
-      color: "#F504D3",
+      color: "#909090",
     },
     {
       key: "frax+usdc",
@@ -38,19 +38,19 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
     },
     {
       key: "3pool",
-      color: "#E5BE4A",
+      color: "#000080",
     },
     {
       key: "frax+3crv",
-      color: "#DE2D02",
+      color: "#708090",
     },
     {
       key: "gusd+fraxbp",
-      color: "#278081",
+      color: "#007fff",
     },
     {
       key: "DAI+USDC+USDT+sUSD",
-      color: "#40404A",
+      color: "#6a5acd",
     },
   ];
 

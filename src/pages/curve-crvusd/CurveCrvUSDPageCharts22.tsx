@@ -26,12 +26,12 @@ export function CurveCrvUSDPageCharts22() {
           detail={[
             {
               key: "usdc",
-              color: "#2775ca",
+              color: "#7c6af0",
               name: "USDC",
             },
             {
               key: "crvusd",
-              color: "#3465A4",
+              color: "#a7a7a7",
               name: "crvUSD",
             },
           ]}
@@ -48,14 +48,14 @@ export function CurveCrvUSDPageCharts22() {
           title="crvUSD USDT Pool"
           detail={[
             {
-              key: "usdt",
-              color: "#52b095",
-              name: "USDT",
+              key: "crvusd",
+              color: "#318ef5",
+              name: "crvUSD",
             },
             {
-              key: "crvusd",
-              color: "#3465A4",
-              name: "crvUSD",
+              key: "usdt",
+              color: "#868686",
+              name: "USDT",
             },
           ]}
           id="crvusd-usdt-pool-chart"

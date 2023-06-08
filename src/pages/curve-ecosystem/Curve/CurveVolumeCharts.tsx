@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import randomColor from "randomcolor";
 import { ComposeChart } from "../../../components/ComposeChart/ComposeChart";
 import { ComposeChartDetails } from "../../../components/ComposeChart/types";
 import StackedBarChart from "../../../components/StackedBarChart";
@@ -9,7 +8,7 @@ import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 const curveVolumeDetail: ComposeChartDetails = {
   bar: {
     key: "usd_volume",
-    color: "#3465A4", //6d3099
+    color: "#6d3099", //6d3099
   },
   area: {
     key: "cum",
@@ -20,19 +19,19 @@ const curveVolumeDetail: ComposeChartDetails = {
 const curvePoolVolumeDetail: ChartDetailProps[] = [
   {
     key: "other",
-    color: "#F504D3",
+    color: "#2d46ec",
   },
   {
     key: "tricrypto2",
-    color: "#E5BE4A",
+    color: "#6d3099",
   },
   {
     key: "3pool",
-    color: "#FF8E00",
+    color: "#474747",
   },
   {
     key: "steth",
-    color: "#905DFF",
+    color: "#8f9b00",
   },
 ];
 

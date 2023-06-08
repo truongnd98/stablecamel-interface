@@ -1,7 +1,6 @@
 import { Box, SxProps } from "@mui/material";
 import CustomAreaChart from "../../../../components/AreaChart";
 import { ChartDetailProps } from "../../../../components/AreaChart/types";
-import randomColor from "randomcolor";
 import { useCurveEcosystemState } from "../../../../stores/curve-ecosystem/hooks";
 import { ComposeChart } from "../../../../components/ComposeChart/ComposeChart";
 import { ComposeChartDetails } from "../../../../components/ComposeChart/types";
@@ -20,43 +19,36 @@ const each: SxProps = {
   justifyContent: "space-between",
 };
 
-const details: ChartDetailProps[] = [
-  {
-    key: "arbitrum",
-    color: randomColor({ seed: "arbitrum" }),
-  },
-];
-
 const fraxBP_TVLDetails: ChartDetailProps[] = [
   {
     key: "usdc",
-    color: "#2775ca",
+    color: "#d3d3d3", //2775ca
   },
   {
     key: "frax",
-    color: "#000000", //001f54
+    color: "#001f54", //001f54
   },
 ];
 
 const threePoolTVLDetails: ChartDetailProps[] = [
   {
     key: "dai",
-    color: "#FAC146",
+    color: "#afeeee", //FAC146
   },
   {
     key: "usdc",
-    color: "#2775ca",
+    color: "#d3d3d3",
   },
   {
     key: "usdt",
-    color: "#52b095", //001f54
+    color: "#001f54", //001f54
   },
 ];
 
 const fraxBPVolumeDetails: ComposeChartDetails = {
   bar: {
     key: "volume",
-    color: "#000000", //001f54
+    color: "#001f54", //001f54
   },
   line: {
     key: "cumulative",
@@ -67,7 +59,7 @@ const fraxBPVolumeDetails: ComposeChartDetails = {
 const threePoolVolumeDetails: ComposeChartDetails = {
   bar: {
     key: "volume",
-    color: "#000000", //001f54
+    color: "#001f54", //001f54
   },
   line: {
     key: "cumulative",

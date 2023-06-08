@@ -3,23 +3,23 @@ import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import { ComposeChart } from "../../../components/ComposeChart/ComposeChart";
 
 const cleverBorrowingAndSupplyDetail = {
-  area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#2E2DF3" }], //7c7c7c
+  area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#b4e2cd" }], //7c7c7c
   line: [
     {
       key: "Net_borrowings_counter",
       name: "Net Borrowings",
-      color: "#7c7c7c",
+      color: "#272727",
       right: true,
     },
-    { key: "clevCVX_upper_limit", name: "clevCVX Limit", color: "#fd3099" },
+    { key: "clevCVX_upper_limit", name: "clevCVX Limit", color: "#127475" },
   ],
 };
 
 const cleverLockedAndSupplyDetail = {
-  area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#2E2DF3" }],
+  area: [{ key: "clevCVX_supply", name: "clevCVX Supply", color: "#b4e2cd" }],
   line: [
-    { key: "CVX_locked", name: "CVX Locked", color: "#7c7c7c" },
-    { key: "clevCVX_upper_limit", name: "clevCVX Limit", color: "#fd3099" },
+    { key: "CVX_locked", name: "CVX Locked", color: "#272727" },
+    { key: "clevCVX_upper_limit", name: "clevCVX Limit", color: "#127475" },
   ],
 };
 

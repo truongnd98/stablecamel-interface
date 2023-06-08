@@ -1,55 +1,11 @@
 import { Box } from "@mui/material";
-import { ChartDetailProps } from "../../../components/AreaChart/types";
 import { useCurveEcosystemState } from "../../../stores/curve-ecosystem/hooks";
 import StackedBarChart from "../../../components/StackedBarChart";
-import randomColor from "randomcolor";
 import { ComposeChart } from "../../../components/ComposeChart/ComposeChart";
-import { v4 } from "uuid";
 import { PopoverTooltip } from "../../../components/PopoverTooltip/PopoverTooltip";
-import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { bribe_color } from "./color";
-
-const bribeRevenueDetail: ChartDetailProps[] = [
-  "DAI",
-  "WETH",
-  "ALCX",
-  "FXS",
-  "MTA",
-  "LDO",
-  "BADGER",
-  "CRV",
-  "CVX",
-  "EURS",
-  "TRIBE",
-  "OGN",
-  "LUNA",
-  "YFI",
-  "MATIC",
-  "RAI",
-  "FLX",
-  "T",
-  "UST",
-  "GRO",
-  "LFT",
-  "SNX",
-  "INV",
-  "LYRA",
-  "STG",
-  "JPEG",
-  "USDN",
-  "GNO",
-  "TUSD",
-  "USDD",
-  "FRAX",
-  "USDC",
-].map((key) => ({
-  key: key,
-  color: randomColor({
-    seed: key,
-  }),
-}));
 
 export function ConvexContentBribeRevenueAndUnlockTracker() {
   const { convex } = useCurveEcosystemState();
@@ -57,13 +13,12 @@ export function ConvexContentBribeRevenueAndUnlockTracker() {
   const unlockTrackerV2 = convex.unlock_tracker_v2;
   const unlockTrackerV2Detail = {
     bar: [
-      { key: "expired_unlock", color: "#7c7c7c" },
-      // { key: "expired_unlock", color: "#6d3099" },
-      { key: "future_unlock", color: "#fd3099" },
+      { key: "expired_unlock", color: "#000080" },
+      { key: "future_unlock", color: "#008080" },
     ],
     line: [
-      { key: "expired_unlock_usd", color: "#7c7c7c", right: true },
-      { key: "future_unlock_usd", color: "#fd3099", right: true },
+      { key: "expired_unlock_usd", color: "#000080", right: true },
+      { key: "future_unlock_usd", color: "#008080", right: true },
     ],
   };
 

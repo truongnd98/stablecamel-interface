@@ -29,7 +29,7 @@ const singleChart: SxProps = {
 const volumeDetails: ComposeChartDetails = {
   bar: {
     key: "usd_volume",
-    color: "#000000", //001f54
+    color: "#001f54", //001f54
   },
   area: {
     key: "cum",
@@ -40,30 +40,30 @@ const volumeDetails: ComposeChartDetails = {
 const supplyDetails: ChartDetailProps[] = [
   {
     key: "eth",
-    color: "#6f7bba",
+    color: "#001f54",
   },
   {
     key: "arbitrum",
-    color: "#1569a1",
+    color: "#56569b",
   },
   {
     key: "avalanche",
-    color: "#e84142",
+    color: "#909090",
   },
   {
     key: "fantom",
-    color: "#1969ff",
+    color: "#cc61b0",
   },
   {
     key: "optimism",
-    color: "#ff0420",
+    color: "#f2b701",
   },
 ];
 
 const priceDetails: ChartDetailProps[] = [
   {
     key: "frax",
-    color: "#000000",
+    color: "#001f54",
   },
   {
     key: "stable",

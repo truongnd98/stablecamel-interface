@@ -13,12 +13,12 @@ import { HoverTooltip } from "../../../components/HoverToolitp";
 
 const lockedCRVDetail: ChartDetailProps = {
   key: "locked_crv",
-  color: "#3465A4",
+  color: "#6d3099",
 };
 
 const lockedCRV60dDetail: ChartDetailProps = {
   key: "CRV Locked",
-  color: "#3465A4",
+  color: "#6d3099",
 };
 
 const formatNumber = (value?: number | null) => {

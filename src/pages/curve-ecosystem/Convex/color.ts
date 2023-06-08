@@ -1,40 +1,40 @@
 export const bribe_color = [
-  { key: "DAI", color: "#FAC146" },
-  { key: "WETH", color: "#c71a67" },
+  { key: "DAI", color: "#fe88b1" }, //
+  { key: "WETH", color: "#56569b" }, //
   { key: "ETH", color: "#6f7bba" },
   { key: "ARB", color: "#1569a1" },
   { key: "AVAX", color: "#e84142" },
   { key: "FTM", color: "#1969ff" },
   { key: "OP", color: "#ff0420" },
-  { key: "ALCX", color: "#deaf8f" },
-  { key: "FXS", color: "#905DFF" }, //000000
-  { key: "MTA", color: "#ffffff" },
-  { key: "LDO", color: "#2fb1eb" },
-  { key: "BADGER", color: "#f3a52c" },
+  { key: "ALCX", color: "#99c945" }, //
+  { key: "FXS", color: "#000080" }, //
+  { key: "MTA", color: "#a5aa99" }, //
+  { key: "LDO", color: "#5d69b1" }, //
+  { key: "BADGER", color: "#f4603e" },
   { key: "CRV", color: "#3465A4" },
-  { key: "CVX", color: "#E5BE4A" }, //7c7c7c
-  { key: "EURS", color: "#2c74ed" },
-  { key: "TRIBE", color: "#178dd0" },
-  { key: "OGN", color: "#1b85fc" },
-  { key: "LUNA", color: "#df3e35" },
-  { key: "YFI", color: "#0556f9" },
+  { key: "CVX", color: "#045310" }, //
+  { key: "EURS", color: "#f2b701" },
+  { key: "TRIBE", color: "#f6cf71" }, //
+  { key: "OGN", color: "#8be0a4" }, //
+  { key: "LUNA", color: "#008080" }, //
+  { key: "YFI", color: "#b8c9d5" }, //
   { key: "MATIC", color: "#8247e5" },
-  { key: "RAI", color: "#96e5d6" },
-  { key: "FLX", color: "#7adaca" },
-  { key: "T", color: "#02bd31" },
+  { key: "RAI", color: "#b99de5" }, //
+  { key: "FLX", color: "#66c5cc" }, //
+  { key: "T", color: "#c9db74" }, //
   { key: "UST", color: "#e58f90" },
-  { key: "GRO", color: "#aa65df" },
+  { key: "GRO", color: "#dcb0f2" }, //
   { key: "LFT", color: "#5da5d8" },
-  { key: "SNX", color: "#00d1ff" },
-  { key: "INV", color: "#6781c1" },
-  { key: "LYRA", color: "#48e29f" },
-  { key: "STG", color: "#ededee" },
-  { key: "JPEG", color: "#b4f8df" },
-  { key: "USDN", color: "#2562f6" },
-  { key: "GNO", color: "#a4a9af" },
-  { key: "TUSD", color: "#1a59fd" },
-  { key: "USDD", color: "#23705c" },
-  { key: "FRAX", color: "#000000" },
+  { key: "SNX", color: "#7c51a0" }, //
+  { key: "INV", color: "#24796c" }, //
+  { key: "LYRA", color: "#fbdcba" }, //
+  { key: "STG", color: "#ed645a" }, //
+  { key: "JPEG", color: "#e68310" }, //
+  { key: "USDN", color: "#ffa4f7" },
+  { key: "GNO", color: "#3b8dc3" }, //
+  { key: "TUSD", color: "#cc61b0" }, //
+  { key: "USDD", color: "#f2b701" }, //
+  { key: "FRAX", color: "#5d69b1" }, //
   { key: "USDC", color: "#2775ca" },
   { key: "USDT", color: "#52b095" },
   { key: "CNC", color: "#4BDBB3" },

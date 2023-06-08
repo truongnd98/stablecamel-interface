@@ -6,7 +6,7 @@ import { ComposeChartDetails } from "../../../../components/ComposeChart/types";
 const frxETHSupplyDetails: ComposeChartDetails = {
   bar: {
     key: "frxETH_supply_delta",
-    color: "#000000", //001f54
+    color: "#001f54", //001f54
   },
   area: {
     key: "frxETH_supply",
