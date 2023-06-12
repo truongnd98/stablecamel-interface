@@ -9,7 +9,6 @@ const main: SxProps = {
   height: 380,
   display: "flex",
   flexDirection: "column",
-  gap: "28px",
 };
 
 export default function ChartInflow() {

@@ -1,5 +1,5 @@
 import { Box, SxProps } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { MoneyPrinterPage } from "./MoneyPrinterPage";
 import { CurveCrvUSDPage } from "../curve-crvusd/CurveCrvUSDPage";
 import { Helmet } from "react-helmet-async";
@@ -38,9 +38,15 @@ export function MoneyPrinterPageRouter() {
           content={`https://www.stablecamel.com/thumbnails/thumbnail-moneyprinter-${network?.toLocaleLowerCase()}.png`}
         />
       </Helmet>
-      {network === "usdc" ? <MoneyPrinterPage /> : <></>}
-      {network === "crvUSD" ? <CurveCrvUSDPage /> : <></>}
-      {network === "usdt" ? <USDTMoneyPrinterPage /> : <></>}
+      {network === "usdc" ? (
+        <MoneyPrinterPage />
+      ) : network === "crvUSD" ? (
+        <CurveCrvUSDPage />
+      ) : network === "usdt" ? (
+        <USDTMoneyPrinterPage />
+      ) : (
+        <Navigate to="/money-printer/usdc" />
+      )}
     </Box>
   );
 }

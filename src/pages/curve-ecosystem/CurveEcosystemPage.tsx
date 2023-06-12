@@ -1,5 +1,5 @@
 import { Box, SxProps } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { CurveContent } from "./Curve/CurveContent";
 import { FraxContent } from "./Frax/FraxContent";
 import { ConvexContent } from "./Convex/ConvexContent";
@@ -85,7 +85,7 @@ export function CurveEcosystemPage() {
         ) : network === "clever" ? (
           <CleverContent />
         ) : (
-          <></>
+          <Navigate to="/curve-ecosystem/frax-finance" />
         )}
       </Box>
     </>

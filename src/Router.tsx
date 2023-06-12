@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { ApplicationLayout } from "./components/ApplicationLayout/ApplicationLayout";
 import CircularProgress from "@mui/material/CircularProgress";
 import { PegTrackerPage } from "./pages/peg-tracker/PegTrackerPage";
@@ -132,11 +132,14 @@ export const router = createBrowserRouter([
         path: "curve-ecosystem/:network",
         element: <CurveEcosystemPage />,
       },
+      {
+        errorElement: <Navigate to="/" />,
+      },
     ],
   },
   {
     id: "404",
     path: "*",
-    element: <h3>NOT FOUND</h3>,
+    element: <ApplicationLayout />,
   },
 ]);

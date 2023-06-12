@@ -1,4 +1,5 @@
 import { Box, SxProps, Typography } from "@mui/material";
+import { USDTMoneyPrinterTitleTooltip } from "./USDTMoneyPrinterTitleTooltip";
 
 const pageTitle: SxProps = {
   width: "100%",
@@ -22,6 +23,7 @@ export function USDTMoneyPrinterPageTitle() {
         <Typography variant="h5" color="primary">
           USDT Money Printer (Ethereum)
         </Typography>
+        <USDTMoneyPrinterTitleTooltip />
       </Box>
     </Box>
   );

@@ -1,19 +1,15 @@
 import * as React from "react";
-// import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
+import StarsIcon from "@mui/icons-material/Stars";
 import {
   Box,
-  Icon,
   Tooltip,
   TooltipProps,
   styled,
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import StarsIcon from "@mui/icons-material/Stars";
-
-export function USDCMoneyPrinterTitleTooltip() {
+function USDCMoneyPrinterTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const isMobile = useMediaQuery("(max-width:1000px)", { noSsr: true });
 
@@ -26,8 +22,6 @@ export function USDCMoneyPrinterTitleTooltip() {
   };
 
   const open = Boolean(anchorEl);
-
-  // console.log("isMobile -->", isMobile);
 
   const handleTooltipClick = (e: React.MouseEvent<HTMLElement>) => {
     if (isMobile) {
@@ -81,30 +75,62 @@ export function USDCMoneyPrinterTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-                The Stable Camel's USDC Money Printer dashboard received a
+                The USDC Money Printer dashboard offers real-time visibility
+                into the movement of USD Coin (USDC) across the crypto
+                ecosystem. It enables users to monitor the distribution of USDC
+                to CEX balances, DEX liquidity pools (LPs), lending protocols,
+                and bridges. The USDC Money Printer dashboard received a
                 shoutout from Dune (
-                <Link
-                  to="https://twitter.com/duneanalytics/status/1651898873424629761"
+                <Typography
+                  component="a"
+                  href="https://twitter.com/duneanalytics/status/1651898873424629761"
                   target="_blank"
                 >
                   Tweet
-                </Link>
+                </Typography>
                 ) and ranks among the top 220 most favorited dashboards out of
                 total 76,660 (
-                <Link
-                  to="https://dune.com/browse/dashboards?order=favorites&time_range=all&page=11"
+                <Typography
+                  component="a"
+                  href="https://dune.com/browse/dashboards?order=favorites&time_range=all&page=11"
                   target="_blank"
                 >
                   Dune
-                </Link>
+                </Typography>
                 ).
+                <br />
+                <Typography
+                  sx={{
+                    // p: 1,
+                    mt: 1,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                  }}
+                >
+                  Data source:{" "}
+                  <img
+                    src="..\logos\dune-logo.png"
+                    alt="Stable Camel - Stablecoin TVL Dune logo"
+                    style={{
+                      height: 36,
+                    }}
+                  />
+                </Typography>
               </Typography>
             </Box>
           }
         >
-          <StarsIcon />
+          <StarsIcon
+            color="primary"
+            sx={{
+              height: 22,
+            }}
+          />
         </LightTooltip>
       </Box>
     </div>
   );
 }
+
+export default React.memo(USDCMoneyPrinterTitleTooltip);

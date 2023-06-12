@@ -7,7 +7,7 @@ import { MoneyPrinterGroupLayout } from "./MoneyPrinterGroup/MoneyPrinterGroupLa
 import { MoneyPrinterGroupLayoutBalance } from "./MoneyPrinterGroup/MoneyPrinterGroupLayoutBalance";
 import { MoneyPrinterMainChart } from "./MoneyPrinterMainChart/MoneyPrinterMainChart";
 import { MoneyPrinterMetrics } from "./MoneyPrinterMetrics/MoneyPrinterMetrics";
-import { USDCMoneyPrinterTitleTooltip } from "./USDCMoneyPrinterTitleTooltip";
+import USDCMoneyPrinterTitleTooltip from "./USDCMoneyPrinterTitleTooltip";
 
 const container: SxProps = {
   padding: "20px 28px",

@@ -1,5 +1,4 @@
 import * as React from "react";
-// import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import InfoIcon from "@mui/icons-material/Info";
 import {
@@ -10,10 +9,8 @@ import {
   tooltipClasses,
   useMediaQuery,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import DuneLogo from "../../assets/logos/dune-logo.png";
 
-export function CurveCrvUSDPageTitleTooltip() {
+export function USDTMoneyPrinterTitleTooltip() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const isMobile = useMediaQuery("(max-width:1000px)", { noSsr: true });
 
@@ -26,8 +23,6 @@ export function CurveCrvUSDPageTitleTooltip() {
   };
 
   const open = Boolean(anchorEl);
-
-  // console.log("isMobile -->", isMobile);
 
   const handleTooltipClick = (e: React.MouseEvent<HTMLElement>) => {
     if (isMobile) {
@@ -81,18 +76,11 @@ export function CurveCrvUSDPageTitleTooltip() {
               }}
             >
               <Typography sx={{ p: 1, color: "rgba(0, 0, 0, 0.87)" }}>
-                crvUSD, Curve's decentralized stablecoin, introduces LLAMMA
-                (Lending-Liquidating AMM Algorithm), revolutionizing the
-                stability of loans compared to other platforms. With 100%
-                collateral protection, crvUSD automatically converts your
-                portfolio if collateral value declines and repurchases when it
-                increases, avoiding sudden liquidation and minimizing losses.
-                While liquidations are still possible, the $crvUSD protocol
-                offers self-liquidation for added convenience, ensuring a
-                smoother and more secure lending experience.{" "}
-                <Link to="https://docs.frax.finance/" target="_blank">
-                  Read more
-                </Link>
+                The USDT Money Printer dashboard offers real-time visibility
+                into the movement of Tether (USDT) across the crypto ecosystem.
+                It enables users to monitor the distribution of USDT to CEX
+                balances, DEX liquidity pools (LPs), lending protocols, and
+                bridges.
                 <br />
                 <Typography
                   sx={{

@@ -4,7 +4,7 @@ import Title from "./AnalyticPageTitle";
 import Networks from "../../jsons/networks.json";
 import { createContext, useContext } from "react";
 import { Network } from "../../App";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useScrollToId } from "../../hooks/useScrollToId";
 import { Helmet } from "react-helmet-async";
 
@@ -57,6 +57,16 @@ export const useNetworkContext = () => {
 
 export default function AnalyticPage() {
   const { network } = useParams();
+  useScrollToId();
+
+  if (
+    network !== undefined &&
+    network !== "ethereum" &&
+    network !== "avalanche" &&
+    network !== "BSC" &&
+    network !== "arbitrum"
+  )
+    return <Navigate to="/" />;
   const currentNetwork: Network | undefined = !network
     ? Networks[0]
     : Networks.slice(1, Networks.length).find((item: Network) =>
@@ -75,7 +85,6 @@ export default function AnalyticPage() {
       ? "Arbitrum"
       : "";
 
-  useScrollToId();
   return (
     <>
       {currentNetwork?.slug ? (

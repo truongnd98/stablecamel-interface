@@ -45,22 +45,22 @@ function App() {
       setLoaded(false);
     }, 500);
   }, []);
+  if (load)
+    return (
+      <div className="divLoader">
+        <img
+          className="imgLoader"
+          src={image}
+          alt="Stable Camel - Stable Camel favicon"
+        ></img>
+      </div>
+    );
 
   return (
     <HelmetProvider>
       <ThemeProvider theme={theme}>
         <NetworkContext.Provider value={{ network, setNetwork }}>
-          {load ? (
-            <div className="divLoader">
-              <img
-                className="imgLoader"
-                src={image}
-                alt="Stable Camel - Stable Camel favicon"
-              ></img>
-            </div>
-          ) : (
-            <RouterProvider router={router} />
-          )}
+          <RouterProvider router={router} />
         </NetworkContext.Provider>
       </ThemeProvider>
     </HelmetProvider>

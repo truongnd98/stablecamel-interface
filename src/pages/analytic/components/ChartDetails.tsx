@@ -569,7 +569,7 @@ const ChartDetails = () => {
         <Box id="total-usdc-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataUSDC}
-            title={`Total USDC TVL (${currentNetwork.name})`}
+            title={`Total USDC TVL (${currentNetwork?.name})`}
             detail={ChartUSDCDetail}
             id="total-usdc-tvl"
           />
@@ -577,7 +577,7 @@ const ChartDetails = () => {
         <Box id="total-usdt-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataUSDT}
-            title={`Total USDT TVL (${currentNetwork.name})`}
+            title={`Total USDT TVL (${currentNetwork?.name})`}
             detail={ChartUSDTDetail}
             id="total-usdt-tvl"
           />
@@ -588,7 +588,7 @@ const ChartDetails = () => {
         <Box sx={chart} id="total-dai-tvl-wrap">
           <CustomAreaChart
             data={dataDAI}
-            title={`Total DAI TVL (${currentNetwork.name})`}
+            title={`Total DAI TVL (${currentNetwork?.name})`}
             detail={ChartDAIDetail}
             id="total-dai-tvl"
           />
@@ -596,19 +596,19 @@ const ChartDetails = () => {
         <Box id="total-frax-tvl-wrap" sx={chart}>
           <CustomAreaChart
             data={dataFRAX}
-            title={`Total FRAX TVL (${currentNetwork.name})`}
+            title={`Total FRAX TVL (${currentNetwork?.name})`}
             detail={ChartFRAXDetail}
             id="total-frax-tvl"
           />
         </Box>
       </Box>
 
-      {currentNetwork.chainId === "1" || currentNetwork.chainId === "56" ? (
+      {currentNetwork?.chainId === "1" || currentNetwork?.chainId === "56" ? (
         <Box sx={wrap}>
           <Box sx={chart} id="total-busd-tvl-wrap">
             <CustomAreaChart
               data={dataBUSD}
-              title={`Total BUSD TVL (${currentNetwork.name})`}
+              title={`Total BUSD TVL (${currentNetwork?.name})`}
               detail={ChartBUSDDetail}
               id="total-busd-tvl"
             />
