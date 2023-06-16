@@ -1,10 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
+import { image } from "../../assets/logos/favicon";
 
-function OverlayLoading({ children }: any) {
-  return ReactDOM.createPortal(
-    <div id="modal-wrapper">{children}</div>,
-    document.querySelector("body") as Element
+function OverlayLoading() {
+  const [load, setLoaded] = useState(true);
+  const element = document.getElementById("body-id");
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(false);
+      element?.classList.remove("overflow-hidden");
+    }, 500);
+    // eslint-disable-next-line
+  }, []);
+  return (
+    <div className={`divLoader ${!load && "d-none"}`}>
+      <img
+        className="imgLoader"
+        src={image}
+        alt="Stable Camel - Stable Camel favicon"
+      ></img>
+    </div>
   );
 }
 

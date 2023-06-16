@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./constants/theme";
@@ -7,7 +7,7 @@ import { router } from "./Router";
 import Networks from "./jsons/networks.json";
 import { NetworkContext } from "./contexts";
 import { HelmetProvider } from "react-helmet-async";
-import { image } from "./assets/logos/favicon";
+import OverlayLoading from "./components/OverlayLoading";
 
 export interface Network {
   chainId: string;
@@ -38,32 +38,18 @@ export interface Protocol {
 
 function App() {
   const [network, setNetwork] = useState<Network>(Networks[0]);
-  const [load, setLoaded] = useState(false);
-  useEffect(() => {
-    setLoaded(true);
-    setTimeout(() => {
-      setLoaded(false);
-    }, 500);
-  }, []);
-  if (load)
-    return (
-      <div className="divLoader">
-        <img
-          className="imgLoader"
-          src={image}
-          alt="Stable Camel - Stable Camel favicon"
-        ></img>
-      </div>
-    );
 
   return (
-    <HelmetProvider>
-      <ThemeProvider theme={theme}>
-        <NetworkContext.Provider value={{ network, setNetwork }}>
-          <RouterProvider router={router} />
-        </NetworkContext.Provider>
-      </ThemeProvider>
-    </HelmetProvider>
+    <>
+      <HelmetProvider>
+        <ThemeProvider theme={theme}>
+          <NetworkContext.Provider value={{ network, setNetwork }}>
+            <OverlayLoading />
+            <RouterProvider router={router} />
+          </NetworkContext.Provider>
+        </ThemeProvider>
+      </HelmetProvider>
+    </>
   );
 }
 
