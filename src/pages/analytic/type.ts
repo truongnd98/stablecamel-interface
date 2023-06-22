@@ -69,6 +69,10 @@ export interface AggregateDataSummary {
   sevenDayChange: number;
   usdcDominance: number;
   busdDominance: number;
+  stablecoinDominance: {
+    token: string;
+    percent: number;
+  };
 }
 
 export interface DataUSDTChart {

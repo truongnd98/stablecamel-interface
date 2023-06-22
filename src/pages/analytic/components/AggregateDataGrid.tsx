@@ -194,10 +194,14 @@ export default function AggregateDataGrid() {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    {token.chain !== Chain.BSC ? "USDC:" : "BUSD:"}{" "}
+                    {`${token.stablecoinDominance.token}: ${new Intl.NumberFormat("en-US", {
+                        maximumFractionDigits: 2,
+                      }).format(token.stablecoinDominance.percent * 100)}%`
+                    }
+                    {/* {token.chain !== Chain.BSC ? "USDC:" : "BUSD:"}{" "}
                     {token.usdcDominance
                       ? token.usdcDominance.toFixed(2) + "%"
-                      : token.busdDominance.toFixed(2) + "%"}
+                      : token.busdDominance.toFixed(2) + "%"} */}
                   </TableCell>
                 </TableRow>
               )
