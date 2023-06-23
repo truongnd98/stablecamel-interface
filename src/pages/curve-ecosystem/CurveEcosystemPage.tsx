@@ -65,11 +65,28 @@ export function CurveEcosystemPage() {
     <>
       <Helmet>
         <meta
+          name="description"
+          content={`Stable Camel - Curve Ecosystem ${pageName} dashboard`}
+        />
+        <meta
+          name="image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-${network?.toLowerCase()}.png`}
+        />
+
+        <meta
           property="og:description"
           content={`Stable Camel - Curve Ecosystem ${pageName} dashboard`}
         />
         <meta
           property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-${network?.toLowerCase()}.png`}
+        />
+        <meta
+          name="twitter:description"
+          content={`Stable Camel - Curve Ecosystem ${pageName} dashboard`}
+        />
+        <meta
+          name="twitter:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-${network?.toLowerCase()}.png`}
         />
       </Helmet>

@@ -22,6 +22,23 @@ export function MoneyPrinterPageRouter() {
     <Box sx={container}>
       <Helmet>
         <meta
+          name="description"
+          content={`Stable Camel - Money Printer ${
+            network === "usdc"
+              ? "USDC"
+              : network === "crvUSD"
+              ? "crvUSD"
+              : network === "usdt"
+              ? "USDT"
+              : ""
+          } dashboard`}
+        />
+        <meta
+          name="image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-moneyprinter-${network?.toLocaleLowerCase()}.png`}
+        />
+
+        <meta
           property="og:description"
           content={`Stable Camel - Money Printer ${
             network === "usdc"
@@ -35,6 +52,23 @@ export function MoneyPrinterPageRouter() {
         />
         <meta
           property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-moneyprinter-${network?.toLocaleLowerCase()}.png`}
+        />
+
+        <meta
+          name="twitter:description"
+          content={`Stable Camel - Money Printer ${
+            network === "usdc"
+              ? "USDC"
+              : network === "crvUSD"
+              ? "crvUSD"
+              : network === "usdt"
+              ? "USDT"
+              : ""
+          } dashboard`}
+        />
+        <meta
+          name="twitter:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-moneyprinter-${network?.toLocaleLowerCase()}.png`}
         />
       </Helmet>

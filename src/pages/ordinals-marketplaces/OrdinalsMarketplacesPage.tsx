@@ -73,12 +73,30 @@ export function OrdinalsMarketplacesPage() {
     <Box sx={container}>
       <Helmet>
         <meta
+          name="description"
+          content="Stable Camel - Ordinals BRC-20 Marketplaces dashboard"
+        />
+        <meta
+          name="image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-ordinal-marketplaces.png"
+        />
+
+        <meta
           property="og:description"
-          content={`Stable Camel - Ordinals BRC-20 Marketplaces dashboard`}
+          content="Stable Camel - Ordinals BRC-20 Marketplaces dashboard"
         />
         <meta
           property="og:image"
-          content={`https://www.stablecamel.com/thumbnails/thumbnail-ordinal-marketplaces.png`}
+          content="https://www.stablecamel.com/thumbnails/thumbnail-ordinal-marketplaces.png"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Stable Camel - Ordinals BRC-20 Marketplaces dashboard"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-ordinal-marketplaces.png"
         />
       </Helmet>
       <Box>

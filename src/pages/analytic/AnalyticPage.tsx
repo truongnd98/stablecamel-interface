@@ -90,11 +90,29 @@ export default function AnalyticPage() {
       {currentNetwork?.slug ? (
         <Helmet>
           <meta
+            name="description"
+            content={`Stable Camel - Stablecoin TVL ${pageName} dashboard`}
+          />
+          <meta
+            name="image"
+            content={`https://www.stablecamel.com/thumbnails/thumbnail-${currentNetwork?.slug?.toLowerCase()}.png`}
+          />
+
+          <meta
             property="og:description"
             content={`Stable Camel - Stablecoin TVL ${pageName} dashboard`}
           />
           <meta
             property="og:image"
+            content={`https://www.stablecamel.com/thumbnails/thumbnail-${currentNetwork?.slug?.toLowerCase()}.png`}
+          />
+
+          <meta
+            name="twitter:description"
+            content={`Stable Camel - Stablecoin TVL ${pageName} dashboard`}
+          />
+          <meta
+            name="twitter:image"
             content={`https://www.stablecamel.com/thumbnails/thumbnail-${currentNetwork?.slug?.toLowerCase()}.png`}
           />
         </Helmet>

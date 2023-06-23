@@ -28,12 +28,30 @@ export function PegTrackerPage() {
     <>
       <Helmet>
         <meta
+          name="description"
+          content="Stable Camel - Activity Monitor dashboard"
+        />
+        <meta
+          name="image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-activity.png"
+        />
+
+        <meta
           property="og:description"
           content="Stable Camel - Activity Monitor dashboard"
         />
         <meta
           property="og:image"
-          content={`https://www.stablecamel.com/thumbnails/thumbnail-activity.png`}
+          content="https://www.stablecamel.com/thumbnails/thumbnail-activity.png"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Stable Camel - Activity Monitor dashboard"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-activity.png"
         />
       </Helmet>
       <Box sx={container}>

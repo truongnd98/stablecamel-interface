@@ -18,7 +18,16 @@ export default function TradeStablecoin({ action }: { action: string }) {
   return (
     <>
       <Helmet>
-        {/* <title>Trade Stablecoin</title> */}
+        <meta
+          name="description"
+          content={`Stable Camel - ${
+            action === "buy" ? "Buy" : "Sell"
+          } Stablecoin dashboard`}
+        />
+        <meta
+          name="image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-${action}-stablecoins.png`}
+        />
 
         <meta
           property="og:description"
@@ -28,6 +37,17 @@ export default function TradeStablecoin({ action }: { action: string }) {
         />
         <meta
           property="og:image"
+          content={`https://www.stablecamel.com/thumbnails/thumbnail-${action}-stablecoins.png`}
+        />
+
+        <meta
+          name="twitter:description"
+          content={`Stable Camel - ${
+            action === "buy" ? "Buy" : "Sell"
+          } Stablecoin dashboard`}
+        />
+        <meta
+          name="twitter:image"
           content={`https://www.stablecamel.com/thumbnails/thumbnail-${action}-stablecoins.png`}
         />
       </Helmet>

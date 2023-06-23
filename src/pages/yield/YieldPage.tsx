@@ -44,6 +44,32 @@ export default function YieldPage() {
           property="og:image"
           content="https://www.stablecamel.com/thumbnails/thumbnail-yield.png"
         />
+        <meta
+          name="description"
+          content="Stable Camel - Stablecoin Yields dashboard"
+        />
+        <meta
+          name="image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-yield.png"
+        />
+
+        <meta
+          property="og:description"
+          content="Stable Camel - Stablecoin Yields dashboard"
+        />
+        <meta
+          property="og:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-yield.png"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Stable Camel - Stablecoin Yields dashboard"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-yield.png"
+        />
       </Helmet>
       <Box sx={container}>
         <Box sx={main}>

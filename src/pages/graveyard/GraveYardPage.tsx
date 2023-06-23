@@ -33,7 +33,14 @@ export default function GraveYardPage() {
   return (
     <>
       <Helmet>
-        {/* <title>Grave Yard Page</title> */}
+        <meta
+          name="description"
+          content="Stable Camel - Stablecoin Graveyard dashboard"
+        />
+        <meta
+          name="image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-graveyard.png"
+        />
 
         <meta
           property="og:description"
@@ -41,6 +48,15 @@ export default function GraveYardPage() {
         />
         <meta
           property="og:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-graveyard.png"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Stable Camel - Stablecoin Graveyard dashboard"
+        />
+        <meta
+          name="twitter:image"
           content="https://www.stablecamel.com/thumbnails/thumbnail-graveyard.png"
         />
       </Helmet>

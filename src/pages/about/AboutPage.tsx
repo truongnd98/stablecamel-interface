@@ -38,10 +38,22 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
+        <meta name="description" content="Stable Camel - About" />
+        <meta
+          name="image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
+        />
+
         <meta property="og:description" content="Stable Camel - About" />
         <meta
           property="og:image"
-          content={`https://www.stablecamel.com/thumbnails/thumbnail-general.png`}
+          content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
+        />
+
+        <meta name="twitter:description" content="Stable Camel - About" />
+        <meta
+          name="twitter:image"
+          content="https://www.stablecamel.com/thumbnails/thumbnail-general.png"
         />
       </Helmet>
       <Box sx={container}>
