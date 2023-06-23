@@ -166,6 +166,8 @@ export const getListDataDetail = createAsyncThunk(
 				tvl_supply: dataBUSD ? dataBUSD.ratio : 0
 			});
 
+		res.sort((a,b) => -a.tvl + b.tvl);
+
 		return res;
 	}
 );
