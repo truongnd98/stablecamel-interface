@@ -12,7 +12,7 @@ export function TradingWidget({ url }: { url: string }) {
     width: "400px",
     height: "575px",
     border: "none",
-    borderRadius: "8px",
+    borderRadius: "18px",
     maxWidth: "100%",
     boxShadow: "0 2px 10px rgba(0,0,0,.25)",
   };

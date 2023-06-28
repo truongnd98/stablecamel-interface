@@ -8,7 +8,7 @@ function OverlayLoading() {
     setTimeout(() => {
       setLoaded(false);
       element?.classList.remove("overflow-hidden");
-    }, 500);
+    }, 800);
     // eslint-disable-next-line
   }, []);
   return (

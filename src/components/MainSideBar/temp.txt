@@ -1,0 +1,560 @@
+import React, { useState } from "react";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Collapse from "@mui/material/Collapse";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import WarningIcon from "@mui/icons-material/Warning";
+
+import { Link as RouterLink } from "react-router-dom";
+import { Typography, SxProps, Link, Box } from "@mui/material";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import PercentIcon from "@mui/icons-material/Percent";
+import SupportIcon from "@mui/icons-material/Support";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import InfoIcon from "@mui/icons-material/Info";
+import Networks from "../../jsons/networks.json";
+import { v4 } from "uuid";
+import BugReportIcon from "@mui/icons-material/BugReport";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import FeedIcon from "@mui/icons-material/Feed";
+import { SoonChip } from "../SoonChip/SoonChip";
+import TrendingUpSharpIcon from "@mui/icons-material/TrendingUpSharp";
+import { MenuExtend, Network, Page } from "./types";
+import Protocols from "../../jsons/protocols.json";
+import MoneyPrinter from "../../jsons/money-printers.json";
+import { Protocol } from "../../App";
+import { DataSaverOffSharp } from "@mui/icons-material";
+
+const button: SxProps = {
+  padding: "2px 8px",
+  display: "flex",
+  gap: "8px",
+  borderRadius: "8px",
+  "&.active": {
+    backgroundColor: "#8c00ef",
+  },
+  a: {
+    color: "inherit",
+  },
+};
+
+const iconButton: SxProps = {
+  minWidth: "fit-content",
+};
+
+const subList: SxProps = {
+  padding: 0,
+  display: "flex",
+  flexDirection: "column",
+  gap: "4px",
+};
+
+const subButton: SxProps = {
+  padding: "2px 0 2px 40px",
+  borderRadius: "8px",
+  "&.active": {
+    backgroundColor: "#8c00ef",
+  },
+  a: {
+    color: "inherit",
+  },
+};
+
+const subButtonText: SxProps = {
+  "&.active": {
+    color: "#ffffff",
+  },
+};
+
+const list: SxProps = {
+  width: "100%",
+  maxWidth: 360,
+  position: "sticky",
+  display: "flex",
+  flexDirection: "column",
+  gap: "4px",
+  mb: "2rem",
+};
+
+const ListNav = () => {
+  const { pathname } = useLocation();
+  const { network } = useParams();
+  const [extend, setExtend] = useState<MenuExtend | null>(
+    pathname.includes(Page.CURVE_ECOSYSTEM)
+      ? MenuExtend.CURVE_ECOSYSTEM
+      : MenuExtend.ANALYTICS
+  );
+  const navigate = useNavigate();
+
+  return (
+    <List
+      sx={list}
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      subheader={
+        <Typography
+          variant="body1"
+          color="primary"
+          sx={{ padding: "4px 8px", fontSize: 13 }}
+        >
+          <b>Stablecoin Dashboards</b>
+        </Typography>
+      }
+    >
+      <ListItemButton
+        sx={button}
+        onClick={() => {
+          if (extend !== MenuExtend.ANALYTICS) setExtend(MenuExtend.ANALYTICS);
+          else setExtend(null);
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <PieChartIcon />
+        </ListItemIcon>
+        <ListItemText primary={<b>Stablecoin TVL</b>} />
+        {extend === MenuExtend.ANALYTICS ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
+      </ListItemButton>
+      <Collapse
+        in={extend === MenuExtend.ANALYTICS}
+        timeout="auto"
+        unmountOnExit
+      >
+        <List component="div" sx={subList}>
+          <ListItemButton
+            sx={subButton}
+            key={v4()}
+            className={!pathname.split("/")[1] ? "active" : ""}
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <ListItemText
+              primary={<RouterLink to="/ethereum">All Chains</RouterLink>}
+              className={!pathname.split("/")[1] ? "active" : ""}
+              sx={subButtonText}
+            />
+          </ListItemButton>
+          {Networks.slice(1, 6).map((item: Network, index: number) => (
+            <ListItemButton
+              sx={subButton}
+              key={v4()}
+              className={pathname.includes(item.slug) ? "active" : ""}
+              onClick={() => {
+                if (item.slug === "polygon") navigate("#");
+                else navigate(`${item.slug}`);
+              }}
+            >
+              <ListItemText
+                primary={
+                  <>
+                    {item.slug?.toLowerCase() === "ethereum" ? (
+                      <RouterLink to="/ethereum">{item.name}</RouterLink>
+                    ) : item.slug?.toLowerCase() === "bsc" ? (
+                      <RouterLink to="/BSC">{item.name}</RouterLink>
+                    ) : item.slug?.toLowerCase() === "avalanche" ? (
+                      <RouterLink to="/avalanche">{item.name}</RouterLink>
+                    ) : item.slug?.toLowerCase() === "arbitrum" ? (
+                      <RouterLink to="/arbitrum">{item.name}</RouterLink>
+                    ) : item.slug?.toLowerCase() === "polygon" ? (
+                      <RouterLink to="/#">{item.name}</RouterLink>
+                    ) : (
+                      ""
+                    )}{" "}
+                    {item.slug === "polygon" ? (
+                      <SoonChip label="SOON" />
+                    ) : (
+                      <></>
+                    )}
+                  </>
+                }
+                className={pathname.includes(item.slug) ? "active" : ""}
+                sx={subButtonText}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
+      <ListItemButton
+        sx={button}
+        // className={pathname.includes(Page.CURVE_ECOSYSTEM) ? 'active' : ''}
+        onClick={() => {
+          if (extend !== MenuExtend.CURVE_ECOSYSTEM)
+            setExtend(MenuExtend.CURVE_ECOSYSTEM);
+          else setExtend(null);
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <LocalFireDepartmentIcon
+          // style={{
+          //   color: pathname.includes(Page.CURVE_ECOSYSTEM) ? '#f5f5f5' : '',
+          // }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={<b>Curve Ecosystem</b>}
+          // style={{
+          //   color: pathname.includes(Page.CURVE_ECOSYSTEM) ? '#f5f5f5' : '',
+          // }}
+        />
+        {extend === MenuExtend.CURVE_ECOSYSTEM ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
+      </ListItemButton>
+      <Collapse
+        in={extend === MenuExtend.CURVE_ECOSYSTEM}
+        timeout="auto"
+        unmountOnExit
+      >
+        <List component="div" sx={subList}>
+          {Protocols.map((protocol: Protocol) => (
+            <ListItemButton
+              sx={subButton}
+              key={v4()}
+              className={network === protocol.slug ? "active" : ""}
+              onClick={() => {
+                navigate(`${Page.CURVE_ECOSYSTEM}/${protocol.slug}`);
+              }}
+            >
+              <ListItemText
+                primary={
+                  protocol.slug?.toLowerCase() === "frax-finance" ? (
+                    <RouterLink to="/curve-ecosystem/frax-finance">
+                      {protocol.name}
+                    </RouterLink>
+                  ) : protocol.slug?.toLowerCase() === "curve" ? (
+                    <RouterLink to="/curve-ecosystem/curve">
+                      {protocol.name}
+                    </RouterLink>
+                  ) : protocol.slug?.toLowerCase() === "convex" ? (
+                    <RouterLink to="/curve-ecosystem/convex">
+                      {protocol.name}
+                    </RouterLink>
+                  ) : protocol.slug?.toLowerCase() === "conic" ? (
+                    <RouterLink to="/curve-ecosystem/conic">
+                      {protocol.name}
+                    </RouterLink>
+                  ) : protocol.slug?.toLowerCase() === "clever" ? (
+                    <RouterLink to="/curve-ecosystem/clever">
+                      {protocol.name}
+                    </RouterLink>
+                  ) : (
+                    ""
+                  )
+                }
+                className={network === protocol.slug ? "active" : ""}
+                sx={subButtonText}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
+      <ListItemButton
+        sx={button}
+        // className={pathname.includes(Page.CURVE_ECOSYSTEM) ? 'active' : ''}
+        onClick={() => {
+          if (extend !== MenuExtend.MONEY_PRINTER)
+            setExtend(MenuExtend.MONEY_PRINTER);
+          else setExtend(null);
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <AttachMoneyIcon
+          // style={{
+          //   color: pathname.includes(Page.MONEY_PRINTER) ? "#f5f5f5" : "",
+          // }}
+          />
+        </ListItemIcon>
+        <ListItemText primary={<b>Money Printer</b>} />
+        {extend === MenuExtend.MONEY_PRINTER ? (
+          <ArrowDropUpIcon />
+        ) : (
+          <ArrowDropDownIcon />
+        )}
+      </ListItemButton>
+      <Collapse
+        in={extend === MenuExtend.MONEY_PRINTER}
+        timeout="auto"
+        unmountOnExit
+      >
+        <List component="div" sx={subList}>
+          {MoneyPrinter.map((item: Protocol) => (
+            <ListItemButton
+              sx={subButton}
+              key={v4()}
+              className={network === item.slug ? "active" : ""}
+              onClick={() => {
+                if (item.slug === "frax-printer") navigate("#");
+                else navigate(`money-printer/${item.slug}`);
+              }}
+            >
+              <ListItemText
+                primary={
+                  <>
+                    {item.name?.toLowerCase() === "usdc" ? (
+                      <RouterLink to="/money-printer/usdc">
+                        {item.name}
+                      </RouterLink>
+                    ) : item.name?.toLowerCase() === "usdt" ? (
+                      <RouterLink to="/money-printer/usdt">
+                        {item.name}
+                      </RouterLink>
+                    ) : item.name?.toLowerCase() === "frax" ? (
+                      <RouterLink to="/money-printer/#">{item.name}</RouterLink>
+                    ) : item.name?.toLowerCase() === "crvusd" ? (
+                      <RouterLink to="/money-printer/crvUSD">
+                        {item.name}
+                      </RouterLink>
+                    ) : (
+                      ""
+                    )}{" "}
+                    {item.slug === "frax-printer" ? (
+                      <SoonChip label="SOON" />
+                    ) : (
+                      <></>
+                    )}
+                  </>
+                }
+                // primary={item.name}
+                className={network === item.slug ? "active" : ""}
+                sx={subButtonText}
+              />
+            </ListItemButton>
+          ))}
+        </List>
+      </Collapse>
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.YIELDS) ? "active" : ""}
+        onClick={() => {
+          navigate("/stablecoin-yields");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <PercentIcon
+            style={{ color: pathname.includes(Page.YIELDS) ? "#f5f5f5" : "" }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/stablecoin-activity">
+              <b>Stablecoin Yields</b>
+            </RouterLink>
+          }
+          style={{ color: pathname.includes(Page.YIELDS) ? "#f5f5f5" : "" }}
+        />
+      </ListItemButton>
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.GRAVEYARD) ? "active" : ""}
+        onClick={() => {
+          navigate("/stablecoin-graveyard");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <SupportIcon
+            style={{
+              color: pathname.includes(Page.GRAVEYARD) ? "#f5f5f5" : "",
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/stablecoin-graveyard">
+              <b>Stablecoin Graveyard</b>
+            </RouterLink>
+          }
+          style={{ color: pathname.includes(Page.GRAVEYARD) ? "#f5f5f5" : "" }}
+        />
+      </ListItemButton>
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.ACTIVITY_MONITOR) ? "active" : ""}
+        onClick={() => {
+          navigate("/stablecoin-activity");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <TrendingUpSharpIcon
+            style={{
+              color: pathname.includes(Page.ACTIVITY_MONITOR) ? "#f5f5f5" : "",
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/stablecoin-activity">
+              <b>Stablecoin Activity Monitor</b>
+            </RouterLink>
+          }
+          style={{
+            color: pathname.includes(Page.ACTIVITY_MONITOR) ? "#f5f5f5" : "",
+          }}
+        />
+      </ListItemButton>
+      <ListItemButton
+        sx={button}
+        className={
+          pathname.includes(Page.ORDINALS_MARKETPLACES) ? "active" : ""
+        }
+        onClick={() => {
+          navigate("/ordinals-marketplaces");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <DataSaverOffSharp
+            style={{
+              color: pathname.includes(Page.ORDINALS_MARKETPLACES)
+                ? "#f5f5f5"
+                : "",
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/ordinals-marketplaces">
+              <b>Ordinals Marketplaces</b>
+            </RouterLink>
+          }
+          style={{
+            color: pathname.includes(Page.ORDINALS_MARKETPLACES)
+              ? "#f5f5f5"
+              : "",
+          }}
+        />
+      </ListItemButton>
+      {/* <Link href="/trade-stablecoins" sx={{ textDecoration: "none" }}>
+        <ListItemButton
+          sx={button}
+          className={pathname.includes(Page.TRADING) ? "active" : ""}
+          // onClick={() => {
+          //   navigate(Page.TRADING);
+          // }}
+        >
+          <ListItemIcon sx={iconButton}>
+            <SwapHorizontalCircleIcon
+              style={{
+                color: pathname.includes(Page.TRADING) ? "#f5f5f5" : "",
+              }}
+            />
+          </ListItemIcon>
+          <ListItemText
+            primary={<b>Stablecoin On/Off-Ramp</b>}
+            style={{
+              color: pathname.includes(Page.TRADING) ? "#f5f5f5" : "",
+            }}
+          />
+        </ListItemButton>
+      </Link> */}
+
+      <Link
+        target="_blank"
+        href="https://cryptoslate.com/"
+        sx={{ textDecoration: "none" }}
+      >
+        <ListItemButton
+          sx={button}
+          className={pathname.includes(Page.NEWS) ? "active" : ""}
+        >
+          <ListItemIcon sx={iconButton}>
+            <FeedIcon />
+          </ListItemIcon>
+          <ListItemText primary={<b>Crypto News</b>} />
+        </ListItemButton>
+      </Link>
+
+      <Link
+        target="_blank"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScmGMeGseagnh4h1nCRwvWp8v3bl74acvS-y4uH04JxdZpngA/viewform"
+        sx={{ textDecoration: "none" }}
+      >
+        <ListItemButton
+          sx={button}
+          className={pathname.includes(Page.BUG) ? "active" : ""}
+          // onClick={() => {
+          //   navigate('#');
+          // }}
+        >
+          <ListItemIcon sx={iconButton}>
+            <BugReportIcon />
+          </ListItemIcon>
+          <ListItemText primary={<b>Report Bug / Feedback</b>} />
+        </ListItemButton>
+      </Link>
+
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.ABOUT) ? "active" : ""}
+        onClick={() => {
+          navigate("/about");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <InfoIcon
+            style={{ color: pathname.includes(Page.ABOUT) ? "#f5f5f5" : "" }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/about">
+              <b>About</b>
+            </RouterLink>
+          }
+          style={{ color: pathname.includes(Page.ABOUT) ? "#f5f5f5" : "" }}
+        />
+      </ListItemButton>
+
+      <ListItemButton
+        sx={button}
+        className={pathname.includes(Page.DISCLAIMER) ? "active" : ""}
+        onClick={() => {
+          navigate("/disclaimer");
+        }}
+      >
+        <ListItemIcon sx={iconButton}>
+          <WarningIcon
+            style={{
+              color: pathname.includes(Page.DISCLAIMER) ? "#f5f5f5" : "",
+            }}
+          />
+        </ListItemIcon>
+        <ListItemText
+          primary={
+            <RouterLink to="/about">
+              <b>Risk Disclaimer</b>
+            </RouterLink>
+          }
+          style={{ color: pathname.includes(Page.DISCLAIMER) ? "#f5f5f5" : "" }}
+        />
+      </ListItemButton>
+      {/* this box is used for react-snap render the routes */}
+      {/* <Box
+        sx={{
+          display: "none",
+          opacity: 0,
+          visibility: "hidden",
+        }}
+      >
+        <RouterLink to="/money-printer/usdc" />
+        <RouterLink to="/money-printer/usdt" />
+        <RouterLink to="/money-printer/crvUSD" />
+        <RouterLink to="/curve-ecosystem/frax-finance" />
+        <RouterLink to="/curve-ecosystem/curve" />
+        <RouterLink to="/curve-ecosystem/convex" />
+        <RouterLink to="/curve-ecosystem/conic" />
+        <RouterLink to="/curve-ecosystem/clever" />
+      </Box> */}
+    </List>
+  );
+};
+
+export default ListNav;

@@ -64,7 +64,8 @@ export function ConicContentTVLByTokenAndTVLCurvePoolDistribution() {
   );
 
   for (let i in dataTVLCurvePoolDistribution) {
-    dataTVLCurvePoolDistribution[i].color = pieChartColor[i].color;
+    if (dataTVLCurvePoolDistribution[i].color)
+      dataTVLCurvePoolDistribution[i].color = pieChartColor[i]?.color;
   }
 
   return (
